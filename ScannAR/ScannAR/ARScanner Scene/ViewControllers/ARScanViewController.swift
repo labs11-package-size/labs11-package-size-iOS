@@ -6,4 +6,13 @@
 //  Copyright © 2019 ScannAR Team. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import SceneKit
+import ARKit
+
+class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UIDocumentPickerDelegate {
+    
+    @IBOutlet weak var blurView:UIVisualEffectView!
+    func backFromBackground() {}
+    func readFile(_ url: URL){}
+}
