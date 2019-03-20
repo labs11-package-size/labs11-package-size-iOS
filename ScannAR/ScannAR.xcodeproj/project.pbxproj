@@ -28,6 +28,7 @@
 		D1EAB1D42242D5B000720412 /* ProductsCollectionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1EAB1D32242D5B000720412 /* ProductsCollectionViewController.storyboard */; };
 		D1EAB1D72242D64800720412 /* ProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB1D52242D64800720412 /* ProductsCollectionViewCell.swift */; };
 		D1EAB1D82242D64800720412 /* ProductsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1EAB1D62242D64800720412 /* ProductsCollectionViewCell.xib */; };
+		D1EAB1DB2242E14F00720412 /* ScannARNetworkingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB1DA2242E14F00720412 /* ScannARNetworkingController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		D1EAB1D32242D5B000720412 /* ProductsCollectionViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductsCollectionViewController.storyboard; sourceTree = "<group>"; };
 		D1EAB1D52242D64800720412 /* ProductsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1EAB1D62242D64800720412 /* ProductsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductsCollectionViewCell.xib; sourceTree = "<group>"; };
+		D1EAB1DA2242E14F00720412 /* ScannARNetworkingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannARNetworkingController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 		AB519F5E2242C6CA00B27A8B /* ScannAR */ = {
 			isa = PBXGroup;
 			children = (
+				D1EAB1D92242E12600720412 /* ModelController */,
 				D1EAB1CC2242D47D00720412 /* Views */,
 				D1EAB1CB2242D46A00720412 /* ViewController */,
 				AB519F5F2242C6CA00B27A8B /* AppDelegate.swift */,
@@ -213,6 +216,14 @@
 				D1EAB1D62242D64800720412 /* ProductsCollectionViewCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		D1EAB1D92242E12600720412 /* ModelController */ = {
+			isa = PBXGroup;
+			children = (
+				D1EAB1DA2242E14F00720412 /* ScannARNetworkingController.swift */,
+			);
+			path = ModelController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -354,6 +365,7 @@
 				AB12DBB82242EB7E00886A11 /* Obj+USDZConvert.swift in Sources */,
 				D1EAB1D72242D64800720412 /* ProductsCollectionViewCell.swift in Sources */,
 				D1EAB1D12242D54200720412 /* ProductsCollectionViewController.swift in Sources */,
+
 				AB12DBAC2242E8BB00886A11 /* ARScanViewController+ARSessionState.swift in Sources */,
 				AB12DBB02242E91200886A11 /* ARScanViewController+SessionInfo.swift in Sources */,
 				AB12DBAA2242E84F00886A11 /* ARScanViewController+GestureRecognizers.swift in Sources */,
@@ -361,6 +373,9 @@
 				AB12DBB52242EA5D00886A11 /* DetectionTest.swift in Sources */,
 				AB12DBB32242EA0E00886A11 /* ARScan.swift in Sources */,
 				AB12DBA62242E4C300886A11 /* ViewController.swift in Sources */,
+
+				D1EAB1DB2242E14F00720412 /* ScannARNetworkingController.swift in Sources */,
+
 				AB519F602242C6CA00B27A8B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
