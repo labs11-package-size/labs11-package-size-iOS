@@ -7,9 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB12DBA42242E32100886A11 /* ARScan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB12DBA32242E32100886A11 /* ARScan.storyboard */; };
+		AB12DBA62242E4C300886A11 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB12DBA52242E4C300886A11 /* ViewController.swift */; };
+		AB12DBA82242E50E00886A11 /* ARScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB12DBA72242E50E00886A11 /* ARScanViewController.swift */; };
+		AB12DBAA2242E84F00886A11 /* ARScanViewController+GestureRecognizers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB12DBA92242E84F00886A11 /* ARScanViewController+GestureRecognizers.swift */; };
+		AB12DBAC2242E8BB00886A11 /* ARScanViewController+ARSessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB12DBAB2242E8BB00886A11 /* ARScanViewController+ARSessionState.swift */; };
+		AB12DBAE2242E8F500886A11 /* ARScanViewController+NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB12DBAD2242E8F500886A11 /* ARScanViewController+NavBar.swift */; };
+		AB12DBB02242E91200886A11 /* ARScanViewController+SessionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB12DBAF2242E91200886A11 /* ARScanViewController+SessionInfo.swift */; };
+		AB12DBB32242EA0E00886A11 /* ARScan.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB12DBB22242EA0E00886A11 /* ARScan.swift */; };
+		AB12DBB52242EA5D00886A11 /* DetectionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB12DBB42242EA5D00886A11 /* DetectionTest.swift */; };
+		AB12DBB82242EB7E00886A11 /* Obj+USDZConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB12DBB72242EB7E00886A11 /* Obj+USDZConvert.swift */; };
 		AB519F602242C6CA00B27A8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB519F5F2242C6CA00B27A8B /* AppDelegate.swift */; };
 		AB519F622242C6CA00B27A8B /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = AB519F612242C6CA00B27A8B /* art.scnassets */; };
-		AB519F642242C6CA00B27A8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB519F632242C6CA00B27A8B /* ViewController.swift */; };
 		AB519F672242C6CA00B27A8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB519F652242C6CA00B27A8B /* Main.storyboard */; };
 		AB519F692242C6CB00B27A8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB519F682242C6CB00B27A8B /* Assets.xcassets */; };
 		AB519F6C2242C6CB00B27A8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB519F6A2242C6CB00B27A8B /* LaunchScreen.storyboard */; };
@@ -39,10 +48,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AB12DBA32242E32100886A11 /* ARScan.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ARScan.storyboard; sourceTree = "<group>"; };
+		AB12DBA52242E4C300886A11 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AB12DBA72242E50E00886A11 /* ARScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARScanViewController.swift; sourceTree = "<group>"; };
+		AB12DBA92242E84F00886A11 /* ARScanViewController+GestureRecognizers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARScanViewController+GestureRecognizers.swift"; sourceTree = "<group>"; };
+		AB12DBAB2242E8BB00886A11 /* ARScanViewController+ARSessionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARScanViewController+ARSessionState.swift"; sourceTree = "<group>"; };
+		AB12DBAD2242E8F500886A11 /* ARScanViewController+NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARScanViewController+NavBar.swift"; sourceTree = "<group>"; };
+		AB12DBAF2242E91200886A11 /* ARScanViewController+SessionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARScanViewController+SessionInfo.swift"; sourceTree = "<group>"; };
+		AB12DBB22242EA0E00886A11 /* ARScan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARScan.swift; sourceTree = "<group>"; };
+		AB12DBB42242EA5D00886A11 /* DetectionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionTest.swift; sourceTree = "<group>"; };
+		AB12DBB72242EB7E00886A11 /* Obj+USDZConvert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Obj+USDZConvert.swift"; sourceTree = "<group>"; };
 		AB519F5C2242C6CA00B27A8B /* ScannAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScannAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB519F5F2242C6CA00B27A8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB519F612242C6CA00B27A8B /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		AB519F632242C6CA00B27A8B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AB519F662242C6CA00B27A8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AB519F682242C6CB00B27A8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB519F6B2242C6CB00B27A8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -84,6 +102,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB12DBB12242E9A900886A11 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AB12DBAD2242E8F500886A11 /* ARScanViewController+NavBar.swift */,
+				AB12DBB72242EB7E00886A11 /* Obj+USDZConvert.swift */,
+				AB12DBA92242E84F00886A11 /* ARScanViewController+GestureRecognizers.swift */,
+				AB12DBAB2242E8BB00886A11 /* ARScanViewController+ARSessionState.swift */,
+				AB12DBAF2242E91200886A11 /* ARScanViewController+SessionInfo.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AB12DBB62242EA6300886A11 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AB12DBB22242EA0E00886A11 /* ARScan.swift */,
+				AB12DBB42242EA5D00886A11 /* DetectionTest.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		AB519F532242C6CA00B27A8B = {
 			isa = PBXGroup;
 			children = (
@@ -110,12 +149,13 @@
 				D1EAB1CC2242D47D00720412 /* Views */,
 				D1EAB1CB2242D46A00720412 /* ViewController */,
 				AB519F5F2242C6CA00B27A8B /* AppDelegate.swift */,
-				AB519F612242C6CA00B27A8B /* art.scnassets */,
-				AB519F632242C6CA00B27A8B /* ViewController.swift */,
 				AB519F652242C6CA00B27A8B /* Main.storyboard */,
+				AB12DBA52242E4C300886A11 /* ViewController.swift */,
 				AB519F682242C6CB00B27A8B /* Assets.xcassets */,
 				AB519F6A2242C6CB00B27A8B /* LaunchScreen.storyboard */,
 				AB519F6D2242C6CB00B27A8B /* Info.plist */,
+				AB519F612242C6CA00B27A8B /* art.scnassets */,
+				AB519F8F2242E0D600B27A8B /* ARScanner Scene */,
 			);
 			path = ScannAR;
 			sourceTree = "<group>";
@@ -136,6 +176,25 @@
 				AB519F832242C6CB00B27A8B /* Info.plist */,
 			);
 			path = ScannARUITests;
+			sourceTree = "<group>";
+		};
+		AB519F8F2242E0D600B27A8B /* ARScanner Scene */ = {
+			isa = PBXGroup;
+			children = (
+				AB12DBA32242E32100886A11 /* ARScan.storyboard */,
+				AB12DBB62242EA6300886A11 /* Controllers */,
+				AB12DBB12242E9A900886A11 /* Extensions */,
+				AB519F902242E16200B27A8B /* ViewControllers */,
+			);
+			path = "ARScanner Scene";
+			sourceTree = "<group>";
+		};
+		AB519F902242E16200B27A8B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AB12DBA72242E50E00886A11 /* ARScanViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		D1EAB1CB2242D46A00720412 /* ViewController */ = {
@@ -260,6 +319,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB12DBA42242E32100886A11 /* ARScan.storyboard in Resources */,
 				D1EAB1D82242D64800720412 /* ProductsCollectionViewCell.xib in Resources */,
 				AB519F622242C6CA00B27A8B /* art.scnassets in Resources */,
 				AB519F6C2242C6CB00B27A8B /* LaunchScreen.storyboard in Resources */,
@@ -290,9 +350,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB12DBAE2242E8F500886A11 /* ARScanViewController+NavBar.swift in Sources */,
+				AB12DBB82242EB7E00886A11 /* Obj+USDZConvert.swift in Sources */,
 				D1EAB1D72242D64800720412 /* ProductsCollectionViewCell.swift in Sources */,
-				AB519F642242C6CA00B27A8B /* ViewController.swift in Sources */,
 				D1EAB1D12242D54200720412 /* ProductsCollectionViewController.swift in Sources */,
+				AB12DBAC2242E8BB00886A11 /* ARScanViewController+ARSessionState.swift in Sources */,
+				AB12DBB02242E91200886A11 /* ARScanViewController+SessionInfo.swift in Sources */,
+				AB12DBAA2242E84F00886A11 /* ARScanViewController+GestureRecognizers.swift in Sources */,
+				AB12DBA82242E50E00886A11 /* ARScanViewController.swift in Sources */,
+				AB12DBB52242EA5D00886A11 /* DetectionTest.swift in Sources */,
+				AB12DBB32242EA0E00886A11 /* ARScan.swift in Sources */,
+				AB12DBA62242E4C300886A11 /* ViewController.swift in Sources */,
 				AB519F602242C6CA00B27A8B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
