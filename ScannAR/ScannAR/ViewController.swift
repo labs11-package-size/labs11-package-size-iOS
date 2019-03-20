@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  ScannAR
 //
-//  Created by ScannAR Team on 3/20/19.
+//  Created by jkaunert on 3/20/19.
 //
 
 import UIKit
