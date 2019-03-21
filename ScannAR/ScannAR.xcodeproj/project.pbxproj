@@ -28,6 +28,18 @@
 		D1EAB1D72242D64800720412 /* ProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB1D52242D64800720412 /* ProductsCollectionViewCell.swift */; };
 		D1EAB1D82242D64800720412 /* ProductsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1EAB1D62242D64800720412 /* ProductsCollectionViewCell.xib */; };
 		D1EAB1DB2242E14F00720412 /* ScannARNetworkingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB1DA2242E14F00720412 /* ScannARNetworkingController.swift */; };
+		D1EAB2002243A60F00720412 /* ShipmentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB1FF2243A60F00720412 /* ShipmentsTableViewController.swift */; };
+		D1EAB2022243A62400720412 /* ShipmentsTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1EAB2012243A62400720412 /* ShipmentsTableViewController.storyboard */; };
+		D1EAB2042243B4CF00720412 /* ShipmentsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB2032243B4CF00720412 /* ShipmentsDetailViewController.swift */; };
+		D1EAB2062243B4E500720412 /* ShipmentsDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1EAB2052243B4E500720412 /* ShipmentsDetailViewController.storyboard */; };
+		D1EAB2082243B50B00720412 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB2072243B50B00720412 /* ProductDetailViewController.swift */; };
+		D1EAB20A2243B51D00720412 /* ProductDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1EAB2092243B51C00720412 /* ProductDetailViewController.storyboard */; };
+		D1EAB20D2243B55E00720412 /* ShipmentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB20B2243B55E00720412 /* ShipmentsTableViewCell.swift */; };
+		D1EAB20E2243B55E00720412 /* ShipmentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1EAB20C2243B55E00720412 /* ShipmentsTableViewCell.xib */; };
+		D1EAB2102243B67100720412 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB20F2243B67100720412 /* AccountViewController.swift */; };
+		D1EAB2122243B68300720412 /* AccountViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1EAB2112243B68300720412 /* AccountViewController.storyboard */; };
+		D1EAB2142243B69900720412 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB2132243B69800720412 /* SettingsViewController.swift */; };
+		D1EAB2162243B6AA00720412 /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1EAB2152243B6AA00720412 /* SettingsViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +87,18 @@
 		D1EAB1D52242D64800720412 /* ProductsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1EAB1D62242D64800720412 /* ProductsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductsCollectionViewCell.xib; sourceTree = "<group>"; };
 		D1EAB1DA2242E14F00720412 /* ScannARNetworkingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannARNetworkingController.swift; sourceTree = "<group>"; };
+		D1EAB1FF2243A60F00720412 /* ShipmentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentsTableViewController.swift; sourceTree = "<group>"; };
+		D1EAB2012243A62400720412 /* ShipmentsTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShipmentsTableViewController.storyboard; sourceTree = "<group>"; };
+		D1EAB2032243B4CF00720412 /* ShipmentsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentsDetailViewController.swift; sourceTree = "<group>"; };
+		D1EAB2052243B4E500720412 /* ShipmentsDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShipmentsDetailViewController.storyboard; sourceTree = "<group>"; };
+		D1EAB2072243B50B00720412 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		D1EAB2092243B51C00720412 /* ProductDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductDetailViewController.storyboard; sourceTree = "<group>"; };
+		D1EAB20B2243B55E00720412 /* ShipmentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentsTableViewCell.swift; sourceTree = "<group>"; };
+		D1EAB20C2243B55E00720412 /* ShipmentsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShipmentsTableViewCell.xib; sourceTree = "<group>"; };
+		D1EAB20F2243B67100720412 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		D1EAB2112243B68300720412 /* AccountViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountViewController.storyboard; sourceTree = "<group>"; };
+		D1EAB2132243B69800720412 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		D1EAB2152243B6AA00720412 /* SettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +226,16 @@
 			children = (
 				D1EAB1CF2242D54200720412 /* ProductsCollectionViewController.swift */,
 				D1EAB1D32242D5B000720412 /* ProductsCollectionViewController.storyboard */,
+				D1EAB1FF2243A60F00720412 /* ShipmentsTableViewController.swift */,
+				D1EAB2012243A62400720412 /* ShipmentsTableViewController.storyboard */,
+				D1EAB2072243B50B00720412 /* ProductDetailViewController.swift */,
+				D1EAB2092243B51C00720412 /* ProductDetailViewController.storyboard */,
+				D1EAB2132243B69800720412 /* SettingsViewController.swift */,
+				D1EAB2152243B6AA00720412 /* SettingsViewController.storyboard */,
+				D1EAB20F2243B67100720412 /* AccountViewController.swift */,
+				D1EAB2112243B68300720412 /* AccountViewController.storyboard */,
+				D1EAB2032243B4CF00720412 /* ShipmentsDetailViewController.swift */,
+				D1EAB2052243B4E500720412 /* ShipmentsDetailViewController.storyboard */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -211,6 +245,8 @@
 			children = (
 				D1EAB1D52242D64800720412 /* ProductsCollectionViewCell.swift */,
 				D1EAB1D62242D64800720412 /* ProductsCollectionViewCell.xib */,
+				D1EAB20B2243B55E00720412 /* ShipmentsTableViewCell.swift */,
+				D1EAB20C2243B55E00720412 /* ShipmentsTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -329,11 +365,17 @@
 			files = (
 				AB12DBA42242E32100886A11 /* ARScan.storyboard in Resources */,
 				D1EAB1D82242D64800720412 /* ProductsCollectionViewCell.xib in Resources */,
+				D1EAB20A2243B51D00720412 /* ProductDetailViewController.storyboard in Resources */,
 				AB519F622242C6CA00B27A8B /* art.scnassets in Resources */,
 				AB519F6C2242C6CB00B27A8B /* LaunchScreen.storyboard in Resources */,
+				D1EAB2162243B6AA00720412 /* SettingsViewController.storyboard in Resources */,
 				D1EAB1D42242D5B000720412 /* ProductsCollectionViewController.storyboard in Resources */,
+				D1EAB2062243B4E500720412 /* ShipmentsDetailViewController.storyboard in Resources */,
 				AB519F692242C6CB00B27A8B /* Assets.xcassets in Resources */,
+				D1EAB2022243A62400720412 /* ShipmentsTableViewController.storyboard in Resources */,
+				D1EAB2122243B68300720412 /* AccountViewController.storyboard in Resources */,
 				AB519F672242C6CA00B27A8B /* Main.storyboard in Resources */,
+				D1EAB20E2243B55E00720412 /* ShipmentsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,7 +403,14 @@
 				AB12DBAE2242E8F500886A11 /* ARScanViewController+NavBar.swift in Sources */,
 				AB12DBB82242EB7E00886A11 /* Obj+USDZConvert.swift in Sources */,
 				D1EAB1D72242D64800720412 /* ProductsCollectionViewCell.swift in Sources */,
+				D1EAB2002243A60F00720412 /* ShipmentsTableViewController.swift in Sources */,
+				D1EAB2142243B69900720412 /* SettingsViewController.swift in Sources */,
+				AB519F642242C6CA00B27A8B /* ViewController.swift in Sources */,
+				D1EAB2042243B4CF00720412 /* ShipmentsDetailViewController.swift in Sources */,
+				D1EAB20D2243B55E00720412 /* ShipmentsTableViewCell.swift in Sources */,
 				D1EAB1D12242D54200720412 /* ProductsCollectionViewController.swift in Sources */,
+				D1EAB2102243B67100720412 /* AccountViewController.swift in Sources */,
+				D1EAB2082243B50B00720412 /* ProductDetailViewController.swift in Sources */,
 				AB12DBAC2242E8BB00886A11 /* ARScanViewController+ARSessionState.swift in Sources */,
 				AB12DBB02242E91200886A11 /* ARScanViewController+SessionInfo.swift in Sources */,
 				AB12DBAA2242E84F00886A11 /* ARScanViewController+GestureRecognizers.swift in Sources */,

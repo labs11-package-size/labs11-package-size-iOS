@@ -1,47 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7EF-Q1-WKy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Products Collection View Controller-->
-        <scene sceneID="acw-HR-3GM">
+        <!--Product List-->
+        <scene sceneID="zLy-E0-7ji">
             <objects>
-                <collectionViewController id="7EF-Q1-WKy" customClass="ProductsCollectionViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="e1k-J6-x3a">
+                <viewController id="OnT-Lm-W97" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bYk-zq-Sp0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="xRz-Ml-6sE">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dfb-3z-vhT">
+                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8KS-Ph-cMd">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductCell" id="b8D-5X-XJV" customClass="ProductsCollectionViewCell" customModule="ScannAR" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                        <connections>
+                                            <segue destination="cVE-jp-Cwx" kind="popoverPresentation" popoverAnchorView="b8D-5X-XJV" id="eYv-8R-KEH">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sXJ-BF-qhN">
-                            <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="CHk-4G-Q8Z" customClass="ProductsCollectionViewCell" customModule="ScannAR" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </view>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="7EF-Q1-WKy" id="GX2-K3-1Zf"/>
-                            <outlet property="delegate" destination="7EF-Q1-WKy" id="cbW-Ua-HcP"/>
-                        </connections>
-                    </collectionView>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bTW-1f-7b8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstItem="dfb-3z-vhT" firstAttribute="trailing" secondItem="8Fp-GH-gAY" secondAttribute="trailing" id="6dZ-8z-7nT"/>
+                            <constraint firstItem="xRz-Ml-6sE" firstAttribute="leading" secondItem="8Fp-GH-gAY" secondAttribute="leading" id="IEx-uv-TIt"/>
+                            <constraint firstItem="xRz-Ml-6sE" firstAttribute="top" secondItem="8Fp-GH-gAY" secondAttribute="top" id="PL7-mE-93p"/>
+                            <constraint firstItem="dfb-3z-vhT" firstAttribute="leading" secondItem="8Fp-GH-gAY" secondAttribute="leading" id="Zkv-CJ-xrE"/>
+                            <constraint firstItem="dfb-3z-vhT" firstAttribute="top" secondItem="xRz-Ml-6sE" secondAttribute="bottom" id="dyh-2G-7qr"/>
+                            <constraint firstItem="xRz-Ml-6sE" firstAttribute="trailing" secondItem="8Fp-GH-gAY" secondAttribute="trailing" id="g62-Ny-XoN"/>
+                            <constraint firstItem="8Fp-GH-gAY" firstAttribute="bottom" secondItem="dfb-3z-vhT" secondAttribute="bottom" id="rX1-bv-fwt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8Fp-GH-gAY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Product List" id="bQK-zf-34c">
+                        <barButtonItem key="rightBarButtonItem" title="Account" image="user-4" id="RfA-Fv-6Yf">
+                            <connections>
+                                <segue destination="SwW-rm-uHk" kind="popoverPresentation" popoverAnchorBarButtonItem="RfA-Fv-6Yf" id="CD8-xD-5wf">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="EQJ-Yn-Y2t" id="Ed0-h6-W5g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="og7-rB-bHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="EQJ-Yn-Y2t">
+                    <connections>
+                        <outlet property="delegate" destination="OnT-Lm-W97" id="viy-WO-6q2"/>
+                        <outlet property="searchContentsController" destination="OnT-Lm-W97" id="eOr-W3-Lhb"/>
+                        <outlet property="searchResultsDataSource" destination="OnT-Lm-W97" id="cch-b4-1Zg"/>
+                        <outlet property="searchResultsDelegate" destination="OnT-Lm-W97" id="a8E-eJ-FxX"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="33" y="123"/>
+            <point key="canvasLocation" x="1232.8" y="44.527736131934034"/>
+        </scene>
+        <!--AccountViewController-->
+        <scene sceneID="b9m-Ky-Yhl">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AccountViewController" id="SwW-rm-uHk" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dBH-p0-EwR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1817" y="-164"/>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="dWG-Pq-Nt8">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="ProductDetailViewControllerSB" id="cVE-jp-Cwx" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JUX-7Z-L9G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1860" y="-77"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="oti-3C-YuJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Sg4-ZX-qXz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ahi-CN-N3y">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OnT-Lm-W97" kind="relationship" relationship="rootViewController" id="ANb-Gv-jL1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vbF-9j-10v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="445.60000000000002" y="45.42728635682159"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="user-4" width="16" height="16"/>
+    </resources>
 </document>

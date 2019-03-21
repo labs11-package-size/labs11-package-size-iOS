@@ -12,6 +12,7 @@ class ScannARNetworkController {
     
     // to be refactored later
     let baseURL = "https://scannar-be.herokuapp.com/api/users/login"
+    let baseURL = "https://scannar-be.herokuapp.com/api/users/login"
     
     // Add the completion last
     func getFromHeroku(completion: @escaping (String?, Error?) -> Void) {
@@ -31,8 +32,7 @@ class ScannARNetworkController {
         // Create a GET request
         var request = URLRequest(url: baseURL)
         request.httpMethod = "GET" // basically "READ"
-        request.addValue("ben", forHTTPHeaderField: "username")
-        request.addValue("hakes", forHTTPHeaderField: "password")
+        request.httpBody =
         
         // Asynchronously fetch data
         // Once the fetch completes, it calls its handler either with data
