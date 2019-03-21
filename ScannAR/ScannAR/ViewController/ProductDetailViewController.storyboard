@@ -19,16 +19,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="XF3-DI-B0c">
-                                <rect key="frame" x="114" y="253.5" width="150" height="160"/>
+                                <rect key="frame" x="114" y="253.5" width="154" height="160"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="D9K-NI-18D">
-                                        <rect key="frame" x="-2" y="0.0" width="154" height="31"/>
+                                        <rect key="frame" x="-2" y="0.0" width="158" height="31"/>
                                     </slider>
                                     <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="eKG-gW-koc">
-                                        <rect key="frame" x="-2" y="65" width="154" height="31"/>
+                                        <rect key="frame" x="-2" y="65" width="158" height="31"/>
                                     </slider>
                                     <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="5oa-nW-vhJ">
-                                        <rect key="frame" x="-2" y="130" width="154" height="31"/>
+                                        <rect key="frame" x="-2" y="130" width="158" height="31"/>
                                     </slider>
                                 </subviews>
                             </stackView>
