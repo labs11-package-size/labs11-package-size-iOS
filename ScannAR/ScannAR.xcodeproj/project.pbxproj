@@ -7,15 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AB12DBA42242E32100886A11 /* ARScan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB12DBA32242E32100886A11 /* ARScan.storyboard */; };
-		AB12DBA82242E50E00886A11 /* ARScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB12DBA72242E50E00886A11 /* ARScanViewController.swift */; };
-		AB12DBAA2242E84F00886A11 /* ARScanViewController+GestureRecognizers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB12DBA92242E84F00886A11 /* ARScanViewController+GestureRecognizers.swift */; };
-		AB12DBAC2242E8BB00886A11 /* ARScanViewController+ARSessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB12DBAB2242E8BB00886A11 /* ARScanViewController+ARSessionState.swift */; };
-		AB12DBAE2242E8F500886A11 /* ARScanViewController+NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB12DBAD2242E8F500886A11 /* ARScanViewController+NavBar.swift */; };
-		AB12DBB02242E91200886A11 /* ARScanViewController+SessionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB12DBAF2242E91200886A11 /* ARScanViewController+SessionInfo.swift */; };
-		AB12DBB32242EA0E00886A11 /* ARScan.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB12DBB22242EA0E00886A11 /* ARScan.swift */; };
-		AB12DBB52242EA5D00886A11 /* DetectionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB12DBB42242EA5D00886A11 /* DetectionTest.swift */; };
-		AB12DBB82242EB7E00886A11 /* Obj+USDZConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB12DBB72242EB7E00886A11 /* Obj+USDZConvert.swift */; };
 		AB519F602242C6CA00B27A8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB519F5F2242C6CA00B27A8B /* AppDelegate.swift */; };
 		AB519F622242C6CA00B27A8B /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = AB519F612242C6CA00B27A8B /* art.scnassets */; };
 		AB519F672242C6CA00B27A8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB519F652242C6CA00B27A8B /* Main.storyboard */; };
@@ -23,8 +14,6 @@
 		AB519F6C2242C6CB00B27A8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB519F6A2242C6CB00B27A8B /* LaunchScreen.storyboard */; };
 		AB519F772242C6CB00B27A8B /* ScannARTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB519F762242C6CB00B27A8B /* ScannARTests.swift */; };
 		AB519F822242C6CB00B27A8B /* ScannARUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB519F812242C6CB00B27A8B /* ScannARUITests.swift */; };
-		D1EAB1D12242D54200720412 /* ProductsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB1CF2242D54200720412 /* ProductsCollectionViewController.swift */; };
-		D1EAB1D42242D5B000720412 /* ProductsCollectionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1EAB1D32242D5B000720412 /* ProductsCollectionViewController.storyboard */; };
 		D1EAB1D72242D64800720412 /* ProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB1D52242D64800720412 /* ProductsCollectionViewCell.swift */; };
 		D1EAB1D82242D64800720412 /* ProductsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1EAB1D62242D64800720412 /* ProductsCollectionViewCell.xib */; };
 		D1EAB1DB2242E14F00720412 /* ScannARNetworkingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB1DA2242E14F00720412 /* ScannARNetworkingController.swift */; };
@@ -40,6 +29,10 @@
 		D1EAB2122243B68300720412 /* AccountViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1EAB2112243B68300720412 /* AccountViewController.storyboard */; };
 		D1EAB2142243B69900720412 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB2132243B69800720412 /* SettingsViewController.swift */; };
 		D1EAB2162243B6AA00720412 /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1EAB2152243B6AA00720412 /* SettingsViewController.storyboard */; };
+		D1EAB21C224405BE00720412 /* ProductsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB21B224405BE00720412 /* ProductsCollectionView.swift */; };
+		D1EAB21E224405D700720412 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB21D224405D700720412 /* ProductsViewController.swift */; };
+		D1EAB220224405F900720412 /* ProductsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1EAB21F224405F900720412 /* ProductsViewController.storyboard */; };
+		D1EAB2222244138D00720412 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB2212244138D00720412 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,15 +53,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AB12DBA32242E32100886A11 /* ARScan.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ARScan.storyboard; sourceTree = "<group>"; };
-		AB12DBA72242E50E00886A11 /* ARScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARScanViewController.swift; sourceTree = "<group>"; };
-		AB12DBA92242E84F00886A11 /* ARScanViewController+GestureRecognizers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARScanViewController+GestureRecognizers.swift"; sourceTree = "<group>"; };
-		AB12DBAB2242E8BB00886A11 /* ARScanViewController+ARSessionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARScanViewController+ARSessionState.swift"; sourceTree = "<group>"; };
-		AB12DBAD2242E8F500886A11 /* ARScanViewController+NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARScanViewController+NavBar.swift"; sourceTree = "<group>"; };
-		AB12DBAF2242E91200886A11 /* ARScanViewController+SessionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARScanViewController+SessionInfo.swift"; sourceTree = "<group>"; };
-		AB12DBB22242EA0E00886A11 /* ARScan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARScan.swift; sourceTree = "<group>"; };
-		AB12DBB42242EA5D00886A11 /* DetectionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionTest.swift; sourceTree = "<group>"; };
-		AB12DBB72242EB7E00886A11 /* Obj+USDZConvert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Obj+USDZConvert.swift"; sourceTree = "<group>"; };
 		AB519F5C2242C6CA00B27A8B /* ScannAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScannAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB519F5F2242C6CA00B27A8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB519F612242C6CA00B27A8B /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -82,8 +66,6 @@
 		AB519F7D2242C6CB00B27A8B /* ScannARUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScannARUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB519F812242C6CB00B27A8B /* ScannARUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannARUITests.swift; sourceTree = "<group>"; };
 		AB519F832242C6CB00B27A8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D1EAB1CF2242D54200720412 /* ProductsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCollectionViewController.swift; sourceTree = "<group>"; };
-		D1EAB1D32242D5B000720412 /* ProductsCollectionViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductsCollectionViewController.storyboard; sourceTree = "<group>"; };
 		D1EAB1D52242D64800720412 /* ProductsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1EAB1D62242D64800720412 /* ProductsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductsCollectionViewCell.xib; sourceTree = "<group>"; };
 		D1EAB1DA2242E14F00720412 /* ScannARNetworkingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannARNetworkingController.swift; sourceTree = "<group>"; };
@@ -99,6 +81,10 @@
 		D1EAB2112243B68300720412 /* AccountViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountViewController.storyboard; sourceTree = "<group>"; };
 		D1EAB2132243B69800720412 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D1EAB2152243B6AA00720412 /* SettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsViewController.storyboard; sourceTree = "<group>"; };
+		D1EAB21B224405BE00720412 /* ProductsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCollectionView.swift; sourceTree = "<group>"; };
+		D1EAB21D224405D700720412 /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
+		D1EAB21F224405F900720412 /* ProductsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductsViewController.storyboard; sourceTree = "<group>"; };
+		D1EAB2212244138D00720412 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,27 +112,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AB12DBB12242E9A900886A11 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				AB12DBAD2242E8F500886A11 /* ARScanViewController+NavBar.swift */,
-				AB12DBB72242EB7E00886A11 /* Obj+USDZConvert.swift */,
-				AB12DBA92242E84F00886A11 /* ARScanViewController+GestureRecognizers.swift */,
-				AB12DBAB2242E8BB00886A11 /* ARScanViewController+ARSessionState.swift */,
-				AB12DBAF2242E91200886A11 /* ARScanViewController+SessionInfo.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		AB12DBB62242EA6300886A11 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				AB12DBB22242EA0E00886A11 /* ARScan.swift */,
-				AB12DBB42242EA5D00886A11 /* DetectionTest.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
 		AB519F532242C6CA00B27A8B = {
 			isa = PBXGroup;
 			children = (
@@ -174,12 +139,11 @@
 				D1EAB1CC2242D47D00720412 /* Views */,
 				D1EAB1CB2242D46A00720412 /* ViewController */,
 				AB519F5F2242C6CA00B27A8B /* AppDelegate.swift */,
+				AB519F612242C6CA00B27A8B /* art.scnassets */,
 				AB519F652242C6CA00B27A8B /* Main.storyboard */,
 				AB519F682242C6CB00B27A8B /* Assets.xcassets */,
 				AB519F6A2242C6CB00B27A8B /* LaunchScreen.storyboard */,
 				AB519F6D2242C6CB00B27A8B /* Info.plist */,
-				AB519F612242C6CA00B27A8B /* art.scnassets */,
-				AB519F8F2242E0D600B27A8B /* ARScanner Scene */,
 			);
 			path = ScannAR;
 			sourceTree = "<group>";
@@ -202,30 +166,12 @@
 			path = ScannARUITests;
 			sourceTree = "<group>";
 		};
-		AB519F8F2242E0D600B27A8B /* ARScanner Scene */ = {
-			isa = PBXGroup;
-			children = (
-				AB12DBA32242E32100886A11 /* ARScan.storyboard */,
-				AB12DBB62242EA6300886A11 /* Controllers */,
-				AB12DBB12242E9A900886A11 /* Extensions */,
-				AB519F902242E16200B27A8B /* ViewControllers */,
-			);
-			path = "ARScanner Scene";
-			sourceTree = "<group>";
-		};
-		AB519F902242E16200B27A8B /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				AB12DBA72242E50E00886A11 /* ARScanViewController.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
 		D1EAB1CB2242D46A00720412 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				D1EAB1CF2242D54200720412 /* ProductsCollectionViewController.swift */,
-				D1EAB1D32242D5B000720412 /* ProductsCollectionViewController.storyboard */,
+				D1EAB21B224405BE00720412 /* ProductsCollectionView.swift */,
+				D1EAB21D224405D700720412 /* ProductsViewController.swift */,
+				D1EAB21F224405F900720412 /* ProductsViewController.storyboard */,
 				D1EAB1FF2243A60F00720412 /* ShipmentsTableViewController.swift */,
 				D1EAB2012243A62400720412 /* ShipmentsTableViewController.storyboard */,
 				D1EAB2072243B50B00720412 /* ProductDetailViewController.swift */,
@@ -236,6 +182,7 @@
 				D1EAB2112243B68300720412 /* AccountViewController.storyboard */,
 				D1EAB2032243B4CF00720412 /* ShipmentsDetailViewController.swift */,
 				D1EAB2052243B4E500720412 /* ShipmentsDetailViewController.storyboard */,
+				D1EAB2212244138D00720412 /* LoginViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -363,17 +310,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB12DBA42242E32100886A11 /* ARScan.storyboard in Resources */,
 				D1EAB1D82242D64800720412 /* ProductsCollectionViewCell.xib in Resources */,
 				D1EAB20A2243B51D00720412 /* ProductDetailViewController.storyboard in Resources */,
 				AB519F622242C6CA00B27A8B /* art.scnassets in Resources */,
 				AB519F6C2242C6CB00B27A8B /* LaunchScreen.storyboard in Resources */,
 				D1EAB2162243B6AA00720412 /* SettingsViewController.storyboard in Resources */,
-				D1EAB1D42242D5B000720412 /* ProductsCollectionViewController.storyboard in Resources */,
 				D1EAB2062243B4E500720412 /* ShipmentsDetailViewController.storyboard in Resources */,
 				AB519F692242C6CB00B27A8B /* Assets.xcassets in Resources */,
 				D1EAB2022243A62400720412 /* ShipmentsTableViewController.storyboard in Resources */,
 				D1EAB2122243B68300720412 /* AccountViewController.storyboard in Resources */,
+				D1EAB220224405F900720412 /* ProductsViewController.storyboard in Resources */,
 				AB519F672242C6CA00B27A8B /* Main.storyboard in Resources */,
 				D1EAB20E2243B55E00720412 /* ShipmentsTableViewCell.xib in Resources */,
 			);
@@ -400,24 +346,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB12DBAE2242E8F500886A11 /* ARScanViewController+NavBar.swift in Sources */,
-				AB12DBB82242EB7E00886A11 /* Obj+USDZConvert.swift in Sources */,
+				D1EAB21C224405BE00720412 /* ProductsCollectionView.swift in Sources */,
 				D1EAB1D72242D64800720412 /* ProductsCollectionViewCell.swift in Sources */,
 				D1EAB2002243A60F00720412 /* ShipmentsTableViewController.swift in Sources */,
 				D1EAB2142243B69900720412 /* SettingsViewController.swift in Sources */,
-				AB519F642242C6CA00B27A8B /* ViewController.swift in Sources */,
 				D1EAB2042243B4CF00720412 /* ShipmentsDetailViewController.swift in Sources */,
+				D1EAB21E224405D700720412 /* ProductsViewController.swift in Sources */,
 				D1EAB20D2243B55E00720412 /* ShipmentsTableViewCell.swift in Sources */,
-				D1EAB1D12242D54200720412 /* ProductsCollectionViewController.swift in Sources */,
 				D1EAB2102243B67100720412 /* AccountViewController.swift in Sources */,
 				D1EAB2082243B50B00720412 /* ProductDetailViewController.swift in Sources */,
-				AB12DBAC2242E8BB00886A11 /* ARScanViewController+ARSessionState.swift in Sources */,
-				AB12DBB02242E91200886A11 /* ARScanViewController+SessionInfo.swift in Sources */,
-				AB12DBAA2242E84F00886A11 /* ARScanViewController+GestureRecognizers.swift in Sources */,
-				AB12DBA82242E50E00886A11 /* ARScanViewController.swift in Sources */,
-				AB12DBB52242EA5D00886A11 /* DetectionTest.swift in Sources */,
-				AB12DBB32242EA0E00886A11 /* ARScan.swift in Sources */,
 				D1EAB1DB2242E14F00720412 /* ScannARNetworkingController.swift in Sources */,
+				D1EAB2222244138D00720412 /* LoginViewController.swift in Sources */,
 				AB519F602242C6CA00B27A8B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
