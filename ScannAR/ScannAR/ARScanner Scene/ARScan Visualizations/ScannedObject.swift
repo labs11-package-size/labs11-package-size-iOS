@@ -1,20 +1,15 @@
 //
-//  ARScan.swift
+//  ScannedObject.swift
 //  ScannAR
 //
-//  Created by Joshua Kaunert on 3/20/19.
+//  Created by Joshua Kaunert on 3/21/19.
 //  Copyright © 2019 ScannAR Team. All rights reserved.
 //
 
 import Foundation
-import UIKit
 import ARKit
+import SceneKit
 
-class Scan {
-    
-    
-    
-    
-    
+class ScannedObject: SCNNode {
     
 }
