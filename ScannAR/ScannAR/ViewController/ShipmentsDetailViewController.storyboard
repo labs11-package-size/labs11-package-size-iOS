@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2gm-xF-NW6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qz0-90-iX4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Shipments Detail View Controller-->
+        <!--Shipment Details-->
         <scene sceneID="7ad-OC-BSS">
             <objects>
                 <viewController storyboardIdentifier="ShipmentsDetailViewControllerSB" id="2gm-xF-NW6" customClass="ShipmentsDetailViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,10 +20,29 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="SJU-49-guF"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Shipment Details" id="jey-Zq-hBW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WoC-cF-Mes" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="98" y="82"/>
+            <point key="canvasLocation" x="1975.2" y="81.409295352323838"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HD8-bf-0k6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qz0-90-iX4" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AzT-ak-6uE">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2gm-xF-NW6" kind="relationship" relationship="rootViewController" id="ow0-EC-kLa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="51r-ny-2IE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1036" y="81.409295352323838"/>
         </scene>
     </scenes>
 </document>

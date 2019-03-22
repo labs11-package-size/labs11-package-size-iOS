@@ -1,5 +1,5 @@
 //
-//  ShipmentsDetailViewController.swift
+//  LoginViewController.swift
 //  ScannAR
 //
 //  Created by Benjamin Hakes on 3/21/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShipmentsDetailViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +17,6 @@ class ShipmentsDetailViewController: UIViewController {
     }
     
 
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
