@@ -7,3 +7,10 @@
 //
 
 import Foundation
+import ARKit
+import SceneKit
+
+extension ARScanViewController {
+    
+    
+}
