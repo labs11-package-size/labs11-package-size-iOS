@@ -108,10 +108,11 @@
             </objects>
             <point key="canvasLocation" x="1834" y="-65"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Products Navigation Controller-->
         <scene sceneID="HRU-To-DAJ">
             <objects>
-                <navigationController storyboardIdentifier="ProductsNavigationControllerSB" automaticallyAdjustsScrollViewInsets="NO" id="qq8-sE-in9" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qJk-23-Wv8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController storyboardIdentifier="ProductsNavigationControllerSB" automaticallyAdjustsScrollViewInsets="NO" id="qq8-sE-in9" customClass="ProductsNavigationController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dlz-WM-q5t">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -122,7 +123,6 @@
                         <segue destination="8s4-Ma-CAL" kind="relationship" relationship="rootViewController" id="Nn7-gq-Ant"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qJk-23-Wv8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="182.15892053973016"/>
         </scene>

@@ -1,14 +1,14 @@
 //
-//  LoginViewController.swift
+//  ProductsNavigationController.swift
 //  ScannAR
 //
-//  Created by Benjamin Hakes on 3/21/19.
+//  Created by Benjamin Hakes on 3/22/19.
 //  Copyright © 2019 ScannAR Team. All rights reserved.
 //
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class ProductsNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +23,9 @@ class LoginViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        guard let destVC = segue.destination as? ProductsViewController else { return }
+        destVC.scannARNetworkingController = self.scannARNetworkingController
     }
 
+    var scannARNetworkingController: ScannARNetworkController?
 }
