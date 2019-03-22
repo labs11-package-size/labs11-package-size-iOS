@@ -65,6 +65,8 @@
 		D1EAB21E224405D700720412 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB21D224405D700720412 /* ProductsViewController.swift */; };
 		D1EAB220224405F900720412 /* ProductsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1EAB21F224405F900720412 /* ProductsViewController.storyboard */; };
 		D1EAB2222244138D00720412 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB2212244138D00720412 /* LoginViewController.swift */; };
+		D1EAB2262244597D00720412 /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB2252244597D00720412 /* WalkthroughViewController.swift */; };
+		D1EAB229224555B300720412 /* ProductsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB228224555B300720412 /* ProductsNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +151,8 @@
 		D1EAB21D224405D700720412 /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 		D1EAB21F224405F900720412 /* ProductsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductsViewController.storyboard; sourceTree = "<group>"; };
 		D1EAB2212244138D00720412 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D1EAB2252244597D00720412 /* WalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
+		D1EAB228224555B300720412 /* ProductsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,8 +330,10 @@
 		D1EAB1CB2242D46A00720412 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				D1EAB2272244598C00720412 /* Login */,
 				D1EAB21B224405BE00720412 /* ProductsCollectionView.swift */,
 				D1EAB21D224405D700720412 /* ProductsViewController.swift */,
+				D1EAB228224555B300720412 /* ProductsNavigationController.swift */,
 				D1EAB21F224405F900720412 /* ProductsViewController.storyboard */,
 				D1EAB1FF2243A60F00720412 /* ShipmentsTableViewController.swift */,
 				D1EAB2012243A62400720412 /* ShipmentsTableViewController.storyboard */,
@@ -339,7 +345,6 @@
 				D1EAB2112243B68300720412 /* AccountViewController.storyboard */,
 				D1EAB2032243B4CF00720412 /* ShipmentsDetailViewController.swift */,
 				D1EAB2052243B4E500720412 /* ShipmentsDetailViewController.storyboard */,
-				D1EAB2212244138D00720412 /* LoginViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -361,6 +366,15 @@
 				D1EAB1DA2242E14F00720412 /* ScannARNetworkingController.swift */,
 			);
 			path = ModelController;
+			sourceTree = "<group>";
+		};
+		D1EAB2272244598C00720412 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D1EAB2252244597D00720412 /* WalkthroughViewController.swift */,
+				D1EAB2212244138D00720412 /* LoginViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -509,7 +523,7 @@
 				AB38DCF522446339008DC8C0 /* Tile.swift in Sources */,
 
 				D1EAB21C224405BE00720412 /* ProductsCollectionView.swift in Sources */,
-
+				D1EAB2262244597D00720412 /* WalkthroughViewController.swift in Sources */,
 				D1EAB1D72242D64800720412 /* ProductsCollectionViewCell.swift in Sources */,
 				D1EAB2002243A60F00720412 /* ShipmentsTableViewController.swift in Sources */,
 				AB38DCCB22445E3E008DC8C0 /* Message.swift in Sources */,
@@ -524,6 +538,7 @@
 				AB38DCF722446347008DC8C0 /* WireFrame.swift in Sources */,
 
 				D1EAB2102243B67100720412 /* AccountViewController.swift in Sources */,
+				D1EAB229224555B300720412 /* ProductsNavigationController.swift in Sources */,
 				AB38DCE922446295008DC8C0 /* ObjectOrigin.swift in Sources */,
 				AB38DCD222445EB7008DC8C0 /* FlashlightButton.swift in Sources */,
 				AB38DCF922446380008DC8C0 /* ARKit+Snapping.swift in Sources */,

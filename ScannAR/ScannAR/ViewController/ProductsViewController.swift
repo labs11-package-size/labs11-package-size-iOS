@@ -13,9 +13,21 @@ class ProductsViewController: UIViewController, UICollectionViewDelegate, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.bringSubviewToFront(shippingButton)
         self.collectionView!.register(UINib(nibName: "ProductsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         // Do any additional setup after loading the view.
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+//        guard let scannARNetworkingController = scannARNetworkingController else { fatalError("No networking controller present")}
+//        
+//        scannARNetworkingController.getProducts(completion: { (string, error) in
+//            DispatchQueue.main.async {
+//                self.collectionView.reloadData()
+//            }
+//        })
     }
     
     // MARK: - Navigation
@@ -45,4 +57,5 @@ class ProductsViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var shippingButton: UIButton!
+    var scannARNetworkingController: ScannARNetworkController?
 }
