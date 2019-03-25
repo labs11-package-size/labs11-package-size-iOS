@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,7 +14,7 @@
         <!--Scan View Controller-->
         <scene sceneID="lyw-QI-BWU">
             <objects>
-                <viewController storyboardIdentifier="ARScanVC" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Xzk-5O-XV0" customClass="ARScanViewController" customModule="ScanningApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ARScanVC" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Xzk-5O-XV0" customClass="ARScanViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ERr-hH-khy" customClass="ARSCNView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -37,7 +38,7 @@
                                     <action selector="nextButtonTapped:" destination="Xzk-5O-XV0" eventType="touchUpInside" id="yfJ-av-bSZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0fm-zG-16v" userLabel="Next Button" customClass="RoundedButton" customModule="ScanningApp" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0fm-zG-16v" userLabel="Next Button" customClass="RoundedButton" customModule="ScannAR" customModuleProvider="target">
                                 <rect key="frame" x="137.5" y="582" width="100" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="1rg-rL-RGo"/>
@@ -59,7 +60,7 @@
                                     <action selector="toggleInstructionsButtonTapped:" destination="Xzk-5O-XV0" eventType="touchUpInside" id="xUJ-83-bkG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ih2-DA-kyA" userLabel="ⓘ Button" customClass="RoundedButton" customModule="ScanningApp" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ih2-DA-kyA" userLabel="ⓘ Button" customClass="RoundedButton" customModule="ScannAR" customModuleProvider="target">
                                 <rect key="frame" x="310" y="582" width="45" height="45"/>
                                 <accessibility key="accessibilityConfiguration" label="Toggle instruction label"/>
                                 <constraints>
@@ -87,7 +88,7 @@
                                     <action selector="leftButtonTouchAreaTapped:" destination="Xzk-5O-XV0" eventType="touchUpInside" id="Gbf-Qh-yh1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6O-NA-y7o" userLabel="Flashlight toggle" customClass="FlashlightButton" customModule="ScanningApp" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6O-NA-y7o" userLabel="Flashlight toggle" customClass="FlashlightButton" customModule="ScannAR" customModuleProvider="target">
                                 <rect key="frame" x="20" y="1261" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="0Od-7a-cmv"/>
@@ -144,7 +145,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBD-AB-RXW" customClass="MessageLabel" customModule="ScanningApp" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBD-AB-RXW" customClass="MessageLabel" customModule="ScannAR" customModuleProvider="target">
                                                         <rect key="frame" x="8" y="8" width="0.0" height="0.0"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -250,19 +251,19 @@
                         <outlet property="delegate" destination="Xzk-5O-XV0" id="Wco-m4-vNM"/>
                     </connections>
                 </panGestureRecognizer>
-                <panGestureRecognizer minimumNumberOfTouches="2" maximumNumberOfTouches="2" id="pDu-9e-bIY" customClass="ThresholdPanGestureRecognizer" customModule="ScanningApp" customModuleProvider="target">
+                <panGestureRecognizer minimumNumberOfTouches="2" maximumNumberOfTouches="2" id="pDu-9e-bIY" customClass="ThresholdPanGestureRecognizer" customModule="ScannAR" customModuleProvider="target">
                     <connections>
                         <action selector="didTwoFingerPan:" destination="Xzk-5O-XV0" id="jTo-w0-NLd"/>
                         <outlet property="delegate" destination="Xzk-5O-XV0" id="Ysc-6X-N9N"/>
                     </connections>
                 </panGestureRecognizer>
-                <rotationGestureRecognizer id="BmM-Bt-ynO" customClass="ThresholdRotationGestureRecognizer" customModule="ScanningApp" customModuleProvider="target">
+                <rotationGestureRecognizer id="BmM-Bt-ynO" customClass="ThresholdRotationGestureRecognizer" customModule="ScannAR" customModuleProvider="target">
                     <connections>
                         <action selector="didRotate:" destination="Xzk-5O-XV0" id="kKU-EO-KME"/>
                         <outlet property="delegate" destination="Xzk-5O-XV0" id="Dh1-iN-oq7"/>
                     </connections>
                 </rotationGestureRecognizer>
-                <pinchGestureRecognizer id="s1F-fW-afZ" customClass="ThresholdPinchGestureRecognizer" customModule="ScanningApp" customModuleProvider="target">
+                <pinchGestureRecognizer id="s1F-fW-afZ" customClass="ThresholdPinchGestureRecognizer" customModule="ScannAR" customModuleProvider="target">
                     <connections>
                         <action selector="didPinch:" destination="Xzk-5O-XV0" id="LGn-Zz-jCX"/>
                         <outlet property="delegate" destination="Xzk-5O-XV0" id="QC6-92-52B"/>
@@ -275,12 +276,12 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-38536.231884057976" y="-218.47826086956525"/>
+            <point key="canvasLocation" x="-38668" y="-217"/>
         </scene>
         <!--Scan Menu Screen View Controller-->
         <scene sceneID="q6O-Lb-ZJa">
             <objects>
-                <viewController storyboardIdentifier="AVChoiceVC" id="H07-zd-USt" customClass="ARScanMenuScreenViewController" customModule="ScanningApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AVChoiceVC" id="H07-zd-USt" customClass="ARScanMenuScreenViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GYi-I1-hOQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -482,12 +483,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rj4-ay-15W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-40338" y="-217"/>
+            <point key="canvasLocation" x="-40225" y="116"/>
         </scene>
         <!--Detect View Controller-->
         <scene sceneID="mEO-HU-wfo">
             <objects>
-                <viewController storyboardIdentifier="ARDetectViewController" extendedLayoutIncludesOpaqueBars="YES" id="ssm-xX-uwT" customClass="ARDetectViewController" customModule="ScanningApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ARDetectViewController" extendedLayoutIncludesOpaqueBars="YES" id="ssm-xX-uwT" customClass="ARDetectViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4pe-ZZ-WzO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -511,12 +512,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cyR-wr-eHY" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-38604" y="488"/>
+            <point key="canvasLocation" x="-38668" y="456"/>
         </scene>
         <!--Scanned Objects-->
         <scene sceneID="Av7-X3-SPe">
             <objects>
-                <viewController storyboardIdentifier="ScannedObjectList" extendedLayoutIncludesOpaqueBars="YES" id="RW3-fk-sqp" customClass="SavedARScansListViewController" customModule="ScanningApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ScannedObjectList" extendedLayoutIncludesOpaqueBars="YES" id="RW3-fk-sqp" customClass="SavedARScansListViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lFX-o0-F6d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
