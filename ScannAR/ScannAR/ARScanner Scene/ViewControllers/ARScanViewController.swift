@@ -21,6 +21,7 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
     @IBOutlet weak var blurView: UIVisualEffectView!
     @IBOutlet weak var nextButton: RoundedButton!
     var backButton: UIBarButtonItem!
+ 
     @IBOutlet weak var instructionView: UIVisualEffectView!
     @IBOutlet weak var instructionLabel: MessageLabel!
     @IBOutlet weak var loadModelButton: RoundedButton!
@@ -164,65 +165,14 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
         switchToNextState()
     }
     
-    @IBAction func addScanButtonTapped(_ sender: Any) {
-        //        guard state == .testing else { return }
-        //
-        //        let title = "Merge another scan?"
-        //        let message = """
-        //            Merging multiple scan results improves detection.
-        //            You can start a new scan now to merge into this one, or load an already scanned *.arobject file.
-        //            """
-        //
-        //        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        //        alertController.addAction(UIAlertAction(title: "Merge New Scan…", style: .default) { _ in
-        //            // Save the previously scanned object as the object to be merged into the next scan.
-        //            self.referenceObjectToMerge = self.testRun?.referenceObject
-        //            self.state = .startARSession
-        //        })
-        //        alertController.addAction(UIAlertAction(title: "Merge ARObject File…", style: .default) { _ in
-        //            // Show a document picker to choose an existing scan
-        //            self.showFilePickerForLoadingScan()
-        //        })
-        //        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        //
-        //        DispatchQueue.main.async {
-        //            self.present(alertController, animated: true, completion: nil)
-        //        }
-    }
-    
-    func showFilePickerForLoadingScan() {
-        //        let documentPicker = UIDocumentPickerViewController(documentTypes: ["com.apple.arobject"], in: .import)
-        //        documentPicker.delegate = self
-        //
-        //        documentPicker.modalPresentationStyle = .overCurrentContext
-        //        documentPicker.popoverPresentationController?.barButtonItem = mergeScanButton
-        //
-        //        DispatchQueue.main.async {
-        //            self.present(documentPicker, animated: true, completion: nil)
-        //        }
-    }
-    
-    @IBAction func loadModelButtonTapped(_ sender: Any) {
-        //        guard !loadModelButton.isHidden && loadModelButton.isEnabled else { return }
-        //
-        //        let documentPicker = UIDocumentPickerViewController(documentTypes: ["com.pixar.universal-scene-description-mobile"], in: .import)
-        //        documentPicker.delegate = self
-        //
-        //        documentPicker.modalPresentationStyle = .overCurrentContext
-        //        documentPicker.popoverPresentationController?.sourceView = self.loadModelButton
-        //        documentPicker.popoverPresentationController?.sourceRect = self.loadModelButton.bounds
-        //
-        //        DispatchQueue.main.async {
-        //            self.present(documentPicker, animated: true, completion: nil)
-        //        }
-    }
+  
     
     @IBAction func leftButtonTouchAreaTapped(_ sender: Any) {
+        
+       
         // A tap in the extended hit area on the lower left should cause a tap
         //  on the button that is currently visible at that location.
-        if !loadModelButton.isHidden {
-            loadModelButtonTapped(self)
-        } else if !flashlightButton.isHidden {
+        if !flashlightButton.isHidden {
             toggleFlashlightButtonTapped(self)
         }
     }
@@ -240,11 +190,6 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
     func displayInstruction(_ message: Message) {
         instructionLabel.display(message)
         instructionsVisible = true
-    }
-    
-    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-        guard let url = urls.first else { return }
-        readFile(url)
     }
     
     func showAlert(title: String, message: String, buttonTitle: String? = "OK", showCancel: Bool = false, buttonHandler: ((UIAlertAction) -> Void)? = nil) {
@@ -359,28 +304,6 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
             }
         }
     }
-    //    func createAndShareReferenceObject() {
-    //        guard let testRun = self.testRun, let object = testRun.referenceObject, let name = object.name else {
-    //            print("Error: Missing scanned object.")
-    //            return
-    //        }
-    //
-    //        let documentURL = FileManager.default.temporaryDirectory.appendingPathComponent(name + ".arobject")
-    //
-    //        DispatchQueue.global().async {
-    //            do {
-    //                try object.export(to: documentURL, previewImage: testRun.previewImage)
-    //            } catch {
-    //                fatalError("Failed to save the file to \(documentURL)")
-    //            }
-    //
-    //            // Initiate a share sheet for the scanned object
-    //            let airdropShareSheet = ShareScanViewController(sourceView: self.nextButton, sharedObject: documentURL)
-    //            DispatchQueue.main.async {
-    //                self.present(airdropShareSheet, animated: true, completion: nil)
-    //            }
-    //        }
-    //    }
     
     var limitedTrackingTimer: Timer?
     
@@ -507,82 +430,7 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
         }
     }
     
-    func readFile(_ url: URL) {
-        if url.pathExtension == "arobject" {
-            loadReferenceObjectToMerge(from: url)
-        } else if url.pathExtension == "usdz" {
-            modelURL = url
-        }
-    }
-    
-    fileprivate func mergeIntoCurrentScan(referenceObject: ARReferenceObject, from url: URL) {
-        //        if self.state == .testing {
-        //
-        //            // Show activity indicator during the merge.
-        //            ARScanViewController.instance?.showAlert(title: "", message: "Merging other scan into this scan...", buttonTitle: nil)
-        //
-        //            // Try to merge the object which was just scanned with the existing one.
-        //            self.testRun?.referenceObject?.mergeInBackground(with: referenceObject, completion: { (mergedObject, error) in
-        //                let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
-        //
-        //                if let mergedObject = mergedObject {
-        //                    mergedObject.name = self.testRun?.referenceObject?.name
-        //                    self.testRun?.setReferenceObject(mergedObject, screenshot: nil)
-        //                    self.showAlert(title: "Merge successful", message: "The other scan has been merged into this scan.",
-        //                                   buttonTitle: "OK", showCancel: false)
-        //
-        //                } else {
-        //                    print("Error: Failed to merge scans. \(error?.localizedDescription ?? "")")
-        //                    alertController.title = "Merge failed"
-        //                    let message = """
-        //                            Merging the other scan into the current scan failed. Please make sure
-        //                            that there is sufficient overlap between both scans and that the
-        //                            lighting environment hasn't changed drastically.
-        //                            Which scan do you want to use to proceed testing?
-        //                            """
-        //                    let currentScan = UIAlertAction(title: "Use Current Scan", style: .default)
-        //                    let otherScan = UIAlertAction(title: "Use Other Scan", style: .default) { _ in
-        //                        self.testRun?.setReferenceObject(referenceObject, screenshot: nil)
-        //                    }
-        //                    self.showAlert(title: "Merge failed", message: message, actions: [currentScan, otherScan])
-        //                }
-        //            })
-        //
-        //        } else {
-        //            // Upon completion of a scan, we will try merging
-        //            // the scan with this ARReferenceObject.
-        //            self.referenceObjectToMerge = referenceObject
-        //            self.displayMessage("Scan \"\(url.lastPathComponent)\" received. " +
-        //                "It will be merged with this scan before proceeding to Test mode.", expirationTime: 3.0)
-        //        }
-    }
-    
-    func loadReferenceObjectToMerge(from url: URL) {
-        //        do {
-        //            let receivedReferenceObject = try ARReferenceObject(archiveURL: url)
-        //
-        //            // Ask the user if the received object should be merged into the current scan,
-        //            // or if the received scan should be tested (and the current one discarded).
-        //            let title = "Scan \"\(url.lastPathComponent)\" received"
-        //            let message = """
-        //                Do you want to merge the received scan into the current scan,
-        //                or test only the received scan, discarding the current scan?
-        //                """
-        //            let merge = UIAlertAction(title: "Merge Into This Scan", style: .default) { _ in
-        //                self.mergeIntoCurrentScan(referenceObject: receivedReferenceObject, from: url)
-        //            }
-        //            let test = UIAlertAction(title: "Test Received Scan", style: .default) { _ in
-        //                self.referenceObjectToTest = receivedReferenceObject
-        //                self.state = .testing
-        //            }
-        //            self.showAlert(title: title, message: message, actions: [merge, test])
-        //
-        //        } catch {
-        //            self.showAlert(title: "File invalid", message: "Loading the scanned object file failed.",
-        //                           buttonTitle: "OK", showCancel: false)
-        //        }
-    }
-    
+   
     @objc
     func scanPercentageChanged(_ notification: Notification) {
         guard let percentage = notification.userInfo?[BoundingBox.scanPercentageUserInfoKey] as? Int else { return }

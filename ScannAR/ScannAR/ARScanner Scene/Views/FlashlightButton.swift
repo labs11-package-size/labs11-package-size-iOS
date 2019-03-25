@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 
 @IBDesignable
 class FlashlightButton: RoundedButton {

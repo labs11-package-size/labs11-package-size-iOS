@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Message {
     // The title and body of this message

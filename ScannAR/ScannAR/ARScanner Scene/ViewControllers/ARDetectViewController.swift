@@ -11,51 +11,80 @@ import UIKit
 import SceneKit
 import ARKit
 
-class ARDetectViewController: UIViewController, ARSCNViewDelegate {
+class ARDetectViewController: UIViewController, ARSCNViewDelegate, ARSKViewDelegate {
     
     @IBOutlet weak var sceneView: ARSCNView!
-    var objectURL: URL?
+    var viewObj = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 89))
     
+    var objectURL:URL?
+    var imageURL:URL?
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpScene()
+        setUpSceneView()
+        viewObj.backgroundColor = UIColor.clear
+        let blankImage = UIImage()
+        let imageView = UIImageView(image: blankImage)
+        viewObj = imageView
+        viewObj.contentMode = .scaleAspectFit
+        // Do any additional setup after loading the view.
     }
     
-    func setUpScene() {
+    func setUpSceneView() {
         sceneView.delegate = self
         sceneView.showsStatistics = true
-        
         do {
             let configuration = ARWorldTrackingConfiguration()
+            if imageURL != nil {
+                let imageData = try Data(contentsOf: imageURL!)
+                let image = UIImage(data: imageData)
+                configuration.detectionImages = Set([ARReferenceImage((image?.cgImage)!, orientation: CGImagePropertyOrientation.up, physicalWidth: 100)])
+            }
             if objectURL != nil {
                 configuration.detectionObjects = Set([try ARReferenceObject(archiveURL: objectURL!)])
             }
-            sceneView.session.run(configuration, options: [])
-        }catch {
+            sceneView.session.run(configuration)
+        } catch {
             print(error.localizedDescription)
         }
     }
     
-    // MARK: - ARSCNViewDelegate Methods
-    
+    // MARK: - ARSCNViewDelegate
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        let alertController = UIAlertController(title: "Object Detected", message: "Your object was scanned correctly and is detectable in 3D space.", preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "Dismiss", style: .default)
-        alertController.addAction(alertAction)
-        self.present(alertController, animated: true)
-        
+        let alertController = UIAlertController(title: "Found Object", message: "This is your object.", preferredStyle: .alert)
+        let action1 = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction) in
+            print("You've pressed default");
+        }
+        alertController.addAction(action1)
+        self.present(alertController, animated: true, completion: nil)
     }
     
+    // Override to create and configure nodes for anchors added to the view's session.
     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-
-        let arrowScene = SCNScene(named: "art.scnassets/ArrowB.scn")!
-        let arrowNode = arrowScene.rootNode.childNodes.first!
-        // FIXME: - Add extension to SCNVector3
-//        arrowNode.position = SCNVector3.positionFromTransform(anchor.transform)
-        arrowNode.position.y = 0.25
-        sceneView.scene.rootNode.addChildNode(arrowNode)
+        let node = SCNNode()
         
-        return arrowNode
+        if let imageAnchor = anchor as? ARImageAnchor {
+            let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
+            plane.firstMaterial?.diffuse.contents = UIColor(white: 1, alpha: 0.8)
+            let material = SCNMaterial()
+            material.diffuse.contents = viewObj
+            plane.materials = [material]
+            let planeNode = SCNNode(geometry: plane)
+            planeNode.eulerAngles.x = -.pi / 2
+            
+            node.addChildNode(planeNode)
+            
+        }
+        else{
+            //planeNode.eulerAngles = SCNVector3Make(0,0,Float(-M_PI_2))
+            
+            let shipScene = SCNScene(named: "art.scnassets/ArrowB.scn")!
+            let shipNode = shipScene.rootNode.childNodes.first!
+            shipNode.position =  SCNVector3.positionFromTransform(anchor.transform)
+            shipNode.position.y = 0.25
+            print(shipNode.position)
+            sceneView.scene.rootNode.addChildNode(shipNode)
+        }
+        return node
     }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
