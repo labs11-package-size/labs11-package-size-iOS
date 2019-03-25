@@ -17,11 +17,9 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
     
     static var instance: ARScanViewController?
     
-    @IBOutlet weak var sceneView: ARSCNView!
-    @IBOutlet weak var blurView: UIVisualEffectView!
-    @IBOutlet weak var nextButton: RoundedButton!
     var backButton: UIBarButtonItem!
- 
+    @IBOutlet weak var sceneView: ARSCNView!
+    @IBOutlet weak var nextButton: RoundedButton!
     @IBOutlet weak var instructionView: UIVisualEffectView!
     @IBOutlet weak var instructionLabel: MessageLabel!
     @IBOutlet weak var flashlightButton: FlashlightButton!
@@ -282,7 +280,7 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
                     let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
                     print("Text field: \((textField?.text)!)")
-                    let documentURL = documentDirectory.appendingPathComponent((textField?.text)! + ".\(SavedARScansListViewController.kArObject)")
+                    let documentURL = documentDirectory.appendingPathComponent((textField?.text)! + ".\(SavedARScansListViewController.aRObjectPathExtension)")
                     DispatchQueue.global().async {
                         do {
                             try object.export(to: documentURL, previewImage: testRun.previewImage)
