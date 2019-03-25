@@ -64,6 +64,25 @@ extension float4 {
     }
 }
 
+extension float4x4 {
+    var translation: float3 {
+        let translation = self.columns.3
+        return float3(translation.x, translation.y, translation.z)
+    }
+}
+
+extension UIColor {
+    open class var transparentLightBlue: UIColor {
+        return UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 0.50)
+    }
+}
+
+extension SCNVector3 {
+    // from Apples demo APP
+    static func positionFromTransform(_ transform: matrix_float4x4) -> SCNVector3 {
+        return SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
+    }
+}
 extension SCNMaterial {
     
     static func material(withDiffuse diffuse: Any?, respondsToLighting: Bool = false, isDoubleSided: Bool = true) -> SCNMaterial {
@@ -282,3 +301,4 @@ extension ARReferenceObject {
         }
     }
 }
+

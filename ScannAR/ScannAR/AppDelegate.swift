@@ -30,14 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 //
-//    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
-//        if let viewController = self.window?.rootViewController as? ARScanViewController {
-//            viewController.readFile(url)
-//            return true
-//        } else {
-//            return false
-//        }
-//    }
+//    
 //
 //    func applicationWillEnterForeground(_ application: UIApplication) {
 //        if let viewController = self.window?.rootViewController as? ARScanViewController {
