@@ -15,6 +15,8 @@ class LoginViewController: UIViewController {
         
         self.view.sendSubviewToBack(backgroundImage)
         // Do any additional setup after loading the view.
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
     }
     
 
@@ -29,7 +31,12 @@ class LoginViewController: UIViewController {
         
     }
     
+    // MARK: - IBActions
+    
     @IBAction func loginButtonTapped(_ sender: Any) {
+        
+        loginButton.resignFirstResponder()
+        
         guard usernameTextField.text != "", passwordTextField.text != "" else {
             return
         }
@@ -54,9 +61,19 @@ class LoginViewController: UIViewController {
         
     }
     
+    // MARK: - Properties
+    
     var scannARNetworkingController: ScannARNetworkController = ScannARNetworkController()
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet weak var loginButton: UIButton!
     
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }

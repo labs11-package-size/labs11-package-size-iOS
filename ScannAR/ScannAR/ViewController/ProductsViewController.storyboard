@@ -84,9 +84,14 @@
                         <viewLayoutGuide key="safeArea" id="Hfh-tf-2fd"/>
                     </view>
                     <navigationItem key="navigationItem" title="Products List" id="JpJ-WN-EaK">
-                        <barButtonItem key="rightBarButtonItem" image="user-4" id="jze-1y-VjW">
+                        <barButtonItem key="leftBarButtonItem" image="user-4" id="jze-1y-VjW">
                             <connections>
                                 <segue destination="0qG-Dc-x7H" kind="show" id="XEB-cj-2AL"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="IAg-H0-MNQ">
+                            <connections>
+                                <segue destination="foL-tf-Chw" kind="show" id="ZGQ-nK-AXK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -100,6 +105,14 @@
             </objects>
             <point key="canvasLocation" x="1076" y="182.15892053973016"/>
         </scene>
+        <!--AVChoiceVC-->
+        <scene sceneID="k5v-TZ-Ohb">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ARScan" referencedIdentifier="AVChoiceVC" id="foL-tf-Chw" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Scf-So-juz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1730" y="-134"/>
+        </scene>
         <!--AccountViewControllerSB-->
         <scene sceneID="vkN-kS-9J8">
             <objects>
@@ -111,7 +124,6 @@
         <!--Products Navigation Controller-->
         <scene sceneID="HRU-To-DAJ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qJk-23-Wv8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="ProductsNavigationControllerSB" automaticallyAdjustsScrollViewInsets="NO" id="qq8-sE-in9" customClass="ProductsNavigationController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dlz-WM-q5t">
@@ -123,6 +135,7 @@
                         <segue destination="8s4-Ma-CAL" kind="relationship" relationship="rootViewController" id="Nn7-gq-Ant"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qJk-23-Wv8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="182.15892053973016"/>
         </scene>

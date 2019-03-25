@@ -11,7 +11,7 @@ import Foundation
 class ScannARNetworkController {
 
     // to be refactored later
-    let baseURL = "https://scannarserver.herokuapp.com/"
+    let baseURL = "https://scannarserver.herokuapp.com"
     
     /*
      Get an Authentication Token With a dictionary of a username and password
@@ -123,7 +123,6 @@ class ScannARNetworkController {
                 let jsonDecoder = JSONDecoder()
                 
                 let result = try jsonDecoder.decode(ProductsResult.self, from: data)
-                self.productRepresentations = result.products
                 
                 // Send back the results to the completion handler
                 completion(nil, nil)
