@@ -21,13 +21,13 @@ class ProductsViewController: UIViewController, UICollectionViewDelegate, UIColl
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-//        guard let scannARNetworkingController = scannARNetworkingController else { fatalError("No networking controller present")}
-//
-//        scannARNetworkingController.getProducts(completion: { (string, error) in
-//            DispatchQueue.main.async {
-//                self.collectionView.reloadData()
-//            }
-//        })
+        guard let scannARNetworkingController = scannARNetworkingController else { fatalError("No networking controller present")}
+
+        scannARNetworkingController.getProducts(completion: { (string, error) in
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        })
     }
     
     // MARK: - Navigation
