@@ -580,7 +580,7 @@
 				D1EAB23922492CEE00720412 /* Shipment+Convenience.swift in Sources */,
 				D1EAB20D2243B55E00720412 /* ShipmentsTableViewCell.swift in Sources */,
 				D1EAB22E224920E100720412 /* ProductsResult.swift in Sources */,
-				AB38DD0622456411008DC8C0 /* DetectObjectPickerViewController.swift in Sources */,
+				AB38DD0622456411008DC8C0 /* SavedARScansListViewController.swift in Sources */,
 				AB38DD0622456411008DC8C0 /* SavedARScansListViewController.swift in Sources */,
 				AB38DCE32244626E008DC8C0 /* BoundingBoxSide.swift in Sources */,
 				AB38DCE122446254008DC8C0 /* DetectedBoundingBox.swift in Sources */,
@@ -808,7 +808,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HSRQC9N69B;
+				DEVELOPMENT_TEAM = S5U94G8XN2;
 				INFOPLIST_FILE = ScannAR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -826,7 +826,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HSRQC9N69B;
+				DEVELOPMENT_TEAM = S5U94G8XN2;
 				INFOPLIST_FILE = ScannAR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

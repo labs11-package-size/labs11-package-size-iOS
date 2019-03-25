@@ -52,6 +52,6 @@ extension Product {
         let weight = productRepresentation.weight
         let width = productRepresentation.width
         
-        self.init(identifier: identifier, fragile: fragile, height: height, length: length, manufacturerId: manufacturerId, name: name, productDescription: productDescription, userId: userId, value: value, weight: width, context: context)
+        self.init(fragile: fragile, height: height, identifier: identifier, length: length, manufacturerId: manufacturerId, name: name, productDescription: productDescription, userId: userId, value: value, weight: weight, width: width)
     }
 }
