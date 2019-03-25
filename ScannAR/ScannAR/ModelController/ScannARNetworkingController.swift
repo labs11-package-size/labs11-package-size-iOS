@@ -11,15 +11,19 @@ import Foundation
 class ScannARNetworkController {
 
     // to be refactored later
-    let baseLoginURL = "https://scannar-be.herokuapp.com/api/users/login"
-    let baseProductsURL = "https://scannar-be.herokuapp.com/api/products"
+    let baseURL = "https://scannarserver.herokuapp.com/"
     
     /*
      Get an Authentication Token With a dictionary of a username and password
     */
     func getAuthenticationToken(dict: [String: String], completion: @escaping (String?, Error?) -> Void) {
 
-        guard let baseURL = URL(string: baseLoginURL)
+        let urlComponents = URLComponents(string: baseURL)
+        guard var path = urlComponents?.path else { fatalError("URL Compents should have url path but does not")}
+        
+        path = "\(baseURL)/api/users/login"
+        
+        guard let url = URL(string: path)
             else {
                 fatalError("Unable to construct baseURL")
         }
@@ -34,7 +38,7 @@ class ScannARNetworkController {
         }
 
         // Create a GET request
-        var request = URLRequest(url: baseURL)
+        var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.httpBody = jsonData
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -78,9 +82,14 @@ class ScannARNetworkController {
     /*
      Get an Authentication Token With a dictionary of a username and password
      */
-    func getProducts(completion: @escaping (String?, Error?) -> Void) {
+    func getProducts(completion: @escaping ([ProductRepresentation]?, Error?) -> Void) {
         
-        guard let baseURL = URL(string: baseProductsURL)
+        let urlComponents = URLComponents(string: baseURL)
+        guard var path = urlComponents?.path else { fatalError("URL Compents should have url path but does not")}
+        
+        path = "\(baseURL)/api/products"
+        
+        guard let url = URL(string: path)
             else {
                 fatalError("Unable to construct baseURL")
         }
@@ -89,9 +98,8 @@ class ScannARNetworkController {
             fatalError("The jsonToken is empty.")
         }
         
-        
         // Create a GET request
-        var request = URLRequest(url: baseURL)
+        var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.addValue(jsonToken.token, forHTTPHeaderField: "Authorization")
         
@@ -114,9 +122,8 @@ class ScannARNetworkController {
                 // Declare, customize, use the decoder
                 let jsonDecoder = JSONDecoder()
                 
-                let test = String(decoding: data, as: UTF8.self)
                 let result = try jsonDecoder.decode(ProductsResult.self, from: data)
-                self.products = result.products
+                self.productRepresentations = result.products
                 
                 // Send back the results to the completion handler
                 completion(nil, nil)
@@ -132,30 +139,6 @@ class ScannARNetworkController {
     
     // MARK: - Properties
     private var jsonToken: JSONWebToken?
-    var products: [Product]?
+    var productRepresentations: [ProductRepresentation]?
 
-}
-
-struct JSONWebToken: Decodable {
-    var token : String
-    
-    enum CodingKeys: String, CodingKey {
-        case token
-    }
-}
-
-struct ProductsResult: Decodable {
-    var products : [Product]
-    
-    enum CodingKeys: CodingKey {
-        case products
-    }
-}
-
-struct Product: Decodable {
-    var token : String
-    
-    enum CodingKeys: String, CodingKey {
-        case token
-    }
 }
