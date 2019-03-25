@@ -24,8 +24,7 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
  
     @IBOutlet weak var instructionView: UIVisualEffectView!
     @IBOutlet weak var instructionLabel: MessageLabel!
-    @IBOutlet weak var loadModelButton: RoundedButton!
-    @IBOutlet weak var flashlightButton: RoundedButton!
+    @IBOutlet weak var flashlightButton: FlashlightButton!
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var sessionInfoView: UIVisualEffectView!
     @IBOutlet weak var sessionInfoLabel: UILabel!

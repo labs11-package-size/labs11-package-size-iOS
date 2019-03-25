@@ -75,7 +75,6 @@ extension ARScanViewController {
                 instructionsVisible = false
                 showBackButton(false)
                 nextButton.isEnabled = false
-                loadModelButton.isHidden = true
                 flashlightButton.isHidden = true
                 
                 // Make sure the SCNScene is cleared of any SCNNodes from previous scans.
@@ -91,7 +90,6 @@ extension ARScanViewController {
                 scan = nil
                 testRun = nil
                 self.setNavigationBarTitle("")
-                loadModelButton.isHidden = true
                 flashlightButton.isHidden = true
                 showBackButton(false)
                 nextButton.isEnabled = false
@@ -110,11 +108,9 @@ extension ARScanViewController {
             case .testing:
                 print("State: Testing")
                 self.setNavigationBarTitle("Test")
-                loadModelButton.isHidden = true
                 flashlightButton.isHidden = false
-                showMergeScanButton()
                 nextButton.isEnabled = true
-                nextButton.setTitle("Share", for: [])
+                nextButton.setTitle("Save", for: [])
                 
                 testRun = ARObjectDetectTestController(sceneView: sceneView)
                 testObjectDetection()
@@ -139,7 +135,6 @@ extension ARScanViewController {
                 self.setNavigationBarTitle("Ready to scan")
                 self.showBackButton(false)
                 self.nextButton.setTitle("Next", for: [])
-                self.loadModelButton.isHidden = true
                 self.flashlightButton.isHidden = true
                 if scan.ghostBoundingBoxExists {
                     self.displayInstruction(Message("Tap 'Next' to create an approximate bounding box around the product or object you want to scan. Try to conform the bounding box as closely as possible to the object."))
@@ -155,7 +150,6 @@ extension ARScanViewController {
                 self.setNavigationBarTitle("Define bounding box")
                 self.showBackButton(true)
                 self.nextButton.isEnabled = scan.boundingBoxExists
-                self.loadModelButton.isHidden = true
                 self.flashlightButton.isHidden = true
                 self.nextButton.setTitle("Scan", for: [])
             case .scanning:
@@ -168,7 +162,6 @@ extension ARScanViewController {
                 }
                 self.showBackButton(true)
                 self.nextButton.isEnabled = true
-                self.loadModelButton.isHidden = true
                 self.flashlightButton.isHidden = false
                 self.nextButton.setTitle("Finish", for: [])
                 // Disable plane detection (even if no plane has been found yet at this time) for performance reasons.
@@ -179,7 +172,6 @@ extension ARScanViewController {
                 self.setNavigationBarTitle("Adjust origin")
                 self.showBackButton(true)
                 self.nextButton.isEnabled = true
-                self.loadModelButton.isHidden = true
                 self.flashlightButton.isHidden = false
                 self.nextButton.setTitle("Test", for: [])
             }

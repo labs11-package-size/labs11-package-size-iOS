@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xvu-d6-2eM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -55,7 +55,6 @@
                                     <constraint firstAttribute="height" constant="130" id="21J-zQ-Swa"/>
                                     <constraint firstAttribute="width" constant="90" id="g8I-kF-scu"/>
                                 </constraints>
-                                <state key="normal" title="🔦"/>
                                 <connections>
                                     <action selector="toggleInstructionsButtonTapped:" destination="Xzk-5O-XV0" eventType="touchUpInside" id="xUJ-83-bkG"/>
                                 </connections>
@@ -88,19 +87,6 @@
                                     <action selector="leftButtonTouchAreaTapped:" destination="Xzk-5O-XV0" eventType="touchUpInside" id="Gbf-Qh-yh1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k1O-bv-HpQ" userLabel="Load Model" customClass="RoundedButton" customModule="ScanningApp" customModuleProvider="target">
-                                <rect key="frame" x="20" y="1261" width="45" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="qtH-aJ-qa9"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="ymH-Kx-9hJ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="LM"/>
-                                <state key="selected" image="addPressed"/>
-                                <connections>
-                                    <action selector="loadModelButtonTapped:" destination="Xzk-5O-XV0" eventType="touchUpInside" id="ZFf-c9-HKh"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6O-NA-y7o" userLabel="Flashlight toggle" customClass="FlashlightButton" customModule="ScanningApp" customModuleProvider="target">
                                 <rect key="frame" x="20" y="1261" width="45" height="45"/>
                                 <constraints>
@@ -108,6 +94,7 @@
                                     <constraint firstAttribute="height" constant="45" id="jPp-bn-w9R"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="🔦"/>
                                 <state key="selected" image="addPressed"/>
                                 <connections>
                                     <action selector="toggleFlashlightButtonTapped:" destination="Xzk-5O-XV0" eventType="touchUpInside" id="ijR-1p-9TU"/>
@@ -199,7 +186,6 @@
                         <constraints>
                             <constraint firstItem="e6O-NA-y7o" firstAttribute="leading" secondItem="AAt-lq-JGO" secondAttribute="leading" constant="20" id="5mY-XT-Eb6"/>
                             <constraint firstItem="AAt-lq-JGO" firstAttribute="trailing" secondItem="0qm-i8-BqM" secondAttribute="trailing" id="5qE-5s-uea"/>
-                            <constraint firstItem="k1O-bv-HpQ" firstAttribute="leading" secondItem="AAt-lq-JGO" secondAttribute="leading" constant="20" id="8vK-mP-Uoa"/>
                             <constraint firstItem="4Hp-Iq-aiz" firstAttribute="centerX" secondItem="AAt-lq-JGO" secondAttribute="centerX" id="A2F-Kr-eK5"/>
                             <constraint firstItem="Ih2-DA-kyA" firstAttribute="centerY" secondItem="0fm-zG-16v" secondAttribute="centerY" id="Bmi-kP-wIb"/>
                             <constraint firstItem="AAt-lq-JGO" firstAttribute="bottom" secondItem="mAH-SX-I5q" secondAttribute="bottom" constant="-40" id="GDm-If-GO3"/>
@@ -214,12 +200,10 @@
                             <constraint firstItem="AAt-lq-JGO" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="raF-dn-6v0" secondAttribute="trailing" constant="20" id="Xxu-v7-32z">
                                 <variation key="widthClass=regular" constant="120"/>
                             </constraint>
-                            <constraint firstItem="k1O-bv-HpQ" firstAttribute="centerY" secondItem="0fm-zG-16v" secondAttribute="centerY" id="YU1-kO-ic6"/>
                             <constraint firstItem="raF-dn-6v0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="AAt-lq-JGO" secondAttribute="leading" constant="20" id="evL-iy-CYg">
                                 <variation key="widthClass=regular" constant="120"/>
                             </constraint>
                             <constraint firstItem="AAt-lq-JGO" firstAttribute="trailing" secondItem="Ih2-DA-kyA" secondAttribute="trailing" constant="20" id="fTm-YO-gbv"/>
-                            <constraint firstItem="0fm-zG-16v" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="k1O-bv-HpQ" secondAttribute="trailing" constant="8" symbolic="YES" id="fdg-1G-V1e"/>
                             <constraint firstItem="mAH-SX-I5q" firstAttribute="leading" secondItem="AAt-lq-JGO" secondAttribute="leading" id="gGh-Fy-Gde"/>
                             <constraint firstAttribute="trailing" secondItem="NdG-zJ-gt9" secondAttribute="trailing" id="gNb-uW-lIj"/>
                             <constraint firstItem="AAt-lq-JGO" firstAttribute="trailing" secondItem="uXl-0Z-hMN" secondAttribute="trailing" id="gPH-ib-LSS"/>
@@ -245,7 +229,6 @@
                         <outlet property="flashlightButton" destination="e6O-NA-y7o" id="YmS-oW-y1c"/>
                         <outlet property="instructionLabel" destination="gBD-AB-RXW" id="mHY-gR-OVe"/>
                         <outlet property="instructionView" destination="raF-dn-6v0" id="eyO-Qm-Ltq"/>
-                        <outlet property="loadModelButton" destination="k1O-bv-HpQ" id="wZx-b1-uLQ"/>
                         <outlet property="navigationBar" destination="0qm-i8-BqM" id="cxO-Ea-hz1"/>
                         <outlet property="nextButton" destination="0fm-zG-16v" id="n8k-v1-Ahj"/>
                         <outlet property="sceneView" destination="ERr-hH-khy" id="vs8-Op-3BD"/>
@@ -550,7 +533,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="42" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dke-OR-tTm">
-                                                    <rect key="frame" x="15" y="11" width="384" height="72"/>
+                                                    <rect key="frame" x="15" y="11" width="345" height="72"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
