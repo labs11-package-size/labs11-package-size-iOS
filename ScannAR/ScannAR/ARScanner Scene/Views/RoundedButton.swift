@@ -28,6 +28,7 @@ class RoundedButton: UIButton {
         clipsToBounds = true
         setTitleColor(.white, for: [])
         titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
+        
     }
     
     override var isEnabled: Bool {

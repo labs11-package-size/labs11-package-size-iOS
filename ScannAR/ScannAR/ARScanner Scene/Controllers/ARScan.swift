@@ -349,6 +349,8 @@ class ARScan {
                 //       takes some time to complete. Avoid calling it again before
                 //       enough time has passed and while we still wait for the
                 //       previous call to complete.
+                
+                // FIXME: - may have to add a semiphore or timer for this to stop another call from happening before first is complete.
                 let now = CACurrentMediaTime()
                 if now - timeOfLastReferenceObjectCreation > ARScan.objectCreationInterval, !isBusyCreatingReferenceObject {
                     timeOfLastReferenceObjectCreation = now

@@ -19,6 +19,7 @@ class ARScanMenuScreenViewController: UIViewController, UINavigationControllerDe
     var output: AVCaptureMetadataOutput?
     var previewLayer: AVCaptureVideoPreviewLayer?
     
+    @IBOutlet weak var backButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         createSession()

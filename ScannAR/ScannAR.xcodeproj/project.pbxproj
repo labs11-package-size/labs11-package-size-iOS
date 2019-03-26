@@ -38,7 +38,6 @@
 		AB38DCF922446380008DC8C0 /* BoundingBox+Snapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38DCF822446380008DC8C0 /* BoundingBox+Snapping.swift */; };
 		AB38DD02224562D1008DC8C0 /* ARScanMenuScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38DD01224562D1008DC8C0 /* ARScanMenuScreenViewController.swift */; };
 		AB38DD0422456379008DC8C0 /* ARDetectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38DD0322456379008DC8C0 /* ARDetectViewController.swift */; };
-		AB38DD0622456411008DC8C0 /* SavedARScansListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38DD0522456411008DC8C0 /* SavedARScansListViewController.swift */; };
 		AB38DD092245650F008DC8C0 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = AB38DD082245650F008DC8C0 /* LICENSE.txt */; };
 		AB519F602242C6CA00B27A8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB519F5F2242C6CA00B27A8B /* AppDelegate.swift */; };
 		AB519F622242C6CA00B27A8B /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = AB519F612242C6CA00B27A8B /* art.scnassets */; };
@@ -48,9 +47,10 @@
 		AB519F772242C6CB00B27A8B /* ScannARTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB519F762242C6CB00B27A8B /* ScannARTests.swift */; };
 		AB519F822242C6CB00B27A8B /* ScannARUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB519F812242C6CB00B27A8B /* ScannARUITests.swift */; };
 		ABB4C9EC2248BD7A0079E25D /* ARScan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABB4C9EE2248BD7A0079E25D /* ARScan.storyboard */; };
+		ABC2C3B7224A857D0045A7D2 /* ScannARNetworkingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB1DA2242E14F00720412 /* ScannARNetworkingController.swift */; };
+		ABC2C3B8224A857D0045A7D2 /* SavedARScansListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38DD0522456411008DC8C0 /* SavedARScansListViewController.swift */; };
 		D1EAB1D72242D64800720412 /* ProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB1D52242D64800720412 /* ProductsCollectionViewCell.swift */; };
 		D1EAB1D82242D64800720412 /* ProductsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1EAB1D62242D64800720412 /* ProductsCollectionViewCell.xib */; };
-		D1EAB1DB2242E14F00720412 /* ScannARNetworkingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB1DA2242E14F00720412 /* ScannARNetworkingController.swift */; };
 		D1EAB2002243A60F00720412 /* ShipmentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB1FF2243A60F00720412 /* ShipmentsTableViewController.swift */; };
 		D1EAB2022243A62400720412 /* ShipmentsTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1EAB2012243A62400720412 /* ShipmentsTableViewController.storyboard */; };
 		D1EAB2042243B4CF00720412 /* ShipmentsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB2032243B4CF00720412 /* ShipmentsDetailViewController.swift */; };
@@ -487,18 +487,21 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "ScannAR Team";
 				TargetAttributes = {
 					AB519F5B2242C6CA00B27A8B = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					AB519F712242C6CB00B27A8B = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = AB519F5B2242C6CA00B27A8B;
 					};
 					AB519F7C2242C6CB00B27A8B = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = AB519F5B2242C6CA00B27A8B;
 					};
 				};
@@ -580,8 +583,7 @@
 				D1EAB23922492CEE00720412 /* Shipment+Convenience.swift in Sources */,
 				D1EAB20D2243B55E00720412 /* ShipmentsTableViewCell.swift in Sources */,
 				D1EAB22E224920E100720412 /* ProductsResult.swift in Sources */,
-				AB38DD0622456411008DC8C0 /* SavedARScansListViewController.swift in Sources */,
-				AB38DD0622456411008DC8C0 /* SavedARScansListViewController.swift in Sources */,
+				ABC2C3B8224A857D0045A7D2 /* SavedARScansListViewController.swift in Sources */,
 				AB38DCE32244626E008DC8C0 /* BoundingBoxSide.swift in Sources */,
 				AB38DCE122446254008DC8C0 /* DetectedBoundingBox.swift in Sources */,
 				AB38DD02224562D1008DC8C0 /* ARScanMenuScreenViewController.swift in Sources */,
@@ -613,9 +615,8 @@
 				AB12DBB32242EA0E00886A11 /* ARScan.swift in Sources */,
 				D1EAB23D22492D9700720412 /* ShipmentRepresentation.swift in Sources */,
 				D1EAB22C224920C800720412 /* JSONWebToken.swift in Sources */,
-				D1EAB1DB2242E14F00720412 /* ScannARNetworkingController.swift in Sources */,
+				ABC2C3B7224A857D0045A7D2 /* ScannARNetworkingController.swift in Sources */,
 				AB38DCF12244630F008DC8C0 /* ScannedObject.swift in Sources */,
-				D1EAB1DB2242E14F00720412 /* ScannARNetworkingController.swift in Sources */,
 				D1EAB2332249227800720412 /* ScannAR.xcdatamodeld in Sources */,
 				D1EAB2222244138D00720412 /* LoginViewController.swift in Sources */,
 				AB519F602242C6CA00B27A8B /* AppDelegate.swift in Sources */,
@@ -808,15 +809,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S5U94G8XN2;
+				DEVELOPMENT_TEAM = HSRQC9N69B;
 				INFOPLIST_FILE = ScannAR/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jkaunert;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -826,15 +828,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S5U94G8XN2;
+				DEVELOPMENT_TEAM = HSRQC9N69B;
 				INFOPLIST_FILE = ScannAR/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jkaunert;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -845,6 +848,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HSRQC9N69B;
 				INFOPLIST_FILE = ScannARTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -853,7 +857,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.scannAR.ScannARTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScannAR.app/ScannAR";
 			};
@@ -865,6 +869,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HSRQC9N69B;
 				INFOPLIST_FILE = ScannARTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -873,7 +878,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.scannAR.ScannARTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScannAR.app/ScannAR";
 			};
@@ -884,6 +889,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HSRQC9N69B;
 				INFOPLIST_FILE = ScannARUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -892,7 +898,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.scannAR.ScannARUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = ScannAR;
 			};
@@ -903,6 +909,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HSRQC9N69B;
 				INFOPLIST_FILE = ScannARUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -911,7 +918,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.scannAR.ScannARUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = ScannAR;
 			};

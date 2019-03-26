@@ -13,6 +13,7 @@ import AVFoundation
 @IBDesignable
 class FlashlightButton: RoundedButton {
     
+
     override var isHidden: Bool {
         didSet {
             // Never show this button if there is no torch on this device.
@@ -34,10 +35,10 @@ class FlashlightButton: RoundedButton {
         didSet {
             // Update UI
             if toggledOn {
-                setTitle("🔦", for: [])
+                
                 backgroundColor = .appBlue
             } else {
-                setTitle("ⓘ", for: [])
+                
                 backgroundColor = .appLightBlue
             }
             
