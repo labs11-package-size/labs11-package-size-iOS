@@ -26,7 +26,7 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var sessionInfoView: UIVisualEffectView!
     @IBOutlet weak var sessionInfoLabel: UILabel!
-    @IBOutlet weak var toggleInstructionsButton: FlashlightButton!
+    @IBOutlet weak var toggleInstructionsButton: RoundedButton!
     
     internal var internalState: State = .startARSession
     
