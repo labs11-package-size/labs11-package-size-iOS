@@ -188,7 +188,7 @@ class BoundingBox: SCNNode {
                 side.showZAxisExtensions()
                 
                 let sideNormalInWorld = normalize(self.simdConvertVector(side.normal, to: nil) -
-                    self.simdConvertVector(float3(0), to: nil))
+                    self.simdConvertVector(float3(repeating: 0), to: nil))
                 
                 let ray = Ray(origin: float3(result.worldCoordinates), direction: sideNormalInWorld)
                 let transform = dragPlaneTransform(for: ray, cameraPos: camera.simdWorldPosition)
@@ -242,7 +242,7 @@ class BoundingBox: SCNNode {
                 side.showYAxisExtensions()
                 
                 let sideNormalInWorld = normalize(self.simdConvertVector(side.dragAxis.normal, to: nil) -
-                    self.simdConvertVector(float3(0), to: nil))
+                    self.simdConvertVector(float3(repeating: 0), to: nil))
                 
                 let planeNormalRay = Ray(origin: float3(result.worldCoordinates), direction: sideNormalInWorld)
                 let transform = dragPlaneTransform(forPlaneNormal: planeNormalRay, camera: camera)
@@ -285,7 +285,7 @@ class BoundingBox: SCNNode {
     
     func startGroundPlaneDrag(screenPos: CGPoint) {
         let dragPlane = self.simdWorldTransform
-        var offset = float3(0)
+        var offset = float3(repeating: 0)
         if let hitPos = sceneView.unprojectPoint(screenPos, ontoPlane: dragPlane) {
             offset = self.simdWorldPosition - hitPos
         }
