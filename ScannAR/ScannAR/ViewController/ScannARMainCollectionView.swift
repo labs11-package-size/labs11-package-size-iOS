@@ -1,5 +1,5 @@
 //
-//  ProductsCollectionView.swift
+//  ScannARMainCollectionView.swift
 //  ScannAR
 //
 //  Created by Benjamin Hakes on 3/21/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProductsCollectionView: UICollectionView {
+class ScannARMainCollectionView: UICollectionView {
 
 
 
