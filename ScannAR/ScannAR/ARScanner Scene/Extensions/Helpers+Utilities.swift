@@ -285,20 +285,20 @@ func dragPlaneTransform(forPlaneNormal planeNormalRay: Ray, camera: SCNNode) -> 
                      float4(planeNormalRay.origin, 1)])
 }
 
-extension ARReferenceObject {
-    func mergeInBackground(with otherReferenceObject: ARReferenceObject, completion: @escaping (ARReferenceObject?, Error?) -> Void) {
-        DispatchQueue.global(qos: .background).async {
-            do {
-                let mergedObject = try self.merging(otherReferenceObject)
-                DispatchQueue.main.async {
-                    completion(mergedObject, nil)
-                }
-            } catch {
-                DispatchQueue.main.async {
-                    completion(nil, error)
-                }
-            }
-        }
-    }
-}
+//extension ARReferenceObject {
+//    func mergeInBackground(with otherReferenceObject: ARReferenceObject, completion: @escaping (ARReferenceObject?, Error?) -> Void) {
+//        DispatchQueue.global(qos: .background).async {
+//            do {
+//                let mergedObject = try self.merging(otherReferenceObject)
+//                DispatchQueue.main.async {
+//                    completion(mergedObject, nil)
+//                }
+//            } catch {
+//                DispatchQueue.main.async {
+//                    completion(nil, error)
+//                }
+//            }
+//        }
+//    }
+//}
 

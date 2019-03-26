@@ -10,11 +10,16 @@ import Foundation
 import UIKit
 import ARKit
 
+
+
 class ARScan {
     
     static let stateChangedNotification = Notification.Name("ScanningStateChanged")
     static let stateUserInfoKey = "ScanState"
     static let objectCreationInterval: CFTimeInterval = 1.0
+    
+    // a tuple to hold the computed bounding box size, since we get this for free (sort-of) in isReasonablySized
+    var bestBoxSize: (length: Float?, width: Float?, height: Float?)
     
     enum State {
         case ready
@@ -61,7 +66,7 @@ class ARScan {
                 let title = "Not enough detail"
                 let message = """
                 This scan has not enough detail (it contains \(pointCloud.count) features - aim for at least \(ARScan.minFeatureCount)).
-                It is unlikely that a good reference object can be generated.
+                It is unlikely that this scan will be successful.
                 Do you want to go back and continue the scan?
                 """
                 ARScanViewController.instance?.showAlert(title: title, message: message, buttonTitle: "Yes", showCancel: true) { _ in
@@ -69,10 +74,10 @@ class ARScan {
                 }
             case .adjustingOrigin where stateValue == .scanning:
                 if let boundingBox = scannedObject.boundingBox, boundingBox.progressPercentage < 100 {
-                    let title = "Scan not complete"
+                    let title = "Scan not complete."
                     let message = """
                     The object was not scanned from all sides, scanning progress is \(boundingBox.progressPercentage)%.
-                    It is likely that it won't detect from all angles.
+                    It is unlikely that this scan will be successful.
                     Do you want to go back and continue the scan?
                     """
                     ARScanViewController.instance?.showAlert(title: title, message: message, buttonTitle: "Yes", showCancel: true) { _ in
@@ -108,7 +113,7 @@ class ARScan {
     // The node for visualizing the point cloud.
     private(set) var pointCloud: ScannedPointCloud
     
-    private var sceneView: ARSCNView
+    private var sceneView: ARSCNView!
     
     private var isBusyCreatingReferenceObject = false
     
@@ -344,6 +349,8 @@ class ARScan {
                 //       takes some time to complete. Avoid calling it again before
                 //       enough time has passed and while we still wait for the
                 //       previous call to complete.
+                
+                // FIXME: - may have to add a semiphore or timer for this to stop another call from happening before first is complete.
                 let now = CACurrentMediaTime()
                 if now - timeOfLastReferenceObjectCreation > ARScan.objectCreationInterval, !isBusyCreatingReferenceObject {
                     timeOfLastReferenceObjectCreation = now
@@ -390,6 +397,7 @@ class ARScan {
         return scannedObject.ghostBoundingBox != nil
     }
     
+    // FIXME: - assign bestBoxSize here
     var isReasonablySized: Bool {
         guard let boundingBox = scannedObject.boundingBox else {
             return false
@@ -426,45 +434,9 @@ class ARScan {
                     self.scannedReferenceObject = referenceObject.applyingTransform(origin.simdTransform)
                     self.scannedReferenceObject!.name = self.scannedObject.scanName
                     
-                    if let referenceObjectToMerge = ARScanViewController.instance?.referenceObjectToMerge {
-                        ARScanViewController.instance?.referenceObjectToMerge = nil
-                        
-                        // Show activity indicator during the merge.
-                        ARScanViewController.instance?.showAlert(title: "", message: "Merging previous scan into this scan...", buttonTitle: nil)
-                        
-                        // Try to merge the object which was just scanned with the existing one.
-                        self.scannedReferenceObject?.mergeInBackground(with: referenceObjectToMerge, completion: { (mergedObject, error) in
-                            
-                            if let mergedObject = mergedObject {
-                                mergedObject.name = self.scannedReferenceObject?.name
-                                self.scannedReferenceObject = mergedObject
-                                ARScanViewController.instance?.showAlert(title: "Merge successful",
-                                                                         message: "The previous scan has been merged into this scan.", buttonTitle: "OK")
-                                creationFinished(self.scannedReferenceObject)
-                                
-                            } else {
-                                print("Error: Failed to merge scans. \(error?.localizedDescription ?? "")")
-                                let message = """
-                                        Merging the previous scan into this scan failed. Please make sure that
-                                        there is sufficient overlap between both scans and that the lighting
-                                        environment hasn't changed drastically.
-                                        Which scan do you want to use for testing?
-                                        """
-                                let thisScan = UIAlertAction(title: "Use This Scan", style: .default) { _ in
-                                    creationFinished(self.scannedReferenceObject)
-                                }
-                                let previousScan = UIAlertAction(title: "Use Previous Scan", style: .default) { _ in
-                                    self.scannedReferenceObject = referenceObjectToMerge
-                                    creationFinished(self.scannedReferenceObject)
-                                }
-                                ARScanViewController.instance?.showAlert(title: "Merge failed", message: message, actions: [thisScan, previousScan])
-                            }
-                        })
-                    } else {
-                        creationFinished(self.scannedReferenceObject)
-                    }
+                    creationFinished(self.scannedReferenceObject)
                 } else {
-                    print("Error: Failed to create reference object. \(error!.localizedDescription)")
+                    print("Error: Scan Failed. \(error!.localizedDescription)")
                     creationFinished(nil)
                 }
         })

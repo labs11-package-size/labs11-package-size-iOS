@@ -13,9 +13,9 @@ class SavedARScansListViewController: UIViewController {
     
    
     @IBOutlet weak var tableView: UITableView!
-    static let kArObject = "arobject"
+    static let aRObjectPathExtension = "arobject"
     var arrObjectName:[String] = []
-    var arrObjectURL :[[String:URL]] = []
+    var arrObjectURLs :[[String:URL]] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,18 +28,18 @@ class SavedARScansListViewController: UIViewController {
         let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         do {
             let directoryContents = try FileManager.default.contentsOfDirectory(at: documentsUrl, includingPropertiesForKeys: nil, options: [])
-            let arobjectFiles = directoryContents.filter{ $0.pathExtension == SavedARScansListViewController.kArObject }
+            let arobjectFiles = directoryContents.filter{ $0.pathExtension == SavedARScansListViewController.aRObjectPathExtension }
            
             print("arobject urls:",arobjectFiles)
             let fileName = arobjectFiles.map{ $0.deletingPathExtension().lastPathComponent }
             print("object Name list:", fileName)
             for arobject in arobjectFiles {
                
-                arrObjectURL.append([SavedARScansListViewController.kArObject:arobject])
+                arrObjectURLs.append([SavedARScansListViewController.aRObjectPathExtension:arobject])
             }
             arrObjectName = fileName
             if arrObjectName.count == 0 {
-                // FIXME: -  to an alertcontroller LAZY!
+                // FIXME: -  for testing ... change to an alertcontroller for production LAZY!
                 DispatchQueue.main.async {
                     self.tableView.setBackgroundText(stringValue: "There is no Scanned/Saved objects available. \n Please Scan and Save Object from Scan New Object Section.")
                     self.tableView.reloadData()
@@ -71,8 +71,8 @@ extension SavedARScansListViewController:UITableViewDelegate,UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "ARDetectViewController") as! ARDetectViewController
-        if arrObjectURL[indexPath.row].keys.first == SavedARScansListViewController.kArObject {
-            vc.objectURL = arrObjectURL[indexPath.row][SavedARScansListViewController.kArObject]
+        if arrObjectURLs[indexPath.row].keys.first == SavedARScansListViewController.aRObjectPathExtension {
+            vc.objectURL = arrObjectURLs[indexPath.row][SavedARScansListViewController.aRObjectPathExtension]
         }
         
         
@@ -91,13 +91,13 @@ extension SavedARScansListViewController:UITableViewDelegate,UITableViewDataSour
             }
             
             var filename = ""
-            filename = "\(self.arrObjectName[indexPath.row]).\(SavedARScansListViewController.kArObject)"
+            filename = "\(self.arrObjectName[indexPath.row]).\(SavedARScansListViewController.aRObjectPathExtension)"
             let filePath = "\(dirPath)/\(filename)"
             
             do {
                 try fileManager.removeItem(atPath: filePath)
                 self.arrObjectName.remove(at: indexPath.row)
-                self.arrObjectURL.remove(at: indexPath.row)
+                self.arrObjectURLs.remove(at: indexPath.row)
                 self.tableView.reloadData()
             } catch let error as NSError {
                 print(error.debugDescription)

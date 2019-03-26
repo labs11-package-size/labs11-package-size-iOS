@@ -20,13 +20,13 @@ class ARDetectViewController: UIViewController, ARSCNViewDelegate, ARSKViewDeleg
     var imageURL:URL?
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setUpSceneView()
         viewObj.backgroundColor = UIColor.clear
         let blankImage = UIImage()
         let imageView = UIImageView(image: blankImage)
         viewObj = imageView
         viewObj.contentMode = .scaleAspectFit
-        // Do any additional setup after loading the view.
     }
     
     func setUpSceneView() {

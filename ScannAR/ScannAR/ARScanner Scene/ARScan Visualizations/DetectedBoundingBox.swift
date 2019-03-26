@@ -14,8 +14,8 @@ class DetectedBoundingBox: SCNNode {
     init(points: [float3], scale: CGFloat, color: UIColor = .appGreen) {
         super.init()
         
-        var localMin = float3(Float.greatestFiniteMagnitude)
-        var localMax = float3(-Float.greatestFiniteMagnitude)
+        var localMin = float3(repeating: Float.greatestFiniteMagnitude)
+        var localMax = float3(repeating: -Float.greatestFiniteMagnitude)
         
         for point in points {
             localMin = min(localMin, point)
