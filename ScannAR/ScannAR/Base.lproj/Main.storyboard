@@ -154,17 +154,17 @@
                         <outlet property="loginButton" destination="hD0-UG-ZaN" id="QZK-tr-Z9D"/>
                         <outlet property="passwordTextField" destination="Vy0-Rg-mcU" id="yca-cM-c7e"/>
                         <outlet property="usernameTextField" destination="7uc-rw-XiD" id="xtP-45-jGr"/>
-                        <segue destination="6HD-Hk-Uce" kind="show" identifier="SegueToProducts" id="6ZX-AU-bY8"/>
+                        <segue destination="6HD-Hk-Uce" kind="show" identifier="SegueToScannARMain" id="6ZX-AU-bY8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E3w-ja-zWx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="682" y="-74"/>
         </scene>
-        <!--ProductsNavigationControllerSB-->
+        <!--ScannARMainNavigationControllerSB-->
         <scene sceneID="Lkm-q0-Ugl">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="ProductsNavigationControllerSB" storyboardName="ProductsViewController" referencedIdentifier="ProductsNavigationControllerSB" id="6HD-Hk-Uce" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="ProductsNavigationControllerSB" storyboardName="ScannARMainViewController" referencedIdentifier="ScannARMainNavigationControllerSB" id="6HD-Hk-Uce" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lMg-el-hSK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1351" y="-192"/>
