@@ -53,6 +53,15 @@
 		D142BEE4224AACE400699881 /* ShipmentsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D142BEE2224AACE400699881 /* ShipmentsCollectionViewCell.xib */; };
 		D1EAB1D72242D64800720412 /* ProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB1D52242D64800720412 /* ProductsCollectionViewCell.swift */; };
 		D1EAB1D82242D64800720412 /* ProductsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1EAB1D62242D64800720412 /* ProductsCollectionViewCell.xib */; };
+
+		D1EAB2002243A60F00720412 /* ShipmentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB1FF2243A60F00720412 /* ShipmentsTableViewController.swift */; };
+		D1EAB2022243A62400720412 /* ShipmentsTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1EAB2012243A62400720412 /* ShipmentsTableViewController.storyboard */; };
+		D142BEE3224AACE400699881 /* ShipmentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D142BEE1224AACE400699881 /* ShipmentsCollectionViewCell.swift */; };
+		D142BEE4224AACE400699881 /* ShipmentsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D142BEE2224AACE400699881 /* ShipmentsCollectionViewCell.xib */; };
+		D1EAB1D72242D64800720412 /* ProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB1D52242D64800720412 /* ProductsCollectionViewCell.swift */; };
+		D1EAB1D82242D64800720412 /* ProductsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1EAB1D62242D64800720412 /* ProductsCollectionViewCell.xib */; };
+
+		D1EAB1DB2242E14F00720412 /* ScannARNetworkingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB1DA2242E14F00720412 /* ScannARNetworkingController.swift */; };
 		D1EAB2042243B4CF00720412 /* ShipmentsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB2032243B4CF00720412 /* ShipmentsDetailViewController.swift */; };
 		D1EAB2062243B4E500720412 /* ShipmentsDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1EAB2052243B4E500720412 /* ShipmentsDetailViewController.storyboard */; };
 		D1EAB2082243B50B00720412 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB2072243B50B00720412 /* ProductDetailViewController.swift */; };
@@ -571,6 +580,7 @@
 				D1EAB2042243B4CF00720412 /* ShipmentsDetailViewController.swift in Sources */,
 				D1EAB21E224405D700720412 /* ScannARMainViewController.swift in Sources */,
 				D1EAB23922492CEE00720412 /* Shipment+Convenience.swift in Sources */,
+				AB38DD0622456411008DC8C0 /* SavedARScansListViewController.swift in Sources */,
 				ABC2C3B8224A857D0045A7D2 /* SavedARScansListViewController.swift in Sources */,
 				AB38DCE32244626E008DC8C0 /* BoundingBoxSide.swift in Sources */,
 				AB38DCE122446254008DC8C0 /* DetectedBoundingBox.swift in Sources */,
