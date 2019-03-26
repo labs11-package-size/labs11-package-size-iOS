@@ -10,28 +10,29 @@ import Foundation
 import CoreData
 
 extension Product {
-    convenience init(fragile: Bool,
+    convenience init(fragile: Int,
                      height: Double,
-                     identifier: String,
+                     identifier: Int,
                      length: Double,
                      manufacturerId: String,
                      name: String,
                      productDescription: String,
-                     userId: String,
+                     userId: Int,
                      value: Double,
                      weight: Double,
                      width: Double,
                      context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
+        
         self.init(context:context)
-        self.fragile = fragile
+        self.fragile = Int16(fragile)
         self.height = height
-        self.identifier = identifier
+        self.identifier = Int16(identifier)
         self.length = length
         self.manufacturerId = manufacturerId
         self.name = name
         self.productDescription = productDescription
-        self.userId = userId
+        self.userId = Int16(userId)
         self.value = value
         self.weight = weight
         self.width = width
@@ -50,7 +51,13 @@ extension Product {
         let userId = productRepresentation.userId
         let value = productRepresentation.value
         let weight = productRepresentation.weight
-        let width = productRepresentation.width
+        
+        var width: Double
+        if productRepresentation.width != nil {
+            width = productRepresentation.width!
+        } else {
+            width = 0.0
+        }
         
         self.init(fragile: fragile, height: height, identifier: identifier, length: length, manufacturerId: manufacturerId, name: name, productDescription: productDescription, userId: userId, value: value, weight: weight, width: width)
     }

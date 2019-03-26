@@ -26,8 +26,10 @@ class LoginViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        guard let destVC = segue.destination as? ProductsViewController else { return }
-        destVC.scannARNetworkingController = self.scannARNetworkingController
+        if segue.identifier == "SegueToScannARMain" {
+            guard let destVC = segue.destination as? UINavigationController, let secondVC = destVC.viewControllers.first as? ScannARMainViewController else { return }
+            secondVC.scannARNetworkingController = self.scannARNetworkingController
+        }
         
     }
     
@@ -50,7 +52,7 @@ class LoginViewController: UIViewController {
                 print("There was an error with your username and password: \(error)")
             } else {
                 DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "SegueToProducts", sender: nil)
+                    self.performSegue(withIdentifier: "SegueToScannARMain", sender: nil)
                 }
                 
             }

@@ -10,17 +10,17 @@ import Foundation
 
 struct ProductRepresentation: Decodable {
     
-    var fragile: Bool
+    var fragile: Int
     var height: Double
-    var identifier: String
+    var identifier: Int
     var length: Double
     var manufacturerId: String
     var name: String
     var productDescription: String
-    var userId: String
+    var userId: Int
     var value: Double
     var weight: Double
-    var width: Double
+    var width: Double?
     
     enum CodingKeys: String, CodingKey {
         case fragile

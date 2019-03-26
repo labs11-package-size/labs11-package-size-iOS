@@ -33,7 +33,7 @@ extension Shipment {
         
     }
     
-    convenience init?(shipmentRepresentation: ShipmentRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    convenience init(shipmentRepresentation: ShipmentRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         let identifier = shipmentRepresentation.identifier
         let carrierName = shipmentRepresentation.carrierName
