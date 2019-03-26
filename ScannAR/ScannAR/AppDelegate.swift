@@ -29,15 +29,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-//
-//    
-//
-//    func applicationWillEnterForeground(_ application: UIApplication) {
-//        if let viewController = self.window?.rootViewController as? ARScanViewController {
-//            viewController.backFromBackground()
-//        }
-//    }
-//
+
+    
+
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        if let viewController = self.window?.rootViewController as? ARScanViewController {
+            viewController.backFromBackground()
+        }
+    }
+
 //    func applicationWillResignActive(_ application: UIApplication) {
 //        if let viewController = self.window?.rootViewController as? ARScanViewController {
 //            viewController.blurView?.isHidden = false
@@ -49,6 +49,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            viewController.blurView?.isHidden = true
 //        }
 //    }
-//
+
 }
 
