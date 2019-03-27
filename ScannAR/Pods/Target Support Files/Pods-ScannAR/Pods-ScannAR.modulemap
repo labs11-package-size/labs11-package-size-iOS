@@ -1,0 +1,6 @@
+framework module Pods_ScannAR {
+  umbrella header "Pods-ScannAR-umbrella.h"
+
+  export *
+  module * { export * }
+}
