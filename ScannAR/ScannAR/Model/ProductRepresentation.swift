@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ProductRepresentation: Decodable {
+struct ProductRepresentation: Codable {
     
     var fragile: Int
     var height: Double
@@ -21,6 +21,7 @@ struct ProductRepresentation: Decodable {
     var value: Double
     var weight: Double
     var width: Double?
+    var uuid: UUID
     
     enum CodingKeys: String, CodingKey {
         case fragile
@@ -34,6 +35,7 @@ struct ProductRepresentation: Decodable {
         case value
         case weight
         case width
+        case uuid
     }
     
     
@@ -43,7 +45,8 @@ func ==(lhs: ProductRepresentation, rhs: Product) -> Bool {
     return rhs.identifier == lhs.identifier &&
         rhs.name == lhs.name &&
         rhs.manufacturerId == lhs.manufacturerId &&
-        rhs.value == lhs.value
+        rhs.value == lhs.value &&
+        rhs.uuid == lhs.uuid
 }
 
 func ==(lhs: Product, rhs: ProductRepresentation) -> Bool {

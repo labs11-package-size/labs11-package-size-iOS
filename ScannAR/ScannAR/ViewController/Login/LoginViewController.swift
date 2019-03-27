@@ -46,7 +46,7 @@ class LoginViewController: UIViewController {
         var dict: [String: String] = [:]
         dict["username"] = usernameTextField.text
         dict["password"] = passwordTextField.text
-        scannARNetworkingController.getAuthenticationToken(dict: dict) { (string, error) in
+        scannARNetworkingController.postForAuthenticationToken(dict: dict) { (string, error) in
             
             if let error = error {
                 print("There was an error with your username and password: \(error)")

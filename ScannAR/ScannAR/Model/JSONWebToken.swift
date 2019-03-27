@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct JSONWebToken: Decodable {
+struct JSONWebToken: Codable {
     var token : String
     
     enum CodingKeys: String, CodingKey {

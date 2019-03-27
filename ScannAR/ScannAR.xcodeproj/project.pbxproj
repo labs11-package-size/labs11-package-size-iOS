@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A55892391472DEEFA1A3DAC3 /* Pods_ScannAR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97499017E7DAF2275EA01119 /* Pods_ScannAR.framework */; };
 		AB12DBA82242E50E00886A11 /* ARScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB12DBA72242E50E00886A11 /* ARScanViewController.swift */; };
 		AB12DBAA2242E84F00886A11 /* ARScanViewController+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB12DBA92242E84F00886A11 /* ARScanViewController+Gestures.swift */; };
 		AB12DBAC2242E8BB00886A11 /* ARScanViewController+ARSessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB12DBAB2242E8BB00886A11 /* ARScanViewController+ARSessionState.swift */; };
@@ -39,6 +40,8 @@
 		AB38DD02224562D1008DC8C0 /* ARScanMenuScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38DD01224562D1008DC8C0 /* ARScanMenuScreenViewController.swift */; };
 		AB38DD0422456379008DC8C0 /* ARDetectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38DD0322456379008DC8C0 /* ARDetectViewController.swift */; };
 		AB38DD092245650F008DC8C0 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = AB38DD082245650F008DC8C0 /* LICENSE.txt */; };
+		AB46C545224B59960075EF30 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB46C544224B59960075EF30 /* AuthViewController.swift */; };
+		AB46C547224BE24C0075EF30 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB46C546224BE24C0075EF30 /* GoogleService-Info.plist */; };
 		AB519F602242C6CA00B27A8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB519F5F2242C6CA00B27A8B /* AppDelegate.swift */; };
 		AB519F622242C6CA00B27A8B /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = AB519F612242C6CA00B27A8B /* art.scnassets */; };
 		AB519F672242C6CA00B27A8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB519F652242C6CA00B27A8B /* Main.storyboard */; };
@@ -49,19 +52,14 @@
 		ABB4C9EC2248BD7A0079E25D /* ARScan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABB4C9EE2248BD7A0079E25D /* ARScan.storyboard */; };
 		ABC2C3B7224A857D0045A7D2 /* ScannARNetworkingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB1DA2242E14F00720412 /* ScannARNetworkingController.swift */; };
 		ABC2C3B8224A857D0045A7D2 /* SavedARScansListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38DD0522456411008DC8C0 /* SavedARScansListViewController.swift */; };
+		C28743A6DB52C5982AC7F7E0 /* Pods_ScannARTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EC70ED6367728869B15E014 /* Pods_ScannARTests.framework */; };
 		D142BEE3224AACE400699881 /* ShipmentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D142BEE1224AACE400699881 /* ShipmentsCollectionViewCell.swift */; };
 		D142BEE4224AACE400699881 /* ShipmentsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D142BEE2224AACE400699881 /* ShipmentsCollectionViewCell.xib */; };
+		D1698DAB224AF31400250E4D /* CoreDataImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1698DAA224AF31400250E4D /* CoreDataImporter.swift */; };
+		D1698DB0224B14E700250E4D /* APICallType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1698DAF224B14E700250E4D /* APICallType.swift */; };
+		D1698DB2224B2D5600250E4D /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1698DB1224B2D5600250E4D /* HTTPMethod.swift */; };
 		D1EAB1D72242D64800720412 /* ProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB1D52242D64800720412 /* ProductsCollectionViewCell.swift */; };
 		D1EAB1D82242D64800720412 /* ProductsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1EAB1D62242D64800720412 /* ProductsCollectionViewCell.xib */; };
-
-		D1EAB2002243A60F00720412 /* ShipmentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB1FF2243A60F00720412 /* ShipmentsTableViewController.swift */; };
-		D1EAB2022243A62400720412 /* ShipmentsTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1EAB2012243A62400720412 /* ShipmentsTableViewController.storyboard */; };
-		D142BEE3224AACE400699881 /* ShipmentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D142BEE1224AACE400699881 /* ShipmentsCollectionViewCell.swift */; };
-		D142BEE4224AACE400699881 /* ShipmentsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D142BEE2224AACE400699881 /* ShipmentsCollectionViewCell.xib */; };
-		D1EAB1D72242D64800720412 /* ProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB1D52242D64800720412 /* ProductsCollectionViewCell.swift */; };
-		D1EAB1D82242D64800720412 /* ProductsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1EAB1D62242D64800720412 /* ProductsCollectionViewCell.xib */; };
-
-		D1EAB1DB2242E14F00720412 /* ScannARNetworkingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB1DA2242E14F00720412 /* ScannARNetworkingController.swift */; };
 		D1EAB2042243B4CF00720412 /* ShipmentsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB2032243B4CF00720412 /* ShipmentsDetailViewController.swift */; };
 		D1EAB2062243B4E500720412 /* ShipmentsDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1EAB2052243B4E500720412 /* ShipmentsDetailViewController.storyboard */; };
 		D1EAB2082243B50B00720412 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB2072243B50B00720412 /* ProductDetailViewController.swift */; };
@@ -85,6 +83,7 @@
 		D1EAB23D22492D9700720412 /* ShipmentRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB23C22492D9700720412 /* ShipmentRepresentation.swift */; };
 		D1EAB23F224934E400720412 /* Product+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB23E224934E400720412 /* Product+Encodable.swift */; };
 		D1EAB2412249379D00720412 /* Shipment+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB2402249379D00720412 /* Shipment+Encodable.swift */; };
+		DADF1223DAC5E49F71E288EE /* Pods_ScannARUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C765D2FB588D9FA6DD04870 /* Pods_ScannARUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +104,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13E81132AFEE9F69F169A854 /* Pods-ScannARTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScannARTests.debug.xcconfig"; path = "Target Support Files/Pods-ScannARTests/Pods-ScannARTests.debug.xcconfig"; sourceTree = "<group>"; };
+		26ACD0EC6BC7F68E25CE8B93 /* Pods-ScannARUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScannARUITests.release.xcconfig"; path = "Target Support Files/Pods-ScannARUITests/Pods-ScannARUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3DE19E56F1985A9EAA554933 /* Pods-ScannARUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScannARUITests.debug.xcconfig"; path = "Target Support Files/Pods-ScannARUITests/Pods-ScannARUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		545258C2D3EFFD5C41F33DE7 /* Pods-ScannAR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScannAR.release.xcconfig"; path = "Target Support Files/Pods-ScannAR/Pods-ScannAR.release.xcconfig"; sourceTree = "<group>"; };
+		5EC70ED6367728869B15E014 /* Pods_ScannARTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScannARTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		97499017E7DAF2275EA01119 /* Pods_ScannAR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScannAR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AA2499CF36E13C820240C79 /* Pods-ScannARTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScannARTests.release.xcconfig"; path = "Target Support Files/Pods-ScannARTests/Pods-ScannARTests.release.xcconfig"; sourceTree = "<group>"; };
+		9C765D2FB588D9FA6DD04870 /* Pods_ScannARUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScannARUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB12DBA72242E50E00886A11 /* ARScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARScanViewController.swift; sourceTree = "<group>"; };
 		AB12DBA92242E84F00886A11 /* ARScanViewController+Gestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARScanViewController+Gestures.swift"; sourceTree = "<group>"; };
 		AB12DBAB2242E8BB00886A11 /* ARScanViewController+ARSessionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARScanViewController+ARSessionState.swift"; sourceTree = "<group>"; };
@@ -138,6 +145,8 @@
 		AB38DD0322456379008DC8C0 /* ARDetectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDetectViewController.swift; sourceTree = "<group>"; };
 		AB38DD0522456411008DC8C0 /* SavedARScansListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedARScansListViewController.swift; sourceTree = "<group>"; };
 		AB38DD082245650F008DC8C0 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		AB46C544224B59960075EF30 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		AB46C546224BE24C0075EF30 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AB519F5C2242C6CA00B27A8B /* ScannAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScannAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB519F5F2242C6CA00B27A8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB519F612242C6CA00B27A8B /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -154,6 +163,9 @@
 		ABB4C9ED2248BD7A0079E25D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ARScan.storyboard; sourceTree = "<group>"; };
 		D142BEE1224AACE400699881 /* ShipmentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentsCollectionViewCell.swift; sourceTree = "<group>"; };
 		D142BEE2224AACE400699881 /* ShipmentsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShipmentsCollectionViewCell.xib; sourceTree = "<group>"; };
+		D1698DAA224AF31400250E4D /* CoreDataImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataImporter.swift; sourceTree = "<group>"; };
+		D1698DAF224B14E700250E4D /* APICallType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICallType.swift; sourceTree = "<group>"; };
+		D1698DB1224B2D5600250E4D /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		D1EAB1D52242D64800720412 /* ProductsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1EAB1D62242D64800720412 /* ProductsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductsCollectionViewCell.xib; sourceTree = "<group>"; };
 		D1EAB1DA2242E14F00720412 /* ScannARNetworkingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannARNetworkingController.swift; sourceTree = "<group>"; };
@@ -180,6 +192,7 @@
 		D1EAB23C22492D9700720412 /* ShipmentRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentRepresentation.swift; sourceTree = "<group>"; };
 		D1EAB23E224934E400720412 /* Product+Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+Encodable.swift"; sourceTree = "<group>"; };
 		D1EAB2402249379D00720412 /* Shipment+Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shipment+Encodable.swift"; sourceTree = "<group>"; };
+		D74D33CCBED514833B1EBD93 /* Pods-ScannAR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScannAR.debug.xcconfig"; path = "Target Support Files/Pods-ScannAR/Pods-ScannAR.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +200,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A55892391472DEEFA1A3DAC3 /* Pods_ScannAR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +208,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C28743A6DB52C5982AC7F7E0 /* Pods_ScannARTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,12 +216,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DADF1223DAC5E49F71E288EE /* Pods_ScannARUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E3C9BC150EE99B2527DEB44 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D74D33CCBED514833B1EBD93 /* Pods-ScannAR.debug.xcconfig */,
+				545258C2D3EFFD5C41F33DE7 /* Pods-ScannAR.release.xcconfig */,
+				13E81132AFEE9F69F169A854 /* Pods-ScannARTests.debug.xcconfig */,
+				9AA2499CF36E13C820240C79 /* Pods-ScannARTests.release.xcconfig */,
+				3DE19E56F1985A9EAA554933 /* Pods-ScannARUITests.debug.xcconfig */,
+				26ACD0EC6BC7F68E25CE8B93 /* Pods-ScannARUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		5B9221DA664CE3E0EBB3D62D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				97499017E7DAF2275EA01119 /* Pods_ScannAR.framework */,
+				5EC70ED6367728869B15E014 /* Pods_ScannARTests.framework */,
+				9C765D2FB588D9FA6DD04870 /* Pods_ScannARUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AB12DBB12242E9A900886A11 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,6 +325,8 @@
 				AB519F802242C6CB00B27A8B /* ScannARUITests */,
 				AB519F5D2242C6CA00B27A8B /* Products */,
 				AB38DD072245650F008DC8C0 /* LICENSE */,
+				0E3C9BC150EE99B2527DEB44 /* Pods */,
+				5B9221DA664CE3E0EBB3D62D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -302,6 +343,7 @@
 		AB519F5E2242C6CA00B27A8B /* ScannAR */ = {
 			isa = PBXGroup;
 			children = (
+				D1698DAC224AFE5E00250E4D /* Protocols */,
 				D1EAB22A224920B300720412 /* Model */,
 				D1EAB1D92242E12600720412 /* ModelController */,
 				D1EAB1CC2242D47D00720412 /* Views */,
@@ -310,6 +352,7 @@
 				AB519F652242C6CA00B27A8B /* Main.storyboard */,
 				AB519F682242C6CB00B27A8B /* Assets.xcassets */,
 				AB519F6A2242C6CB00B27A8B /* LaunchScreen.storyboard */,
+				AB46C546224BE24C0075EF30 /* GoogleService-Info.plist */,
 				AB519F6D2242C6CB00B27A8B /* Info.plist */,
 				AB519F612242C6CA00B27A8B /* art.scnassets */,
 				AB519F8F2242E0D600B27A8B /* ARScanner Scene */,
@@ -360,6 +403,13 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		D1698DAC224AFE5E00250E4D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		D1EAB1CB2242D46A00720412 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -395,6 +445,7 @@
 			isa = PBXGroup;
 			children = (
 				D1EAB1DA2242E14F00720412 /* ScannARNetworkingController.swift */,
+				D1698DAA224AF31400250E4D /* CoreDataImporter.swift */,
 			);
 			path = ModelController;
 			sourceTree = "<group>";
@@ -403,6 +454,7 @@
 			isa = PBXGroup;
 			children = (
 				D1EAB2252244597D00720412 /* WalkthroughViewController.swift */,
+				AB46C544224B59960075EF30 /* AuthViewController.swift */,
 				D1EAB2212244138D00720412 /* LoginViewController.swift */,
 			);
 			path = Login;
@@ -419,6 +471,8 @@
 				D1EAB2402249379D00720412 /* Shipment+Encodable.swift */,
 				D1EAB23C22492D9700720412 /* ShipmentRepresentation.swift */,
 				D1EAB23622492B0100720412 /* CoreDataStack.swift */,
+				D1698DAF224B14E700250E4D /* APICallType.swift */,
+				D1698DB1224B2D5600250E4D /* HTTPMethod.swift */,
 				D1EAB2312249227800720412 /* ScannAR.xcdatamodeld */,
 			);
 			path = Model;
@@ -431,9 +485,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AB519F862242C6CB00B27A8B /* Build configuration list for PBXNativeTarget "ScannAR" */;
 			buildPhases = (
+				9357EE90678A961C0D7831AE /* [CP] Check Pods Manifest.lock */,
 				AB519F582242C6CA00B27A8B /* Sources */,
 				AB519F592242C6CA00B27A8B /* Frameworks */,
 				AB519F5A2242C6CA00B27A8B /* Resources */,
+				32E000F0A52B500D715C9B0B /* [CP] Embed Pods Frameworks */,
+				6E00CE16B077856F6F45BCF3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -448,6 +505,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AB519F892242C6CB00B27A8B /* Build configuration list for PBXNativeTarget "ScannARTests" */;
 			buildPhases = (
+				42A4D99ACEA3BF49946BBBC9 /* [CP] Check Pods Manifest.lock */,
 				AB519F6E2242C6CB00B27A8B /* Sources */,
 				AB519F6F2242C6CB00B27A8B /* Frameworks */,
 				AB519F702242C6CB00B27A8B /* Resources */,
@@ -466,6 +524,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AB519F8C2242C6CB00B27A8B /* Build configuration list for PBXNativeTarget "ScannARUITests" */;
 			buildPhases = (
+				BE26380CEDCBB8A9A416AD58 /* [CP] Check Pods Manifest.lock */,
 				AB519F792242C6CB00B27A8B /* Sources */,
 				AB519F7A2242C6CB00B27A8B /* Frameworks */,
 				AB519F7B2242C6CB00B27A8B /* Resources */,
@@ -544,6 +603,7 @@
 				D1EAB2122243B68300720412 /* AccountViewController.storyboard in Resources */,
 				D1EAB220224405F900720412 /* ScannARMainViewController.storyboard in Resources */,
 				AB519F672242C6CA00B27A8B /* Main.storyboard in Resources */,
+				AB46C547224BE24C0075EF30 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,6 +623,129 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		32E000F0A52B500D715C9B0B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ScannAR/Pods-ScannAR-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ScannAR/Pods-ScannAR-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		42A4D99ACEA3BF49946BBBC9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ScannARTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6E00CE16B077856F6F45BCF3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ScannAR/Pods-ScannAR-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ScannAR/Pods-ScannAR-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9357EE90678A961C0D7831AE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ScannAR-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BE26380CEDCBB8A9A416AD58 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ScannARUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AB519F582242C6CA00B27A8B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -580,17 +763,18 @@
 				D1EAB2042243B4CF00720412 /* ShipmentsDetailViewController.swift in Sources */,
 				D1EAB21E224405D700720412 /* ScannARMainViewController.swift in Sources */,
 				D1EAB23922492CEE00720412 /* Shipment+Convenience.swift in Sources */,
-				AB38DD0622456411008DC8C0 /* SavedARScansListViewController.swift in Sources */,
 				ABC2C3B8224A857D0045A7D2 /* SavedARScansListViewController.swift in Sources */,
 				AB38DCE32244626E008DC8C0 /* BoundingBoxSide.swift in Sources */,
 				AB38DCE122446254008DC8C0 /* DetectedBoundingBox.swift in Sources */,
 				AB38DD02224562D1008DC8C0 /* ARScanMenuScreenViewController.swift in Sources */,
+				D1698DB0224B14E700250E4D /* APICallType.swift in Sources */,
 				AB38DCF722446347008DC8C0 /* WireFrame.swift in Sources */,
 				D1EAB2102243B67100720412 /* AccountViewController.swift in Sources */,
 				D1EAB23722492B0100720412 /* CoreDataStack.swift in Sources */,
 				D1EAB229224555B300720412 /* ScannARMainNavigationController.swift in Sources */,
 				AB38DCE922446295008DC8C0 /* ObjectOrigin.swift in Sources */,
 				AB38DCD222445EB7008DC8C0 /* FlashlightButton.swift in Sources */,
+				AB46C545224B59960075EF30 /* AuthViewController.swift in Sources */,
 				AB38DCF922446380008DC8C0 /* BoundingBox+Snapping.swift in Sources */,
 				D1EAB2082243B50B00720412 /* ProductDetailViewController.swift in Sources */,
 				AB38DCCE22445E5E008DC8C0 /* MessageLabel.swift in Sources */,
@@ -607,10 +791,12 @@
 				AB38DCD422445F7C008DC8C0 /* ThresholdPanGestureRecognizer.swift in Sources */,
 				AB12DBB52242EA5D00886A11 /* ARObjectDetectTestController.swift in Sources */,
 				AB38DCDF22446244008DC8C0 /* BoundingBox.swift in Sources */,
+				D1698DAB224AF31400250E4D /* CoreDataImporter.swift in Sources */,
 				AB38DCDB224460DD008DC8C0 /* ARCamera+TrackingState.swift in Sources */,
 				D1EAB2412249379D00720412 /* Shipment+Encodable.swift in Sources */,
 				AB38DCEF224462FD008DC8C0 /* PointCloud+CreateVisualization.swift in Sources */,
 				AB12DBB32242EA0E00886A11 /* ARScan.swift in Sources */,
+				D1698DB2224B2D5600250E4D /* HTTPMethod.swift in Sources */,
 				D1EAB23D22492D9700720412 /* ShipmentRepresentation.swift in Sources */,
 				D1EAB22C224920C800720412 /* JSONWebToken.swift in Sources */,
 				ABC2C3B7224A857D0045A7D2 /* ScannARNetworkingController.swift in Sources */,
@@ -804,6 +990,7 @@
 		};
 		AB519F872242C6CB00B27A8B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D74D33CCBED514833B1EBD93 /* Pods-ScannAR.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -823,6 +1010,7 @@
 		};
 		AB519F882242C6CB00B27A8B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 545258C2D3EFFD5C41F33DE7 /* Pods-ScannAR.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -842,6 +1030,7 @@
 		};
 		AB519F8A2242C6CB00B27A8B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13E81132AFEE9F69F169A854 /* Pods-ScannARTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -863,6 +1052,7 @@
 		};
 		AB519F8B2242C6CB00B27A8B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AA2499CF36E13C820240C79 /* Pods-ScannARTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -884,6 +1074,7 @@
 		};
 		AB519F8D2242C6CB00B27A8B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DE19E56F1985A9EAA554933 /* Pods-ScannARUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -904,6 +1095,7 @@
 		};
 		AB519F8E2242C6CB00B27A8B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26ACD0EC6BC7F68E25CE8B93 /* Pods-ScannARUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

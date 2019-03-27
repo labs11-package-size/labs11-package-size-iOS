@@ -19,7 +19,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         collectionView.delegate = self
         collectionView.dataSource = self
         segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for:.valueChanged)
-        setupSearchBar()
+//        setupSearchBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,45 +30,45 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     
     // MARK: - Private Methods
     
-    private func setupSearchBar() {
-        let swipeDown = UISwipeGestureRecognizer(target: collectionView, action: #selector(down))
-        swipeDown.direction = .down
-        let swipeUp = UISwipeGestureRecognizer(target: collectionView, action: #selector(up))
-        swipeUp.direction = .up
-        
-        self.view.addGestureRecognizer(swipeDown)
-        self.view.addGestureRecognizer(swipeUp)
-        
-        searchBar = UISearchBar(frame: CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: 40.0))
-        searchBar.isUserInteractionEnabled = false
-        self.searchBar!.alpha = 0.0
-        if let searchBar = searchBar
-        {
-            searchBar.backgroundColor = UIColor.red
-            self.view.addSubview(searchBar)
-        }
-    }
-    
-    @objc private func down(sender: UIGestureRecognizer) {
-        print("down")
-        //show bar
-        searchBar.isUserInteractionEnabled = true
-        UIView.animate(withDuration: 0.2, animations: { () -> Void in
-            self.searchBar!.alpha = 1.0
-            self.searchBar!.frame = CGRect(x: 0.0, y: 129.0, width: self.view.frame.width, height: 40.0)
-        }, completion: { (Bool) -> Void in
-        })
-    }
-    
-    @objc private func up(sender: UIGestureRecognizer) {
-        print("up")
-        searchBar.isUserInteractionEnabled = false
-        UIView.animate(withDuration: 0.2, animations: { () -> Void in
-            self.searchBar!.alpha = 0.0
-            self.searchBar!.frame = CGRect(x: 0.0, y: 129.0, width: self.view.frame.width, height: 40.0)
-        }, completion: { (Bool) -> Void in
-        })
-    }
+//    private func setupSearchBar() {
+//        let swipeDown = UISwipeGestureRecognizer(target: collectionView, action: #selector(down))
+//        swipeDown.direction = .down
+//        let swipeUp = UISwipeGestureRecognizer(target: collectionView, action: #selector(up))
+//        swipeUp.direction = .up
+//
+//        self.view.addGestureRecognizer(swipeDown)
+//        self.view.addGestureRecognizer(swipeUp)
+//
+//        searchBar = UISearchBar(frame: CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: 40.0))
+//        searchBar.isUserInteractionEnabled = false
+//        self.searchBar!.alpha = 0.0
+//        if let searchBar = searchBar
+//        {
+//            searchBar.backgroundColor = UIColor.red
+//            self.view.addSubview(searchBar)
+//        }
+//    }
+//
+//    @objc private func down(sender: UIGestureRecognizer) {
+//        print("down")
+//        //show bar
+//        searchBar.isUserInteractionEnabled = true
+//        UIView.animate(withDuration: 0.2, animations: { () -> Void in
+//            self.searchBar!.alpha = 1.0
+//            self.searchBar!.frame = CGRect(x: 0.0, y: 129.0, width: self.view.frame.width, height: 40.0)
+//        }, completion: { (Bool) -> Void in
+//        })
+//    }
+//
+//    @objc private func up(sender: UIGestureRecognizer) {
+//        print("up")
+//        searchBar.isUserInteractionEnabled = false
+//        UIView.animate(withDuration: 0.2, animations: { () -> Void in
+//            self.searchBar!.alpha = 0.0
+//            self.searchBar!.frame = CGRect(x: 0.0, y: 129.0, width: self.view.frame.width, height: 40.0)
+//        }, completion: { (Bool) -> Void in
+//        })
+//    }
     
     @objc private func segmentedControlValueChanged(segment: UISegmentedControl) {
         fetchNetworkRequests()
@@ -78,22 +78,41 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     
     private func fetchNetworkRequests(){
         
-        guard let scannARNetworkingController = scannARNetworkingController else { fatalError("Uh oh. There is not networking controller present")}
+        guard let scannARNetworkingController = scannARNetworkingController else { fatalError("Uh oh. There is no networking controller present")}
         
         switch segmentedControl.selectedSegmentIndex {
         case 1:
-            scannARNetworkingController.getShipments(completion: { (_, error) in
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
+            
+            scannARNetworkingController.getShipments { (results, error) in
+                
+                guard let results = results else {
+                    return
                 }
                 
-            })
+                self.coreDataImporter.syncShipments(shipmentRepresentations: results, completion: { (error) in
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                    }
+                })
+                
+            }
+            
+        
         default:
-            scannARNetworkingController.getProducts(completion: { (result, error) in
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
+            
+            scannARNetworkingController.getProducts { (results, error) in
+                
+                guard let results = results else {
+                    return
                 }
-            })
+                
+                self.coreDataImporter.syncProducts(productRepresentations: results, completion: { (error) in
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                    }
+                })
+                
+            }
         }
     }
     
@@ -165,11 +184,25 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         
     }
     
+    // MARK: - IBActions
+    @IBAction func addButtonClicked(_ sender: Any) {
+        switch segmentedControl.selectedSegmentIndex {
+        case 1:
+            print("Add Shipment")
+            
+        default:
+            print("Add Product")
+        }
+    }
+    
+    
     // MARK: - Properties
     let reuseIdentifier = "DetailCell"
+    @IBOutlet weak var newProductShipmentBarButton: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
     var searchBar: UISearchBar!
     var scannARNetworkingController: ScannARNetworkController?
+    var coreDataImporter: CoreDataImporter = CoreDataImporter(context: CoreDataStack.shared.mainContext)
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     lazy var productsFetchedResultsController: NSFetchedResultsController<Product> = {
