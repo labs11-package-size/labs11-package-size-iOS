@@ -54,6 +54,9 @@
 		C28743A6DB52C5982AC7F7E0 /* Pods_ScannARTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EC70ED6367728869B15E014 /* Pods_ScannARTests.framework */; };
 		D142BEE3224AACE400699881 /* ShipmentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D142BEE1224AACE400699881 /* ShipmentsCollectionViewCell.swift */; };
 		D142BEE4224AACE400699881 /* ShipmentsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D142BEE2224AACE400699881 /* ShipmentsCollectionViewCell.xib */; };
+		D1698DAB224AF31400250E4D /* CoreDataImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1698DAA224AF31400250E4D /* CoreDataImporter.swift */; };
+		D1698DB0224B14E700250E4D /* APICallType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1698DAF224B14E700250E4D /* APICallType.swift */; };
+		D1698DB2224B2D5600250E4D /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1698DB1224B2D5600250E4D /* HTTPMethod.swift */; };
 		D1EAB1D72242D64800720412 /* ProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB1D52242D64800720412 /* ProductsCollectionViewCell.swift */; };
 		D1EAB1D82242D64800720412 /* ProductsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1EAB1D62242D64800720412 /* ProductsCollectionViewCell.xib */; };
 		D1EAB2042243B4CF00720412 /* ShipmentsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB2032243B4CF00720412 /* ShipmentsDetailViewController.swift */; };
@@ -158,6 +161,9 @@
 		ABB4C9ED2248BD7A0079E25D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ARScan.storyboard; sourceTree = "<group>"; };
 		D142BEE1224AACE400699881 /* ShipmentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentsCollectionViewCell.swift; sourceTree = "<group>"; };
 		D142BEE2224AACE400699881 /* ShipmentsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShipmentsCollectionViewCell.xib; sourceTree = "<group>"; };
+		D1698DAA224AF31400250E4D /* CoreDataImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataImporter.swift; sourceTree = "<group>"; };
+		D1698DAF224B14E700250E4D /* APICallType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICallType.swift; sourceTree = "<group>"; };
+		D1698DB1224B2D5600250E4D /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		D1EAB1D52242D64800720412 /* ProductsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1EAB1D62242D64800720412 /* ProductsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductsCollectionViewCell.xib; sourceTree = "<group>"; };
 		D1EAB1DA2242E14F00720412 /* ScannARNetworkingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannARNetworkingController.swift; sourceTree = "<group>"; };
@@ -335,6 +341,7 @@
 		AB519F5E2242C6CA00B27A8B /* ScannAR */ = {
 			isa = PBXGroup;
 			children = (
+				D1698DAC224AFE5E00250E4D /* Protocols */,
 				D1EAB22A224920B300720412 /* Model */,
 				D1EAB1D92242E12600720412 /* ModelController */,
 				D1EAB1CC2242D47D00720412 /* Views */,
@@ -393,6 +400,13 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		D1698DAC224AFE5E00250E4D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		D1EAB1CB2242D46A00720412 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -428,6 +442,7 @@
 			isa = PBXGroup;
 			children = (
 				D1EAB1DA2242E14F00720412 /* ScannARNetworkingController.swift */,
+				D1698DAA224AF31400250E4D /* CoreDataImporter.swift */,
 			);
 			path = ModelController;
 			sourceTree = "<group>";
@@ -453,6 +468,8 @@
 				D1EAB2402249379D00720412 /* Shipment+Encodable.swift */,
 				D1EAB23C22492D9700720412 /* ShipmentRepresentation.swift */,
 				D1EAB23622492B0100720412 /* CoreDataStack.swift */,
+				D1698DAF224B14E700250E4D /* APICallType.swift */,
+				D1698DB1224B2D5600250E4D /* HTTPMethod.swift */,
 				D1EAB2312249227800720412 /* ScannAR.xcdatamodeld */,
 			);
 			path = Model;
@@ -746,6 +763,7 @@
 				AB38DCE32244626E008DC8C0 /* BoundingBoxSide.swift in Sources */,
 				AB38DCE122446254008DC8C0 /* DetectedBoundingBox.swift in Sources */,
 				AB38DD02224562D1008DC8C0 /* ARScanMenuScreenViewController.swift in Sources */,
+				D1698DB0224B14E700250E4D /* APICallType.swift in Sources */,
 				AB38DCF722446347008DC8C0 /* WireFrame.swift in Sources */,
 				D1EAB2102243B67100720412 /* AccountViewController.swift in Sources */,
 				D1EAB23722492B0100720412 /* CoreDataStack.swift in Sources */,
@@ -769,10 +787,12 @@
 				AB38DCD422445F7C008DC8C0 /* ThresholdPanGestureRecognizer.swift in Sources */,
 				AB12DBB52242EA5D00886A11 /* ARObjectDetectTestController.swift in Sources */,
 				AB38DCDF22446244008DC8C0 /* BoundingBox.swift in Sources */,
+				D1698DAB224AF31400250E4D /* CoreDataImporter.swift in Sources */,
 				AB38DCDB224460DD008DC8C0 /* ARCamera+TrackingState.swift in Sources */,
 				D1EAB2412249379D00720412 /* Shipment+Encodable.swift in Sources */,
 				AB38DCEF224462FD008DC8C0 /* PointCloud+CreateVisualization.swift in Sources */,
 				AB12DBB32242EA0E00886A11 /* ARScan.swift in Sources */,
+				D1698DB2224B2D5600250E4D /* HTTPMethod.swift in Sources */,
 				D1EAB23D22492D9700720412 /* ShipmentRepresentation.swift in Sources */,
 				D1EAB22C224920C800720412 /* JSONWebToken.swift in Sources */,
 				ABC2C3B7224A857D0045A7D2 /* ScannARNetworkingController.swift in Sources */,
