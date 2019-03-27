@@ -9,7 +9,27 @@
 import Foundation
 
 enum APICallType: String, Codable {
-    case JobsRequestedByUser
-    case JobsAvailableForUser
-    case JobFromSingleUUID
+    
+    // login & Auth
+    case GETWebToken
+    case POSTRegisterNewUser
+    case GETValidateToken
+    
+    // account info
+    case GETAccountInfo
+    case PUTEditAccountInfo
+    
+    // products
+    case GETProducts
+    case POSTNewProduct
+    case DELETEProduct
+    case PUTEditProduct
+    case GETProductsAssets
+    case POSTProductAsset
+    
+    // shipments
+    case GETShipments
+    case POSTNewShipment
+    case DELETEShipment
+    case PUTEditShipment
 }

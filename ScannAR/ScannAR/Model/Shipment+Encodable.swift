@@ -17,6 +17,7 @@ extension Shipment: Encodable {
         case shippingType
         case status
         case trackingNumber
+        case uuid
     }
     
     // MARK: - Encode
@@ -30,6 +31,7 @@ extension Shipment: Encodable {
         try container.encode(shippingType, forKey: .shippingType)
         try container.encode(status, forKey: .status)
         try container.encode(trackingNumber, forKey: .trackingNumber)
+        try container.encode(uuid, forKey: .uuid)
     }
     
 }

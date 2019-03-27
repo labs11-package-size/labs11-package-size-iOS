@@ -18,8 +18,8 @@ extension Shipment {
                      status: Int,
                      trackingNumber: String,
                      shippedTo: String?,
+                     uuid: UUID = UUID(),
                      context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
-        
         
         self.init(context:context)
         self.identifier = identifier
@@ -30,8 +30,10 @@ extension Shipment {
         self.status = Int16(status)
         self.trackingNumber = trackingNumber
         self.shippedTo = shippedTo
+        self.uuid = uuid
         
     }
+    
     
     convenience init(shipmentRepresentation: ShipmentRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
@@ -39,10 +41,11 @@ extension Shipment {
         let carrierName = shipmentRepresentation.carrierName
         let productId = shipmentRepresentation.productId
         let shippedDate = shipmentRepresentation.shippedDate
-        let shippingType = shipmentRepresentation.shippedType
+        let shippingType = shipmentRepresentation.shippingType
         let status = shipmentRepresentation.status
         let trackingNumber = shipmentRepresentation.trackingNumber
         let shippedTo = shipmentRepresentation.shippedTo
+        let uuid = shipmentRepresentation.uuid
         
         self.init(identifier: identifier, carrierName: carrierName, productId: productId, shippedDate: shippedDate, shippingType: shippingType, status: status, trackingNumber: trackingNumber, shippedTo: shippedTo, context: context)
     }

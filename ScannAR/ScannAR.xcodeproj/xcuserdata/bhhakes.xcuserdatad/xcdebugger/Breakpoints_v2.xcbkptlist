@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ScannAR/ModelController/ScannARNetworkingController.swift"
-            timestampString = "575321954.172006"
+            filePath = "ScannAR/Model/CoreDataStack.swift"
+            timestampString = "575334277.3644069"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
-            landmarkName = "getShipments(completion:)"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "save(context:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

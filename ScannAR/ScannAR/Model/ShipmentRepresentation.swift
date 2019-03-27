@@ -8,16 +8,17 @@
 
 import Foundation
 
-struct ShipmentRepresentation: Decodable {
+struct ShipmentRepresentation: Codable {
     
-    var carrierName: String
-    var identifier: String
-    var productId: String
-    var shippedDate: Date
-    var shippedTo: String
-    var shippedType: String
-    var status: Int
-    var trackingNumber: String
+    let carrierName: String
+    let identifier: String
+    let productId: String
+    let shippedDate: Date
+    let shippedTo: String
+    let shippingType: String
+    let status: Int
+    let trackingNumber: String
+    let uuid: UUID
     
     enum CodingKeys: String, CodingKey {
         case carrierName
@@ -25,11 +26,11 @@ struct ShipmentRepresentation: Decodable {
         case productId
         case shippedDate
         case shippedTo
-        case shippedType
+        case shippingType
         case status
         case trackingNumber
+        case uuid
     }
-    
     
 }
 
@@ -38,7 +39,8 @@ func ==(lhs: ShipmentRepresentation, rhs: Shipment) -> Bool {
         rhs.productId == lhs.productId &&
         rhs.shippedDate == lhs.shippedDate &&
         rhs.status == lhs.status &&
-        rhs.trackingNumber == lhs.trackingNumber
+        rhs.trackingNumber == lhs.trackingNumber &&
+        rhs.uuid == lhs.uuid
 }
 
 func ==(lhs: Shipment, rhs: ShipmentRepresentation) -> Bool {
