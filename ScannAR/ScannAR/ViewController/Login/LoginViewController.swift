@@ -7,19 +7,54 @@
 //
 
 import UIKit
+import Firebase
+import GoogleSignIn
 
-class LoginViewController: UIViewController {
+@objcMembers
+class LoginViewController: UIViewController, GIDSignInUIDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.sendSubviewToBack(backgroundImage)
         // Do any additional setup after loading the view.
-        usernameTextField.delegate = self
-        passwordTextField.delegate = self
+//        usernameTextField.delegate = self
+//        passwordTextField.delegate = self
+        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().signIn()
+        
+        let googleSigninButton = GIDSignInButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
+        googleSigninButton.style = .wide
+        googleSigninButton.colorScheme = .dark
+        googleSigninButton.addTarget(self, action: #selector(googleSigninButtonTapped), for: .touchUpInside)
+        googleSigninButton.center = view.center
+        
+        self.view.addSubview(googleSigninButton)
     }
     
-
+    // GoogleSignIn target action
+    func googleSigninButtonTapped(sender: UIButton!) {
+        print("googleSigninButton tapped")
+        
+        var dict: [String: String] = [:]
+        dict["username"] = "ben"
+        dict["password"] = "hakes"
+        scannARNetworkingController.postForAuthenticationToken(dict: dict) { (string, error) in
+            
+            if let error = error {
+                print("There was an error with your username and password: \(error)")
+            } else {
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "SegueToScannARMain", sender: nil)
+                }
+                
+            }
+            
+            
+        }
+        
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -33,35 +68,36 @@ class LoginViewController: UIViewController {
         
     }
     
-    // MARK: - IBActions
+//     MARK: - IBActions
     
-    @IBAction func loginButtonTapped(_ sender: Any) {
-        
-        loginButton.resignFirstResponder()
-        
-        guard usernameTextField.text != "", passwordTextField.text != "" else {
-            return
-        }
-        
-        var dict: [String: String] = [:]
-        dict["username"] = usernameTextField.text
-        dict["password"] = passwordTextField.text
-        scannARNetworkingController.postForAuthenticationToken(dict: dict) { (string, error) in
-            
-            if let error = error {
-                print("There was an error with your username and password: \(error)")
-            } else {
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "SegueToScannARMain", sender: nil)
-                }
-                
-            }
-            
-        
-        }
-        
-        
-    }
+//    @IBAction func loginButtonTapped(_ sender: Any) {
+//
+//        loginButton.resignFirstResponder()
+//
+//        guard usernameTextField.text != "", passwordTextField.text != "" else {
+//            return
+//        }
+//
+//        var dict: [String: String] = [:]
+//        dict["username"] = "joshua"
+//        dict["password"] = "kaunert"
+//        scannARNetworkingController.postForAuthenticationToken(dict: dict) { (string, error) in
+//
+//            if let error = error {
+//                print("There was an error with your username and password: \(error)")
+//            } else {
+//                DispatchQueue.main.async {
+//                    self.performSegue(withIdentifier: "SegueToScannARMain", sender: nil)
+//                }
+//
+//            }
+//
+//
+//        }
+//
+//
+//    }
+    
     
     // MARK: - Properties
     
@@ -73,9 +109,11 @@ class LoginViewController: UIViewController {
     
 }
 
+
 extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
+    
 }
