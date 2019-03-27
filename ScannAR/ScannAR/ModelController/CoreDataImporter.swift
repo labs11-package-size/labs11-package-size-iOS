@@ -30,7 +30,7 @@ class CoreDataImporter {
             // we now need to check to see that we have results back
             // if we do, let's create a dictionary to put those results in
             
-            if let alreadyInCoreDataProducts = result {
+            if let alreadyInCoreDataProducts = result, alreadyInCoreDataProducts.count > 0 {
                 var coreDataDictionary: [String: Product] = [:] // if there is already a list of arrays in core data, make a dictionary
                 
                 for existingProduct in alreadyInCoreDataProducts {
@@ -58,6 +58,12 @@ class CoreDataImporter {
                     _ = Product(productRepresentation: productRepresentation, context: self.context)
                 }
                 
+            }
+            
+            do {
+                try self.context.save()
+            } catch let saveError {
+                print("Error saving context: \(saveError)")
             }
             
             completion(nil)
@@ -108,6 +114,12 @@ class CoreDataImporter {
                     _ = Shipment(shipmentRepresentation: shipmentRepresentation, context: self.context)
                 }
                 
+            }
+            
+            do {
+                try self.context.save()
+            } catch let saveError {
+                print("Error saving context: \(saveError)")
             }
             
             completion(nil)
