@@ -1,0 +1,6 @@
+framework module Pods_ScannARTests {
+  umbrella header "Pods-ScannARTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
