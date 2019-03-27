@@ -47,7 +47,7 @@ extension Shipment {
         let shippedTo = shipmentRepresentation.shippedTo
         let uuid = shipmentRepresentation.uuid
         
-        self.init(identifier: identifier, carrierName: carrierName, productId: productId, shippedDate: shippedDate, shippingType: shippingType, status: status, trackingNumber: trackingNumber, shippedTo: shippedTo, context: context)
+        self.init(identifier: identifier, carrierName: carrierName, productId: productId, shippedDate: shippedDate, shippingType: shippingType, status: status, trackingNumber: trackingNumber, shippedTo: shippedTo, uuid: uuid, context: context)
     }
     
     

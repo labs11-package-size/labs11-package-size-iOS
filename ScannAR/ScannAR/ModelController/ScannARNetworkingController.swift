@@ -50,10 +50,10 @@ class ScannARNetworkController {
         let request = createRequest(for: .GETWebToken, with: dict)
         
         apiRequest(from: request) { (results: JSONWebToken?, error: Error?) in
-            guard let token = results?.token else {
-                return completion(results, nil)
+            guard let results = results else {
+                return completion(nil, nil)
             }
-            self.jsonToken?.token = token
+            self.jsonToken = results
             completion(results, nil)
         }
         

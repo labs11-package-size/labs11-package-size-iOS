@@ -78,22 +78,41 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     
     private func fetchNetworkRequests(){
         
-        guard let scannARNetworkingController = scannARNetworkingController else { fatalError("Uh oh. There is not networking controller present")}
+        guard let scannARNetworkingController = scannARNetworkingController else { fatalError("Uh oh. There is no networking controller present")}
         
         switch segmentedControl.selectedSegmentIndex {
         case 1:
             
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
+            scannARNetworkingController.getShipments { (results, error) in
+                
+                guard let results = results else {
+                    return
                 }
+                
+                self.coreDataImporter.syncShipments(shipmentRepresentations: results, completion: { (error) in
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                    }
+                })
+                
+            }
+            
         
         default:
             
-            scannARNetworkingController.getProducts(completion: { (results, error) in
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
+            scannARNetworkingController.getProducts { (results, error) in
+                
+                guard let results = results else {
+                    return
                 }
-            })
+                
+                self.coreDataImporter.syncProducts(productRepresentations: results, completion: { (error) in
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                    }
+                })
+                
+            }
         }
     }
     
@@ -165,11 +184,25 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         
     }
     
+    // MARK: - IBActions
+    @IBAction func addButtonClicked(_ sender: Any) {
+        switch segmentedControl.selectedSegmentIndex {
+        case 1:
+            print("Add Shipment")
+            
+        default:
+            print("Add Product")
+        }
+    }
+    
+    
     // MARK: - Properties
     let reuseIdentifier = "DetailCell"
+    @IBOutlet weak var newProductShipmentBarButton: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
     var searchBar: UISearchBar!
     var scannARNetworkingController: ScannARNetworkController?
+    var coreDataImporter: CoreDataImporter = CoreDataImporter(context: CoreDataStack.shared.mainContext)
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     lazy var productsFetchedResultsController: NSFetchedResultsController<Product> = {
