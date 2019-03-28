@@ -36,9 +36,15 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     func googleSigninButtonTapped(sender: UIButton!) {
         print("googleSigninButton tapped")
         
+        if appDelegate.user == nil {
+            appDelegate.user = Auth.auth().currentUser
+        }
+        guard let user = appDelegate.user else { fatalError("Do not have user object sent from google")}
         var dict: [String: String] = [:]
-        dict["username"] = "ben"
-        dict["password"] = "hakes"
+        dict["uid"] = user.uid
+        dict["displayName"] = user.displayName
+        dict["email"] = user.email
+        dict["photoURL"] = user.photoURL?.absoluteString
         scannARNetworkingController.postForAuthenticationToken(dict: dict) { (string, error) in
             
             if let error = error {
@@ -102,6 +108,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     // MARK: - Properties
     
     var scannARNetworkingController: ScannARNetworkController = ScannARNetworkController()
+    var user: User?
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var backgroundImage: UIImageView!
