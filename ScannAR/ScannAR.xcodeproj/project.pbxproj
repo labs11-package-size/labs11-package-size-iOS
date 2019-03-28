@@ -324,6 +324,15 @@
 			path = LICENSE;
 			sourceTree = "<group>";
 		};
+		AB46C54D224C2A970075EF30 /* Test AuthViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AB46C544224B59960075EF30 /* AuthViewController.swift */,
+				AB46C548224C06700075EF30 /* AuthViewTestScene.storyboard */,
+			);
+			path = "Test AuthViewController";
+			sourceTree = "<group>";
+		};
 		AB519F532242C6CA00B27A8B = {
 			isa = PBXGroup;
 			children = (
@@ -462,9 +471,8 @@
 			isa = PBXGroup;
 			children = (
 				D1EAB2252244597D00720412 /* WalkthroughViewController.swift */,
-				AB46C544224B59960075EF30 /* AuthViewController.swift */,
-				AB46C548224C06700075EF30 /* AuthViewTestScene.storyboard */,
 				D1EAB2212244138D00720412 /* LoginViewController.swift */,
+				AB46C54D224C2A970075EF30 /* Test AuthViewController */,
 			);
 			path = Login;
 			sourceTree = "<group>";
