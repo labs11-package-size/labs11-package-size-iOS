@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, NSFetchedResultsControllerDelegate, UISearchBarDelegate {
+class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NSFetchedResultsControllerDelegate, UISearchBarDelegate, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +19,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         collectionView.delegate = self
         collectionView.dataSource = self
         segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for:.valueChanged)
+        setupLongPress()
 //        setupSearchBar()
     }
     
@@ -28,6 +29,15 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         fetchNetworkRequests()
     }
     
+    // Private Methods
+    private func setupLongPress(){
+        let lpgr : UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(ScannARMainViewController.handleLongPress(gestureRecognizer:)))
+        lpgr.minimumPressDuration = 0.5
+        lpgr.delegate = self
+        lpgr.delaysTouchesBegan = false
+        self.collectionView?.addGestureRecognizer(lpgr)
+    }
+
     // MARK: - Private Methods
     
 //    private func setupSearchBar() {
@@ -176,12 +186,24 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             
             // Configure the cell
             cell.titleLabel.text = product.name
-            cell.detailLabel.text = "\(product.identifier)"
+            cell.detailLabel.text = "$\(product.value)"
             
             return cell
         }
         
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        
+        return CGSize(width: collectionView.bounds.size.width, height: 10)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let kWhateverHeightYouWant = 100
+        return CGSize(width: collectionView.bounds.size.width / 2 - 8, height: CGFloat(kWhateverHeightYouWant))
     }
     
     // MARK: - IBActions
@@ -192,9 +214,63 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             
         default:
             print("Add Product")
+            guard let presentedViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddProductViewControllerSB") as? AddProductViewController else {fatalError("could not cast presented view controller as AddProductViewController")}
+            
+            presentedViewController.scannARNetworkController = self.scannARNetworkingController
+            presentedViewController.collectionViewToReload = self.collectionView
+            presentedViewController.providesPresentationContextTransitionStyle = true
+            presentedViewController.definesPresentationContext = true
+            presentedViewController.modalPresentationStyle = .overFullScreen
+            presentedViewController.view.backgroundColor = UIColor.init(white: 0.4, alpha: 0.3)
+            self.present(presentedViewController, animated: true, completion: nil)
         }
     }
     
+    // MARK: - Tap gesture Recognizer
+    @objc (handleLongPressWithGestureRecognizer:)
+    func handleLongPress(gestureRecognizer : UILongPressGestureRecognizer){
+        
+        if (gestureRecognizer.state != UIGestureRecognizer.State.ended){
+            return
+        }
+        
+        let p = gestureRecognizer.location(in: self.collectionView)
+        
+        if let indexPath : IndexPath = (self.collectionView?.indexPathForItem(at: p)){
+            //do whatever you need to do
+            let generator = UIImpactFeedbackGenerator(style: .heavy)
+            generator.impactOccurred()
+            displayAlertViewController(for: indexPath)
+            
+        }
+        
+    }
+    
+    
+    // MARK: - Display Alert View Controller
+    func displayAlertViewController(for indexPath: IndexPath){
+        
+        let productToDelete = self.productsFetchedResultsController.object(at: indexPath)
+        var productId = ""
+        if let uuid = productToDelete.uuid {
+            productId = productToDelete.uuid!.uuidString
+        }
+        let alert = UIAlertController(title: "Are you sure you want to delete product \(productId)?", message: "Press okay to remove it from the Library", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { action in
+            if action.style == .destructive {
+                let productToDelete = self.productsFetchedResultsController.object(at: indexPath)
+                let moc = CoreDataStack.shared.mainContext
+                moc.perform {
+                    moc.delete(productToDelete)
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                    }
+                }
+                
+            }}))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
     
     // MARK: - Properties
     let reuseIdentifier = "DetailCell"
@@ -213,7 +289,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             NSSortDescriptor(key: "identifier", ascending: true)
         ]
         let moc = CoreDataStack.shared.mainContext
-        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "value", cacheName: nil)
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "fragile", cacheName: nil)
         
         frc.delegate = self
         try? frc.performFetch()
