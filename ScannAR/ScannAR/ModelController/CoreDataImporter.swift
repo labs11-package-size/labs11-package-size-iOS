@@ -131,8 +131,8 @@ class CoreDataImporter {
     private func updateProduct(product: Product, with productRepresentation: ProductRepresentation) {
         product.identifier = Int16(productRepresentation.identifier)
         product.fragile = Int16(productRepresentation.fragile)
-        product.height = productRepresentation.height
-        product.length = productRepresentation.length
+        product.height = productRepresentation.height ?? 0
+        product.length = productRepresentation.length ?? 0
         product.manufacturerId = productRepresentation.manufacturerId
         product.name = productRepresentation.name
         product.productDescription = productRepresentation.productDescription
@@ -145,9 +145,9 @@ class CoreDataImporter {
     
     private func updateShipment(shipment: Shipment, with shipmentRepresentation: ShipmentRepresentation) {
         
-        shipment.identifier = shipmentRepresentation.identifier
+        shipment.identifier = Int16(shipmentRepresentation.identifier)
         shipment.carrierName = shipmentRepresentation.carrierName
-        shipment.productId = shipmentRepresentation.productId
+        shipment.productId = Int16(shipmentRepresentation.productId)
         shipment.shippedDate = shipmentRepresentation.shippedDate
         shipment.shippingType = shipmentRepresentation.shippingType
         shipment.status = Int16(shipmentRepresentation.status)
