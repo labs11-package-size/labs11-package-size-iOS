@@ -140,7 +140,7 @@ extension ARScanViewController {
                     self.displayInstruction(Message("Tap 'Next' to create an approximate bounding box around the product or object you want to scan. Try to conform the bounding box as closely as possible to the object."))
                     self.nextButton.isEnabled = true
                 } else {
-                    self.displayInstruction(Message("Point at a nearby object to scan."))
+                    self.displayInstruction(Message("Point camera at the object you want to scan."))
                     self.nextButton.isEnabled = false
                 }
             case .defineBoundingBox:
@@ -153,7 +153,7 @@ extension ARScanViewController {
                 self.flashlightButton.isHidden = true
                 self.nextButton.setTitle("Scan", for: [])
             case .scanning:
-                self.displayInstruction(Message("Scan the object from all sides that you are " +
+                self.displayInstruction(Message("Scan the object from all sides " +
                     "except the bottom. Move 360 degrees around the object to accomplish this. Do not move the object itself while scanning!"))
                 if let boundingBox = scan.scannedObject.boundingBox {
                     self.setNavigationBarTitle("Scan (\(boundingBox.progressPercentage)%)")
