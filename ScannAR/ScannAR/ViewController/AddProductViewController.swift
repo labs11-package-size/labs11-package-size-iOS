@@ -61,7 +61,9 @@ class AddProductViewController: UIViewController {
            let newProduct = Product(fragile: 0, height: Double(height)!, length: Double(length)!, manufacturerId: manufacturerId, name: name, productDescription: productDescription, value: Double(value)!, weight: Double(weight)!, width: Double(width)!)
             let dict = NetworkingHelpers.dictionaryFromProduct(product: newProduct)
             scannARNetworkController.postNewProduct(dict: dict) { error in
-                self.dismiss(animated: true, completion: nil)
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true, completion: nil)
+                }
             }
             
         }

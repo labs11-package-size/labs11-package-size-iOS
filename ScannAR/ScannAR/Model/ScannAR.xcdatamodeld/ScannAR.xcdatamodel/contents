@@ -4,6 +4,7 @@
         <attribute name="fragile" attributeType="Integer 16" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="height" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lastUpdated" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="length" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="manufacturerId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
@@ -16,8 +17,8 @@
     </entity>
     <entity name="Shipment" representedClassName="Shipment" syncable="YES" codeGenerationType="class">
         <attribute name="carrierName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="identifier" attributeType="String" syncable="YES"/>
-        <attribute name="productId" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="productId" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="shippedDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="shippedTo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="shippingType" optional="YES" attributeType="String" syncable="YES"/>
@@ -26,7 +27,7 @@
         <attribute name="uuid" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Product" positionX="-63" positionY="-18" width="128" height="225"/>
+        <element name="Product" positionX="-63" positionY="-18" width="128" height="240"/>
         <element name="Shipment" positionX="-54" positionY="-9" width="128" height="180"/>
     </elements>
 </model>

@@ -13,8 +13,10 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.collectionView!.register(UINib(nibName: "ProductsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
+        
+        self.collectionView!.register(UINib(nibName: "ShipmentsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: shipmentReuseIdentifier)
+        self.collectionView!.register(UINib(nibName: "ProductsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: productReuseIdentifier)
+        
         // Do any additional setup after loading the view.
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -169,18 +171,18 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         
         switch segmentedControl.selectedSegmentIndex {
         case 1:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? ShipmentsCollectionViewCell else { fatalError("Could not dequeue cell as FavoritesCollectionViewCell") }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: shipmentReuseIdentifier, for: indexPath) as? ShipmentsCollectionViewCell else { fatalError("Could not dequeue cell as ShipmentsCollectionViewCell") }
             
             let shipment = shipmentsFetchedResultsController.object(at: indexPath)
             
             // Configure the cell
-            cell.titleLabel.text = shipment.carrierName
+            cell.titleLabel.text = "\(shipment.productId)"
             cell.detailLabel.text = "\(shipment.status)"
             
             return cell
             
         default:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? ProductsCollectionViewCell else { fatalError("Could not dequeue cell as FavoritesCollectionViewCell") }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: productReuseIdentifier, for: indexPath) as? ProductsCollectionViewCell else { fatalError("Could not dequeue cell as ProductsCollectionViewCell") }
             
             let product = productsFetchedResultsController.object(at: indexPath)
             
@@ -204,6 +206,12 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         let kWhateverHeightYouWant = 100
         return CGSize(width: collectionView.bounds.size.width / 2 - 8, height: CGFloat(kWhateverHeightYouWant))
+    }
+    
+    // MARK: - NSFetchedResultsControllerDelegate
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        blockOperation = BlockOperation()
     }
     
     // MARK: - IBActions
@@ -251,21 +259,39 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     func displayAlertViewController(for indexPath: IndexPath){
         
         let productToDelete = self.productsFetchedResultsController.object(at: indexPath)
-        var productId = ""
-        if let uuid = productToDelete.uuid {
-            productId = productToDelete.uuid!.uuidString
+        
+        let productName = productToDelete.name ?? ""
+        guard let uuid = productToDelete.uuid else {
+            print("Error: no UUID associated with the product")
+            return
         }
-        let alert = UIAlertController(title: "Are you sure you want to delete product \(productId)?", message: "Press okay to remove it from the Library", preferredStyle: .alert)
+        
+        let alert = UIAlertController(title: "Are you sure you want to delete product \(productName)?", message: "Press okay to remove it from the Library", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { action in
             if action.style == .destructive {
                 let productToDelete = self.productsFetchedResultsController.object(at: indexPath)
-                let moc = CoreDataStack.shared.mainContext
-                moc.perform {
-                    moc.delete(productToDelete)
-                    DispatchQueue.main.async {
-                        self.collectionView.reloadData()
+                self.scannARNetworkingController?.deleteProduct(uuid: uuid, completion: { (error) in
+                    
+                    if let error = error {
+                        print("Error deleting object: \(error)")
                     }
-                }
+                    
+                    let moc = CoreDataStack.shared.mainContext
+                    moc.perform {
+                        moc.delete(productToDelete)
+                        
+                        do {
+                            try moc.save()
+                        } catch let saveError {
+                            print("Error saving context: \(saveError)")
+                        }
+                        DispatchQueue.main.async {
+                            self.collectionView.reloadData()
+                        }
+                        
+                    }
+                })
+                
                 
             }}))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -273,12 +299,14 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     // MARK: - Properties
-    let reuseIdentifier = "DetailCell"
+    let productReuseIdentifier = "ProductCell"
+    let shipmentReuseIdentifier = "ShipmentCell"
     @IBOutlet weak var newProductShipmentBarButton: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
     var searchBar: UISearchBar!
     var scannARNetworkingController: ScannARNetworkController?
     var coreDataImporter: CoreDataImporter = CoreDataImporter(context: CoreDataStack.shared.mainContext)
+    private var blockOperation = BlockOperation()
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     lazy var productsFetchedResultsController: NSFetchedResultsController<Product> = {
@@ -289,7 +317,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             NSSortDescriptor(key: "identifier", ascending: true)
         ]
         let moc = CoreDataStack.shared.mainContext
-        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "fragile", cacheName: nil)
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
         
         frc.delegate = self
         try? frc.performFetch()
