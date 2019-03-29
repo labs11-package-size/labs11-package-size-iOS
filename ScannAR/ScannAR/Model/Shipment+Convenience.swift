@@ -10,9 +10,9 @@ import Foundation
 import CoreData
 
 extension Shipment {
-    convenience init(identifier: String,
+    convenience init(identifier: Int? = nil,
                      carrierName: String?,
-                     productId: String,
+                     productId: Int? = nil,
                      shippedDate: Date,
                      shippingType: String?,
                      status: Int,
@@ -22,9 +22,16 @@ extension Shipment {
                      context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         self.init(context:context)
-        self.identifier = identifier
+        
+        if let identifier = identifier {
+            self.identifier = Int16(identifier)
+        }
+        if let productId = productId {
+            self.productId = Int16(productId)
+        }
+        
+        
         self.carrierName = carrierName
-        self.productId = productId
         self.shippedDate = shippedDate
         self.shippingType = shippingType
         self.status = Int16(status)

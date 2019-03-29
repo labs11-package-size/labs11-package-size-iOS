@@ -35,6 +35,7 @@ class ScannARNetworkController {
                 let decodedObject = try jsonDecoder.decode(T.self, from: data)
                 completion(decodedObject, nil)
             } catch {
+                print("Error:\(error)")
                 completion(nil, error)
             }
             }.resume()

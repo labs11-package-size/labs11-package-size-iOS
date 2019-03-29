@@ -144,8 +144,8 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
     
     func backFromBackground() {
         if state == .scanning {
-            let title = "Warning: Scan may be broken"
-            let message = "The scan was interrupted. It is recommended to restart the scan."
+            let title = "Warning: The scan was interrupted."
+            let message = "We recommend that you restart the scan."
             let buttonTitle = "Restart Scan"
             self.showAlert(title: title, message: message, buttonTitle: buttonTitle, showCancel: true) { _ in
                 self.state = .notReady
@@ -237,8 +237,8 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
             if let object = scannedObject {
                 self.testObjectDetection(of: object)
             } else {
-                let title = "Scan failed"
-                let message = "Saving the scan failed."
+                let title = "Scan has failed"
+                let message = "You cannot save a failed scan. Please try again."
                 let buttonTitle = "Restart Scan"
                 self.showAlert(title: title, message: message, buttonTitle: buttonTitle, showCancel: false) { _ in
                     self.state = .startARSession
@@ -258,7 +258,7 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
         //    the feature point cloud which was captured during scanning.
         self.scan = nil
         self.displayInstruction(Message("""
-                    Test detection of the object from different angles. Consider moving the object to different environments and test there.
+                    View the object through the camera from different angles. If you experience difficulties, try and move the object to a different location.
                     """))
     }
     
@@ -373,10 +373,10 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
                         if reason == .relocalizing {
                             // If ARKit is relocalizing we should abort the current scan
                             // as this can cause unpredictable distortions of the map.
-                            print("Warning: ARKit is relocalizing")
+                            print("Warning: scannAR is relocalizing world map.")
                             
-                            let title = "Warning: Scan may be broken"
-                            let message = "A gap in tracking has occurred. It is recommended to restart the scan."
+                            let title = "Warning: Scan may have failed."
+                            let message = "A gap in tracking has occurred. We recommended that you restart the scan."
                             let buttonTitle = "Restart Scan"
                             self.showAlert(title: title, message: message, buttonTitle: buttonTitle, showCancel: true) { _ in
                                 self.state = .notReady
@@ -414,7 +414,7 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
             if let testRun = self.testRun, objectAnchor.referenceObject == testRun.referenceObject {
                 testRun.successfulDetection(objectAnchor)
                 let messageText = """
-                    Object successfully detected from this angle.
+                    Your object was successfully detected! Your scan was successful.
 
                     """ + testRun.statistics
                 displayMessage(messageText, expirationTime: testRun.resultDisplayDuration)
@@ -460,10 +460,10 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
         guard let node = notification.object as? ObjectOrigin else { return }
         
         // Display origin position w.r.t. bounding box
-        let xString = String(format: "x: %.2f", node.position.x)
-        let yString = String(format: "y: %.2f", node.position.y)
-        let zString = String(format: "z: %.2f", node.position.z)
-        displayMessage("Current local origin position in meters:\n\(xString) \(yString) \(zString)", expirationTime: 1.5)
+        let xString = String(format: "x: %.2f", node.position.x * 39.3701)
+        let yString = String(format: "y: %.2f", node.position.y * 39.3701)
+        let zString = String(format: "z: %.2f", node.position.z * 39.3701)
+        displayMessage("Current local origin position in inches:\n\(xString) \(yString) \(zString)", expirationTime: 1.5)
     }
     
     @objc

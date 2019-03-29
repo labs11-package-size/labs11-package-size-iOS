@@ -11,9 +11,10 @@ import Foundation
 struct ProductRepresentation: Codable {
     
     var fragile: Int
-    var height: Double
+    var height: Double?
+    var lastUpdated: Date?
     var identifier: Int
-    var length: Double
+    var length: Double?
     var manufacturerId: String
     var name: String
     var productDescription: String
@@ -26,6 +27,7 @@ struct ProductRepresentation: Codable {
     enum CodingKeys: String, CodingKey {
         case fragile
         case height
+        case lastUpdated
         case identifier
         case length
         case manufacturerId

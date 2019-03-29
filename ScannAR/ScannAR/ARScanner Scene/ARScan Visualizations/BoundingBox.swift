@@ -154,6 +154,8 @@ class BoundingBox: SCNNode {
         
         // Otherwise just update the wireframe's size and position.
         wireframe.update(extent: self.extent)
+        
+        print("x: \(self.extent.x * 39.3701), y: \(self.extent.y * 39.3701), \(self.extent.z * 39.3701)" )
     }
     
     private func updateSides() {

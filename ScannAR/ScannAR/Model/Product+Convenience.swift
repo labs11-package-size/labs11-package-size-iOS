@@ -12,13 +12,14 @@ import CoreData
 extension Product {
     
     convenience init(fragile: Int,
-                     height: Double,
-                     identifier: Int,
-                     length: Double,
-                     manufacturerId: String,
+                     height: Double? = nil,
+                     lastUpdated: Date? = Date(),
+                     identifier: Int? = nil,
+                     length: Double? = nil,
+                     manufacturerId: String?,
                      name: String,
-                     productDescription: String,
-                     userId: Int,
+                     productDescription: String? = "",
+                     userId: Int? = nil,
                      value: Double,
                      weight: Double,
                      width: Double,
@@ -27,14 +28,29 @@ extension Product {
         
         
         self.init(context:context)
+        
+        
+        if let identifier = identifier{
+            self.identifier = Int16(identifier)
+        }
+        if let userId = userId {
+            self.userId = Int16(userId)
+        }
+        if let manufacturerId = manufacturerId {
+            self.manufacturerId = manufacturerId
+        }
+        
+        if let height = height {
+            self.height = height
+        }
+        if let length = length {
+            self.length = length
+        }
+        
+        self.lastUpdated = lastUpdated
         self.fragile = Int16(fragile)
-        self.height = height
-        self.identifier = Int16(identifier)
-        self.length = length
-        self.manufacturerId = manufacturerId
         self.name = name
         self.productDescription = productDescription
-        self.userId = Int16(userId)
         self.value = value
         self.weight = weight
         self.width = width

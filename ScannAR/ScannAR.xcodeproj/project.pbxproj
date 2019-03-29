@@ -42,6 +42,8 @@
 		AB38DD092245650F008DC8C0 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = AB38DD082245650F008DC8C0 /* LICENSE.txt */; };
 		AB46C545224B59960075EF30 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB46C544224B59960075EF30 /* AuthViewController.swift */; };
 		AB46C547224BE24C0075EF30 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB46C546224BE24C0075EF30 /* GoogleService-Info.plist */; };
+		AB46C549224C06700075EF30 /* AuthViewTestScene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB46C548224C06700075EF30 /* AuthViewTestScene.storyboard */; };
+		AB46C54C224C082F0075EF30 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB46C54B224C082F0075EF30 /* AuthenticationServices.framework */; };
 		AB519F602242C6CA00B27A8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB519F5F2242C6CA00B27A8B /* AppDelegate.swift */; };
 		AB519F622242C6CA00B27A8B /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = AB519F612242C6CA00B27A8B /* art.scnassets */; };
 		AB519F672242C6CA00B27A8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB519F652242C6CA00B27A8B /* Main.storyboard */; };
@@ -53,6 +55,8 @@
 		ABC2C3B7224A857D0045A7D2 /* ScannARNetworkingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB1DA2242E14F00720412 /* ScannARNetworkingController.swift */; };
 		ABC2C3B8224A857D0045A7D2 /* SavedARScansListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38DD0522456411008DC8C0 /* SavedARScansListViewController.swift */; };
 		C28743A6DB52C5982AC7F7E0 /* Pods_ScannARTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EC70ED6367728869B15E014 /* Pods_ScannARTests.framework */; };
+		D13070B5224C62EC00164B9A /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13070B4224C62EC00164B9A /* AddProductViewController.swift */; };
+		D135E657224C89F5008CC7DF /* NetworkingHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D135E656224C89F5008CC7DF /* NetworkingHelpers.swift */; };
 		D142BEE3224AACE400699881 /* ShipmentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D142BEE1224AACE400699881 /* ShipmentsCollectionViewCell.swift */; };
 		D142BEE4224AACE400699881 /* ShipmentsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D142BEE2224AACE400699881 /* ShipmentsCollectionViewCell.xib */; };
 		D1698DAB224AF31400250E4D /* CoreDataImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1698DAA224AF31400250E4D /* CoreDataImporter.swift */; };
@@ -147,6 +151,9 @@
 		AB38DD082245650F008DC8C0 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		AB46C544224B59960075EF30 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		AB46C546224BE24C0075EF30 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AB46C548224C06700075EF30 /* AuthViewTestScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthViewTestScene.storyboard; sourceTree = "<group>"; };
+		AB46C54A224C080F0075EF30 /* ScannAR.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScannAR.entitlements; sourceTree = "<group>"; };
+		AB46C54B224C082F0075EF30 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 		AB519F5C2242C6CA00B27A8B /* ScannAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScannAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB519F5F2242C6CA00B27A8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB519F612242C6CA00B27A8B /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -161,6 +168,8 @@
 		AB519F812242C6CB00B27A8B /* ScannARUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannARUITests.swift; sourceTree = "<group>"; };
 		AB519F832242C6CB00B27A8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ABB4C9ED2248BD7A0079E25D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ARScan.storyboard; sourceTree = "<group>"; };
+		D13070B4224C62EC00164B9A /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
+		D135E656224C89F5008CC7DF /* NetworkingHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingHelpers.swift; sourceTree = "<group>"; };
 		D142BEE1224AACE400699881 /* ShipmentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentsCollectionViewCell.swift; sourceTree = "<group>"; };
 		D142BEE2224AACE400699881 /* ShipmentsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShipmentsCollectionViewCell.xib; sourceTree = "<group>"; };
 		D1698DAA224AF31400250E4D /* CoreDataImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataImporter.swift; sourceTree = "<group>"; };
@@ -200,6 +209,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB46C54C224C082F0075EF30 /* AuthenticationServices.framework in Frameworks */,
 				A55892391472DEEFA1A3DAC3 /* Pods_ScannAR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,6 +249,7 @@
 		5B9221DA664CE3E0EBB3D62D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AB46C54B224C082F0075EF30 /* AuthenticationServices.framework */,
 				97499017E7DAF2275EA01119 /* Pods_ScannAR.framework */,
 				5EC70ED6367728869B15E014 /* Pods_ScannARTests.framework */,
 				9C765D2FB588D9FA6DD04870 /* Pods_ScannARUITests.framework */,
@@ -317,6 +328,15 @@
 			path = LICENSE;
 			sourceTree = "<group>";
 		};
+		AB46C54D224C2A970075EF30 /* Test AuthViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AB46C544224B59960075EF30 /* AuthViewController.swift */,
+				AB46C548224C06700075EF30 /* AuthViewTestScene.storyboard */,
+			);
+			path = "Test AuthViewController";
+			sourceTree = "<group>";
+		};
 		AB519F532242C6CA00B27A8B = {
 			isa = PBXGroup;
 			children = (
@@ -343,6 +363,7 @@
 		AB519F5E2242C6CA00B27A8B /* ScannAR */ = {
 			isa = PBXGroup;
 			children = (
+				AB46C54A224C080F0075EF30 /* ScannAR.entitlements */,
 				D1698DAC224AFE5E00250E4D /* Protocols */,
 				D1EAB22A224920B300720412 /* Model */,
 				D1EAB1D92242E12600720412 /* ModelController */,
@@ -403,6 +424,14 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		D135E655224C89E3008CC7DF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D135E656224C89F5008CC7DF /* NetworkingHelpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		D1698DAC224AFE5E00250E4D /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -415,6 +444,7 @@
 			children = (
 				D1EAB2272244598C00720412 /* Login */,
 				D1EAB21B224405BE00720412 /* ScannARMainCollectionView.swift */,
+				D13070B4224C62EC00164B9A /* AddProductViewController.swift */,
 				D1EAB21D224405D700720412 /* ScannARMainViewController.swift */,
 				D1EAB228224555B300720412 /* ScannARMainNavigationController.swift */,
 				D1EAB21F224405F900720412 /* ScannARMainViewController.storyboard */,
@@ -445,6 +475,7 @@
 			isa = PBXGroup;
 			children = (
 				D1EAB1DA2242E14F00720412 /* ScannARNetworkingController.swift */,
+				D135E655224C89E3008CC7DF /* Helpers */,
 				D1698DAA224AF31400250E4D /* CoreDataImporter.swift */,
 			);
 			path = ModelController;
@@ -454,8 +485,8 @@
 			isa = PBXGroup;
 			children = (
 				D1EAB2252244597D00720412 /* WalkthroughViewController.swift */,
-				AB46C544224B59960075EF30 /* AuthViewController.swift */,
 				D1EAB2212244138D00720412 /* LoginViewController.swift */,
+				AB46C54D224C2A970075EF30 /* Test AuthViewController */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -552,6 +583,17 @@
 					AB519F5B2242C6CA00B27A8B = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1020;
+						SystemCapabilities = {
+							com.apple.AutoFillCredentialProvider = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					AB519F712242C6CB00B27A8B = {
 						CreatedOnToolsVersion = 10.1;
@@ -597,6 +639,7 @@
 				AB519F6C2242C6CB00B27A8B /* LaunchScreen.storyboard in Resources */,
 				D1EAB2162243B6AA00720412 /* SettingsViewController.storyboard in Resources */,
 				D142BEE4224AACE400699881 /* ShipmentsCollectionViewCell.xib in Resources */,
+				AB46C549224C06700075EF30 /* AuthViewTestScene.storyboard in Resources */,
 				AB38DD092245650F008DC8C0 /* LICENSE.txt in Resources */,
 				D1EAB2062243B4E500720412 /* ShipmentsDetailViewController.storyboard in Resources */,
 				AB519F692242C6CB00B27A8B /* Assets.xcassets in Resources */,
@@ -761,6 +804,7 @@
 				AB38DCCB22445E3E008DC8C0 /* Message.swift in Sources */,
 				D1EAB2142243B69900720412 /* SettingsViewController.swift in Sources */,
 				D1EAB2042243B4CF00720412 /* ShipmentsDetailViewController.swift in Sources */,
+				D13070B5224C62EC00164B9A /* AddProductViewController.swift in Sources */,
 				D1EAB21E224405D700720412 /* ScannARMainViewController.swift in Sources */,
 				D1EAB23922492CEE00720412 /* Shipment+Convenience.swift in Sources */,
 				ABC2C3B8224A857D0045A7D2 /* SavedARScansListViewController.swift in Sources */,
@@ -803,6 +847,7 @@
 				AB38DCF12244630F008DC8C0 /* ScannedObject.swift in Sources */,
 				D1EAB2332249227800720412 /* ScannAR.xcdatamodeld in Sources */,
 				D1EAB2222244138D00720412 /* LoginViewController.swift in Sources */,
+				D135E657224C89F5008CC7DF /* NetworkingHelpers.swift in Sources */,
 				AB519F602242C6CA00B27A8B /* AppDelegate.swift in Sources */,
 				AB38DCEB224462A4008DC8C0 /* ObjectOriginAxis.swift in Sources */,
 				D1EAB23B22492D8200720412 /* ProductRepresentation.swift in Sources */,
@@ -993,6 +1038,7 @@
 			baseConfigurationReference = D74D33CCBED514833B1EBD93 /* Pods-ScannAR.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ScannAR/ScannAR.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VXUQXR6S56;
 				INFOPLIST_FILE = ScannAR/Info.plist;
@@ -1013,6 +1059,7 @@
 			baseConfigurationReference = 545258C2D3EFFD5C41F33DE7 /* Pods-ScannAR.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ScannAR/ScannAR.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VXUQXR6S56;
 				INFOPLIST_FILE = ScannAR/Info.plist;
