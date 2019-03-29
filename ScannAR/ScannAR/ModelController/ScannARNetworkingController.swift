@@ -89,11 +89,11 @@ class ScannARNetworkController {
     /*
      GET user account information
      */
-    func getUserAccountInfo(completion: @escaping (String?, Error?) -> Void) {
+    func getUserAccountInfo(completion: @escaping (Account?, Error?) -> Void) {
         
         let request = createRequest(for: .GETAccountInfo)
         
-        apiRequest(from: request) { (results: String?, error: Error?) in
+        apiRequest(from: request) { (results: Account?, error: Error?) in
             completion(results, nil)
         }
         
@@ -102,11 +102,11 @@ class ScannARNetworkController {
     /*
      GET user account information
      */
-    func putEditUserAccountInfo(completion: @escaping (String?, Error?) -> Void) {
+    func putEditUserAccountInfo(dict: [String: String], completion: @escaping (Account?, Error?) -> Void) {
         
-        let request = createRequest(for: .PUTEditAccountInfo)
+        let request = createRequest(for: .PUTEditAccountInfo, with: dict)
         
-        apiRequest(from: request) { (results: String?, error: Error?) in
+        apiRequest(from: request) { (results: Account?, error: Error?) in
             completion(results, nil)
         }
         
@@ -359,7 +359,7 @@ extension ScannARNetworkController {
         case .GETAccountInfo:
             var url = baseURL
             url = url.appendingPathComponent("users")
-            url = url.appendingPathComponent("checkauth")
+            url = url.appendingPathComponent("accountinfo")
             
             guard let jsonToken = jsonToken else { fatalError("The jsonToken is empty.") }
             

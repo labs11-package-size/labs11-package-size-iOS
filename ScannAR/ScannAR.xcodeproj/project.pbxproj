@@ -57,6 +57,7 @@
 		C28743A6DB52C5982AC7F7E0 /* Pods_ScannARTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EC70ED6367728869B15E014 /* Pods_ScannARTests.framework */; };
 		D13070B5224C62EC00164B9A /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13070B4224C62EC00164B9A /* AddProductViewController.swift */; };
 		D135E657224C89F5008CC7DF /* NetworkingHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D135E656224C89F5008CC7DF /* NetworkingHelpers.swift */; };
+		D13B8845224E7ED700B56F76 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13B8844224E7ED700B56F76 /* Account.swift */; };
 		D142BEE3224AACE400699881 /* ShipmentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D142BEE1224AACE400699881 /* ShipmentsCollectionViewCell.swift */; };
 		D142BEE4224AACE400699881 /* ShipmentsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D142BEE2224AACE400699881 /* ShipmentsCollectionViewCell.xib */; };
 		D1698DAB224AF31400250E4D /* CoreDataImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1698DAA224AF31400250E4D /* CoreDataImporter.swift */; };
@@ -170,6 +171,7 @@
 		ABB4C9ED2248BD7A0079E25D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ARScan.storyboard; sourceTree = "<group>"; };
 		D13070B4224C62EC00164B9A /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		D135E656224C89F5008CC7DF /* NetworkingHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingHelpers.swift; sourceTree = "<group>"; };
+		D13B8844224E7ED700B56F76 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		D142BEE1224AACE400699881 /* ShipmentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentsCollectionViewCell.swift; sourceTree = "<group>"; };
 		D142BEE2224AACE400699881 /* ShipmentsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShipmentsCollectionViewCell.xib; sourceTree = "<group>"; };
 		D1698DAA224AF31400250E4D /* CoreDataImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataImporter.swift; sourceTree = "<group>"; };
@@ -496,6 +498,7 @@
 			children = (
 				D1EAB22B224920C800720412 /* JSONWebToken.swift */,
 				D1EAB23422492AC200720412 /* Product+Convenience.swift */,
+				D13B8844224E7ED700B56F76 /* Account.swift */,
 				D1EAB23E224934E400720412 /* Product+Encodable.swift */,
 				D1EAB23A22492D8200720412 /* ProductRepresentation.swift */,
 				D1EAB23822492CEE00720412 /* Shipment+Convenience.swift */,
@@ -831,6 +834,7 @@
 				AB12DBAA2242E84F00886A11 /* ARScanViewController+Gestures.swift in Sources */,
 				AB12DBA82242E50E00886A11 /* ARScanViewController.swift in Sources */,
 				D1EAB23522492AC200720412 /* Product+Convenience.swift in Sources */,
+				D13B8845224E7ED700B56F76 /* Account.swift in Sources */,
 				AB38DCDD22446161008DC8C0 /* Helpers+Utilities.swift in Sources */,
 				AB38DCD422445F7C008DC8C0 /* ThresholdPanGestureRecognizer.swift in Sources */,
 				AB12DBB52242EA5D00886A11 /* ARObjectDetectTestController.swift in Sources */,
