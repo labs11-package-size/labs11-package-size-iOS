@@ -30,7 +30,7 @@ class AddProductViewController: UIViewController {
         valueTextField.keyboardType = UIKeyboardType.decimalPad
         lengthTextField.keyboardType = UIKeyboardType.decimalPad
         weightTextField.keyboardType = UIKeyboardType.decimalPad
-        lengthTextField.keyboardType = UIKeyboardType.decimalPad
+        heightTextField.keyboardType = UIKeyboardType.decimalPad
         widthTextField.keyboardType = UIKeyboardType.decimalPad
     }
     

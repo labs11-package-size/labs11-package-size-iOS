@@ -48,7 +48,7 @@ class ScannARNetworkController {
     */
     func postForAuthenticationToken(dict: [String: String], completion: @escaping (JSONWebToken?, Error?) -> Void) {
         
-        let request = createRequest(for: .GETWebToken, with: dict)
+        let request = createRequest(for: .POSTWebToken, with: dict)
         
         apiRequest(from: request) { (results: JSONWebToken?, error: Error?) in
             guard let results = results else {
@@ -317,7 +317,7 @@ extension ScannARNetworkController {
             return request
             
         
-        case .GETWebToken:
+        case .POSTWebToken:
             
             var url = baseURL
             url = url.appendingPathComponent("users")
@@ -412,12 +412,13 @@ extension ScannARNetworkController {
         case .POSTNewProduct:
             var url = baseURL
             url = url.appendingPathComponent("products")
+            url = url.appendingPathComponent("add")
             
             guard let jsonToken = jsonToken else { fatalError("The jsonToken is empty.") }
 
-            // Create a GET request
+            // Create a POST request
             var request = URLRequest(url: url)
-            request.httpMethod = HTTPMethod.GET.rawValue
+            request.httpMethod = HTTPMethod.POST.rawValue
             request.addValue(jsonToken.token, forHTTPHeaderField: "Authorization")
             
             return request
