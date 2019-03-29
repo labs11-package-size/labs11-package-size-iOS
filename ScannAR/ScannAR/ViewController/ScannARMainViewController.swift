@@ -136,6 +136,27 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "AccountViewSegue" {
+            guard let destVC = segue.destination as? AccountViewController else { fatalError("Segue should cast view controller as AccountViewController but failed to do so.")}
+            destVC.scannARNetworkingController = self.scannARNetworkingController
+        } else if segue.identifier == "ProductDetailSegue" {
+            
+            guard let indexPath = collectionView.indexPathsForSelectedItems?.first else {fatalError("No selected indexPath")}
+            let product = productsFetchedResultsController.object(at: indexPath)
+            guard let destVC = segue.destination as? ProductDetailViewController else { fatalError("Segue should cast view controller as ProductDetailViewController but failed to do so.")}
+            destVC.scannARNetworkingController = self.scannARNetworkingController
+            destVC.product = product
+            
+        } else if segue.identifier == "ShipmentDetailSegue" {
+            
+            guard let indexPath = collectionView.indexPathsForSelectedItems?.first else {fatalError("No selected indexPath")}
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: shipmentReuseIdentifier, for: indexPath) as? ShipmentsCollectionViewCell else {fatalError("Unable to dequeue cell as shipment collection view cell")}
+            guard let destVC = segue.destination as? ShipmentsDetailViewController else { fatalError("Segue should cast view controller as ProductDetailViewController but failed to do so.")}
+            destVC.scannARNetworkingController = self.scannARNetworkingController
+            destVC.shipment = cell.shipment
+            
+        }
+
     }
  
     // MARK: - CollectionViewDelegate Methods
@@ -176,6 +197,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             let shipment = shipmentsFetchedResultsController.object(at: indexPath)
             
             // Configure the cell
+            
             cell.titleLabel.text = "\(shipment.productId)"
             cell.detailLabel.text = "\(shipment.status)"
             
@@ -187,6 +209,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             let product = productsFetchedResultsController.object(at: indexPath)
             
             // Configure the cell
+            cell.product = product
             cell.titleLabel.text = product.name
             cell.detailLabel.text = "$\(product.value)"
             
@@ -206,6 +229,17 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         let kWhateverHeightYouWant = 100
         return CGSize(width: collectionView.bounds.size.width / 2 - 8, height: CGFloat(kWhateverHeightYouWant))
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        switch segmentedControl.selectedSegmentIndex {
+        case 1:
+            performSegue(withIdentifier: "ShipmentDetailSegue", sender: nil)
+        default:
+            performSegue(withIdentifier: "ProductDetailSegue", sender: nil)
+        }
+        
     }
     
     // MARK: - NSFetchedResultsControllerDelegate
@@ -297,6 +331,10 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    // MARK: - Navigation
+    
+    
     
     // MARK: - Properties
     let productReuseIdentifier = "ProductCell"
