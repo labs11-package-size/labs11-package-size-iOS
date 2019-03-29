@@ -150,10 +150,10 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         } else if segue.identifier == "ShipmentDetailSegue" {
             
             guard let indexPath = collectionView.indexPathsForSelectedItems?.first else {fatalError("No selected indexPath")}
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: shipmentReuseIdentifier, for: indexPath) as? ShipmentsCollectionViewCell else {fatalError("Unable to dequeue cell as shipment collection view cell")}
+            let shipment = shipmentsFetchedResultsController.object(at: indexPath)
             guard let destVC = segue.destination as? ShipmentsDetailViewController else { fatalError("Segue should cast view controller as ProductDetailViewController but failed to do so.")}
             destVC.scannARNetworkingController = self.scannARNetworkingController
-            destVC.shipment = cell.shipment
+            destVC.shipment = shipment
             
         }
 
