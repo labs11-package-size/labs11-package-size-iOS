@@ -73,5 +73,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // Perform any operations when the user disconnects from app here.
         // ...
     }
-
+    
+    // MARK: - ARScan Required
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        if let viewController = self.window?.rootViewController as? ARScanViewController {
+            viewController.backFromBackground()
+        }
+    }
+    
 }
