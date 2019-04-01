@@ -105,10 +105,10 @@
             </objects>
             <point key="canvasLocation" x="1076" y="182.15892053973016"/>
         </scene>
-        <!--AVChoiceVC-->
+        <!--ARScanMainMenu-->
         <scene sceneID="k5v-TZ-Ohb">
             <objects>
-                <viewControllerPlaceholder storyboardName="ARScan" referencedIdentifier="AVChoiceVC" id="foL-tf-Chw" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="ARScan" referencedIdentifier="ARScanMainMenu" id="foL-tf-Chw" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Scf-So-juz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1730" y="-134"/>

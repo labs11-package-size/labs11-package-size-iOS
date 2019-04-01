@@ -88,7 +88,7 @@
                                     <action selector="leftButtonTouchAreaTapped:" destination="Xzk-5O-XV0" eventType="touchUpInside" id="Gbf-Qh-yh1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6O-NA-y7o" userLabel="Flashlight toggle" customClass="FlashlightButton" customModule="ScannAR">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6O-NA-y7o" userLabel="Flashlight toggle" customClass="FlashlightButton" customModule="ScannAR" customModuleProvider="target">
                                 <rect key="frame" x="20" y="582" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="0Od-7a-cmv"/>
@@ -282,7 +282,7 @@
         <!--Scan Menu Screen View Controller-->
         <scene sceneID="q6O-Lb-ZJa">
             <objects>
-                <viewController storyboardIdentifier="AVChoiceVC" id="H07-zd-USt" customClass="ARScanMenuScreenViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ARScanMainMenu" id="H07-zd-USt" customClass="ARScanMenuScreenViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GYi-I1-hOQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
