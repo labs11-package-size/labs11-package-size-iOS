@@ -60,6 +60,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 print(error)
                 return
             }
+            guard let authResult = authResult else {
+                print("result is empty")
+                return
+            }
+            self.user = authResult.user
             // User is signed in
             DispatchQueue.main.async {
                 self.window?.rootViewController!.children.first?.performSegue(withIdentifier: "SegueToScannARMain", sender: nil)
@@ -74,6 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // ...
     }
     
+
     // MARK: - ARScan Required
     
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -82,4 +88,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         }
     }
     
+
+    // MARK: - Properties
+    var user: User?
+
+
 }

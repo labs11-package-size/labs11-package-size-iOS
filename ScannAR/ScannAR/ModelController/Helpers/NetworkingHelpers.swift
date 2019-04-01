@@ -25,4 +25,14 @@ class NetworkingHelpers{
         
         return dict
     }
+    
+    static func dictionaryFromAccount(account:Account) -> [String: String]{
+        var dict: [String: String] = [:]
+        
+        dict["displayName"] = account.displayName
+        dict["email"] = account.email
+        dict["photoURL"] = account.photoURL
+        
+        return dict
+    }
 }
