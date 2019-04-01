@@ -79,7 +79,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // ...
     }
     
+
+    // MARK: - ARScan Required
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        if let viewController = self.window?.rootViewController as? ARScanViewController {
+            viewController.backFromBackground()
+        }
+    }
+    
+
     // MARK: - Properties
     var user: User?
+
 
 }
