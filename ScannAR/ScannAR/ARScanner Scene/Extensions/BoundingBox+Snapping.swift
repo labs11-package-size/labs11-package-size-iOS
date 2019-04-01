@@ -8,7 +8,6 @@
 
 //Extensions to BoundingBox and ObjectOrigin for snapping to significant locations.
 
-import Foundation
 import ARKit
 
 extension BoundingBox {
@@ -27,6 +26,9 @@ extension BoundingBox {
             if distanceFromHorizontalPlane < snapThreshold {
                 isWithinSnapThreshold = true
                 self.simdWorldPosition.y = anchor.transform.position.y + extent.y / 2
+                if !isSnappedToHorizontalPlane {
+                    isSnappedToHorizontalPlane = false
+                }
                 
                 // Provide haptic feedback when reaching the snapThreshold for the first time
                 if !isSnappedToHorizontalPlane {
@@ -138,8 +140,6 @@ extension ObjectOrigin {
 }
 
 func playHapticFeedback() {
-    let feedbackGenerator = UIImpactFeedbackGenerator(style: .light)
+    let feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
     feedbackGenerator.impactOccurred()
 }
-
-import Foundation

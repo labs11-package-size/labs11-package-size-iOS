@@ -110,13 +110,13 @@ class ARObjectDetectTestController {
     
     func startNoDetectionTimer() {
         cancelNoDetectionTimer()
-        noDetectionTimer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: false) { _ in
+        noDetectionTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { _ in
             self.cancelNoDetectionTimer()
             ARScanViewController.instance?.displayMessage("""
                 Unable to detect the object.
                 Please point the device at the scanned object, rescan or add another scan
                 of this object in the current environment.
-                """, expirationTime: 5.0)
+                """, expirationTime: 2.0)
         }
     }
     

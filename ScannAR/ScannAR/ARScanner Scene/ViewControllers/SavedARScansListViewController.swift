@@ -6,21 +6,42 @@
 //  Copyright © 2019 ScannAR Team. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class SavedARScansListViewController: UIViewController {
     
-   
+    @IBOutlet weak var cancelObjectPickerButton: UIBarButtonItem!
+    
+    @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
+        
+        let transition: CATransition = CATransition()
+        transition.duration = 0.7
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.fade
+        self.navigationController!.view.layer.add(transition, forKey: nil)
+        DispatchQueue.main.async {
+            self.navigationController?.popViewController(animated: false)
+        }
+    }
+    
     @IBOutlet weak var tableView: UITableView!
     static let aRObjectPathExtension = "arobject"
+    //    static let kPng = "png"
     var arrObjectName:[String] = []
-    var arrObjectURLs :[[String:URL]] = []
+    var arrObjectURL :[[String:URL]] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getAllStoredObjectModelFromDirectory()
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     
@@ -29,17 +50,16 @@ class SavedARScansListViewController: UIViewController {
         do {
             let directoryContents = try FileManager.default.contentsOfDirectory(at: documentsUrl, includingPropertiesForKeys: nil, options: [])
             let arobjectFiles = directoryContents.filter{ $0.pathExtension == SavedARScansListViewController.aRObjectPathExtension }
-           
+            
             print("arobject urls:",arobjectFiles)
             let fileName = arobjectFiles.map{ $0.deletingPathExtension().lastPathComponent }
             print("object Name list:", fileName)
             for arobject in arobjectFiles {
-               
-                arrObjectURLs.append([SavedARScansListViewController.aRObjectPathExtension:arobject])
+                arrObjectURL.append([SavedARScansListViewController.aRObjectPathExtension:arobject])
             }
             arrObjectName = fileName
             if arrObjectName.count == 0 {
-                // FIXME: -  for testing ... change to an alertcontroller for production LAZY!
+                // FIXME: -  to an alertcontroller LAZY!
                 DispatchQueue.main.async {
                     self.tableView.setBackgroundText(stringValue: "There is no Scanned/Saved objects available. \n Please Scan and Save Object from Scan New Object Section.")
                     self.tableView.reloadData()
@@ -57,6 +77,7 @@ class SavedARScansListViewController: UIViewController {
         }
     }
 }
+
 extension SavedARScansListViewController:UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrObjectName.count
@@ -71,12 +92,21 @@ extension SavedARScansListViewController:UITableViewDelegate,UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "ARDetectViewController") as! ARDetectViewController
-        if arrObjectURLs[indexPath.row].keys.first == SavedARScansListViewController.aRObjectPathExtension {
-            vc.objectURL = arrObjectURLs[indexPath.row][SavedARScansListViewController.aRObjectPathExtension]
+        if arrObjectURL[indexPath.row].keys.first == SavedARScansListViewController.aRObjectPathExtension {
+            vc.objectURL = arrObjectURL[indexPath.row][SavedARScansListViewController.aRObjectPathExtension]
+        } else {
+            //
         }
         
         
-        self.navigationController?.pushViewController(vc, animated: true)
+        let transition: CATransition = CATransition()
+        transition.duration = 0.4
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.fade
+        self.navigationController!.view.layer.add(transition, forKey: nil)
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(vc, animated: false)
+        }
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -89,15 +119,14 @@ extension SavedARScansListViewController:UITableViewDelegate,UITableViewDataSour
             guard let dirPath = paths.first else {
                 return
             }
-            
             var filename = ""
             filename = "\(self.arrObjectName[indexPath.row]).\(SavedARScansListViewController.aRObjectPathExtension)"
-            let filePath = "\(dirPath)/\(filename)"
             
+            let filePath = "\(dirPath)/\(filename)"
             do {
                 try fileManager.removeItem(atPath: filePath)
                 self.arrObjectName.remove(at: indexPath.row)
-                self.arrObjectURLs.remove(at: indexPath.row)
+                self.arrObjectURL.remove(at: indexPath.row)
                 self.tableView.reloadData()
             } catch let error as NSError {
                 print(error.debugDescription)
@@ -132,4 +161,3 @@ extension UITableView {
         self.backgroundView = nil
     }
 }
-

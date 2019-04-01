@@ -6,7 +6,6 @@
 //  Copyright © 2019 ScannAR Team. All rights reserved.
 //
 
-import Foundation
 import ARKit
 import SceneKit
 
@@ -75,6 +74,7 @@ extension ARScanViewController {
                 instructionsVisible = false
                 showBackButton(false)
                 nextButton.isEnabled = false
+                //loadModelButton.isHidden = true
                 flashlightButton.isHidden = true
                 
                 // Make sure the SCNScene is cleared of any SCNNodes from previous scans.
@@ -135,7 +135,7 @@ extension ARScanViewController {
                 self.setNavigationBarTitle("Ready to scan")
                 self.showBackButton(false)
                 self.nextButton.setTitle("Next", for: [])
-                self.flashlightButton.isHidden = true
+                self.flashlightButton.isHidden = false //true
                 if scan.ghostBoundingBoxExists {
                     self.displayInstruction(Message("Tap 'Next' to create an approximate bounding box around the product or object you want to scan. Try to conform the bounding box as closely as possible to the object."))
                     self.nextButton.isEnabled = true
@@ -150,7 +150,7 @@ extension ARScanViewController {
                 self.setNavigationBarTitle("Define bounding box")
                 self.showBackButton(true)
                 self.nextButton.isEnabled = scan.boundingBoxExists
-                self.flashlightButton.isHidden = true
+                self.flashlightButton.isHidden = false //true
                 self.nextButton.setTitle("Scan", for: [])
             case .scanning:
                 self.displayInstruction(Message("Scan the object from all sides " +
@@ -163,13 +163,13 @@ extension ARScanViewController {
                 self.showBackButton(true)
                 self.nextButton.isEnabled = true
                 self.flashlightButton.isHidden = false
+                self.flashlightButton.toggledOn = true
                 self.nextButton.setTitle("Finish", for: [])
                 // Disable plane detection (even if no plane has been found yet at this time) for performance reasons.
                 self.sceneView.stopPlaneDetection()
             case .adjustingOrigin:
-                print("State: Adjusting Origin")
-                self.displayInstruction(Message("Adjust origin using gestures.\n"))
-                self.setNavigationBarTitle("Adjust origin")
+                self.displayInstruction(Message("Now lets run a quick test to make sure\n your object can be detected."))
+                self.setNavigationBarTitle("Test Run")
                 self.showBackButton(true)
                 self.nextButton.isEnabled = true
                 self.flashlightButton.isHidden = false

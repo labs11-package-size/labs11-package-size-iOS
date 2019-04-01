@@ -6,12 +6,11 @@
 //  Copyright © 2019 ScannAR Team. All rights reserved.
 //
 
-import Foundation
 import ARKit
 import SceneKit
 
 class ScannedPointCloud: SCNNode, PointCloud {
- 
+    
     private var pointNode = SCNNode()
     private var preliminaryPointsNode = SCNNode()
     
@@ -110,9 +109,9 @@ class ScannedPointCloud: SCNNode, PointCloud {
         //       may no longer be inside of the box.
         renderedPoints = referenceObjectPoints.filter { boundingBox.contains($0) }
         renderedPreliminaryPoints = currentFramePoints.filter { boundingBox.contains($0) }
-        
-        self.pointNode.geometry = createVisualization(for: renderedPoints, color: .appYellow, size: 12)
-        self.preliminaryPointsNode.geometry = createVisualization(for: renderedPreliminaryPoints, color: .appLightYellow, size: 12)
+        //MARK: - can we pull scngeometry from here to get some type of renderable object from this scan. Does it matter?
+        self.pointNode.geometry = createVisualization(for: renderedPoints, color: .appBlue, size: 12)
+        self.preliminaryPointsNode.geometry = createVisualization(for: renderedPreliminaryPoints, color: .appGreen, size: 12)
     }
     
     var count: Int {

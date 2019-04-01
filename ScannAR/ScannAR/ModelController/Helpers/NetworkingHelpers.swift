@@ -7,7 +7,11 @@
 //
 
 import Foundation
-
+struct Account{
+    var displayName: String?
+    var email: String?
+    var photoURL: String?
+}
 class NetworkingHelpers{
     
     static func dictionaryFromProduct(product:Product) -> [String: String]{

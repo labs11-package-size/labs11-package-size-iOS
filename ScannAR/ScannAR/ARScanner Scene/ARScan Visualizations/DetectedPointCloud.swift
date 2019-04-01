@@ -6,11 +6,10 @@
 //  Copyright © 2019 ScannAR Team. All rights reserved.
 //
 
-import Foundation
 import ARKit
 
 class DetectedPointCloud: SCNNode, PointCloud {
-   
+    
     private let referenceObjectPointCloud: ARPointCloud
     private let center: float3
     private let extent: float3

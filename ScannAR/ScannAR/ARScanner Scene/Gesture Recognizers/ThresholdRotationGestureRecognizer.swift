@@ -6,9 +6,8 @@
 //  Copyright © 2019 ScannAR Team. All rights reserved.
 //
 
-import Foundation
-import UIKit
-// Custom rotation gesture reconizer that fires only when a threshold is passed.
+import UIKit.UIGestureRecognizerSubclass
+
 class ThresholdRotationGestureRecognizer: UIRotationGestureRecognizer {
     
     /// The threshold after which this gesture is detected.
@@ -48,6 +47,4 @@ class ThresholdRotationGestureRecognizer: UIRotationGestureRecognizer {
             previousRotation = rotation
         }
     }
-
-    
 }
