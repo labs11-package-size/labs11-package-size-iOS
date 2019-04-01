@@ -14,45 +14,45 @@ class AccountViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        getAccount()
-        changeEditingTo(false)
+//        getAccount()
+//        changeEditingTo(false)
     }
     
     // MARK: - Private Methods
-    private func getAccount(){
-        guard let scannARNetworkingController = scannARNetworkingController else { fatalError(" Error: No networking controller available")}
-        
-        scannARNetworkingController.getUserAccountInfo { (result, error) in
-            
-            if let error = error {
-                print("There was an error getting your account information: \(error)")
-                return
-            }
-            
-            guard let result = result else {fatalError("There was no Account information returned for the user.")}
-            
-            self.account = result
-            
-        }
-        
-    }
+//    private func getAccount(){
+//        guard let scannARNetworkingController = scannARNetworkingController else { fatalError(" Error: No networking controller available")}
+//
+//        scannARNetworkingController.getUserAccountInfo { (result, error) in
+//
+//            if let error = error {
+//                print("There was an error getting your account information: \(error)")
+//                return
+//            }
+//
+//            guard let result = result else {fatalError("There was no Account information returned for the user.")}
+//
+//            self.account = result
+//
+//        }
+//
+//    }
     
-    private func updateAccountInfoOnServer(){
-        guard let scannARNetworkingController = scannARNetworkingController else { fatalError(" Error: No networking controller available")}
-        guard let account = account else { fatalError(" Error: No account exists")}
-        let dict = NetworkingHelpers.dictionaryFromAccount(account: account)
-        scannARNetworkingController.putEditUserAccountInfo(dict: dict) { (result, error) in
-            
-        if let error = error {
-                print("There was an error getting your account information: \(error)")
-                return
-            }
-            
-        guard let result = result else {fatalError("There was no Account information returned for the user.")}
-            
-        self.account = result
-        }
-    }
+//    private func updateAccountInfoOnServer(){
+//        guard let scannARNetworkingController = scannARNetworkingController else { fatalError(" Error: No networking controller available")}
+//        guard let account = account else { fatalError(" Error: No account exists")}
+//        let dict = NetworkingHelpers.dictionaryFromAccount(account: account)
+//        scannARNetworkingController.putEditUserAccountInfo(dict: dict) { (result, error) in
+//
+//        if let error = error {
+//                print("There was an error getting your account information: \(error)")
+//                return
+//            }
+//
+//        guard let result = result else {fatalError("There was no Account information returned for the user.")}
+//
+//        self.account = result
+//        }
+//    }
     
         private func updateAccountInfoFromText(){
             guard var account = account else {fatalError("There was no Account information returned for the user.")}
@@ -112,10 +112,10 @@ class AccountViewController: UIViewController {
     }
     
     @objc func doneTapped(sender: UIButton) {
-        changeEditingTo(false)
-        updateAccountInfoFromText()
-        updateAccountInfoOnServer()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonTapped))
+//        changeEditingTo(false)
+//        updateAccountInfoFromText()
+//        updateAccountInfoOnServer()
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonTapped))
         
     }
     

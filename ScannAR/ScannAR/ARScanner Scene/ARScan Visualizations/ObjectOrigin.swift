@@ -6,9 +6,8 @@
 //  Copyright © 2019 ScannAR Team. All rights reserved.
 //
 
-import Foundation
-import ARKit
 import SceneKit
+import ARKit
 
 // Instances of this class represent the origin of the scanned 3D object - both
 // logically as well as visually (as an SCNNode).
