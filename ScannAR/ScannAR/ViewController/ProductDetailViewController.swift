@@ -38,6 +38,7 @@ class ProductDetailViewController: UIViewController {
         lengthTextField.text = "\(product.length)"
         widthTextField.text = "\(product.width)"
         heightTextField.text = "\(product.height)"
+        fragileSwitch.isOn =  product.fragile == 1 ? true : false
         
     }
     

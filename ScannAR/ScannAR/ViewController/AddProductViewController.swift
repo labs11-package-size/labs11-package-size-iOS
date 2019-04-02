@@ -24,6 +24,8 @@ class AddProductViewController: UIViewController {
         weightTextField.keyboardType = UIKeyboardType.decimalPad
         heightTextField.keyboardType = UIKeyboardType.decimalPad
         widthTextField.keyboardType = UIKeyboardType.decimalPad
+        
+        manualEntryStackView.isHidden = true
     }
     
     private func setupDelegates() {
@@ -53,7 +55,7 @@ class AddProductViewController: UIViewController {
         
         if nilPropertiesRemaining { return }
         else {
-            let newProduct = Product(fragile: 0, height: Double(height)!, length: Double(length)!, manufacturerId: manufacturerId, name: name, productDescription: productDescription, value: Double(value)!, weight: Double(weight)!, width: Double(width)!, context: CoreDataStack.shared.container.newBackgroundContext())
+            let newProduct = Product(fragile: fragileSwitch.isOn ? 1 : 0, height: Double(height)!, length: Double(length)!, manufacturerId: manufacturerId, name: name, productDescription: productDescription, value: Double(value)!, weight: Double(weight)!, width: Double(width)!, context: CoreDataStack.shared.container.newBackgroundContext())
             let dict = NetworkingHelpers.dictionaryFromProduct(product: newProduct)
             scannARNetworkController.postNewProduct(dict: dict) { error in
                 DispatchQueue.main.async {
@@ -66,6 +68,15 @@ class AddProductViewController: UIViewController {
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func manualEntryTapped(_ sender: Any) {
+    
+        manualEntryStackView.isHidden = false
+    }
+    
+    @IBAction func scanWithARButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "ScanARSegue", sender: nil)
     }
     
     // MARK: - Properties
@@ -84,6 +95,7 @@ class AddProductViewController: UIViewController {
     
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var manualEntryStackView: UIStackView!
     
 }
 
