@@ -155,7 +155,12 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             destVC.scannARNetworkingController = self.scannARNetworkingController
             destVC.shipment = shipment
             
+        } else if segue.identifier == "ShowAddProductSegue" {
+            guard let destVC = segue.destination as? AddProductViewController else { fatalError("Segue should cast view controller as AddProductViewController but failed to do so.")}
+            destVC.scannARNetworkController = self.scannARNetworkingController
         }
+        
+        
 
     }
  
@@ -255,16 +260,9 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             print("Add Shipment")
             
         default:
-            print("Add Product")
-            guard let presentedViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddProductViewControllerSB") as? AddProductViewController else {fatalError("could not cast presented view controller as AddProductViewController")}
             
-            presentedViewController.scannARNetworkController = self.scannARNetworkingController
-            presentedViewController.collectionViewToReload = self.collectionView
-            presentedViewController.providesPresentationContextTransitionStyle = true
-            presentedViewController.definesPresentationContext = true
-            presentedViewController.modalPresentationStyle = .overFullScreen
-            presentedViewController.view.backgroundColor = UIColor.init(white: 0.4, alpha: 0.3)
-            self.present(presentedViewController, animated: true, completion: nil)
+            performSegue(withIdentifier: "ShowAddProductSegue", sender: nil)
+        
         }
     }
     

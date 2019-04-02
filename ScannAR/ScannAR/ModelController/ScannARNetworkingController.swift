@@ -148,6 +148,7 @@ class ScannARNetworkController {
         let request = createRequest(for: .POSTNewProduct, with: dict)
         
         apiRequest(from: request) { (results: [ProductRepresentation]?, error: Error?) in
+            
             completion(nil)
         }
     }
@@ -416,11 +417,22 @@ extension ScannARNetworkController {
             url = url.appendingPathComponent("add")
             
             guard let jsonToken = jsonToken else { fatalError("The jsonToken is empty.") }
+            
+            var jsonData: Data
+            do {
+                jsonData = try JSONSerialization.data(withJSONObject: dict!)
+            } catch {
+                print("failed to convert dictionary to json")
+                fatalError("")
+            }
 
             // Create a POST request
             var request = URLRequest(url: url)
             request.httpMethod = HTTPMethod.POST.rawValue
             request.addValue(jsonToken.token, forHTTPHeaderField: "Authorization")
+            request.httpBody = jsonData
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.setValue("application/json", forHTTPHeaderField: "Accept")
             
             return request
             
