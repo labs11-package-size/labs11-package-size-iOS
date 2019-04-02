@@ -285,4 +285,88 @@ func dragPlaneTransform(forPlaneNormal planeNormalRay: Ray, camera: SCNNode) -> 
                      float4(planeNormalRay.origin, 1)])
 }
 
+extension ARReferenceObject {
+    func mergeInBackground(with otherReferenceObject: ARReferenceObject, completion: @escaping (ARReferenceObject?, Error?) -> Void) {
+        DispatchQueue.global(qos: .background).async {
+            do {
+                let mergedObject = try self.merging(otherReferenceObject)
+                DispatchQueue.main.async {
+                    completion(mergedObject, nil)
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(nil, error)
+                }
+            }
+        }
+    }
+}
+
+extension UIView {
+    
+    func setCornerRadius(amount: CGFloat, withBorderAmount borderWidthAmount: CGFloat, andColor borderColor: UIColor) {
+        
+        self.layer.cornerRadius = amount
+        self.layer.borderWidth = borderWidthAmount
+        self.layer.borderColor = borderColor.cgColor
+        self.layer.masksToBounds = true
+        
+    }
+}
+
+extension UIButton {
+    
+    /// Add image on left view
+    func leftImage(image: UIImage) {
+        self.setImage(image, for: .normal)
+        self.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: image.size.width)
+    }
+}
+
+extension UIImage {
+    public func imageRotatedByDegrees(degrees: CGFloat, flip: Bool) -> UIImage {
+        let _: (CGFloat) -> CGFloat = {
+            return $0 * (180.0 / CGFloat(Double.pi))
+        }
+        let degreesToRadians: (CGFloat) -> CGFloat = {
+            return $0 / 180.0 * CGFloat(Double.pi)
+        }
+        
+        // calculate the size of the rotated view's containing box for our drawing space
+        let rotatedViewBox = UIView(frame: CGRect(origin: CGPoint.zero, size: size))
+        let t = CGAffineTransform(rotationAngle: degreesToRadians(degrees));
+        rotatedViewBox.transform = t
+        let rotatedSize = rotatedViewBox.frame.size
+        
+        // Create the bitmap context
+        UIGraphicsBeginImageContext(rotatedSize)
+        let bitmap = UIGraphicsGetCurrentContext()!
+        
+        bitmap.translateBy(x: rotatedSize.width / 2.0, y: rotatedSize.height / 2.0)
+        // Move the origin to the middle of the image so we will rotate and scale around the center.
+        //CGContextTranslateCTM(bitmap, rotatedSize.width / 2.0, rotatedSize.height / 2.0);
+        
+        //   // Rotate the image context
+        bitmap.rotate(by: degreesToRadians(degrees))
+        // CGContextRotateCTM(bitmap, degreesToRadians(degrees));
+        
+        // Now, draw the rotated/scaled image into the context
+        var yFlip: CGFloat
+        
+        if(flip){
+            yFlip = CGFloat(-1.0)
+        } else {
+            yFlip = CGFloat(1.0)
+        }
+        bitmap.scaleBy(x: yFlip, y: -1.0)
+        //CGContextScaleCTM(bitmap, yFlip, -1.0)
+        bitmap.draw(self.cgImage!, in: CGRect.init(x: -size.width / 2, y: -size.height / 2, width: size.width, height: size.height))
+        // CGContextDrawImage(bitmap, CGRectMake(-size.width / 2, -size.height / 2, size.width, size.height), CGImage)
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        return newImage
+    }
+}
 

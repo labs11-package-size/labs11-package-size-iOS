@@ -285,7 +285,7 @@
         <!--Scan Menu Screen View Controller-->
         <scene sceneID="QXI-M1-RpO">
             <objects>
-                <viewController storyboardIdentifier="ARScanMainMenu" id="qmh-Gh-w2N" customClass="ARScanMenuScreenViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ARScanMainMenuOLD" id="qmh-Gh-w2N" customClass="ARScanMenuScreenViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V50-GX-cad">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -470,7 +470,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4st-Ky-jE5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-39431" y="-219"/>
+            <point key="canvasLocation" x="-33546" y="-695"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nxJ-BF-C7z">
@@ -482,7 +482,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="qmh-Gh-w2N" kind="relationship" relationship="rootViewController" id="6sq-vd-MUg"/>
+                        <segue destination="7No-5O-jZZ" kind="relationship" relationship="rootViewController" id="9OS-ze-MxF"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Btr-ES-o6S" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -604,6 +604,145 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UW2-c0-Cl5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-39432" y="456"/>
+        </scene>
+        <!--Scan Menu Screen View Controller-->
+        <scene sceneID="fbj-wD-cCh">
+            <objects>
+                <viewController storyboardIdentifier="ARScanMainMenu" id="7No-5O-jZZ" customClass="ARScanMenuScreenViewController" customModule="ScanningApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VUO-iP-6fZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yl9-6s-J4W">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qt3-y4-egn">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ujH-bk-pkw">
+                                        <rect key="frame" x="20" y="517" width="374" height="199"/>
+                                        <subviews>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ST0-2A-mgT" customClass="DesignableButton" customModule="ScanningApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="61"/>
+                                                <color key="backgroundColor" name="appBrown"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="61" id="nLE-KY-Ixa"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <state key="normal" title="ScannAR Tutorial">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="31"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="appBrown"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="boi-mR-3CJ" customClass="DesignableButton" customModule="ScanningApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="69" width="374" height="61"/>
+                                                <color key="backgroundColor" red="0.44705882349999998" green="0.74117647060000003" blue="0.63921568630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="61" id="6s2-Nu-aga"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <state key="normal" title=" Detect An Object">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="31"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.44705882349999998" green="0.74117647060000003" blue="0.63921568630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="loadSavedObject:" destination="7No-5O-jZZ" eventType="touchUpInside" id="0RY-wm-IrF"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="035-US-lP8" customClass="DesignableButton" customModule="ScanningApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="138" width="374" height="61"/>
+                                                <color key="backgroundColor" red="0.047058823530000002" green="0.17254901959999999" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="61" id="GuG-mc-jnp"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <state key="normal" title="Scan An Object">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="31"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.047058823530000002" green="0.17254901959999999" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="scanObjectButtonTapped:" destination="7No-5O-jZZ" eventType="touchUpInside" id="v4L-e5-1hH"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ujH-bk-pkw" secondAttribute="trailing" constant="20" id="QQ2-5e-Zk7"/>
+                                    <constraint firstAttribute="bottom" secondItem="ujH-bk-pkw" secondAttribute="bottom" constant="20" id="ax3-Sw-eRt"/>
+                                    <constraint firstItem="ujH-bk-pkw" firstAttribute="leading" secondItem="qt3-y4-egn" secondAttribute="leading" constant="20" id="ze7-Tb-WTc"/>
+                                </constraints>
+                            </view>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A2M-GU-at8">
+                                <rect key="frame" x="20" y="40" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="91r-ce-zjq"/>
+                                    <constraint firstAttribute="width" constant="35" id="jmp-us-bdd"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="back"/>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="7No-5O-jZZ" eventType="touchUpInside" id="KmV-LB-w2S"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qt3-y4-egn" firstAttribute="bottom" secondItem="sm4-VN-12u" secondAttribute="bottom" id="0jf-6s-J1f"/>
+                            <constraint firstItem="yl9-6s-J4W" firstAttribute="bottom" secondItem="sm4-VN-12u" secondAttribute="bottom" id="5qH-ac-YJO"/>
+                            <constraint firstItem="yl9-6s-J4W" firstAttribute="top" secondItem="VUO-iP-6fZ" secondAttribute="top" id="6K3-ro-9Nm"/>
+                            <constraint firstItem="yl9-6s-J4W" firstAttribute="trailing" secondItem="sm4-VN-12u" secondAttribute="trailing" id="Aj7-F5-v6z"/>
+                            <constraint firstItem="yl9-6s-J4W" firstAttribute="leading" secondItem="sm4-VN-12u" secondAttribute="leading" id="B8G-WC-u4K"/>
+                            <constraint firstItem="qt3-y4-egn" firstAttribute="top" secondItem="VUO-iP-6fZ" secondAttribute="top" id="GEG-MS-ozz"/>
+                            <constraint firstItem="qt3-y4-egn" firstAttribute="trailing" secondItem="sm4-VN-12u" secondAttribute="trailing" id="GFY-Rw-TgZ"/>
+                            <constraint firstItem="A2M-GU-at8" firstAttribute="top" secondItem="sm4-VN-12u" secondAttribute="top" constant="20" id="S3z-cM-6ib"/>
+                            <constraint firstItem="A2M-GU-at8" firstAttribute="leading" secondItem="sm4-VN-12u" secondAttribute="leading" constant="20" id="d9g-yK-hFI"/>
+                            <constraint firstItem="qt3-y4-egn" firstAttribute="leading" secondItem="sm4-VN-12u" secondAttribute="leading" id="fzc-hz-HqN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="sm4-VN-12u"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="qL2-Xe-YDK"/>
+                    <connections>
+                        <outlet property="cameraView" destination="yl9-6s-J4W" id="CvR-SD-nlO"/>
+                        <outlet property="detectObjectButton" destination="boi-mR-3CJ" id="Xnt-Al-Ih7"/>
+                        <outlet property="scanObjectButton" destination="035-US-lP8" id="pg9-vh-KIJ"/>
+                        <outlet property="scannARTutorialButton" destination="ST0-2A-mgT" id="SyL-nd-j4M"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Bv-Z5-rel" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-39481" y="-218"/>
         </scene>
     </scenes>
     <resources>
