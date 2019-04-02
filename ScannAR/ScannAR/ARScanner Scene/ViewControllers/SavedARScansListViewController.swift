@@ -26,7 +26,6 @@ class SavedARScansListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     static let aRObjectPathExtension = "arobject"
-    //    static let kPng = "png"
     var arrObjectName:[String] = []
     var arrObjectURL :[[String:URL]] = []
     

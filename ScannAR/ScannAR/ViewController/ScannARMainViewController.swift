@@ -161,6 +161,13 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         } else if segue.identifier == "ShowAddProductSegue" {
             guard let destVC = segue.destination as? AddProductViewController else { fatalError("Segue should cast view controller as AddProductViewController but failed to do so.")}
             destVC.scannARNetworkController = self.scannARNetworkingController
+        }else if segue.identifier == "ARScanMainMenuShow" {
+            guard segue.destination is ARScanMenuScreenViewController else { fatalError("Segue should cast view controller as ARScanMenuScreenViewController but failed to do so.")}
+            let transition: CATransition = CATransition()
+            transition.duration = 0.7
+            transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+            transition.type = CATransitionType.fade
+            self.navigationController!.view.layer.add(transition, forKey: nil)
         }
         
         
