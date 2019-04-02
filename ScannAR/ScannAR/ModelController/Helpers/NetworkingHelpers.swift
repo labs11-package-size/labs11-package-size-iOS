@@ -16,10 +16,12 @@ class NetworkingHelpers{
         dict["name"] = product.name
         dict["productDescription"] = product.productDescription
         dict["weight"] = "\(product.weight)"
+        dict["length"] = "\(product.length)"
+        dict["width"] = "\(product.width)"
+        dict["height"] = "\(product.height)"
         dict["value"] = "\(product.value)"
         dict["manufacturerId"] = product.manufacturerId
         dict["fragile"] = "\(product.fragile)"
-        dict["userId"] = "\(product.userId)"
         
         return dict
     }

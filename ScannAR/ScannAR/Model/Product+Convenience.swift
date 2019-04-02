@@ -72,6 +72,20 @@ extension Product {
         let weight = productRepresentation.weight
         let uuid = productRepresentation.uuid
         
+        var lastUpdated: Date?
+        if let productLastUpdated = productRepresentation.lastUpdated {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:MM:SS"
+            if let date = dateFormatter.date(from: productLastUpdated) {
+                lastUpdated = date
+            } else {
+                lastUpdated = nil
+            }
+        } else {
+            lastUpdated = nil
+        }
+        
+        
         var width: Double
         if productRepresentation.width != nil {
             width = productRepresentation.width!
@@ -79,6 +93,6 @@ extension Product {
             width = 0.0
         }
         
-        self.init(fragile: fragile, height: height, identifier: identifier, length: length, manufacturerId: manufacturerId, name: name, productDescription: productDescription, userId: userId, value: value, weight: weight, width: width, uuid: uuid, context: context)
+        self.init(fragile: fragile, height: height, lastUpdated: lastUpdated, identifier: identifier, length: length, manufacturerId: manufacturerId, name: name, productDescription: productDescription, userId: userId, value: value, weight: weight, width: width, uuid: uuid, context: context)
     }
 }
