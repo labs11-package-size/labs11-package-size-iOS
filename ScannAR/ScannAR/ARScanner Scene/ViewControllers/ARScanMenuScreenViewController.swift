@@ -62,9 +62,15 @@ class ARScanMenuScreenViewController: UIViewController, UIImagePickerControllerD
     }
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
-        DispatchQueue.main.async {
-            self.navigationController?.popViewController(animated: true)
-        }
+        //let vc = self.storyboard?.instantiateViewController(withIdentifier: "ScannARMain")  as! ScannARMainViewController
+        let transition: CATransition = CATransition()
+        transition.duration = 0.7
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.fade
+        self.navigationController!.view.layer.add(transition, forKey: nil)
+//        DispatchQueue.main.async {
+//            self.navigationController?.popViewController(animated: false)
+//        }
         
     }
     @IBAction func scanObjectButtonTapped(_ sender: UIButton) {

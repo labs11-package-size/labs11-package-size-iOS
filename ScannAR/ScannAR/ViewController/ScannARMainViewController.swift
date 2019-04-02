@@ -11,6 +11,9 @@ import CoreData
 
 class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NSFetchedResultsControllerDelegate, UISearchBarDelegate, UIGestureRecognizerDelegate {
     
+    @IBAction func unwindToScannARMainViewController(segue: UIStoryboardSegue) {
+        //nothing goes here
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,8 +29,8 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = false
         fetchNetworkRequests()
     }
     

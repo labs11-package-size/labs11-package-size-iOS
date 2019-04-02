@@ -70,6 +70,7 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         ARScanViewController.instance = self
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
