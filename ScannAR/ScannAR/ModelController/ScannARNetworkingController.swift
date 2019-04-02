@@ -89,28 +89,28 @@ class ScannARNetworkController {
     /*
      GET user account information
      */
-//    func getUserAccountInfo(completion: @escaping (Account?, Error?) -> Void) {
-//        
-//        let request = createRequest(for: .GETAccountInfo)
-//        
-//        apiRequest(from: request) { (results: Account?, error: Error?) in
-//            completion(results, nil)
-//        }
-//        
-//    }
+    func getUserAccountInfo(completion: @escaping (Account?, Error?) -> Void) {
+        
+        let request = createRequest(for: .GETAccountInfo)
+        
+        apiRequest(from: request) { (results: Account?, error: Error?) in
+            completion(results, nil)
+        }
+        
+    }
     
     /*
      GET user account information
      */
-//    func putEditUserAccountInfo(dict: [String: String], completion: @escaping (Account?, Error?) -> Void) {
-//
-//        let request = createRequest(for: .PUTEditAccountInfo, with: dict)
-//
-//        apiRequest(from: request) { (results: Account?, error: Error?) in
-//            completion(results, nil)
-//        }
-//
-//    }
+    func putEditUserAccountInfo(dict: [String: String], completion: @escaping (Account?, Error?) -> Void) {
+
+        let request = createRequest(for: .PUTEditAccountInfo, with: dict)
+
+        apiRequest(from: request) { (results: Account?, error: Error?) in
+            completion(results, nil)
+        }
+
+    }
     
     
     // MARK: - Product Networking
@@ -373,6 +373,7 @@ extension ScannARNetworkController {
         case .PUTEditAccountInfo:
             var url = baseURL
             url = url.appendingPathComponent("products")
+            url = url.appendingPathComponent("edit")
             
             guard let jsonToken = jsonToken else { fatalError("The jsonToken is empty.") }
             
@@ -384,9 +385,9 @@ extension ScannARNetworkController {
                 fatalError("")
             }
             
-            // Create a POST request
+            // Create a PUT request
             var request = URLRequest(url: url)
-            request.httpMethod = HTTPMethod.POST.rawValue
+            request.httpMethod = HTTPMethod.PUT.rawValue
             request.addValue(jsonToken.token, forHTTPHeaderField: "Authorization")
             request.httpBody = jsonData
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
