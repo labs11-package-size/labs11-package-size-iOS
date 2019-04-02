@@ -17,6 +17,11 @@ class ARScanMenuScreenViewController: UIViewController, UIImagePickerControllerD
     var input: AVCaptureDeviceInput?
     var output: AVCaptureMetadataOutput?
     var previewLayer: AVCaptureVideoPreviewLayer?
+    var tutorialButtonImage = UIImage(named: "ET")
+    @IBOutlet weak var scannARTutorialButton: DesignableButton!
+    @IBOutlet weak var detectObjectButton: DesignableButton!
+    @IBOutlet weak var scanObjectButton: DesignableButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +35,17 @@ class ARScanMenuScreenViewController: UIViewController, UIImagePickerControllerD
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.isNavigationBarHidden = true
+    }
+    override func viewWillLayoutSubviews() {
+        
+        
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        scannARTutorialButton.leftImage(image: (tutorialButtonImage?.imageRotatedByDegrees(degrees: 0, flip: true))!)
+        detectObjectButton.leftImage(image: UIImage(named: "DNO")!)
+        scanObjectButton.leftImage(image: UIImage(named: "SCN")!)
     }
     
     @IBAction func loadSavedObject(_ sender: UIButton) {
