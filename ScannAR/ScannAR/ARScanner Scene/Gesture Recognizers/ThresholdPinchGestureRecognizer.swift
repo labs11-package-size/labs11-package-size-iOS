@@ -6,10 +6,8 @@
 //  Copyright © 2019 ScannAR Team. All rights reserved.
 //
 //
-import Foundation
-import UIKit
+import UIKit.UIGestureRecognizerSubclass
 
-// Custom pinch gesture reconizer that fires only when a threshold is passed.
 class ThresholdPinchGestureRecognizer: UIPinchGestureRecognizer {
     
     /// The threshold in screen pixels after which this gesture is detected.

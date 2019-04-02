@@ -122,7 +122,7 @@ class ARScan {
     private var hasWarnedAboutLowLight = false
     
     private var isFirstScan: Bool {
-        return ARScanViewController.instance?.referenceObjectToMerge == nil
+        return ARScanViewController.instance?.referenceObjectToTest == nil
     }
     
     static let minFeatureCount = 100
@@ -397,7 +397,7 @@ class ARScan {
         return scannedObject.ghostBoundingBox != nil
     }
     
-    // FIXME: - assign bestBoxSize here
+    // FIXME: - Get final bounding box dimensions here if isReasonablySized == true
     var isReasonablySized: Bool {
         guard let boundingBox = scannedObject.boundingBox else {
             return false
@@ -408,9 +408,9 @@ class ARScan {
         let validSizeRange: ClosedRange<Float> = 0.01...5.0
         if validSizeRange.contains(boundingBox.extent.x) && validSizeRange.contains(boundingBox.extent.y) &&
             validSizeRange.contains(boundingBox.extent.z) {
-            // Check that the volume of the bounding box is at least 500 cubic centimeters.
+            // Check that the volume of the bounding box is at least 250 cubic centimeters.
             let volume = boundingBox.extent.x * boundingBox.extent.y * boundingBox.extent.z
-            return volume >= 0.0005
+            return volume >= 0.00025
         }
         
         return false

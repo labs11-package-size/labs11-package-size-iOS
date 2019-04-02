@@ -6,7 +6,6 @@
 //  Copyright © 2019 ScannAR Team. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import SceneKit
 
@@ -76,5 +75,4 @@ extension ARScanViewController: UIGestureRecognizerDelegate {
         }
         return false
     }
-    
 }

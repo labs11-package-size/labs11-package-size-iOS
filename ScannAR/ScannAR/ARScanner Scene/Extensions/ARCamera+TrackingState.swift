@@ -6,26 +6,25 @@
 //  Copyright © 2019 ScannAR Team. All rights reserved.
 //
 
-import Foundation
 import ARKit
 
 extension ARCamera.TrackingState {
     var presentationString: String {
         switch self {
         case .notAvailable:
-            return "ARKit tracking UNAVAILABLE"
+            return "ScannAR tracking UNAVAILABLE"
         case .normal:
-            return "ARKit tracking NORMAL"
+            return "ScannAR tracking NORMAL"
         case .limited(let reason):
             switch reason {
             case .excessiveMotion:
-                return "ARKit tracking LIMITED: Excessive motion"
+                return "ScannAR tracking LIMITED: Excessive motion"
             case .insufficientFeatures:
-                return "ARKit tracking LIMITED: Low detail"
+                return "ScannAR tracking LIMITED: Low detail"
             case .initializing:
-                return "ARKit is initializing"
+                return "ScannAR is initializing"
             case .relocalizing:
-                return "ARKit is relocalizing"
+                return "ScannAR is relocalizing"
             }
         }
     }
@@ -45,4 +44,3 @@ extension ARCamera.TrackingState {
         }
     }
 }
-

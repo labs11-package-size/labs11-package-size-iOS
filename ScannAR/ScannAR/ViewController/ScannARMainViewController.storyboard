@@ -37,7 +37,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
                                         <connections>
-                                            <segue destination="axB-Tp-gcg" kind="show" id="543-wr-S5i"/>
+                                            <segue destination="axB-Tp-gcg" kind="show" identifier="ProductDetailSegue" id="543-wr-S5i"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ShipmentCell" id="dzz-Bd-1mS">
@@ -47,6 +47,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="161" height="142"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
+                                        <connections>
+                                            <segue destination="aLv-lv-Emq" kind="show" identifier="ShipmentDetailSegue" id="kNt-eB-3gn"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -76,7 +79,7 @@
                     <navigationItem key="navigationItem" title="ScannAR" id="JpJ-WN-EaK">
                         <barButtonItem key="leftBarButtonItem" image="user-4" id="jze-1y-VjW">
                             <connections>
-                                <segue destination="0qG-Dc-x7H" kind="show" id="XEB-cj-2AL"/>
+                                <segue destination="0qG-Dc-x7H" kind="show" identifier="AccountViewSegue" id="XEB-cj-2AL"/>
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
@@ -102,10 +105,10 @@
             </objects>
             <point key="canvasLocation" x="1076" y="182.15892053973016"/>
         </scene>
-        <!--AVChoiceVC-->
+        <!--ARScanMainMenu-->
         <scene sceneID="k5v-TZ-Ohb">
             <objects>
-                <viewControllerPlaceholder storyboardName="ARScan" referencedIdentifier="AVChoiceVC" id="foL-tf-Chw" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="ARScan" referencedIdentifier="ARScanMainMenu" id="foL-tf-Chw" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Scf-So-juz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1730" y="-134"/>
@@ -143,6 +146,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SSo-DV-ydS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1902" y="245"/>
+        </scene>
+        <!--ShipmentDetailViewControllerSB-->
+        <scene sceneID="XKM-ZT-ULj">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ShipmentsDetailViewController" referencedIdentifier="ShipmentDetailViewControllerSB" id="aLv-lv-Emq" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2AB-EZ-cnm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1806" y="300"/>
         </scene>
         <!--Add Product View Controller-->
         <scene sceneID="ZKK-K6-pdY">

@@ -11,7 +11,7 @@ import Foundation
 enum APICallType: String, Codable {
     
     // login & Auth
-    case GETWebToken
+    case POSTWebToken
     case POSTRegisterNewUser
     case GETValidateToken
     

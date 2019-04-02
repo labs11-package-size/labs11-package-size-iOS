@@ -6,7 +6,6 @@
 //  Copyright © 2019 ScannAR Team. All rights reserved.
 //
 
-import Foundation
 import SceneKit
 
 // This is a protocol that should be implemented by all point cloud classes (ScannedPointCloud, DetectedPointCloud).

@@ -6,7 +6,6 @@
 //  Copyright © 2019 ScannAR Team. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 extension ARScanViewController {
@@ -14,13 +13,16 @@ extension ARScanViewController {
     func setupNavigationBar() {
         backButton = UIBarButtonItem(title: "Back", style: .plain, target: self,
                                      action: #selector(previousButtonTapped(_:)))
-        //        mergeScanButton = UIBarButtonItem(title: "Merge Scans…", style: .plain, target: self,
-        //                                          action: #selector(addScanButtonTapped(_:)))
+        
+        exitButton = UIBarButtonItem(title: "Exit", style: .plain, target: self,
+                                     action: #selector(exitButtonTapped(_:)))
+        
         let startOverButton = UIBarButtonItem(title: "Restart", style: .plain, target: self,
                                               action: #selector(restartButtonTapped(_:)))
+        
         let navigationItem = UINavigationItem(title: "Start")
-        navigationItem.leftBarButtonItem = backButton
-        navigationItem.rightBarButtonItem = startOverButton
+        navigationItem.leftBarButtonItems = [exitButton, backButton]
+        navigationItem.rightBarButtonItems = [startOverButton, exitButton]
         navigationBar!.items = [navigationItem]
         
         navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -31,23 +33,14 @@ extension ARScanViewController {
     func showBackButton(_ show: Bool) {
         guard let navBar = navigationBar, let navItem = navBar.items?.first else { return }
         if show {
-            navItem.leftBarButtonItem = backButton
+            navItem.leftBarButtonItems = [backButton]
         } else {
             navItem.leftBarButtonItem = nil
         }
     }
     
-//    func showMergeScanButton() {
-//        guard let navBar = navigationBar, let navItem = navBar.items?.first else { return }
-//        navItem.leftBarButtonItem = mergeScanButton
-//    }
-    
     func setNavigationBarTitle(_ title: String) {
         guard let navBar = navigationBar, let navItem = navBar.items?.first else { return }
         navItem.title = title
     }
-    
-    
 }
-
-

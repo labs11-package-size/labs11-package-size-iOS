@@ -16,5 +16,6 @@ class ShipmentsCollectionViewCell: UICollectionViewCell {
     }
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
+    var shipment: Shipment?
     
 }

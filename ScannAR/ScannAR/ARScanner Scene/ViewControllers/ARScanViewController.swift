@@ -17,9 +17,11 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
     
     static var instance: ARScanViewController?
     
-    var backButton: UIBarButtonItem!
     @IBOutlet weak var sceneView: ARSCNView!
+    @IBOutlet weak var blurView: UIVisualEffectView!
     @IBOutlet weak var nextButton: RoundedButton!
+    var backButton: UIBarButtonItem!
+    var exitButton: UIBarButtonItem!
     @IBOutlet weak var instructionView: UIVisualEffectView!
     @IBOutlet weak var instructionLabel: MessageLabel!
     @IBOutlet weak var flashlightButton: FlashlightButton!
@@ -32,7 +34,6 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
     
     internal var scan: ARScan?
     
-    var referenceObjectToMerge: ARReferenceObject?
     var referenceObjectToTest: ARReferenceObject?
     
     internal var testRun: ARObjectDetectTestController?
@@ -57,7 +58,7 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
         }
     }
     
-    var instructionsVisible: Bool = true {
+    var instructionsVisible: Bool = false {
         didSet {
             instructionView.isHidden = !instructionsVisible
             toggleInstructionsButton.toggledOn = instructionsVisible
@@ -157,21 +158,28 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
         switchToPreviousState()
     }
     
+    @IBAction func exitButtonTapped(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ARScanMainMenu") as! ARScanMenuScreenViewController
+        let transition: CATransition = CATransition()
+        transition.duration = 0.7
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.fade
+        self.navigationController!.view.layer.add(transition, forKey: nil)
+        
+        self.navigationController?.pushViewController(vc, animated: false)
+    }
+    
     @IBAction func nextButtonTapped(_ sender: Any) {
         guard !nextButton.isHidden && nextButton.isEnabled else { return }
         switchToNextState()
     }
     
-  
-    
     @IBAction func leftButtonTouchAreaTapped(_ sender: Any) {
         
-       
-        // A tap in the extended hit area on the lower left should cause a tap
-        //  on the button that is currently visible at that location.
         if !flashlightButton.isHidden {
             toggleFlashlightButtonTapped(self)
         }
+        
     }
     
     @IBAction func toggleFlashlightButtonTapped(_ sender: Any) {
@@ -184,10 +192,22 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
         instructionsVisible.toggle()
     }
     
-    func displayInstruction(_ message: Message) {
-        instructionLabel.display(message)
-        instructionsVisible = true
+    func displayInstruction(_ message: Message, expirationTime: TimeInterval = 0.0) {
+        startTimeOfLastMessage = Date().timeIntervalSince1970
+        expirationTimeOfLastMessage = expirationTime
+        DispatchQueue.main.async {
+            self.instructionLabel.display(message)
+            self.instructionsVisible = true
+            self.startMessageExpirationTimer(duration: expirationTime)
+        }
+        //        instructionLabel.display(message)
+        //        instructionsVisible = true
     }
+    
+    //    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+    //        guard let url = urls.first else { return }
+    //       // readFile(url)
+    //    }
     
     func showAlert(title: String, message: String, buttonTitle: String? = "OK", showCancel: Bool = false, buttonHandler: ((UIAlertAction) -> Void)? = nil) {
         print(title + "\n" + message)
@@ -237,7 +257,7 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
             if let object = scannedObject {
                 self.testObjectDetection(of: object)
             } else {
-                let title = "Scan has failed"
+                let title = "Scan failed"
                 let message = "You cannot save a failed scan. Please try again."
                 let buttonTitle = "Restart Scan"
                 self.showAlert(title: title, message: message, buttonTitle: buttonTitle, showCancel: false) { _ in
@@ -257,9 +277,10 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
         // 2. We encourage users to move the scanned object during testing, which invalidates
         //    the feature point cloud which was captured during scanning.
         self.scan = nil
+        
         self.displayInstruction(Message("""
                     View the object through the camera from different angles. If you experience difficulties, try and move the object to a different location.
-                    """))
+                    """), expirationTime: 2.0)
     }
     
     func createAndShareReferenceObject() {
@@ -373,10 +394,10 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
                         if reason == .relocalizing {
                             // If ARKit is relocalizing we should abort the current scan
                             // as this can cause unpredictable distortions of the map.
-                            print("Warning: scannAR is relocalizing world map.")
+                            print("Warning: ScannAR is relocalizing")
                             
                             let title = "Warning: Scan may have failed."
-                            let message = "A gap in tracking has occurred. We recommended that you restart the scan."
+                            let message = "A gap in tracking has occurred. It is recommended to restart the scan."
                             let buttonTitle = "Restart Scan"
                             self.showAlert(title: title, message: message, buttonTitle: buttonTitle, showCancel: true) { _ in
                                 self.state = .notReady
@@ -414,9 +435,9 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
             if let testRun = self.testRun, objectAnchor.referenceObject == testRun.referenceObject {
                 testRun.successfulDetection(objectAnchor)
                 let messageText = """
-                    Your object was successfully detected! Your scan was successful.
+                    Success! Now save your object.
 
-                    """ + testRun.statistics
+                    """ //+ testRun.statistics
                 displayMessage(messageText, expirationTime: testRun.resultDisplayDuration)
             }
         } else if state == .scanning, let planeAnchor = anchor as? ARPlaneAnchor {
@@ -427,7 +448,82 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
         }
     }
     
-   
+    //    func createAndShareReferenceObject() {
+    //        guard let testRun = self.testRun, let object = testRun.referenceObject, let name = object.name else {
+    //            print("Error: Missing scanned object.")
+    //            return
+    //        }
+    //
+    //        let documentURL = FileManager.default.temporaryDirectory.appendingPathComponent(name + ".arobject")
+    //
+    //        DispatchQueue.global().async {
+    //            do {
+    //                try object.export(to: documentURL, previewImage: testRun.previewImage)
+    //            } catch {
+    //                fatalError("Failed to save the file to \(documentURL)")
+    //            }
+    //
+    //            // Initiate a share sheet for the scanned object
+    //            let airdropShareSheet = ShareScanViewController(sourceView: self.nextButton, sharedObject: documentURL)
+    //            DispatchQueue.main.async {
+    //                self.present(airdropShareSheet, animated: true, completion: nil)
+    //            }
+    //        }
+    //    }
+    
+    
+    //    func readFile(_ url: URL) {
+    //        if url.pathExtension == "arobject" {
+    //            loadReferenceObjectToMerge(from: url)
+    //        } else if url.pathExtension == "usdz" {
+    //            modelURL = url
+    //        }
+    //    }
+    
+    //    fileprivate func mergeIntoCurrentScan(referenceObject: ARReferenceObject, from url: URL) {
+    ////        if self.state == .testing {
+    ////
+    ////            // Show activity indicator during the merge.
+    ////            ARScanViewController.instance?.showAlert(title: "", message: "Merging other scan into this scan...", buttonTitle: nil)
+    ////
+    ////            // Try to merge the object which was just scanned with the existing one.
+    ////            self.testRun?.referenceObject?.mergeInBackground(with: referenceObject, completion: { (mergedObject, error) in
+    ////                let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+    ////
+    ////                if let mergedObject = mergedObject {
+    ////                    mergedObject.name = self.testRun?.referenceObject?.name
+    ////                    self.testRun?.setReferenceObject(mergedObject, screenshot: nil)
+    ////                    self.showAlert(title: "Merge successful", message: "The other scan has been merged into this scan.",
+    ////                                   buttonTitle: "OK", showCancel: false)
+    ////
+    ////                } else {
+    ////                    print("Error: Failed to merge scans. \(error?.localizedDescription ?? "")")
+    ////                    alertController.title = "Merge failed"
+    ////                    let message = """
+    ////                            Merging the other scan into the current scan failed. Please make sure
+    ////                            that there is sufficient overlap between both scans and that the
+    ////                            lighting environment hasn't changed drastically.
+    ////                            Which scan do you want to use to proceed testing?
+    ////                            """
+    ////                    let currentScan = UIAlertAction(title: "Use Current Scan", style: .default)
+    ////                    let otherScan = UIAlertAction(title: "Use Other Scan", style: .default) { _ in
+    ////                        self.testRun?.setReferenceObject(referenceObject, screenshot: nil)
+    ////                    }
+    ////                    self.showAlert(title: "Merge failed", message: message, actions: [currentScan, otherScan])
+    ////                }
+    ////            })
+    ////
+    ////        } else {
+    ////            // Upon completion of a scan, we will try merging
+    ////            // the scan with this ARReferenceObject.
+    ////            self.referenceObjectToMerge = referenceObject
+    ////            self.displayMessage("Scan \"\(url.lastPathComponent)\" received. " +
+    ////                "It will be merged with this scan before proceeding to Test mode.", expirationTime: 3.0)
+    ////        }
+    //    }
+    //
+    //
+    
     @objc
     func scanPercentageChanged(_ notification: Notification) {
         guard let percentage = notification.userInfo?[BoundingBox.scanPercentageUserInfoKey] as? Int else { return }
@@ -452,7 +548,7 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
         let yString = String(format: "height: %.2f", box.extent.y * 39.3701)
         let zString = String(format: "width: %.2f", box.extent.z * 39.3701)
         let distanceFromCamera = String(format: "%.2f in", distance(box.simdWorldPosition, cameraPos) * 39.3701)
-        displayMessage("Current bounding box: \(distanceFromCamera) away\n\(xString) \(yString) \(zString)", expirationTime: 1.5)
+        //        displayMessage("Current bounding box: \(distanceFromCamera) away\n\(xString) \(yString) \(zString)", expirationTime: 1.5)
     }
     
     @objc
@@ -463,7 +559,7 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
         let xString = String(format: "x: %.2f", node.position.x * 39.3701)
         let yString = String(format: "y: %.2f", node.position.y * 39.3701)
         let zString = String(format: "z: %.2f", node.position.z * 39.3701)
-        displayMessage("Current local origin position in inches:\n\(xString) \(yString) \(zString)", expirationTime: 1.5)
+        //        displayMessage("Current local origin position in inches:\n\(xString) \(yString) \(zString)", expirationTime: 1.5)
     }
     
     @objc

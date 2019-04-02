@@ -79,7 +79,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // ...
     }
     
+
+    // MARK: - ARScan Required
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        if let viewController = self.window?.rootViewController as? ARScanViewController {
+            viewController.backFromBackground()
+        }
+    }
+    
+    func applicationWillResignActive(_ application: UIApplication) {
+        if let viewController = self.window?.rootViewController as? ARScanViewController {
+            viewController.blurView?.isHidden = false
+        }
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        if let viewController = self.window?.rootViewController as? ARScanViewController {
+            viewController.blurView?.isHidden = true
+        }
+    }
+
     // MARK: - Properties
     var user: User?
+
 
 }

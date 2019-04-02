@@ -6,7 +6,6 @@
 //  Copyright © 2019 ScannAR Team. All rights reserved.
 //
 
-import Foundation
 import SceneKit
 
 class ObjectOriginAxis: SCNNode {
@@ -40,7 +39,7 @@ class ObjectOriginAxis: SCNNode {
         self.axis = axis
         super.init()
         
-        var color: UIColor
+        var color: UIColor = .clear
         var texture: UIImage?
         var dimensions: float3
         let position = axis.normal * (length / 2.0)
@@ -48,15 +47,15 @@ class ObjectOriginAxis: SCNNode {
         
         switch axis {
         case .x:
-            color = UIColor.red
+            color = UIColor.clear
             texture = #imageLiteral(resourceName: "handle_red")
             dimensions = float3(length, thickness, thickness)
         case .y:
-            color = UIColor.green
+            color = UIColor.clear
             texture = #imageLiteral(resourceName: "handle_green")
             dimensions = float3(thickness, length, thickness)
         case .z:
-            color = UIColor.blue
+            color = UIColor.clear
             texture = #imageLiteral(resourceName: "handle_blue")
             dimensions = float3(thickness, thickness, length)
         }
@@ -70,7 +69,7 @@ class ObjectOriginAxis: SCNNode {
         
         let axisHandleGeo = SCNPlane(width: handleSize, height: handleSize)
         axisHandleGeo.materials = [SCNMaterial.material(withDiffuse: texture, respondsToLighting: false)]
-        let axisHandle = SCNNode(geometry: axisHandleGeo)
+        let axisHandle = SCNNode(geometry: axisGeo)
         axisHandle.constraints = [SCNBillboardConstraint()]
         
         axis.simdPosition = position
@@ -85,6 +84,8 @@ class ObjectOriginAxis: SCNNode {
         
         addChildNode(axis)
         addChildNode(axisHandle)
+        //        replaceChildNode(axis, with: SCNNode())
+        //        replaceChildNode(axisHandle, with: SCNNode())
     }
     
     required init?(coder aDecoder: NSCoder) {

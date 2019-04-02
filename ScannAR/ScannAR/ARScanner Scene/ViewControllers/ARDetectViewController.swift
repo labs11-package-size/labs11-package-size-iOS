@@ -6,21 +6,28 @@
 //  Copyright © 2019 ScannAR Team. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import SceneKit
 import ARKit
 
 class ARDetectViewController: UIViewController, ARSCNViewDelegate, ARSKViewDelegate {
     
-    @IBOutlet weak var sceneView: ARSCNView!
-    var viewObj = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 89))
     
+    var viewObj = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 89))
     var objectURL:URL?
-    var imageURL:URL?
+    
+    @IBOutlet weak var sceneView: ARSCNView!
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // FIXME: - Let's blur this for consistency
+        self.navigationController?.presentTransparentNavigationBar()
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        self.navigationItem.setLeftBarButton(UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelBarButtonItemTapped(_:))), animated: true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUpSceneView()
         viewObj.backgroundColor = UIColor.clear
         let blankImage = UIImage()
@@ -31,14 +38,9 @@ class ARDetectViewController: UIViewController, ARSCNViewDelegate, ARSKViewDeleg
     
     func setUpSceneView() {
         sceneView.delegate = self
-        sceneView.showsStatistics = true
+        sceneView.showsStatistics = false
         do {
             let configuration = ARWorldTrackingConfiguration()
-            if imageURL != nil {
-                let imageData = try Data(contentsOf: imageURL!)
-                let image = UIImage(data: imageData)
-                configuration.detectionImages = Set([ARReferenceImage((image?.cgImage)!, orientation: CGImagePropertyOrientation.up, physicalWidth: 100)])
-            }
             if objectURL != nil {
                 configuration.detectionObjects = Set([try ARReferenceObject(archiveURL: objectURL!)])
             }
@@ -46,6 +48,50 @@ class ARDetectViewController: UIViewController, ARSCNViewDelegate, ARSKViewDeleg
         } catch {
             print(error.localizedDescription)
         }
+        
+    }
+    
+    @IBOutlet weak var flashlightButton: RoundedButton!
+    
+    @IBAction func flashlightButtonToggled(_ sender: Any) {
+        print("flashlight BUtton Tapped")
+        // Toggle flashlight
+        flashlightButton.isSelected = !flashlightButton.isSelected
+        guard let captureDevice = AVCaptureDevice.default(for: .video) else { return }
+        if flashlightButton.isSelected {
+            print("I am selected.")
+            do {
+                try captureDevice.lockForConfiguration()
+                captureDevice.torchMode = .on
+                captureDevice.unlockForConfiguration()
+            } catch {
+                print("Error while attempting to access flashlight.")
+            }
+        } else {
+            print("I am not selected.")
+            do {
+                try captureDevice.lockForConfiguration()
+                captureDevice.torchMode = .off
+                captureDevice.unlockForConfiguration()
+            } catch {
+                print("Error while attempting to access flashlight.")
+            }
+        }
+        
+    }
+    
+    
+    @IBAction func cancelBarButtonItemTapped(_ sender: Any){
+        
+        let transition: CATransition = CATransition()
+        transition.duration = 0.7
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.fade
+        self.navigationController!.view.layer.add(transition, forKey: nil)
+        DispatchQueue.main.async {
+            self.navigationController?.popViewController(animated: false)
+        }
+        
     }
     
     // MARK: - ARSCNViewDelegate
@@ -62,28 +108,14 @@ class ARDetectViewController: UIViewController, ARSCNViewDelegate, ARSKViewDeleg
     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
         let node = SCNNode()
         
-        if let imageAnchor = anchor as? ARImageAnchor {
-            let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
-            plane.firstMaterial?.diffuse.contents = UIColor(white: 1, alpha: 0.8)
-            let material = SCNMaterial()
-            material.diffuse.contents = viewObj
-            plane.materials = [material]
-            let planeNode = SCNNode(geometry: plane)
-            planeNode.eulerAngles.x = -.pi / 2
-            
-            node.addChildNode(planeNode)
-            
-        }
-        else{
-            //planeNode.eulerAngles = SCNVector3Make(0,0,Float(-M_PI_2))
-            
-            let shipScene = SCNScene(named: "art.scnassets/ArrowB.scn")!
-            let shipNode = shipScene.rootNode.childNodes.first!
-            shipNode.position =  SCNVector3.positionFromTransform(anchor.transform)
-            shipNode.position.y = 0.25
-            print(shipNode.position)
-            sceneView.scene.rootNode.addChildNode(shipNode)
-        }
+        let shipScene = SCNScene(named: "art.scnassets/ArrowB.scn")!
+        let planeNode = shipScene.rootNode.childNodes.first!
+        planeNode.position =  SCNVector3.positionFromTransform(anchor.transform)
+        planeNode.position.y = 0.25
+        print(planeNode.position)
+        planeNode.eulerAngles.y = .pi / 2
+        sceneView.scene.rootNode.addChildNode(planeNode)
+        
         return node
     }
     

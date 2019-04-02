@@ -48,7 +48,7 @@ class ScannARNetworkController {
     */
     func postForAuthenticationToken(dict: [String: String], completion: @escaping (JSONWebToken?, Error?) -> Void) {
         
-        let request = createRequest(for: .GETWebToken, with: dict)
+        let request = createRequest(for: .POSTWebToken, with: dict)
         
         apiRequest(from: request) { (results: JSONWebToken?, error: Error?) in
             guard let results = results else {
@@ -89,11 +89,11 @@ class ScannARNetworkController {
     /*
      GET user account information
      */
-    func getUserAccountInfo(completion: @escaping (String?, Error?) -> Void) {
+    func getUserAccountInfo(completion: @escaping (Account?, Error?) -> Void) {
         
         let request = createRequest(for: .GETAccountInfo)
         
-        apiRequest(from: request) { (results: String?, error: Error?) in
+        apiRequest(from: request) { (results: Account?, error: Error?) in
             completion(results, nil)
         }
         
@@ -102,14 +102,14 @@ class ScannARNetworkController {
     /*
      GET user account information
      */
-    func putEditUserAccountInfo(completion: @escaping (String?, Error?) -> Void) {
-        
-        let request = createRequest(for: .PUTEditAccountInfo)
-        
-        apiRequest(from: request) { (results: String?, error: Error?) in
+    func putEditUserAccountInfo(dict: [String: String], completion: @escaping (Account?, Error?) -> Void) {
+
+        let request = createRequest(for: .PUTEditAccountInfo, with: dict)
+
+        apiRequest(from: request) { (results: Account?, error: Error?) in
             completion(results, nil)
         }
-        
+
     }
     
     
@@ -317,7 +317,7 @@ extension ScannARNetworkController {
             return request
             
         
-        case .GETWebToken:
+        case .POSTWebToken:
             
             var url = baseURL
             url = url.appendingPathComponent("users")
@@ -359,7 +359,7 @@ extension ScannARNetworkController {
         case .GETAccountInfo:
             var url = baseURL
             url = url.appendingPathComponent("users")
-            url = url.appendingPathComponent("checkauth")
+            url = url.appendingPathComponent("accountinfo")
             
             guard let jsonToken = jsonToken else { fatalError("The jsonToken is empty.") }
             
@@ -373,6 +373,7 @@ extension ScannARNetworkController {
         case .PUTEditAccountInfo:
             var url = baseURL
             url = url.appendingPathComponent("products")
+            url = url.appendingPathComponent("edit")
             
             guard let jsonToken = jsonToken else { fatalError("The jsonToken is empty.") }
             
@@ -384,9 +385,9 @@ extension ScannARNetworkController {
                 fatalError("")
             }
             
-            // Create a POST request
+            // Create a PUT request
             var request = URLRequest(url: url)
-            request.httpMethod = HTTPMethod.POST.rawValue
+            request.httpMethod = HTTPMethod.PUT.rawValue
             request.addValue(jsonToken.token, forHTTPHeaderField: "Authorization")
             request.httpBody = jsonData
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -412,12 +413,13 @@ extension ScannARNetworkController {
         case .POSTNewProduct:
             var url = baseURL
             url = url.appendingPathComponent("products")
+            url = url.appendingPathComponent("add")
             
             guard let jsonToken = jsonToken else { fatalError("The jsonToken is empty.") }
 
-            // Create a GET request
+            // Create a POST request
             var request = URLRequest(url: url)
-            request.httpMethod = HTTPMethod.GET.rawValue
+            request.httpMethod = HTTPMethod.POST.rawValue
             request.addValue(jsonToken.token, forHTTPHeaderField: "Authorization")
             
             return request

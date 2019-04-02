@@ -14,6 +14,27 @@ class AddProductViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        setupDelegates()
+        updateViews()
+    }
+    // MARK: - Private Methods
+    
+    private func updateViews() {
+        scrollView.bounces = false
+        scrollView.alwaysBounceHorizontal = false
+        scrollView.isDirectionalLockEnabled = true
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
+        
+        valueTextField.keyboardType = UIKeyboardType.decimalPad
+        lengthTextField.keyboardType = UIKeyboardType.decimalPad
+        weightTextField.keyboardType = UIKeyboardType.decimalPad
+        heightTextField.keyboardType = UIKeyboardType.decimalPad
+        widthTextField.keyboardType = UIKeyboardType.decimalPad
+    }
+    
+    private func setupDelegates() {
         nameTextField.delegate = self
         nameTextField.delegate = self
         descriptionTextField.delegate = self
@@ -23,16 +44,10 @@ class AddProductViewController: UIViewController {
         lengthTextField.delegate = self
         widthTextField.delegate = self
         heightTextField.delegate = self
-        
-        scrollView.bounces = false
-        scrollView.alwaysBounceHorizontal = false
-        scrollView.isDirectionalLockEnabled = true
-        scrollView.showsVerticalScrollIndicator = false
-        scrollView.showsHorizontalScrollIndicator = false
-        
     }
     
-
+    
+    
     /*
     // MARK: - Navigation
 
