@@ -6,7 +6,6 @@
 //  Copyright © 2019 ScannAR Team. All rights reserved.
 //
 
-import Foundation
 import ARKit
 import SceneKit
 
@@ -49,6 +48,8 @@ class DetectedObject: SCNNode {
         self.referenceObject = referenceObject
         pointCloudVisualization = DetectedPointCloud(referenceObjectPointCloud: referenceObject.rawFeaturePoints,
                                                      center: referenceObject.center, extent: referenceObject.extent)
+        
+        print("rOX: \(referenceObject.extent.x), rOY: \(referenceObject.extent.y), rOZ: \(referenceObject.extent.z)")
         
         if let scene = SCNScene(named: "axes.scn", inDirectory: "art.scnassets") {
             originVis = SCNNode()

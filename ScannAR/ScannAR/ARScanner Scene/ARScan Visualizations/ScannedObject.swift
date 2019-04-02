@@ -6,9 +6,8 @@
 //  Copyright © 2019 ScannAR Team. All rights reserved.
 //
 
-import Foundation
-import ARKit
 import SceneKit
+import ARKit
 
 class ScannedObject: SCNNode {
     

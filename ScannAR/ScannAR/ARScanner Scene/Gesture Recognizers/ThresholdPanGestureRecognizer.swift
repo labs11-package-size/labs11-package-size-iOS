@@ -6,11 +6,9 @@
 //  Copyright © 2019 ScannAR Team. All rights reserved.
 //
 
-import Foundation
-import UIKit
+import UIKit.UIGestureRecognizerSubclass
 import ARKit
 
-// Custom pan gesture reconizer that fires only when a threshold is passed.
 class ThresholdPanGestureRecognizer: UIPanGestureRecognizer {
     
     /// The threshold in screen pixels after which this gesture is detected.
