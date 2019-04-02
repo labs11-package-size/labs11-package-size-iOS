@@ -524,7 +524,7 @@
                                 <state key="normal" backgroundImage="back"/>
                                 <connections>
                                     <action selector="backButtonTapped:" destination="7No-5O-jZZ" eventType="touchUpInside" id="KmV-LB-w2S"/>
-                                    <segue destination="Nyl-yJ-LyB" kind="unwind" unwindAction="unwindToScannARMainViewControllerWithSegue:" id="dat-o3-9cw"/>
+                                    <segue destination="Nyl-yJ-LyB" kind="unwind" animates="NO" unwindAction="unwindToScannARMainViewControllerWithSegue:" id="dat-o3-9cw"/>
                                 </connections>
                             </button>
                         </subviews>

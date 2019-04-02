@@ -85,7 +85,7 @@
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="IAg-H0-MNQ">
                                 <connections>
-                                    <segue destination="foL-tf-Chw" kind="show" id="ZGQ-nK-AXK"/>
+                                    <segue destination="foL-tf-Chw" kind="show" identifier="ARScanMainMenuShow" animates="NO" id="ZGQ-nK-AXK"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Add" id="48A-4b-2gJ">
@@ -181,7 +181,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="scanWithARButtonTapped:" destination="Qem-YB-khX" eventType="touchUpInside" id="4Iq-g8-Bez"/>
-                                                    <segue destination="L5a-UV-gBZ" kind="show" identifier="ScanARSegue" id="fdr-pV-Bna"/>
+                                                    <segue destination="L5a-UV-gBZ" kind="show" identifier="ScanARSegue" animates="NO" id="fdr-pV-Bna"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="bSF-g0-E6Q">
