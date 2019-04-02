@@ -19,8 +19,12 @@ class Message {
             text = NSMutableAttributedString(string: "\(title)\n\(body)")
             let titleRange = NSRange(location: 0, length: title.count)
             text.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 17), range: titleRange)
+            text.addAttribute(.foregroundColor, value: UIColor.appGreen, range: titleRange)
+            
         } else {
             text = NSMutableAttributedString(string: body)
+            let bodyRange = NSRange(location: 0, length: body.count)
+            text.addAttribute(.foregroundColor, value: UIColor.appGreen, range: bodyRange)
         }
     }
     

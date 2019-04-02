@@ -70,6 +70,10 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         ARScanViewController.instance = self
+        sessionInfoView.backgroundColor = UIColor.black.withAlphaComponent(0.1)
+        sessionInfoLabel.backgroundColor = UIColor.black.withAlphaComponent(0.42)
+        instructionLabel.backgroundColor = UIColor.black.withAlphaComponent(0.1)
+        instructionLabel.backgroundColor = UIColor.black.withAlphaComponent(0.42)
         
     }
     
