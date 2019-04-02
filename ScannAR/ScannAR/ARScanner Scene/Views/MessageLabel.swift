@@ -10,6 +10,9 @@ import Foundation
 import UIKit
 
 class MessageLabel: UILabel {
+   
+    
+    
     override var intrinsicContentSize: CGSize {
         var contentSize = super.intrinsicContentSize
         contentSize.width += 20
