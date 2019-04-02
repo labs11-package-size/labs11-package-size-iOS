@@ -7,11 +7,7 @@
 //
 
 import Foundation
-struct Account{
-    var displayName: String?
-    var email: String?
-    var photoURL: String?
-}
+
 class NetworkingHelpers{
     
     static func dictionaryFromProduct(product:Product) -> [String: String]{
@@ -20,9 +16,7 @@ class NetworkingHelpers{
         dict["name"] = product.name
         dict["productDescription"] = product.productDescription
         dict["weight"] = "\(product.weight)"
-        dict["width"] = "\(product.width)"
-        dict["height"] = "\(product.height)"
-        dict["value"] = "\(product.height)"
+        dict["value"] = "\(product.value)"
         dict["manufacturerId"] = product.manufacturerId
         dict["fragile"] = "\(product.fragile)"
         dict["userId"] = "\(product.userId)"
