@@ -147,13 +147,71 @@ class CoreDataImporter {
         
         shipment.identifier = Int16(shipmentRepresentation.identifier)
         shipment.carrierName = shipmentRepresentation.carrierName
-        shipment.productId = Int16(shipmentRepresentation.productId)
-        shipment.shippedDate = shipmentRepresentation.shippedDate
+        shipment.productName = shipmentRepresentation.productName
+        shipment.totalValue = shipmentRepresentation.totalValue ?? 0.0
+        shipment.totalWeight = shipmentRepresentation.totalWeight ?? 0.0
         shipment.shippingType = shipmentRepresentation.shippingType
         shipment.status = Int16(shipmentRepresentation.status)
         shipment.trackingNumber = shipmentRepresentation.trackingNumber
         shipment.shippedTo = shipmentRepresentation.shippedTo
         shipment.uuid = shipmentRepresentation.uuid
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:MM:SS"
+        
+        var shippedDate: Date?
+        if let shipmentShippedDate = shipmentRepresentation.shippedDate {
+            
+            if shipmentShippedDate == "null"{
+                shippedDate = nil
+            }
+            
+            if let date = dateFormatter.date(from: shipmentShippedDate) {
+                shippedDate = date
+            } else {
+                shippedDate = nil
+            }
+        } else {
+            shippedDate = nil
+        }
+        
+        var dateArrived: Date?
+        if let shipmentDateArrived = shipmentRepresentation.dateArrived {
+            
+            if shipmentDateArrived == "null"{
+                dateArrived = nil
+            }
+            
+            if let date = dateFormatter.date(from: shipmentDateArrived) {
+                dateArrived = date
+            } else {
+                dateArrived = nil
+            }
+        } else {
+            dateArrived = nil
+        }
+        
+        var lastUpdated: Date?
+        if let shipmentLastUpdated = shipmentRepresentation.dateArrived {
+            
+            if shipmentLastUpdated == "null"{
+                lastUpdated = nil
+            }
+            
+            if let date = dateFormatter.date(from: shipmentLastUpdated) {
+                lastUpdated = date
+            } else {
+                lastUpdated = nil
+            }
+        } else {
+            lastUpdated = nil
+        }
+        
+        shipment.shippedDate = shippedDate
+        shipment.dateArrived = dateArrived
+        shipment.lastUpdated = lastUpdated
+        
+        
     }
     
     let context: NSManagedObjectContext

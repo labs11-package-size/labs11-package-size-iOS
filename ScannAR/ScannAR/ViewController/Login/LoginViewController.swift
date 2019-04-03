@@ -18,8 +18,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         
         self.view.sendSubviewToBack(backgroundImage)
         // Do any additional setup after loading the view.
-//        usernameTextField.delegate = self
-//        passwordTextField.delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().signIn()
         
@@ -73,36 +71,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         }
         
     }
-    
-//     MARK: - IBActions
-    
-//    @IBAction func loginButtonTapped(_ sender: Any) {
-//
-//        loginButton.resignFirstResponder()
-//
-//        guard usernameTextField.text != "", passwordTextField.text != "" else {
-//            return
-//        }
-//
-//        var dict: [String: String] = [:]
-//        dict["username"] = "joshua"
-//        dict["password"] = "kaunert"
-//        scannARNetworkingController.postForAuthenticationToken(dict: dict) { (string, error) in
-//
-//            if let error = error {
-//                print("There was an error with your username and password: \(error)")
-//            } else {
-//                DispatchQueue.main.async {
-//                    self.performSegue(withIdentifier: "SegueToScannARMain", sender: nil)
-//                }
-//
-//            }
-//
-//
-//        }
-//
-//
-//    }
     
     
     // MARK: - Properties

@@ -7,31 +7,40 @@
 //
 
 import UIKit
+import Foundation
 
 class AddProductViewController: UIViewController {
 
+    
+    var previewImage: UIImage?
+    var bestBoxSize: (length: Float?, width: Float?, height: Float?)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        
         setupDelegates()
         updateViews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super .viewWillAppear(animated)
+        // fill
+        guard bestBoxSize == (0,0,0) else {
+            lengthTextField.text = String(format: "%.2f", (bestBoxSize.length! * 39.3701))
+            widthTextField.text = String(format: "%.2f", (bestBoxSize.width! * 39.3701))
+            heightTextField.text = String(format: "%.2f", (bestBoxSize.height! * 39.3701))
+            return
+        }
     }
     // MARK: - Private Methods
     
     private func updateViews() {
-        scrollView.bounces = false
-        scrollView.alwaysBounceHorizontal = false
-        scrollView.isDirectionalLockEnabled = true
-        scrollView.showsVerticalScrollIndicator = false
-        scrollView.showsHorizontalScrollIndicator = false
-        
         valueTextField.keyboardType = UIKeyboardType.decimalPad
         lengthTextField.keyboardType = UIKeyboardType.decimalPad
         weightTextField.keyboardType = UIKeyboardType.decimalPad
         heightTextField.keyboardType = UIKeyboardType.decimalPad
         widthTextField.keyboardType = UIKeyboardType.decimalPad
+        
+        manualEntryStackView.isHidden = false
     }
     
     private func setupDelegates() {
@@ -46,48 +55,43 @@ class AddProductViewController: UIViewController {
         heightTextField.delegate = self
     }
     
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     // MARK: - IBActions
-    @IBAction func submitButtonTapped(_ sender: Any) {
-        
+    @IBAction func submitTapped(_ sender: Any) {
         guard let scannARNetworkController = scannARNetworkController else { fatalError("No networking controller present")}
         
         guard let height = heightTextField.text,
-              let length = lengthTextField.text,
+            let length = lengthTextField.text,
             let manufacturerId = manufacturerIdTextField.text,
-        let name = nameTextField.text,
-        let productDescription = descriptionTextField.text,
-        let value = valueTextField.text,
-        let weight = weightTextField.text,
-        let width = widthTextField.text else { return }
+            let name = nameTextField.text,
+            let productDescription = descriptionTextField.text,
+            let value = valueTextField.text,
+            let weight = weightTextField.text,
+            let width = widthTextField.text else { return }
         
         if nilPropertiesRemaining { return }
         else {
-           let newProduct = Product(fragile: 0, height: Double(height)!, length: Double(length)!, manufacturerId: manufacturerId, name: name, productDescription: productDescription, value: Double(value)!, weight: Double(weight)!, width: Double(width)!)
+            let newProduct = Product(fragile: fragileSwitch.isOn ? 1 : 0, height: Double(height)!, length: Double(length)!, manufacturerId: manufacturerId, name: name, productDescription: productDescription, value: Double(value)!, weight: Double(weight)!, width: Double(width)!, context: CoreDataStack.shared.container.newBackgroundContext())
             let dict = NetworkingHelpers.dictionaryFromProduct(product: newProduct)
             scannARNetworkController.postNewProduct(dict: dict) { error in
                 DispatchQueue.main.async {
-                    self.dismiss(animated: true, completion: nil)
+                    self.navigationController?.popViewController(animated: true)
                 }
             }
             
         }
-        
-        
     }
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func manualEntryTapped(_ sender: Any) {
+    
+        manualEntryStackView.isHidden = false
+    }
+    
+    @IBAction func scanWithARButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "ScanARSegue", sender: nil)
     }
     
     // MARK: - Properties
@@ -102,9 +106,11 @@ class AddProductViewController: UIViewController {
     @IBOutlet weak var widthTextField: UITextField!
     @IBOutlet weak var heightTextField: UITextField!
     @IBOutlet weak var fragileSwitch: UISwitch!
+    
+    
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var manualEntryStackView: UIStackView!
     
 }
 

@@ -12,10 +12,10 @@ struct ProductRepresentation: Codable {
     
     var fragile: Int
     var height: Double?
-    var lastUpdated: Date?
+    var lastUpdated: String?
     var identifier: Int
     var length: Double?
-    var manufacturerId: String
+    var manufacturerId: String?
     var name: String
     var productDescription: String
     var userId: Int

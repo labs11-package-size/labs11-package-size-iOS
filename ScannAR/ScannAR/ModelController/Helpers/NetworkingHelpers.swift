@@ -16,10 +16,29 @@ class NetworkingHelpers{
         dict["name"] = product.name
         dict["productDescription"] = product.productDescription
         dict["weight"] = "\(product.weight)"
+        dict["length"] = "\(product.length)"
+        dict["width"] = "\(product.width)"
+        dict["height"] = "\(product.height)"
         dict["value"] = "\(product.value)"
         dict["manufacturerId"] = product.manufacturerId
         dict["fragile"] = "\(product.fragile)"
-        dict["userId"] = "\(product.userId)"
+        
+        return dict
+    }
+    
+    static func dictionaryFromProductForUpdate(product:Product) -> [String: String]{
+        var dict: [String: String] = [:]
+        
+        dict["name"] = product.name
+        dict["productDescription"] = product.productDescription
+        dict["weight"] = "\(product.weight)"
+        dict["value"] = "\(product.value)"
+        dict["manufacturerId"] = product.manufacturerId
+        dict["fragile"] = "\(product.fragile)"
+        
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd HH:MM:SS"
+        dict["lastUpdated"] = df.string(from: Date())
         
         return dict
     }

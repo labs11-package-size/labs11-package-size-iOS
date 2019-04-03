@@ -64,13 +64,39 @@ extension Product {
         let fragile = productRepresentation.fragile
         let height = productRepresentation.height
         let length = productRepresentation.length
-        let manufacturerId = productRepresentation.manufacturerId
         let name = productRepresentation.name
         let productDescription = productRepresentation.productDescription
         let userId = productRepresentation.userId
         let value = productRepresentation.value
         let weight = productRepresentation.weight
         let uuid = productRepresentation.uuid
+        
+        var manufacturerId: String?
+        if productRepresentation.manufacturerId == "null"{
+            manufacturerId = nil
+        } else {
+            manufacturerId = productRepresentation.manufacturerId
+        }
+        
+        var lastUpdated: Date?
+        if let productLastUpdated = productRepresentation.lastUpdated {
+            
+            if productLastUpdated == "null"{
+                lastUpdated = nil
+            }
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:MM:SS"
+            
+            if let date = dateFormatter.date(from: productLastUpdated) {
+                lastUpdated = date
+            } else {
+                lastUpdated = nil
+            }
+        } else {
+            lastUpdated = nil
+        }
+        
         
         var width: Double
         if productRepresentation.width != nil {
@@ -79,6 +105,6 @@ extension Product {
             width = 0.0
         }
         
-        self.init(fragile: fragile, height: height, identifier: identifier, length: length, manufacturerId: manufacturerId, name: name, productDescription: productDescription, userId: userId, value: value, weight: weight, width: width, uuid: uuid, context: context)
+        self.init(fragile: fragile, height: height, lastUpdated: lastUpdated, identifier: identifier, length: length, manufacturerId: manufacturerId, name: name, productDescription: productDescription, userId: userId, value: value, weight: weight, width: width, uuid: uuid, context: context)
     }
 }

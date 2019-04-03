@@ -11,6 +11,10 @@ import CoreData
 
 class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NSFetchedResultsControllerDelegate, UISearchBarDelegate, UIGestureRecognizerDelegate {
     
+    @IBAction func unwindToScannARMainViewController(segue: UIStoryboardSegue) {
+        //nothing goes here
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,8 +30,8 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = false
         fetchNetworkRequests()
     }
     
@@ -41,6 +45,38 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     }
 
     // MARK: - Private Methods
+    
+    private func flashSaveOnServerNoticeToUser(_ name: String, type: String) {
+        DispatchQueue.main.async {
+            let popup = UIView(frame: CGRect(x: self.view.center.x - 100, y: self.view.center.y - 100, width: 200, height: 200))
+            popup.alpha = 1
+            popup.backgroundColor = .gray
+            
+            let label = UILabel()
+            
+            label.text = "\(name) \(name)"
+            label.textColor = .black
+            label.textAlignment = .center
+            label.numberOfLines = 4
+            label.font = UIFont.systemFont(ofSize: 20)
+            
+            popup.addSubview(label)
+            self.view.addSubview(popup)
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.centerXAnchor.constraint(equalTo: popup.centerXAnchor).isActive = true
+            label.centerYAnchor.constraint(equalTo: popup.centerYAnchor).isActive = true
+            let widthConstraint = NSLayoutConstraint(item: label, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 160)
+            label.addConstraint(widthConstraint)
+            
+            UIView.animate(withDuration: 2, animations: {
+                popup.alpha = 0
+            }, completion: { _ in
+                popup.removeFromSuperview()
+            })
+            
+        }
+        
+    }
     
 //    private func setupSearchBar() {
 //        let swipeDown = UISwipeGestureRecognizer(target: collectionView, action: #selector(down))
@@ -155,7 +191,19 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             destVC.scannARNetworkingController = self.scannARNetworkingController
             destVC.shipment = shipment
             
+        } else if segue.identifier == "ShowAddProductSegue" {
+            guard let destVC = segue.destination as? AddProductViewController else { fatalError("Segue should cast view controller as AddProductViewController but failed to do so.")}
+            destVC.scannARNetworkController = self.scannARNetworkingController
+        }else if segue.identifier == "ARScanMainMenuShow" {
+            guard segue.destination is ARScanMenuScreenViewController else { fatalError("Segue should cast view controller as ARScanMenuScreenViewController but failed to do so.")}
+            let transition: CATransition = CATransition()
+            transition.duration = 0.7
+            transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+            transition.type = CATransitionType.fade
+            self.navigationController!.view.layer.add(transition, forKey: nil)
         }
+        
+        
 
     }
  
@@ -198,8 +246,10 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             
             // Configure the cell
             
-            cell.titleLabel.text = "\(shipment.productId)"
-            cell.detailLabel.text = "\(shipment.status)"
+            cell.trackingNumberLabel.text = "\(shipment.trackingNumber)"
+            cell.dateShippedLabel.text = "\(shipment.shippedDate)"
+            cell.carrierNameLabel.text = "\(shipment.carrierName)"
+            cell.statusLabel.text = "\(shipment.status)"
             
             return cell
             
@@ -255,16 +305,9 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             print("Add Shipment")
             
         default:
-            print("Add Product")
-            guard let presentedViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddProductViewControllerSB") as? AddProductViewController else {fatalError("could not cast presented view controller as AddProductViewController")}
             
-            presentedViewController.scannARNetworkController = self.scannARNetworkingController
-            presentedViewController.collectionViewToReload = self.collectionView
-            presentedViewController.providesPresentationContextTransitionStyle = true
-            presentedViewController.definesPresentationContext = true
-            presentedViewController.modalPresentationStyle = .overFullScreen
-            presentedViewController.view.backgroundColor = UIColor.init(white: 0.4, alpha: 0.3)
-            self.present(presentedViewController, animated: true, completion: nil)
+            performSegue(withIdentifier: "ShowAddProductSegue", sender: nil)
+        
         }
     }
     
@@ -321,6 +364,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
                         }
                         DispatchQueue.main.async {
                             self.collectionView.reloadData()
+                            self.flashSaveOnServerNoticeToUser(productName, type: "Deleted")
                         }
                         
                     }
@@ -352,7 +396,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         let fetchRequest: NSFetchRequest<Product> = Product.fetchRequest()
         
         fetchRequest.sortDescriptors = [
-            NSSortDescriptor(key: "identifier", ascending: true)
+            NSSortDescriptor(key: "lastUpdated", ascending: true)
         ]
         let moc = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
@@ -369,7 +413,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         let fetchRequest: NSFetchRequest<Shipment> = Shipment.fetchRequest()
         
         fetchRequest.sortDescriptors = [
-            NSSortDescriptor(key: "identifier", ascending: true)
+            NSSortDescriptor(key: "identifier", ascending: false)
         ]
         let moc = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "status", cacheName: nil)
