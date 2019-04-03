@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import Foundation
 
 class AddProductViewController: UIViewController {
 
     
     var previewImage: UIImage?
-    var bestBoxSize: (length: Float?, width: Float?, height: Float?) = (length: 1, width: 1,height: 1)
+    var bestBoxSize: (length: Float?, width: Float?, height: Float?)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +23,13 @@ class AddProductViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super .viewWillAppear(animated)
-        lengthTextField.text = "\(bestBoxSize.length! * 39.3701)"
-        widthTextField.text = "\(bestBoxSize.width! * 39.3701)"
-        heightTextField.text = "\(bestBoxSize.height! * 39.3701)"
+        // fill
+        guard bestBoxSize == (0,0,0) else {
+            lengthTextField.text = String(format: "%.2f", (bestBoxSize.length! * 39.3701))
+            widthTextField.text = String(format: "%.2f", (bestBoxSize.width! * 39.3701))
+            heightTextField.text = String(format: "%.2f", (bestBoxSize.height! * 39.3701))
+            return
+        }
     }
     // MARK: - Private Methods
     

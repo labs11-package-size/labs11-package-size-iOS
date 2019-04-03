@@ -274,7 +274,7 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
     
     func testObjectDetection(of object: ARReferenceObject) {
         self.testRun?.setReferenceObject(object, screenshot: scan?.screenshot)
-        self.boundingBoxSize = self.scan?.bestBoxSize ?? (7,7,7)
+        self.boundingBoxSize = self.scan?.bestBoxSize ?? (0,0,0)
         // Delete the scan to make sure that users cannot go back from
         // testing to scanning, because:
         // 1. Testing and scanning require running the ARSession with different configurations,
