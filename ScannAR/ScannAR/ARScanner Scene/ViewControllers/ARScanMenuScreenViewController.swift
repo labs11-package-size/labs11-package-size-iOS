@@ -80,6 +80,8 @@ class ARScanMenuScreenViewController: UIViewController, UIImagePickerControllerD
         
         self.navigationController?.pushViewController(vc, animated: false)
     }
+    
+    
    
     func createSession() {
         session = AVCaptureSession()

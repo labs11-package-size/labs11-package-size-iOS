@@ -14,6 +14,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBAction func unwindToScannARMainViewController(segue: UIStoryboardSegue) {
         //nothing goes here
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

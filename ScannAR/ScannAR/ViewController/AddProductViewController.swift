@@ -10,11 +10,21 @@ import UIKit
 
 class AddProductViewController: UIViewController {
 
+    
+    var previewImage: UIImage?
+    var bestBoxSize: (length: Float?, width: Float?, height: Float?) = (length: 1, width: 1,height: 1)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupDelegates()
         updateViews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super .viewWillAppear(animated)
+        lengthTextField.text = "\(bestBoxSize.length! * 39.3701)"
+        widthTextField.text = "\(bestBoxSize.width! * 39.3701)"
+        heightTextField.text = "\(bestBoxSize.height! * 39.3701)"
     }
     // MARK: - Private Methods
     
@@ -25,7 +35,7 @@ class AddProductViewController: UIViewController {
         heightTextField.keyboardType = UIKeyboardType.decimalPad
         widthTextField.keyboardType = UIKeyboardType.decimalPad
         
-        manualEntryStackView.isHidden = true
+        manualEntryStackView.isHidden = false
     }
     
     private func setupDelegates() {

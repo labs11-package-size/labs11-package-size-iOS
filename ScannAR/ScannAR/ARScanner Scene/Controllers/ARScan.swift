@@ -410,6 +410,7 @@ class ARScan {
             validSizeRange.contains(boundingBox.extent.z) {
             // Check that the volume of the bounding box is at least 250 cubic centimeters.
             let volume = boundingBox.extent.x * boundingBox.extent.y * boundingBox.extent.z
+            bestBoxSize = (boundingBox.extent.x, boundingBox.extent.y, boundingBox.extent.z)
             return volume >= 0.00025
         }
         
