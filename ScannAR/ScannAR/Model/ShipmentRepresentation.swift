@@ -13,7 +13,7 @@ struct ShipmentRepresentation: Codable {
     let carrierName: String
     let identifier: Int
     let productId: Int
-    let shippedDate: Date
+    let shippedDate: String?
     let shippedTo: String
     let shippingType: String
     let status: Int
@@ -36,7 +36,6 @@ struct ShipmentRepresentation: Codable {
 
 func ==(lhs: ShipmentRepresentation, rhs: Shipment) -> Bool {
     return rhs.productId == lhs.productId &&
-        rhs.shippedDate == lhs.shippedDate &&
         rhs.status == lhs.status &&
         rhs.trackingNumber == lhs.trackingNumber &&
         rhs.uuid == lhs.uuid

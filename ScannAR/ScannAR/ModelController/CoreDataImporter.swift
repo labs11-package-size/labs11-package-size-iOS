@@ -148,12 +148,32 @@ class CoreDataImporter {
         shipment.identifier = Int16(shipmentRepresentation.identifier)
         shipment.carrierName = shipmentRepresentation.carrierName
         shipment.productId = Int16(shipmentRepresentation.productId)
-        shipment.shippedDate = shipmentRepresentation.shippedDate
         shipment.shippingType = shipmentRepresentation.shippingType
         shipment.status = Int16(shipmentRepresentation.status)
         shipment.trackingNumber = shipmentRepresentation.trackingNumber
         shipment.shippedTo = shipmentRepresentation.shippedTo
         shipment.uuid = shipmentRepresentation.uuid
+        
+        var shippedDate: Date?
+        if let shipmentShippedDate = shipmentRepresentation.shippedDate {
+            
+            if shipmentShippedDate == "null"{
+                shippedDate = nil
+            }
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:MM:SS"
+            
+            if let date = dateFormatter.date(from: shipmentShippedDate) {
+                shippedDate = date
+            } else {
+                shippedDate = nil
+            }
+        } else {
+            shippedDate = nil
+        }
+        
+        shipment.shippedDate = shippedDate
     }
     
     let context: NSManagedObjectContext
