@@ -12,7 +12,11 @@ struct ShipmentRepresentation: Codable {
     
     let carrierName: String
     let identifier: Int
-    let productId: Int
+    let productName: String?
+    let dateArrived: String?
+    let totalWeight: Double?
+    let totalValue: Double?
+    let lastUpdated: String?
     let shippedDate: String?
     let shippedTo: String
     let shippingType: String
@@ -23,20 +27,23 @@ struct ShipmentRepresentation: Codable {
     enum CodingKeys: String, CodingKey {
         case carrierName
         case identifier
-        case productId
+        case productName
         case shippedDate = "dateShipped"
         case shippedTo
         case shippingType
         case status
         case trackingNumber
         case uuid
+        case totalWeight
+        case totalValue
+        case dateArrived
+        case lastUpdated
     }
     
 }
 
 func ==(lhs: ShipmentRepresentation, rhs: Shipment) -> Bool {
-    return rhs.productId == lhs.productId &&
-        rhs.status == lhs.status &&
+    return rhs.status == lhs.status &&
         rhs.trackingNumber == lhs.trackingNumber &&
         rhs.uuid == lhs.uuid
 }

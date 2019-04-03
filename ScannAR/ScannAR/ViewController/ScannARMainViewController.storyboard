@@ -161,7 +161,7 @@
             <objects>
                 <viewController storyboardIdentifier="AddProductViewControllerSB" id="Qem-YB-khX" customClass="AddProductViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS9-UK-1pe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="850"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="950"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dmv-Dk-Cjj">
@@ -411,21 +411,8 @@
                                     <constraint firstAttribute="trailing" secondItem="cOf-EA-g34" secondAttribute="trailing" id="rUc-gr-dJ4"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J8P-mG-d9R">
-                                <rect key="frame" x="20" y="568.5" width="335" height="60"/>
-                                <color key="backgroundColor" name="appBlue"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="2tV-Vy-kFm"/>
-                                </constraints>
-                                <state key="normal" title="Submit">
-                                    <color key="titleColor" name="appGray"/>
-                                </state>
-                                <connections>
-                                    <action selector="submitTapped:" destination="Qem-YB-khX" eventType="touchUpInside" id="m5j-US-3ZR"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="asj-R9-iK2">
-                                <rect key="frame" x="20" y="648.5" width="335" height="30"/>
+                                <rect key="frame" x="20" y="708.5" width="335" height="30"/>
                                 <color key="backgroundColor" name="appLightYellow"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -434,23 +421,47 @@
                                     <action selector="cancelButtonPressed:" destination="Qem-YB-khX" eventType="touchUpInside" id="4XE-13-ns9"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wIg-4a-h9o">
+                                <rect key="frame" x="20" y="568.5" width="335" height="60"/>
+                                <color key="backgroundColor" name="appLightBlue"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="zhB-hR-tns"/>
+                                </constraints>
+                                <state key="normal" title="Pack it"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J8P-mG-d9R">
+                                <rect key="frame" x="20" y="648.5" width="335" height="40"/>
+                                <color key="backgroundColor" name="appBlue"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="2tV-Vy-kFm"/>
+                                </constraints>
+                                <state key="normal" title="Save for Later">
+                                    <color key="titleColor" name="appGray"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitTapped:" destination="Qem-YB-khX" eventType="touchUpInside" id="m5j-US-3ZR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="J8P-mG-d9R" firstAttribute="top" secondItem="dmv-Dk-Cjj" secondAttribute="bottom" constant="20" id="08W-tG-j8P"/>
                             <constraint firstItem="FZy-vf-GVH" firstAttribute="trailing" secondItem="dmv-Dk-Cjj" secondAttribute="trailing" constant="20" id="314-IQ-ZfB"/>
+                            <constraint firstItem="wIg-4a-h9o" firstAttribute="leading" secondItem="FZy-vf-GVH" secondAttribute="leading" constant="20" id="5hc-hw-EB5"/>
                             <constraint firstItem="FZy-vf-GVH" firstAttribute="trailing" secondItem="asj-R9-iK2" secondAttribute="trailing" constant="20" id="H8P-dp-680"/>
                             <constraint firstItem="dmv-Dk-Cjj" firstAttribute="leading" secondItem="FZy-vf-GVH" secondAttribute="leading" constant="20" id="b7L-eB-83i"/>
                             <constraint firstItem="dmv-Dk-Cjj" firstAttribute="top" secondItem="FZy-vf-GVH" secondAttribute="top" constant="20" id="fvk-8R-G5d"/>
-                            <constraint firstItem="asj-R9-iK2" firstAttribute="top" secondItem="J8P-mG-d9R" secondAttribute="bottom" constant="20" id="wm2-kM-1hb"/>
+                            <constraint firstItem="FZy-vf-GVH" firstAttribute="trailing" secondItem="wIg-4a-h9o" secondAttribute="trailing" constant="20" id="r9K-Jo-Vky"/>
+                            <constraint firstItem="asj-R9-iK2" firstAttribute="top" secondItem="J8P-mG-d9R" secondAttribute="bottom" constant="20" id="uUv-bf-0Ss"/>
+                            <constraint firstItem="J8P-mG-d9R" firstAttribute="top" secondItem="wIg-4a-h9o" secondAttribute="bottom" constant="20" id="wN5-8M-CAq"/>
                             <constraint firstItem="asj-R9-iK2" firstAttribute="leading" secondItem="FZy-vf-GVH" secondAttribute="leading" constant="20" id="xYO-Om-vOL"/>
                             <constraint firstItem="FZy-vf-GVH" firstAttribute="trailing" secondItem="J8P-mG-d9R" secondAttribute="trailing" constant="20" id="yMx-WM-IMx"/>
+                            <constraint firstItem="wIg-4a-h9o" firstAttribute="top" secondItem="dmv-Dk-Cjj" secondAttribute="bottom" constant="20" id="ypC-tf-52O"/>
                             <constraint firstItem="J8P-mG-d9R" firstAttribute="leading" secondItem="FZy-vf-GVH" secondAttribute="leading" constant="20" id="zH8-F4-2Kx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FZy-vf-GVH"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add New Product" id="h5e-fy-FBg"/>
-                    <size key="freeformSize" width="375" height="850"/>
+                    <size key="freeformSize" width="375" height="950"/>
                     <connections>
                         <outlet property="cancelButton" destination="asj-R9-iK2" id="OJC-6Y-b1M"/>
                         <outlet property="descriptionTextField" destination="qt5-ue-kYc" id="g4Q-kw-dKG"/>
@@ -486,6 +497,9 @@
         </namedColor>
         <namedColor name="appGray">
             <color red="0.80400002002716064" green="0.80400002002716064" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="appLightBlue">
+            <color red="0.46200001239776611" green="0.79500001668930054" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="appLightYellow">
             <color red="1" green="0.94999998807907104" blue="0.75" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

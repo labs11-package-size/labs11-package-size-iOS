@@ -14,8 +14,10 @@ class ShipmentsCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var trackingNumberLabel: UILabel!
+    @IBOutlet weak var dateShippedLabel: UILabel!
+    @IBOutlet weak var carrierNameLabel: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
     var shipment: Shipment?
     
 }

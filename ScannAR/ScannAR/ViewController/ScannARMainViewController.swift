@@ -246,8 +246,10 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             
             // Configure the cell
             
-            cell.titleLabel.text = "\(shipment.productId)"
-            cell.detailLabel.text = "\(shipment.status)"
+            cell.trackingNumberLabel.text = "\(shipment.trackingNumber)"
+            cell.dateShippedLabel.text = "\(shipment.shippedDate)"
+            cell.carrierNameLabel.text = "\(shipment.carrierName)"
+            cell.statusLabel.text = "\(shipment.status)"
             
             return cell
             
