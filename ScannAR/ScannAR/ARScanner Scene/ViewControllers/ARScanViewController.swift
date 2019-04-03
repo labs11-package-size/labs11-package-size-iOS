@@ -14,7 +14,7 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
     
     static let appStateChangedNotification = Notification.Name("ApplicationStateChanged")
     static let appStateUserInfoKey = "AppState"
-    
+    var boundingBoxSize: (length: Float?, width: Float?, height: Float?) = (4,2,0)
     static var instance: ARScanViewController?
     
     @IBOutlet weak var sceneView: ARSCNView!
@@ -274,7 +274,7 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
     
     func testObjectDetection(of object: ARReferenceObject) {
         self.testRun?.setReferenceObject(object, screenshot: scan?.screenshot)
-        
+        self.boundingBoxSize = self.scan?.bestBoxSize ?? (7,7,7)
         // Delete the scan to make sure that users cannot go back from
         // testing to scanning, because:
         // 1. Testing and scanning require running the ARSession with different configurations,
@@ -295,6 +295,7 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
                 print("Error: Missing scanned object.")
                 return
         }
+//        testRun.referenceObject?.extent.x
         DispatchQueue.global().async {
             do {
                 let documentDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor:nil, create:false)
@@ -309,12 +310,25 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
                     let documentURL = documentDirectory.appendingPathComponent((textField?.text)! + ".\(SavedARScansListViewController.aRObjectPathExtension)")
                     DispatchQueue.global().async {
                         do {
+                            // MARK: - Preview Image Generated here.
                             try object.export(to: documentURL, previewImage: testRun.previewImage)
                         } catch {
                             fatalError("Failed to save the file to \(documentURL)")
                         }
+                        
+                        let transition: CATransition = CATransition()
+                        transition.duration = 0.7
+                        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+                        transition.type = CATransitionType.fade
+                        self.navigationController!.view.layer.add(transition, forKey: nil)
+                        let viewController = UIStoryboard(name: "ScannARMainViewController", bundle: nil).instantiateViewController(withIdentifier: "AddProductViewControllerSB") as! AddProductViewController
+                        viewController.previewImage = testRun.previewImage
+                        viewController.bestBoxSize = self.boundingBoxSize
+                        print(self.boundingBoxSize)
+                        
                         DispatchQueue.main.async {
-                            self.navigationController?.popViewController(animated: true)
+                           //let vc = self.storyboard?.instantiateViewController(withIdentifier: "ARScanMainMenu") as! ARScanMenuScreenViewController
+                            self.present(viewController, animated: false, completion: nil)
                         }
                     }
                 }))
