@@ -13,7 +13,7 @@ extension Shipment {
     convenience init(identifier: Int? = nil,
                      carrierName: String?,
                      productId: Int? = nil,
-                     shippedDate: Date,
+                     shippedDate: Date?,
                      shippingType: String?,
                      status: Int,
                      trackingNumber: String,
@@ -47,12 +47,31 @@ extension Shipment {
         let identifier = shipmentRepresentation.identifier
         let carrierName = shipmentRepresentation.carrierName
         let productId = shipmentRepresentation.productId
-        let shippedDate = shipmentRepresentation.shippedDate
+    
         let shippingType = shipmentRepresentation.shippingType
         let status = shipmentRepresentation.status
         let trackingNumber = shipmentRepresentation.trackingNumber
         let shippedTo = shipmentRepresentation.shippedTo
         let uuid = shipmentRepresentation.uuid
+        
+        var shippedDate: Date?
+        if let shipmentShippedDate = shipmentRepresentation.shippedDate {
+            
+            if shipmentShippedDate == "null"{
+                shippedDate = nil
+            }
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:MM:SS"
+            
+            if let date = dateFormatter.date(from: shipmentShippedDate) {
+                shippedDate = date
+            } else {
+                shippedDate = nil
+            }
+        } else {
+            shippedDate = nil
+        }
         
         self.init(identifier: identifier, carrierName: carrierName, productId: productId, shippedDate: shippedDate, shippingType: shippingType, status: status, trackingNumber: trackingNumber, shippedTo: shippedTo, uuid: uuid, context: context)
     }

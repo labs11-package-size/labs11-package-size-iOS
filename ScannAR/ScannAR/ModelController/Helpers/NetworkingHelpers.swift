@@ -36,6 +36,10 @@ class NetworkingHelpers{
         dict["manufacturerId"] = product.manufacturerId
         dict["fragile"] = "\(product.fragile)"
         
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd HH:MM:SS"
+        dict["lastUpdated"] = df.string(from: Date())
+        
         return dict
     }
     

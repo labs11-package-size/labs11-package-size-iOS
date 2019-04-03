@@ -64,13 +64,19 @@ extension Product {
         let fragile = productRepresentation.fragile
         let height = productRepresentation.height
         let length = productRepresentation.length
-        let manufacturerId = productRepresentation.manufacturerId
         let name = productRepresentation.name
         let productDescription = productRepresentation.productDescription
         let userId = productRepresentation.userId
         let value = productRepresentation.value
         let weight = productRepresentation.weight
         let uuid = productRepresentation.uuid
+        
+        var manufacturerId: String?
+        if productRepresentation.manufacturerId == "null"{
+            manufacturerId = nil
+        } else {
+            manufacturerId = productRepresentation.manufacturerId
+        }
         
         var lastUpdated: Date?
         if let productLastUpdated = productRepresentation.lastUpdated {
