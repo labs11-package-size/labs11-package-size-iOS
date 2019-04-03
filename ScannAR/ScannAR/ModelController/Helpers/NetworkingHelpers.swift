@@ -26,6 +26,19 @@ class NetworkingHelpers{
         return dict
     }
     
+    static func dictionaryFromProductForUpdate(product:Product) -> [String: String]{
+        var dict: [String: String] = [:]
+        
+        dict["name"] = product.name
+        dict["productDescription"] = product.productDescription
+        dict["weight"] = "\(product.weight)"
+        dict["value"] = "\(product.value)"
+        dict["manufacturerId"] = product.manufacturerId
+        dict["fragile"] = "\(product.fragile)"
+        
+        return dict
+    }
+    
     static func dictionaryFromAccount(account:Account) -> [String: String]{
         var dict: [String: String] = [:]
         
