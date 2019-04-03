@@ -82,19 +82,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     func applicationWillEnterForeground(_ application: UIApplication) {
         if let viewController = self.window?.rootViewController as? ARScanViewController {
-            viewController.backFromBackground()
+            DispatchQueue.main.async {
+                viewController.backFromBackground()
+            }
         }
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
         if let viewController = self.window?.rootViewController as? ARScanViewController {
-            viewController.blurView?.isHidden = false
+            DispatchQueue.main.async {
+                viewController.blurView?.isHidden = false
+            }
         }
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         if let viewController = self.window?.rootViewController as? ARScanViewController {
-            viewController.blurView?.isHidden = true
+            DispatchQueue.main.async {
+                viewController.blurView?.isHidden = true
+            }
         }
     }
 
