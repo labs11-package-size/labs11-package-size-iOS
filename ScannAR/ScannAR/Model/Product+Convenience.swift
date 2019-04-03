@@ -74,8 +74,14 @@ extension Product {
         
         var lastUpdated: Date?
         if let productLastUpdated = productRepresentation.lastUpdated {
+            
+            if productLastUpdated == "null"{
+                lastUpdated = nil
+            }
+            
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd HH:MM:SS"
+            
             if let date = dateFormatter.date(from: productLastUpdated) {
                 lastUpdated = date
             } else {

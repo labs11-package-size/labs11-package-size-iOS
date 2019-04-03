@@ -253,7 +253,11 @@
                         <viewLayoutGuide key="safeArea" id="76u-yB-pYh"/>
                     </view>
                     <navigationItem key="navigationItem" title="Product Detail" id="cyZ-QX-WtF">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="fmn-nL-Guy"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="fmn-nL-Guy">
+                            <connections>
+                                <action selector="editButtonTapped:" destination="Lea-Cs-evB" id="ghW-6R-kln"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="descriptionTextField" destination="dKM-wy-o9p" id="yR4-82-RWh"/>
