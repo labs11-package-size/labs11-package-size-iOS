@@ -17,6 +17,10 @@ class ProductDetailViewController: UIViewController {
         
         setupDelegates()
         updateViews()
+        changeEditingTo(false)
+        lengthTextField.isUserInteractionEnabled = false
+        widthTextField.isUserInteractionEnabled = false
+        heightTextField.isUserInteractionEnabled = false
     }
     // MARK: - Private Methods
     
@@ -79,6 +83,7 @@ class ProductDetailViewController: UIViewController {
         weightTextField.isUserInteractionEnabled = bool
         fragileSwitch.isUserInteractionEnabled = bool
         
+        
     }
     
     private func updateProductOnServer(){
@@ -106,7 +111,7 @@ class ProductDetailViewController: UIViewController {
             label.text = "\(String(product.name!)) saved"
             label.textColor = .black
             label.textAlignment = .center
-            label.numberOfLines = 3
+            label.numberOfLines = 4
             label.font = UIFont.systemFont(ofSize: 20)
             
             popup.addSubview(label)
@@ -114,11 +119,13 @@ class ProductDetailViewController: UIViewController {
             label.translatesAutoresizingMaskIntoConstraints = false
             label.centerXAnchor.constraint(equalTo: popup.centerXAnchor).isActive = true
             label.centerYAnchor.constraint(equalTo: popup.centerYAnchor).isActive = true
-            let widthConstraint = NSLayoutConstraint(item: label, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 140)
+            let widthConstraint = NSLayoutConstraint(item: label, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 160)
             label.addConstraint(widthConstraint)
             
             UIView.animate(withDuration: 2, animations: {
                 popup.alpha = 0
+            }, completion: { _ in
+                popup.removeFromSuperview()
             })
             
         }
