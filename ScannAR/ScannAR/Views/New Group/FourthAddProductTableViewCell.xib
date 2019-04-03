@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FourthCell" rowHeight="220" id="KGk-i7-Jjw" customClass="FourthAddProductTableViewCell" customModule="ScannAR" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="384" height="220"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="384" height="219.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UzU-3F-skx">
+                        <rect key="frame" x="8" y="76" width="368" height="60"/>
+                        <color key="backgroundColor" name="appBlue"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="iPm-FZ-MNO"/>
+                        </constraints>
+                        <state key="normal" title="Save for Later">
+                            <color key="titleColor" name="appGray"/>
+                        </state>
+                        <connections>
+                            <action selector="saveForLaterButtonPushed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="X5x-Qh-puL"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sM6-wR-Zxs">
+                        <rect key="frame" x="8" y="144" width="368" height="60"/>
+                        <color key="backgroundColor" name="appLightYellow"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="Ay3-fp-Mmz"/>
+                        </constraints>
+                        <state key="normal" title="Cancel">
+                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </state>
+                        <connections>
+                            <action selector="cancelButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gfv-bi-hWI"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2R-uj-fqb">
+                        <rect key="frame" x="8" y="8" width="368" height="60"/>
+                        <color key="backgroundColor" name="appLightBlue"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="DrV-h8-cf2"/>
+                        </constraints>
+                        <state key="normal" title="Pack it"/>
+                        <connections>
+                            <action selector="packItButtonPushed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ODk-DI-epz"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="sM6-wR-Zxs" firstAttribute="top" secondItem="UzU-3F-skx" secondAttribute="bottom" constant="8" id="3Q6-tj-Xz3"/>
+                    <constraint firstItem="UzU-3F-skx" firstAttribute="top" secondItem="P2R-uj-fqb" secondAttribute="bottom" constant="8" id="AaM-Lz-SDl"/>
+                    <constraint firstAttribute="trailing" secondItem="UzU-3F-skx" secondAttribute="trailing" constant="8" id="Bh9-gn-1Ey"/>
+                    <constraint firstItem="P2R-uj-fqb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="KIy-fH-zWf"/>
+                    <constraint firstAttribute="trailing" secondItem="P2R-uj-fqb" secondAttribute="trailing" constant="8" id="WSk-Vr-QMv"/>
+                    <constraint firstItem="P2R-uj-fqb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="bkO-Fx-qsQ"/>
+                    <constraint firstAttribute="trailing" secondItem="sM6-wR-Zxs" secondAttribute="trailing" constant="8" id="g60-pH-w4w"/>
+                    <constraint firstItem="UzU-3F-skx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="mKb-w1-Jo3"/>
+                    <constraint firstItem="sM6-wR-Zxs" firstAttribute="top" secondItem="UzU-3F-skx" secondAttribute="bottom" constant="8" id="mWC-r3-EKS"/>
+                    <constraint firstItem="sM6-wR-Zxs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="ue4-Mp-FmX"/>
+                    <constraint firstItem="UzU-3F-skx" firstAttribute="top" secondItem="P2R-uj-fqb" secondAttribute="bottom" constant="8" id="xdb-U4-Bqg"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="cancelButton" destination="sM6-wR-Zxs" id="4dr-TF-DlN"/>
+                <outlet property="packItButton" destination="P2R-uj-fqb" id="hir-3S-Zde"/>
+                <outlet property="saveForLaterButton" destination="UzU-3F-skx" id="HHc-7J-EZj"/>
+            </connections>
+            <point key="canvasLocation" x="120.28985507246378" y="94.419642857142847"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="appBlue">
+            <color red="0.0" green="0.4779999852180481" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="appGray">
+            <color red="0.80400002002716064" green="0.80400002002716064" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="appLightBlue">
+            <color red="0.46200001239776611" green="0.79500001668930054" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="appLightYellow">
+            <color red="1" green="0.94999998807907104" blue="0.75" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
