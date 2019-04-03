@@ -15,6 +15,7 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
     static let appStateChangedNotification = Notification.Name("ApplicationStateChanged")
     static let appStateUserInfoKey = "AppState"
     var boundingBoxSize: (length: Float?, width: Float?, height: Float?) = (4,2,0)
+    var objectScreenshot: UIImage?
     static var instance: ARScanViewController?
     
     @IBOutlet weak var sceneView: ARSCNView!
@@ -169,9 +170,11 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
         transition.duration = 0.7
         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         transition.type = CATransitionType.fade
-        self.navigationController!.view.layer.add(transition, forKey: nil)
         
-        self.navigationController?.pushViewController(vc, animated: false)
+        DispatchQueue.main.async {
+            self.navigationController!.view.layer.add(transition, forKey: nil)
+            self.navigationController?.pushViewController(vc, animated: false)
+        }
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
@@ -196,8 +199,8 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
         guard !toggleInstructionsButton.isHidden && toggleInstructionsButton.isEnabled else { return }
         instructionsVisible.toggle()
     }
-    
-    func displayInstruction(_ message: Message, expirationTime: TimeInterval = 0.0) {
+    // MARK: - Instructions display
+    func displayInstruction(_ message: Message, expirationTime: TimeInterval = 0.8) {
         startTimeOfLastMessage = Date().timeIntervalSince1970
         expirationTimeOfLastMessage = expirationTime
         DispatchQueue.main.async {
@@ -224,7 +227,10 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
         if showCancel {
             actions.append(UIAlertAction(title: "Cancel", style: .cancel))
         }
-        self.showAlert(title: title, message: message, actions: actions)
+        DispatchQueue.main.async {
+            self.showAlert(title: title, message: message, actions: actions)
+
+        }
     }
     
     func showAlert(title: String, message: String, actions: [UIAlertAction]) {
@@ -275,6 +281,7 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
     func testObjectDetection(of object: ARReferenceObject) {
         self.testRun?.setReferenceObject(object, screenshot: scan?.screenshot)
         self.boundingBoxSize = self.scan?.bestBoxSize ?? (0,0,0)
+        self.objectScreenshot = self.scan?.screenshot
         // Delete the scan to make sure that users cannot go back from
         // testing to scanning, because:
         // 1. Testing and scanning require running the ARSession with different configurations,
@@ -320,14 +327,18 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
                         transition.duration = 0.7
                         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
                         transition.type = CATransitionType.fade
-                        self.navigationController!.view.layer.add(transition, forKey: nil)
+                        
                         let viewController = UIStoryboard(name: "ScannARMainViewController", bundle: nil).instantiateViewController(withIdentifier: "AddProductViewControllerSB") as! AddProductViewController
-                        viewController.previewImage = testRun.previewImage
+                        DispatchQueue.main.async {
+                            let rotatedScreenshot = self.objectScreenshot?.imageRotatedByDegrees(degrees: 90, flip: false)
+                            viewController.previewImage = rotatedScreenshot
+                        }
                         viewController.bestBoxSize = self.boundingBoxSize
                         print(self.boundingBoxSize)
                         
                         DispatchQueue.main.async {
-                           //let vc = self.storyboard?.instantiateViewController(withIdentifier: "ARScanMainMenu") as! ARScanMenuScreenViewController
+                            self.navigationController!.view.layer.add(transition, forKey: nil)
+                            //let vc = self.storyboard?.instantiateViewController(withIdentifier: "ARScanMainMenu") as! ARScanMenuScreenViewController
                             self.present(viewController, animated: false, completion: nil)
                         }
                     }
