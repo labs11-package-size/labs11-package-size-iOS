@@ -38,7 +38,7 @@ class ProductDetailViewController: UIViewController {
         nameTextField.text = product.name
         descriptionTextField.text = product.productDescription
         manufacturerIdTextField.text = product.manufacturerId
-        valueTextField.text = NumberFormatter.localizedString(from: NSNumber(value: product.value), number: .currency) //String(format: "%.2f", (value))
+        valueTextField.text =  String(format: "%.2f", (product.value)) // NumberFormatter.localizedString(from: NSNumber(value: product.value), number: .currency)
         weightTextField.text = String(format: "%.2f", (product.weight))
         lengthTextField.text = String(format: "%.2f", (product.length))
         widthTextField.text = String(format: "%.2f", (product.width))
@@ -53,10 +53,12 @@ class ProductDetailViewController: UIViewController {
         scannARNetworkingController?.getAssetsForProduct(uuid: uuid, completion: { (results, error) in
             
             guard let firstAsset = results?.first else { return }
-            let url = URL(string: firstAsset.urlString)
+            guard let url = URL(string: firstAsset.urlString) else {
+                return
+            }
             var data: Data
             do {
-                data = try Data(contentsOf: url!)
+                data = try Data(contentsOf:  url)
             } catch {
                 print("Could not get picture from URL")
                 return
