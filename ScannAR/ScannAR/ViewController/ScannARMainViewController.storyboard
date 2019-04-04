@@ -39,8 +39,16 @@
                                             <segue destination="axB-Tp-gcg" kind="show" identifier="ProductDetailSegue" id="543-wr-S5i"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ShipmentCell" id="dzz-Bd-1mS">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PackageCell" id="NNt-La-4RZ" customClass="PackagesCollectionViewCell" customModule="ScannAR" customModuleProvider="target">
                                         <rect key="frame" x="202" y="0.0" width="161" height="142"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="161" height="142"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ShipmentCell" id="dzz-Bd-1mS">
+                                        <rect key="frame" x="0.0" y="152" width="161" height="142"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="161" height="142"/>
@@ -59,6 +67,7 @@
                                 </constraints>
                                 <segments>
                                     <segment title="Products"/>
+                                    <segment title="Packages"/>
                                     <segment title="Shipments"/>
                                 </segments>
                             </segmentedControl>
