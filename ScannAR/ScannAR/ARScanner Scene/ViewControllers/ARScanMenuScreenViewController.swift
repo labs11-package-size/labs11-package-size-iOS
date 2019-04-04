@@ -70,15 +70,17 @@ class ARScanMenuScreenViewController: UIViewController, UIImagePickerControllerD
     }
     
     @IBAction func scanObjectButtonTapped(_ sender: UIButton) {
-        print("scan object button tapped")
+        //print("scan object button tapped")
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "ARScanVC") as! ARScanViewController
         let transition: CATransition = CATransition()
         transition.duration = 0.7
         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         transition.type = CATransitionType.fade
-        self.navigationController!.view.layer.add(transition, forKey: nil)
-        
-        self.navigationController?.pushViewController(vc, animated: false)
+        DispatchQueue.main.async {
+            self.navigationController!.view.layer.add(transition, forKey: nil)
+            self.navigationController?.pushViewController(vc, animated: false)
+        }
+       
     }
     
     
