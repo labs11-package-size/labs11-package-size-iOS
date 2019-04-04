@@ -10,9 +10,6 @@ import UIKit
 import Foundation
 
 class AddProductViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddProductProtocolDelegate {
-
-    var previewImage: UIImage?
-    var bestBoxSize: (length: Float?, width: Float?, height: Float?)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +28,12 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewWillAppear(_ animated: Bool) {
         super .viewWillAppear(animated)
         // fill
-//        guard bestBoxSize == (0,0,0) else {
-//            lengthTextField.text = String(format: "%.2f", (bestBoxSize.length! * 39.3701))
-//            widthTextField.text = String(format: "%.2f", (bestBoxSize.width! * 39.3701))
-//            heightTextField.text = String(format: "%.2f", (bestBoxSize.height! * 39.3701))
-//            return
-//        }
+        guard bestBoxSize == (0,0,0) else {
+            length = Double(bestBoxSize.length ?? 0.0 * 39.3701)
+            width = Double(bestBoxSize.width ?? 0.0 * 39.3701)
+            height = Double(bestBoxSize.height ?? 0.0 * 39.3701)
+            return
+        }
     }
     // MARK: - Private Methods
     
@@ -162,7 +159,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             value != 0.0,
             weight != 0.0 else { return }
         
-        let newProduct = Product(fragile: fragile, height: height, length: length, manufacturerId: manufacturerId, name: name, productDescription: productDescription, value: value, weight: weight, width: width, context: CoreDataStack.shared.container.newBackgroundContext())
+        let newProduct = Product(fragile: fragile, height: Double(height), length: Double(length), manufacturerId: manufacturerId, name: name, productDescription: productDescription, value: value, weight: weight, width: Double(width), context: CoreDataStack.shared.container.newBackgroundContext())
         let dict = NetworkingHelpers.dictionaryFromProduct(product: newProduct)
         scannARNetworkController.postNewProduct(dict: dict) { error in
             DispatchQueue.main.async {
@@ -190,6 +187,8 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     // MARK: - Properties
+    var previewImage: UIImage?
+    var bestBoxSize: (length: Float?, width: Float?, height: Float?)
     @IBOutlet weak var addProductTableView: UITableView!
     var scannARNetworkController: ScannARNetworkController?
     var collectionViewToReload: UICollectionView?
