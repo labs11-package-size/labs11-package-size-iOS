@@ -269,8 +269,8 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             let package = packagesFetchedResultsController.object(at: indexPath)
             
             // Configure the cell
-            cell.package = package
-            cell.idLabel.text = "\(package.uuid)"
+//            cell.package = package
+//            cell.idLabel.text = "\(package.uuid)"
             
             return cell
         
