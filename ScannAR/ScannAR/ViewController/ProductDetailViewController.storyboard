@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t49-bV-PVg">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t49-bV-PVg">
                                 <rect key="frame" x="8" y="72" width="359" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="Cf9-ln-bTM"/>
@@ -263,6 +263,7 @@
                         <outlet property="descriptionTextField" destination="dKM-wy-o9p" id="yR4-82-RWh"/>
                         <outlet property="fragileSwitch" destination="CZa-fg-uRf" id="Kvs-rx-iEX"/>
                         <outlet property="heightTextField" destination="v5V-J7-ulK" id="jdq-qE-vEn"/>
+                        <outlet property="imageView" destination="t49-bV-PVg" id="OZ2-fj-lGK"/>
                         <outlet property="lengthTextField" destination="IJr-J7-QpM" id="kB7-2R-N2G"/>
                         <outlet property="manufacturerIdTextField" destination="fIR-la-Wpw" id="ux0-pC-Gpq"/>
                         <outlet property="nameTextField" destination="ezz-U0-J85" id="lVG-hd-FE0"/>
