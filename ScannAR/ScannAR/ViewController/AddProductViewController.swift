@@ -27,6 +27,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewWillAppear(_ animated: Bool) {
         super .viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = false
         // fill
         if bestBoxSize.height == nil || bestBoxSize.length == nil || bestBoxSize.width == nil {
             length = Double(0.0)
