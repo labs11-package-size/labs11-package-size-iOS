@@ -68,6 +68,7 @@
 		D11802C922553241002837D3 /* ThirdAddProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D11802C722553241002837D3 /* ThirdAddProductTableViewCell.xib */; };
 		D11802CB22554B09002837D3 /* AddProductTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11802CA22554B09002837D3 /* AddProductTableView.swift */; };
 		D11802CF22554EEF002837D3 /* AddProductProtocolDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11802CE22554EEF002837D3 /* AddProductProtocolDelegate.swift */; };
+		D11802D12255B14F002837D3 /* ProductAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11802D02255B14F002837D3 /* ProductAsset.swift */; };
 		D13070B5224C62EC00164B9A /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13070B4224C62EC00164B9A /* AddProductViewController.swift */; };
 		D135E657224C89F5008CC7DF /* NetworkingHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D135E656224C89F5008CC7DF /* NetworkingHelpers.swift */; };
 		D142BEE3224AACE400699881 /* ShipmentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D142BEE1224AACE400699881 /* ShipmentsCollectionViewCell.swift */; };
@@ -196,6 +197,7 @@
 		D11802C722553241002837D3 /* ThirdAddProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThirdAddProductTableViewCell.xib; sourceTree = "<group>"; };
 		D11802CA22554B09002837D3 /* AddProductTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductTableView.swift; sourceTree = "<group>"; };
 		D11802CE22554EEF002837D3 /* AddProductProtocolDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductProtocolDelegate.swift; sourceTree = "<group>"; };
+		D11802D02255B14F002837D3 /* ProductAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAsset.swift; sourceTree = "<group>"; };
 		D13070B4224C62EC00164B9A /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		D135E656224C89F5008CC7DF /* NetworkingHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingHelpers.swift; sourceTree = "<group>"; };
 		D142BEE1224AACE400699881 /* ShipmentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -550,6 +552,7 @@
 				D1EAB23422492AC200720412 /* Product+Convenience.swift */,
 				D1EAB23E224934E400720412 /* Product+Encodable.swift */,
 				D152CA5C2253BFD2000F8ACD /* Account.swift */,
+				D11802D02255B14F002837D3 /* ProductAsset.swift */,
 				D1EAB23A22492D8200720412 /* ProductRepresentation.swift */,
 				D1EAB23822492CEE00720412 /* Shipment+Convenience.swift */,
 				D1EAB2402249379D00720412 /* Shipment+Encodable.swift */,
@@ -889,6 +892,7 @@
 				AB12DBAC2242E8BB00886A11 /* ARScanViewController+ARSessionState.swift in Sources */,
 				AB38DCE722446287008DC8C0 /* DetectedPointCloud.swift in Sources */,
 				AB12DBB02242E91200886A11 /* ARScanViewController+SessionInfo.swift in Sources */,
+				D11802D12255B14F002837D3 /* ProductAsset.swift in Sources */,
 				AB12DBAA2242E84F00886A11 /* ARScanViewController+Gestures.swift in Sources */,
 				AB12DBA82242E50E00886A11 /* ARScanViewController.swift in Sources */,
 				D1EAB23522492AC200720412 /* Product+Convenience.swift in Sources */,

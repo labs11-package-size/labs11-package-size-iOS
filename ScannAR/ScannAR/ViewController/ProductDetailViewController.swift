@@ -17,6 +17,7 @@ class ProductDetailViewController: UIViewController {
         
         setupDelegates()
         updateViews()
+        fetchAssets()
         changeEditingTo(false)
         lengthTextField.isUserInteractionEnabled = false
         widthTextField.isUserInteractionEnabled = false
@@ -44,6 +45,27 @@ class ProductDetailViewController: UIViewController {
         heightTextField.text = "\(product.height)"
         fragileSwitch.isOn =  product.fragile == 1 ? true : false
         
+    }
+    
+    private func fetchAssets(){
+        guard let product = product else {fatalError("No product available to show")}
+        guard let uuid = product.uuid else {fatalError("No uuid available to show")}
+        scannARNetworkingController?.getAssetsForProduct(uuid: uuid, completion: { (results, error) in
+            
+            guard let firstAsset = results?.first else { return }
+            let url = URL(string: firstAsset.urlString)
+            var data: Data
+            do {
+                data = try Data(contentsOf: url!)
+            } catch {
+                print("Could not get picture from URL")
+                return
+            }
+            DispatchQueue.main.async {
+                self.imageView.image = UIImage(data: data)
+            }
+            
+        })
     }
     
     private func updateProductValues(){
@@ -158,7 +180,8 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet weak var widthTextField: UITextField!
     @IBOutlet weak var heightTextField: UITextField!
     @IBOutlet weak var fragileSwitch: UISwitch!
-
+    @IBOutlet weak var imageView: UIImageView!
+    
 }
 
 extension ProductDetailViewController: UITextFieldDelegate {

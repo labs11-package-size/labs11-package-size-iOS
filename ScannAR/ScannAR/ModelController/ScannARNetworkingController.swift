@@ -143,13 +143,13 @@ class ScannARNetworkController {
     /*
      POST New Products for jsonToken representing the User
      */
-    func postNewProduct(dict: [String: String], completion: @escaping (Error?) -> Void) {
+    func postNewProduct(dict: [String: String], completion: @escaping ([ProductRepresentation]?, Error?) -> Void) {
         
         let request = createRequest(for: .POSTNewProduct, with: dict)
         
         apiRequest(from: request) { (results: [ProductRepresentation]?, error: Error?) in
             
-            completion(nil)
+            completion(results, nil)
         }
     }
     
@@ -180,11 +180,11 @@ class ScannARNetworkController {
     /*
      Get an list of all assets associated with a product
      */
-    func getAssetsForProduct(uuid: UUID, completion: @escaping ([ProductRepresentation]?, Error?) -> Void) {
+    func getAssetsForProduct(uuid: UUID, completion: @escaping ([ProductAsset]?, Error?) -> Void) {
         
         let request = createRequest(for: .GETProductsAssets, for: uuid)
         
-        apiRequest(from: request) { (results: [ProductRepresentation]?, error: Error?) in
+        apiRequest(from: request) { (results: [ProductAsset]?, error: Error?) in
             
             guard let results = results else {
                 return completion(nil, nil)
@@ -197,11 +197,11 @@ class ScannARNetworkController {
     /*
      POST a new asset for a given product
      */
-    func postNewAssetsForProduct(uuid: UUID, completion: @escaping ( Error?) -> Void) {
+    func postNewAssetsForProduct(dict: [String: String], uuid: UUID, completion: @escaping ( Error?) -> Void) {
         
-        let request = createRequest(for: .POSTProductAsset, for: uuid)
+        let request = createRequest(for: .POSTProductAsset, with: dict, for: uuid)
         
-        apiRequest(from: request) { (results: [ProductRepresentation]?, error: Error?) in
+        apiRequest(from: request) { (results: [ProductAsset]?, error: Error?) in
             
             completion(nil)
         }
@@ -506,10 +506,21 @@ extension ScannARNetworkController {
             
             guard let jsonToken = jsonToken else { fatalError("The jsonToken is empty.") }
             
+            var jsonData: Data
+            do {
+                jsonData = try JSONSerialization.data(withJSONObject: dict!)
+            } catch {
+                print("failed to convert dictionary to json")
+                fatalError("")
+            }
+            
             // Create a POST request
             var request = URLRequest(url: url)
             request.httpMethod = HTTPMethod.POST.rawValue
             request.addValue(jsonToken.token, forHTTPHeaderField: "Authorization")
+            request.httpBody = jsonData
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.setValue("application/json", forHTTPHeaderField: "Accept")
             
             return request
         

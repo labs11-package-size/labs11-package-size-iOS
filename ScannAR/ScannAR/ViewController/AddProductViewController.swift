@@ -161,10 +161,24 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let newProduct = Product(fragile: fragile, height: Double(height), length: Double(length), manufacturerId: manufacturerId, name: name, productDescription: productDescription, value: value, weight: weight, width: Double(width), context: CoreDataStack.shared.container.newBackgroundContext())
         let dict = NetworkingHelpers.dictionaryFromProduct(product: newProduct)
-        scannARNetworkController.postNewProduct(dict: dict) { error in
+        let newProductAsset = ProductAsset(urlString:imageURLString ?? "", name: "Picture1")
+        let assetDict = NetworkingHelpers.dictionaryFromProductAsset(productAsset: newProductAsset)
+        scannARNetworkController.postNewProduct(dict: dict) { results,error in
+            
+            if let uuid = results?.last?.uuid {
+                
+                scannARNetworkController.postNewAssetsForProduct(dict: assetDict, uuid: uuid, completion: { (error) in
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                        return
+                    }
+                })
+                
+            }
             DispatchQueue.main.async {
                 self.navigationController?.popViewController(animated: true)
             }
+            
         }
     }
     

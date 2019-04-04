@@ -23,6 +23,10 @@ class NetworkingHelpers{
         dict["manufacturerId"] = product.manufacturerId
         dict["fragile"] = "\(product.fragile)"
         
+        guard let uuid = product.uuid else { return dict }
+        
+        dict["uuid"] = "\(uuid)"
+        
         return dict
     }
     
@@ -49,6 +53,15 @@ class NetworkingHelpers{
         dict["displayName"] = account.displayName
         dict["email"] = account.email
         dict["photoURL"] = account.photoURL
+        
+        return dict
+    }
+    
+    static func dictionaryFromProductAsset(productAsset: ProductAsset) -> [String: String] {
+        var dict: [String: String] = [:]
+        
+        dict["label"] = productAsset.name
+        dict["url"] = productAsset.urlString
         
         return dict
     }

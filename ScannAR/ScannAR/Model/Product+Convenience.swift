@@ -23,7 +23,7 @@ extension Product {
                      value: Double,
                      weight: Double,
                      width: Double,
-                     uuid: UUID = UUID(),
+                     uuid: UUID? = UUID(),
                      context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         
