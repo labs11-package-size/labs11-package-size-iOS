@@ -37,11 +37,11 @@ class ProductDetailViewController: UIViewController {
         nameTextField.text = product.name
         descriptionTextField.text = product.productDescription
         manufacturerIdTextField.text = product.manufacturerId
-        valueTextField.text = "\(product.value)"
-        weightTextField.text = "\(product.weight)"
-        lengthTextField.text = "\(product.length)"
-        widthTextField.text = "\(product.width)"
-        heightTextField.text = "\(product.height)"
+        valueTextField.text = NumberFormatter.localizedString(from: NSNumber(value: product.value), number: .currency) //String(format: "%.2f", (value))
+        weightTextField.text = String(format: "%.2f", (product.weight))
+        lengthTextField.text = String(format: "%.2f", (product.length))
+        widthTextField.text = String(format: "%.2f", (product.width))
+        heightTextField.text = String(format: "%.2f", (product.height))
         fragileSwitch.isOn =  product.fragile == 1 ? true : false
         
     }

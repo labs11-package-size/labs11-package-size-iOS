@@ -58,6 +58,16 @@
 		ABC2C3B8224A857D0045A7D2 /* SavedARScansListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38DD0522456411008DC8C0 /* SavedARScansListViewController.swift */; };
 		C28743A6DB52C5982AC7F7E0 /* Pods_ScannARTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EC70ED6367728869B15E014 /* Pods_ScannARTests.framework */; };
 		D11802B42254F887002837D3 /* ShippingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11802B32254F887002837D3 /* ShippingStatus.swift */; };
+		D11802B82255309D002837D3 /* FirstAddProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11802B62255309D002837D3 /* FirstAddProductTableViewCell.swift */; };
+		D11802B92255309D002837D3 /* FirstAddProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D11802B72255309D002837D3 /* FirstAddProductTableViewCell.xib */; };
+		D11802BC225530AF002837D3 /* SecondAddProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11802BA225530AF002837D3 /* SecondAddProductTableViewCell.swift */; };
+		D11802BD225530AF002837D3 /* SecondAddProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D11802BB225530AF002837D3 /* SecondAddProductTableViewCell.xib */; };
+		D11802C4225530D0002837D3 /* FourthAddProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11802C2225530D0002837D3 /* FourthAddProductTableViewCell.swift */; };
+		D11802C5225530D0002837D3 /* FourthAddProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D11802C3225530D0002837D3 /* FourthAddProductTableViewCell.xib */; };
+		D11802C822553241002837D3 /* ThirdAddProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11802C622553241002837D3 /* ThirdAddProductTableViewCell.swift */; };
+		D11802C922553241002837D3 /* ThirdAddProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D11802C722553241002837D3 /* ThirdAddProductTableViewCell.xib */; };
+		D11802CB22554B09002837D3 /* AddProductTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11802CA22554B09002837D3 /* AddProductTableView.swift */; };
+		D11802CF22554EEF002837D3 /* AddProductProtocolDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11802CE22554EEF002837D3 /* AddProductProtocolDelegate.swift */; };
 		D13070B5224C62EC00164B9A /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13070B4224C62EC00164B9A /* AddProductViewController.swift */; };
 		D135E657224C89F5008CC7DF /* NetworkingHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D135E656224C89F5008CC7DF /* NetworkingHelpers.swift */; };
 		D142BEE3224AACE400699881 /* ShipmentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D142BEE1224AACE400699881 /* ShipmentsCollectionViewCell.swift */; };
@@ -176,6 +186,16 @@
 		ABB4C9ED2248BD7A0079E25D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ARScan.storyboard; sourceTree = "<group>"; };
 		ABBDB0512253F65F000F7412 /* IBDesignable+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IBDesignable+UIKit.swift"; sourceTree = "<group>"; };
 		D11802B32254F887002837D3 /* ShippingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingStatus.swift; sourceTree = "<group>"; };
+		D11802B62255309D002837D3 /* FirstAddProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAddProductTableViewCell.swift; sourceTree = "<group>"; };
+		D11802B72255309D002837D3 /* FirstAddProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstAddProductTableViewCell.xib; sourceTree = "<group>"; };
+		D11802BA225530AF002837D3 /* SecondAddProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondAddProductTableViewCell.swift; sourceTree = "<group>"; };
+		D11802BB225530AF002837D3 /* SecondAddProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondAddProductTableViewCell.xib; sourceTree = "<group>"; };
+		D11802C2225530D0002837D3 /* FourthAddProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthAddProductTableViewCell.swift; sourceTree = "<group>"; };
+		D11802C3225530D0002837D3 /* FourthAddProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FourthAddProductTableViewCell.xib; sourceTree = "<group>"; };
+		D11802C622553241002837D3 /* ThirdAddProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdAddProductTableViewCell.swift; sourceTree = "<group>"; };
+		D11802C722553241002837D3 /* ThirdAddProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThirdAddProductTableViewCell.xib; sourceTree = "<group>"; };
+		D11802CA22554B09002837D3 /* AddProductTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductTableView.swift; sourceTree = "<group>"; };
+		D11802CE22554EEF002837D3 /* AddProductProtocolDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductProtocolDelegate.swift; sourceTree = "<group>"; };
 		D13070B4224C62EC00164B9A /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		D135E656224C89F5008CC7DF /* NetworkingHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingHelpers.swift; sourceTree = "<group>"; };
 		D142BEE1224AACE400699881 /* ShipmentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -436,6 +456,21 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		D11802B522553059002837D3 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				D11802B62255309D002837D3 /* FirstAddProductTableViewCell.swift */,
+				D11802B72255309D002837D3 /* FirstAddProductTableViewCell.xib */,
+				D11802BA225530AF002837D3 /* SecondAddProductTableViewCell.swift */,
+				D11802BB225530AF002837D3 /* SecondAddProductTableViewCell.xib */,
+				D11802C622553241002837D3 /* ThirdAddProductTableViewCell.swift */,
+				D11802C722553241002837D3 /* ThirdAddProductTableViewCell.xib */,
+				D11802C2225530D0002837D3 /* FourthAddProductTableViewCell.swift */,
+				D11802C3225530D0002837D3 /* FourthAddProductTableViewCell.xib */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		D135E655224C89E3008CC7DF /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -449,6 +484,7 @@
 		D1698DAC224AFE5E00250E4D /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				D11802CE22554EEF002837D3 /* AddProductProtocolDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -459,6 +495,7 @@
 				D1EAB2272244598C00720412 /* Login */,
 				D1EAB21B224405BE00720412 /* ScannARMainCollectionView.swift */,
 				D13070B4224C62EC00164B9A /* AddProductViewController.swift */,
+				D11802CA22554B09002837D3 /* AddProductTableView.swift */,
 				D1EAB21D224405D700720412 /* ScannARMainViewController.swift */,
 				D1EAB228224555B300720412 /* ScannARMainNavigationController.swift */,
 				D1EAB21F224405F900720412 /* ScannARMainViewController.storyboard */,
@@ -477,6 +514,7 @@
 		D1EAB1CC2242D47D00720412 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D11802B522553059002837D3 /* New Group */,
 				D1EAB1D52242D64800720412 /* ProductsCollectionViewCell.swift */,
 				D1EAB1D62242D64800720412 /* ProductsCollectionViewCell.xib */,
 				D142BEE1224AACE400699881 /* ShipmentsCollectionViewCell.swift */,
@@ -651,6 +689,7 @@
 				D1EAB1D82242D64800720412 /* ProductsCollectionViewCell.xib in Resources */,
 				D1EAB20A2243B51D00720412 /* ProductDetailViewController.storyboard in Resources */,
 				AB519F622242C6CA00B27A8B /* art.scnassets in Resources */,
+				D11802C922553241002837D3 /* ThirdAddProductTableViewCell.xib in Resources */,
 				AB519F6C2242C6CB00B27A8B /* LaunchScreen.storyboard in Resources */,
 				D1EAB2162243B6AA00720412 /* SettingsViewController.storyboard in Resources */,
 				D142BEE4224AACE400699881 /* ShipmentsCollectionViewCell.xib in Resources */,
@@ -659,9 +698,12 @@
 				D1EAB2062243B4E500720412 /* ShipmentsDetailViewController.storyboard in Resources */,
 				AB519F692242C6CB00B27A8B /* Assets.xcassets in Resources */,
 				D1EAB2122243B68300720412 /* AccountViewController.storyboard in Resources */,
+				D11802B92255309D002837D3 /* FirstAddProductTableViewCell.xib in Resources */,
 				D1EAB220224405F900720412 /* ScannARMainViewController.storyboard in Resources */,
 				AB519F672242C6CA00B27A8B /* Main.storyboard in Resources */,
+				D11802BD225530AF002837D3 /* SecondAddProductTableViewCell.xib in Resources */,
 				AB46C547224BE24C0075EF30 /* GoogleService-Info.plist in Resources */,
+				D11802C5225530D0002837D3 /* FourthAddProductTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -817,6 +859,7 @@
 				D1EAB2262244597D00720412 /* WalkthroughViewController.swift in Sources */,
 				D1EAB1D72242D64800720412 /* ProductsCollectionViewCell.swift in Sources */,
 				AB38DCCB22445E3E008DC8C0 /* Message.swift in Sources */,
+				D11802B82255309D002837D3 /* FirstAddProductTableViewCell.swift in Sources */,
 				D1EAB2142243B69900720412 /* SettingsViewController.swift in Sources */,
 				D1EAB2042243B4CF00720412 /* ShipmentsDetailViewController.swift in Sources */,
 				D13070B5224C62EC00164B9A /* AddProductViewController.swift in Sources */,
@@ -825,6 +868,7 @@
 				ABC2C3B8224A857D0045A7D2 /* SavedARScansListViewController.swift in Sources */,
 				AB38DCE32244626E008DC8C0 /* BoundingBoxSide.swift in Sources */,
 				AB38DCE122446254008DC8C0 /* DetectedBoundingBox.swift in Sources */,
+				D11802CB22554B09002837D3 /* AddProductTableView.swift in Sources */,
 				AB38DD02224562D1008DC8C0 /* ARScanMenuScreenViewController.swift in Sources */,
 				D1698DB0224B14E700250E4D /* APICallType.swift in Sources */,
 				AB38DCF722446347008DC8C0 /* WireFrame.swift in Sources */,
@@ -833,6 +877,7 @@
 				D1EAB229224555B300720412 /* ScannARMainNavigationController.swift in Sources */,
 				AB38DCE922446295008DC8C0 /* ObjectOrigin.swift in Sources */,
 				AB38DCD222445EB7008DC8C0 /* FlashlightButton.swift in Sources */,
+				D11802CF22554EEF002837D3 /* AddProductProtocolDelegate.swift in Sources */,
 				AB46C545224B59960075EF30 /* AuthViewController.swift in Sources */,
 				AB38DCF922446380008DC8C0 /* BoundingBox+Snapping.swift in Sources */,
 				D1EAB2082243B50B00720412 /* ProductDetailViewController.swift in Sources */,
@@ -851,6 +896,8 @@
 				AB38DCDD22446161008DC8C0 /* Helpers+Utilities.swift in Sources */,
 				AB38DCD422445F7C008DC8C0 /* ThresholdPanGestureRecognizer.swift in Sources */,
 				AB12DBB52242EA5D00886A11 /* ARObjectDetectTestController.swift in Sources */,
+				D11802C4225530D0002837D3 /* FourthAddProductTableViewCell.swift in Sources */,
+				D11802C822553241002837D3 /* ThirdAddProductTableViewCell.swift in Sources */,
 				AB38DCDF22446244008DC8C0 /* BoundingBox.swift in Sources */,
 				D1698DAB224AF31400250E4D /* CoreDataImporter.swift in Sources */,
 				D11802B42254F887002837D3 /* ShippingStatus.swift in Sources */,
@@ -858,6 +905,7 @@
 				D1EAB2412249379D00720412 /* Shipment+Encodable.swift in Sources */,
 				AB38DCEF224462FD008DC8C0 /* PointCloud+CreateVisualization.swift in Sources */,
 				D152CA5D2253BFD2000F8ACD /* Account.swift in Sources */,
+				D11802BC225530AF002837D3 /* SecondAddProductTableViewCell.swift in Sources */,
 				AB12DBB32242EA0E00886A11 /* ARScan.swift in Sources */,
 				D1698DB2224B2D5600250E4D /* HTTPMethod.swift in Sources */,
 				D1EAB23D22492D9700720412 /* ShipmentRepresentation.swift in Sources */,
