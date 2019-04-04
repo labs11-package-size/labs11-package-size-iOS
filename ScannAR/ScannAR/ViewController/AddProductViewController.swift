@@ -129,7 +129,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: thirdReuseIdentifier, for: indexPath) as? ThirdAddProductTableViewCell else { fatalError("Could not dequeue as ThirdAddProductTableViewCell")}
             cell.delegate = self
-            cell.valueTextField.text = NumberFormatter.localizedString(from: NSNumber(value: value), number: .currency) //String(format: "%.2f", (value))
+            cell.valueTextField.text = String(format: "%.2f", (value)) // NumberFormatter.localizedString(from: NSNumber(value: value), number: .currency)
             cell.weightTextField.text = String(format: "%.2f", (weight))
             
             cell.valueTextField.keyboardType = UIKeyboardType.decimalPad
@@ -157,7 +157,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     
     // MARK: - IBActions
     func saveForLaterTapped(_ sender: Any) {
-        guard let scannARNetworkController = scannARNetworkController else { fatalError("No networking controller present")}
+        let scannARNetworkController = ScannARNetworkController.shared
         
         guard height != 0.0,
             length != 0.0,
@@ -174,12 +174,16 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             
             if let uuid = results?.last?.uuid {
                 
-                scannARNetworkController.postNewAssetsForProduct(dict: assetDict, uuid: uuid, completion: { (error) in
-                    DispatchQueue.main.async {
-                        self.navigationController?.popViewController(animated: true)
-                        return
-                    }
-                })
+                if newProductAsset.urlString != "" {
+                    scannARNetworkController.postNewAssetsForProduct(dict: assetDict, uuid: uuid, completion: { (error) in
+                        DispatchQueue.main.async {
+                            self.navigationController?.popViewController(animated: true)
+                            return
+                        }
+                    })
+                }
+                
+                
                 
             }
             DispatchQueue.main.async {
@@ -215,7 +219,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     var previewImage: UIImage?
     var bestBoxSize: (length: Float?, width: Float?, height: Float?)
     @IBOutlet weak var addProductTableView: UITableView!
-    var scannARNetworkController: ScannARNetworkController?
+    var scannARNetworkController: ScannARNetworkController = ScannARNetworkController.shared
     var collectionViewToReload: UICollectionView?
     
     var displayImage: UIImage?

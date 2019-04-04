@@ -12,7 +12,8 @@ import CoreData
 class ScannARNetworkController {
 
     // MARK: - Private Methods
-    
+    static let shared = ScannARNetworkController()
+    private init (){}
     /*
      Generic apiRequest
      */
