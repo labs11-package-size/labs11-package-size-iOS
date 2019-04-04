@@ -82,8 +82,6 @@
 		D196E75E225691020012A3F7 /* Package+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = D196E75B225691020012A3F7 /* Package+Convenience.swift */; };
 		D196E75F225691020012A3F7 /* Package+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D196E75C225691020012A3F7 /* Package+Encodable.swift */; };
 		D196E761225695010012A3F7 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = D196E760225695010012A3F7 /* Box.swift */; };
-		D196E7642256993E0012A3F7 /* PackagesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D196E7622256993E0012A3F7 /* PackagesCollectionViewCell.swift */; };
-		D196E7652256993E0012A3F7 /* PackagesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D196E7632256993E0012A3F7 /* PackagesCollectionViewCell.xib */; };
 		D1EAB1D72242D64800720412 /* ProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB1D52242D64800720412 /* ProductsCollectionViewCell.swift */; };
 		D1EAB1D82242D64800720412 /* ProductsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1EAB1D62242D64800720412 /* ProductsCollectionViewCell.xib */; };
 		D1EAB2042243B4CF00720412 /* ShipmentsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB2032243B4CF00720412 /* ShipmentsDetailViewController.swift */; };
@@ -217,8 +215,6 @@
 		D196E75B225691020012A3F7 /* Package+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Package+Convenience.swift"; sourceTree = "<group>"; };
 		D196E75C225691020012A3F7 /* Package+Encodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Package+Encodable.swift"; sourceTree = "<group>"; };
 		D196E760225695010012A3F7 /* Box.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
-		D196E7622256993E0012A3F7 /* PackagesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesCollectionViewCell.swift; sourceTree = "<group>"; };
-		D196E7632256993E0012A3F7 /* PackagesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PackagesCollectionViewCell.xib; sourceTree = "<group>"; };
 		D1EAB1D52242D64800720412 /* ProductsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1EAB1D62242D64800720412 /* ProductsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductsCollectionViewCell.xib; sourceTree = "<group>"; };
 		D1EAB1DA2242E14F00720412 /* ScannARNetworkingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannARNetworkingController.swift; sourceTree = "<group>"; };
@@ -533,8 +529,6 @@
 				D1EAB1D62242D64800720412 /* ProductsCollectionViewCell.xib */,
 				D142BEE1224AACE400699881 /* ShipmentsCollectionViewCell.swift */,
 				D142BEE2224AACE400699881 /* ShipmentsCollectionViewCell.xib */,
-				D196E7622256993E0012A3F7 /* PackagesCollectionViewCell.swift */,
-				D196E7632256993E0012A3F7 /* PackagesCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -707,7 +701,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABB4C9EC2248BD7A0079E25D /* ARScan.storyboard in Resources */,
-				D196E7652256993E0012A3F7 /* PackagesCollectionViewCell.xib in Resources */,
 				D1EAB1D82242D64800720412 /* ProductsCollectionViewCell.xib in Resources */,
 				D1EAB20A2243B51D00720412 /* ProductDetailViewController.storyboard in Resources */,
 				AB519F622242C6CA00B27A8B /* art.scnassets in Resources */,
@@ -891,7 +884,6 @@
 				ABC2C3B8224A857D0045A7D2 /* SavedARScansListViewController.swift in Sources */,
 				AB38DCE32244626E008DC8C0 /* BoundingBoxSide.swift in Sources */,
 				D196E75D225691020012A3F7 /* PackageRepresentation.swift in Sources */,
-				D196E7642256993E0012A3F7 /* PackagesCollectionViewCell.swift in Sources */,
 				AB38DCE122446254008DC8C0 /* DetectedBoundingBox.swift in Sources */,
 				D11802CB22554B09002837D3 /* AddProductTableView.swift in Sources */,
 				AB38DD02224562D1008DC8C0 /* ARScanMenuScreenViewController.swift in Sources */,
