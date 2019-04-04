@@ -82,11 +82,7 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="IAg-H0-MNQ">
-                                <connections>
-                                    <segue destination="foL-tf-Chw" kind="show" identifier="ARScanMainMenuShow" animates="NO" id="ZGQ-nK-AXK"/>
-                                </connections>
-                            </barButtonItem>
+                            <barButtonItem title="🤪" id="IAg-H0-MNQ"/>
                             <barButtonItem title="Add" id="48A-4b-2gJ">
                                 <connections>
                                     <action selector="addButtonClicked:" destination="8s4-Ma-CAL" id="a9G-vE-DHo"/>
