@@ -11,6 +11,15 @@ import Foundation
 
 class AddProductViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddProductProtocolDelegate {
     
+    @IBAction func unwindToAddProductVC(segue: UIStoryboardSegue) {
+        let transition: CATransition = CATransition()
+        transition.duration = 0.7
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.fade
+        self.navigationController!.view.layer.add(transition, forKey: nil)
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -197,6 +206,17 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         print("Send to Packaging")
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ScanARSegue"{
+        guard segue.destination is ARScanMenuScreenViewController else { fatalError("Segue should cast view controller as ARScanMenuScreenViewController but failed to do so.")}
+        let transition: CATransition = CATransition()
+        transition.duration = 0.7
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.fade
+        self.navigationController!.view.layer.add(transition, forKey: nil)
+        }
+    }
+    
     func cancelButtonPressed(_ sender: Any) {
         DispatchQueue.main.async {
             self.navigationController?.popViewController(animated: true)
@@ -205,7 +225,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func scanWithARButtonTapped(_ sender: Any) {
         DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "ScanARSegue", sender: nil)
+            self.performSegue(withIdentifier: "ScanARSegue", sender: sender)
         }
     }
     

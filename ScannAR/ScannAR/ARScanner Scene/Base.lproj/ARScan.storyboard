@@ -596,7 +596,6 @@
                                 <state key="normal" backgroundImage="back"/>
                                 <connections>
                                     <action selector="backButtonTapped:" destination="7No-5O-jZZ" eventType="touchUpInside" id="KmV-LB-w2S"/>
-                                    <segue destination="Nyl-yJ-LyB" kind="unwind" animates="NO" unwindAction="unwindToScannARMainViewControllerWithSegue:" id="dat-o3-9cw"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -621,6 +620,7 @@
                         <outlet property="detectObjectButton" destination="boi-mR-3CJ" id="Xnt-Al-Ih7"/>
                         <outlet property="scanObjectButton" destination="035-US-lP8" id="pg9-vh-KIJ"/>
                         <outlet property="scannARTutorialButton" destination="ST0-2A-mgT" id="SyL-nd-j4M"/>
+                        <segue destination="Nyl-yJ-LyB" kind="unwind" identifier="unwindToAddProductVC" animates="NO" unwindAction="unwindToAddProductVCWithSegue:" id="Pbb-I4-ngw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Bv-Z5-rel" userLabel="First Responder" sceneMemberID="firstResponder"/>

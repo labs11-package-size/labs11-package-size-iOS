@@ -61,12 +61,10 @@ class ARScanMenuScreenViewController: UIViewController, UIImagePickerControllerD
     }
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
-        let transition: CATransition = CATransition()
-        transition.duration = 0.7
-        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        transition.type = CATransitionType.fade
-        self.navigationController!.view.layer.add(transition, forKey: nil)
-  
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "unwindToAddProductVC", sender: sender.self)
+        }
+        
     }
     
     @IBAction func scanObjectButtonTapped(_ sender: UIButton) {
