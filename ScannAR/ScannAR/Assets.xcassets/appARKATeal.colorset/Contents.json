@@ -1,0 +1,21 @@
+{
+  "info" : {
+    "version" : 1,
+    "author" : "jkaunert"
+  },
+  "colors" : [
+    {
+      "idiom" : "universal",
+      "color" : {
+        "color-space" : "srgb",
+        "components" : {
+          "red" : "0.447",
+          "alpha" : "1.000",
+          "blue" : "0.639",
+          "green" : "0.741"
+        }
+      }
+    }
+  ]
+}
+
