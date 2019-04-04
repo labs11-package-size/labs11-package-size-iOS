@@ -20,6 +20,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         
         self.collectionView!.register(UINib(nibName: "ShipmentsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: shipmentReuseIdentifier)
         self.collectionView!.register(UINib(nibName: "ProductsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: productReuseIdentifier)
+        self.collectionView!.register(UINib(nibName: "PackagesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: packageReuseIdentifier)
         
         // Do any additional setup after loading the view.
         collectionView.delegate = self
@@ -130,6 +131,22 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         
         switch segmentedControl.selectedSegmentIndex {
         case 1:
+            print("Networking to be implemented")
+//            scannARNetworkingController.getShipments { (results, error) in
+//
+//                guard let results = results else {
+//                    return
+//                }
+//
+//                self.coreDataImporter.syncShipments(shipmentRepresentations: results, completion: { (error) in
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                    }
+//                })
+//
+//            }
+        
+        case 2:
             
             scannARNetworkingController.getShipments { (results, error) in
                 
@@ -212,6 +229,8 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         
         switch segmentedControl.selectedSegmentIndex {
         case 1:
+            return packagesFetchedResultsController.sections?.count ?? 0
+        case 2:
             return shipmentsFetchedResultsController.sections?.count ?? 0
         default:
             return productsFetchedResultsController.sections?.count ?? 0
@@ -222,6 +241,12 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         
         switch segmentedControl.selectedSegmentIndex {
         case 1:
+            if packagesFetchedResultsController.sections?.count ?? 0 > 0 {
+                return packagesFetchedResultsController.sections?[section].numberOfObjects ?? 0
+            } else {
+                return 0
+            }
+        case 2:
             if shipmentsFetchedResultsController.sections?.count ?? 0 > 0 {
                 return shipmentsFetchedResultsController.sections?[section].numberOfObjects ?? 0
             } else {
@@ -239,6 +264,17 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         
         switch segmentedControl.selectedSegmentIndex {
         case 1:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: shipmentReuseIdentifier, for: indexPath) as? PackagesCollectionViewCell else { fatalError("Could not dequeue cell as PackageCollectionViewCell") }
+            
+            let package = packagesFetchedResultsController.object(at: indexPath)
+            
+            // Configure the cell
+            cell.package = package
+            cell.idLabel.text = "\(package.uuid)"
+            
+            return cell
+        
+        case 2:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: shipmentReuseIdentifier, for: indexPath) as? ShipmentsCollectionViewCell else { fatalError("Could not dequeue cell as ShipmentsCollectionViewCell") }
             
             let shipment = shipmentsFetchedResultsController.object(at: indexPath)
@@ -284,6 +320,8 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         
         switch segmentedControl.selectedSegmentIndex {
         case 1:
+            print("Segue to Add Package")
+        case 2:
             performSegue(withIdentifier: "ShipmentDetailSegue", sender: nil)
         default:
             performSegue(withIdentifier: "ProductDetailSegue", sender: nil)
@@ -301,6 +339,8 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBAction func addButtonClicked(_ sender: Any) {
         switch segmentedControl.selectedSegmentIndex {
         case 1:
+            print("Add Package")
+        case 2:
             print("Add Shipment")
             
         default:
@@ -381,6 +421,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     
     // MARK: - Properties
     let productReuseIdentifier = "ProductCell"
+    let packageReuseIdentifier = "PackageCell"
     let shipmentReuseIdentifier = "ShipmentCell"
     @IBOutlet weak var newProductShipmentBarButton: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -399,6 +440,23 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         ]
         let moc = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
+        
+        frc.delegate = self
+        try? frc.performFetch()
+        
+        return frc
+        
+    }()
+    
+    lazy var packagesFetchedResultsController: NSFetchedResultsController<Package> = {
+        
+        let fetchRequest: NSFetchRequest<Package> = Package.fetchRequest()
+        
+        fetchRequest.sortDescriptors = [
+            NSSortDescriptor(key: "identifier", ascending: false)
+        ]
+        let moc = CoreDataStack.shared.mainContext
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "boxId", cacheName: nil)
         
         frc.delegate = self
         try? frc.performFetch()
