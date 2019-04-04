@@ -229,7 +229,7 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
         }
         DispatchQueue.main.async {
             self.showAlert(title: title, message: message, actions: actions)
-
+            
         }
     }
     
@@ -302,7 +302,7 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
                 print("Error: Missing scanned object.")
                 return
         }
-//        testRun.referenceObject?.extent.x
+        //        testRun.referenceObject?.extent.x
         DispatchQueue.global().async {
             do {
                 let documentDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor:nil, create:false)
@@ -323,10 +323,7 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
                             fatalError("Failed to save the file to \(documentURL)")
                         }
                         
-                        let transition: CATransition = CATransition()
-                        transition.duration = 0.7
-                        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-                        transition.type = CATransitionType.fade
+                        
                         
                         let viewController = UIStoryboard(name: "ScannARMainViewController", bundle: nil).instantiateViewController(withIdentifier: "AddProductViewControllerSB") as! AddProductViewController
                         DispatchQueue.main.async {
@@ -336,11 +333,21 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
                         viewController.bestBoxSize = self.boundingBoxSize
                         print(self.boundingBoxSize)
                         
+                        //  DispatchQueue.main.async {
+                        //                            let rotatedScreenshot = self.objectScreenshot?.imageRotatedByDegrees(degrees: 90, flip: false)
+                        //                            viewController.previewImage = rotatedScreenshot
+                        let transition: CATransition = CATransition()
+                        transition.duration = 0.7
+                        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+                        transition.type = CATransitionType.fade
                         DispatchQueue.main.async {
                             self.navigationController!.view.layer.add(transition, forKey: nil)
-                            //let vc = self.storyboard?.instantiateViewController(withIdentifier: "ARScanMainMenu") as! ARScanMenuScreenViewController
-                            self.present(viewController, animated: false, completion: nil)
+                            self.navigationController?.pushViewController(viewController, animated: false)
                         }
+                        
+//                        self.present(viewController, animated: false, completion: nil)
+                        //let vc = self.storyboard?.instantiateViewController(withIdentifier: "ARScanMainMenu") as! ARScanMenuScreenViewController
+                        // }
                     }
                 }))
                 DispatchQueue.main.async {

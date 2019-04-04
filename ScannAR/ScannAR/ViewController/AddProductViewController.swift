@@ -13,7 +13,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
         addProductTableView.delegate = self
         addProductTableView.dataSource = self
@@ -27,12 +27,19 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewWillAppear(_ animated: Bool) {
         super .viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = false
         // fill
-        guard bestBoxSize == (0,0,0) else {
-            length = Double(bestBoxSize.length ?? 0.0 * 39.3701)
-            width = Double(bestBoxSize.width ?? 0.0 * 39.3701)
-            height = Double(bestBoxSize.height ?? 0.0 * 39.3701)
-            return
+        if bestBoxSize.height == nil || bestBoxSize.length == nil || bestBoxSize.width == nil {
+            length = Double(0.0)
+            width = Double(0.0)
+            height = Double(0.0)
+        }else {
+            length = Double(bestBoxSize.length! * 39.3701)
+            width = Double(bestBoxSize.width! * 39.3701)
+            height = Double(bestBoxSize.height! * 39.3701)
+            DispatchQueue.main.async {
+                self.manualEntryHidden = false
+            }
         }
     }
     // MARK: - Private Methods
@@ -107,9 +114,9 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: secondReuseIdentifier, for: indexPath) as? SecondAddProductTableViewCell else { fatalError("Could not dequeue as SecondAddProductTableViewCell")}
             cell.delegate = self
-            cell.lengthTextField.text = "\(length)"
-            cell.widthTextField.text = "\(width)"
-            cell.heightTextField.text = "\(height)"
+            cell.lengthTextField.text = String(format: "%.2f", (length))
+            cell.widthTextField.text = String(format: "%.2f", (width))
+            cell.heightTextField.text = String(format: "%.2f", (height))
             
             cell.lengthTextField.keyboardType = UIKeyboardType.decimalPad
             cell.widthTextField.keyboardType = UIKeyboardType.decimalPad
@@ -122,8 +129,8 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: thirdReuseIdentifier, for: indexPath) as? ThirdAddProductTableViewCell else { fatalError("Could not dequeue as ThirdAddProductTableViewCell")}
             cell.delegate = self
-            cell.valueTextField.text = "\(value)"
-            cell.weightTextField.text = "\(weight)"
+            cell.valueTextField.text = NumberFormatter.localizedString(from: NSNumber(value: value), number: .currency) //String(format: "%.2f", (value))
+            cell.weightTextField.text = String(format: "%.2f", (weight))
             
             cell.valueTextField.keyboardType = UIKeyboardType.decimalPad
             cell.weightTextField.keyboardType = UIKeyboardType.decimalPad
@@ -187,11 +194,15 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func cancelButtonPressed(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        DispatchQueue.main.async {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     func scanWithARButtonTapped(_ sender: Any) {
-        performSegue(withIdentifier: "ScanARSegue", sender: nil)
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "ScanARSegue", sender: nil)
+        }
     }
     
     
@@ -210,7 +221,9 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     var displayImage: UIImage?
     var manualEntryHidden: Bool = true {
         didSet {
-            addProductTableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .automatic)
+            DispatchQueue.main.async {
+                self.addProductTableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .automatic)
+            }
         }
     }
     var height: Double = 0.0
@@ -224,7 +237,10 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     var fragile: Int = 0
     var imageURLString: String? {
         didSet {
-            guard let url = URL(string: imageURLString!) else { return }
+            guard let url = URL(string: imageURLString!) else {
+                displayImage = previewImage
+                return
+            }
             var imageData: Data
             do {
                 imageData = try Data.init(contentsOf: url, options: .alwaysMapped)

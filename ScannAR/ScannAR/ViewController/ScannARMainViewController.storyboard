@@ -215,7 +215,7 @@
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="addProductTableView" destination="I2a-KS-dVX" id="LqI-Yk-5cZ"/>
-                        <segue destination="L5a-UV-gBZ" kind="presentation" identifier="ScanARSegue" id="gWr-gO-QvP"/>
+                        <segue destination="L5a-UV-gBZ" kind="show" identifier="ScanARSegue" animates="NO" id="gWr-gO-QvP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kG0-UO-6uf" userLabel="First Responder" sceneMemberID="firstResponder"/>
