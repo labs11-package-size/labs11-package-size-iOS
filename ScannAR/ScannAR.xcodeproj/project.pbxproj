@@ -52,6 +52,8 @@
 		AB519F772242C6CB00B27A8B /* ScannARTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB519F762242C6CB00B27A8B /* ScannARTests.swift */; };
 		AB519F822242C6CB00B27A8B /* ScannARUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB519F812242C6CB00B27A8B /* ScannARUITests.swift */; };
 		AB7A3F572252912B003FF186 /* NavigationController+Transparent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A3F562252912B003FF186 /* NavigationController+Transparent.swift */; };
+		ABA70F742256A70C00A44C06 /* PackagesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABA70F722256A70C00A44C06 /* PackagesCollectionViewCell.xib */; };
+		ABA70F752256A70C00A44C06 /* PackagesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA70F732256A70C00A44C06 /* PackagesCollectionViewCell.swift */; };
 		ABB4C9EC2248BD7A0079E25D /* ARScan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABB4C9EE2248BD7A0079E25D /* ARScan.storyboard */; };
 		ABBDB0522253F65F000F7412 /* IBDesignable+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBDB0512253F65F000F7412 /* IBDesignable+UIKit.swift */; };
 		ABC2C3B7224A857D0045A7D2 /* ScannARNetworkingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB1DA2242E14F00720412 /* ScannARNetworkingController.swift */; };
@@ -188,6 +190,8 @@
 		AB519F812242C6CB00B27A8B /* ScannARUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannARUITests.swift; sourceTree = "<group>"; };
 		AB519F832242C6CB00B27A8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB7A3F562252912B003FF186 /* NavigationController+Transparent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationController+Transparent.swift"; sourceTree = "<group>"; };
+		ABA70F722256A70C00A44C06 /* PackagesCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PackagesCollectionViewCell.xib; path = ScannAR/Views/PackagesCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
+		ABA70F732256A70C00A44C06 /* PackagesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PackagesCollectionViewCell.swift; path = ScannAR/Views/PackagesCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		ABB4C9ED2248BD7A0079E25D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ARScan.storyboard; sourceTree = "<group>"; };
 		ABBDB0512253F65F000F7412 /* IBDesignable+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IBDesignable+UIKit.swift"; sourceTree = "<group>"; };
 		D11802B32254F887002837D3 /* ShippingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingStatus.swift; sourceTree = "<group>"; };
@@ -477,6 +481,8 @@
 				D11802C722553241002837D3 /* ThirdAddProductTableViewCell.xib */,
 				D11802C2225530D0002837D3 /* FourthAddProductTableViewCell.swift */,
 				D11802C3225530D0002837D3 /* FourthAddProductTableViewCell.xib */,
+				ABA70F732256A70C00A44C06 /* PackagesCollectionViewCell.swift */,
+				ABA70F722256A70C00A44C06 /* PackagesCollectionViewCell.xib */,
 			);
 			path = "New Group";
 			sourceTree = "<group>";
@@ -701,6 +707,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABB4C9EC2248BD7A0079E25D /* ARScan.storyboard in Resources */,
+				ABA70F742256A70C00A44C06 /* PackagesCollectionViewCell.xib in Resources */,
 				D1EAB1D82242D64800720412 /* ProductsCollectionViewCell.xib in Resources */,
 				D1EAB20A2243B51D00720412 /* ProductDetailViewController.storyboard in Resources */,
 				AB519F622242C6CA00B27A8B /* art.scnassets in Resources */,
@@ -884,6 +891,7 @@
 				ABC2C3B8224A857D0045A7D2 /* SavedARScansListViewController.swift in Sources */,
 				AB38DCE32244626E008DC8C0 /* BoundingBoxSide.swift in Sources */,
 				D196E75D225691020012A3F7 /* PackageRepresentation.swift in Sources */,
+				ABA70F752256A70C00A44C06 /* PackagesCollectionViewCell.swift in Sources */,
 				AB38DCE122446254008DC8C0 /* DetectedBoundingBox.swift in Sources */,
 				D11802CB22554B09002837D3 /* AddProductTableView.swift in Sources */,
 				AB38DD02224562D1008DC8C0 /* ARScanMenuScreenViewController.swift in Sources */,
