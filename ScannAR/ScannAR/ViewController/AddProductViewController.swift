@@ -179,11 +179,15 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func cancelButtonPressed(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        DispatchQueue.main.async {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     func scanWithARButtonTapped(_ sender: Any) {
-        performSegue(withIdentifier: "ScanARSegue", sender: nil)
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "ScanARSegue", sender: nil)
+        }
     }
     
     
