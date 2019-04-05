@@ -260,6 +260,21 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             }
         }
     }
+    
+    private func testPostToPreviewPackages(){
+        
+        let product = productsFetchedResultsController.object(at: IndexPath(row: 0, section: 0))
+        
+        let packagingDict = PackagePreviewRequest(products: [product.uuid!.uuidString], boxType: nil)
+        scannARNetworkingController?.postPackagingPreview(packagingDict: packagingDict, completion: { (results, error) in
+            if let error = error {
+                print("Error: \(error)")
+                return
+            }
+            print("\(results)")
+        })
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         switch segmentedControl.selectedSegmentIndex {
@@ -348,6 +363,9 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             performSegue(withIdentifier: "ShowAddProductSegue", sender: nil)
         
         }
+    }
+    @IBAction func testPackaginAPIT(_ sender: Any) {
+        testPostToPreviewPackages()
     }
     
     // MARK: - Tap gesture Recognizer

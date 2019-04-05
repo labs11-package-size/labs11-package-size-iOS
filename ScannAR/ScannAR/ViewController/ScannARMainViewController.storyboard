@@ -85,11 +85,18 @@
                         <viewLayoutGuide key="safeArea" id="Hfh-tf-2fd"/>
                     </view>
                     <navigationItem key="navigationItem" title="ScannAR" id="JpJ-WN-EaK">
-                        <barButtonItem key="leftBarButtonItem" image="user-4" id="jze-1y-VjW">
-                            <connections>
-                                <segue destination="0qG-Dc-x7H" kind="show" identifier="AccountViewSegue" id="XEB-cj-2AL"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem image="user-4" id="jze-1y-VjW">
+                                <connections>
+                                    <segue destination="0qG-Dc-x7H" kind="show" identifier="AccountViewSegue" id="XEB-cj-2AL"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Test" id="Oya-4g-S4H">
+                                <connections>
+                                    <action selector="testPackaginAPIT:" destination="8s4-Ma-CAL" id="WNm-5d-k9M"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <rightBarButtonItems>
                             <barButtonItem title="🤪" id="IAg-H0-MNQ"/>
                             <barButtonItem title="Add" id="48A-4b-2gJ">

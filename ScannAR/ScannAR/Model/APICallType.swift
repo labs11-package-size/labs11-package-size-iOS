@@ -32,4 +32,8 @@ enum APICallType: String, Codable {
     case POSTNewShipment
     case DELETEShipment
     case PUTEditShipment
+    
+    // packages
+    case POSTPreviewPackaging
+    case POSTAddPackage
 }

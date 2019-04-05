@@ -168,11 +168,15 @@ class ProductDetailViewController: UIViewController {
         updateProductOnServer()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonTapped))
     }
+    @IBAction func packItNowButtonTapped(_ sender: Any) {
+        
+    }
     
     // MARK: - Properties
     var scannARNetworkingController: ScannARNetworkController?
     var product: Product?
     var collectionViewToReload: UICollectionView?
+    @IBOutlet weak var packItNowButton: UIButton!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
     @IBOutlet weak var manufacturerIdTextField: UITextField!

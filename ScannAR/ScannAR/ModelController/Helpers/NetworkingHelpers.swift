@@ -57,7 +57,7 @@ class NetworkingHelpers{
         return dict
     }
     
-    static func dictionaryFromProductAsset(productAsset: ProductAsset) -> [String: String] {
+    static func dictionaryFromProductAsset(productAsset:ProductAsset) -> [String: String]{
         var dict: [String: String] = [:]
         
         dict["label"] = productAsset.name
@@ -65,4 +65,20 @@ class NetworkingHelpers{
         
         return dict
     }
+    
+    static func dictionaryFromProductArrayAndBoxType(productArray: [Product], boxType: BoxType? = nil) -> [String: [String]] {
+        var dict: [String: [String]] = [:]
+        var array: [String] = []
+        
+        for product in productArray {
+            guard let uuid = product.uuid else { continue }
+            array.append(uuid.uuidString)
+        }
+        
+        dict["products"] = array
+        // dict["boxType"] = "shipper"
+        
+        return dict
+    }
+    
 }
