@@ -10,6 +10,9 @@ import UIKit
 
 protocol CardCollectionViewCellActionsHandler: class {
     func deleteButtonTapped(cell: CardCollectionViewCell)
+    func savePackageConfigForLaterButtonTapped(cell: CardCollectionViewCell)
+    func addPackageConfigButtonTapped(cell: CardCollectionViewCell)
+    func preview3DButtonTapped(cell: CardCollectionViewCell)
 }
 
 class CardCollectionViewCell: SwipingCollectionViewCell {
@@ -71,28 +74,32 @@ class CardCollectionViewCell: SwipingCollectionViewCell {
         }
     }
     
-    // MARK: IBActions
-    
-    @IBAction private func preview3DButtonTapped(_ sender: Any) {
-        handleButtonTap {
-            let fromVC = UIStoryboard(name: "BestBoxSize", bundle: nil).instantiateViewController(withIdentifier: "CardsViewController") as! CardsViewController
-            let toVC = UIStoryboard(name: "BestBoxSize", bundle: nil).instantiateViewController(withIdentifier: "BoxConfig3DPreviewVC") as! BoxConfig3DPreviewViewController
-            DispatchQueue.main.async {
-                fromVC.navigationController?.pushViewController(toVC, animated: false)
-            }
-
+    func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Preview3DSegue"{
+            guard segue.destination is BoxConfig3DPreviewViewController else { fatalError("Segue should cast view controller as BoxConfig3DPreviewViewController but failed to do so.")}
         }
+    }
+    // MARK: IBActions
+    var toVC: UIViewController?
+    @IBAction private func preview3DButtonTapped(_ sender: Any) {
+        handleButtonTap { [weak self] in
+            guard let self = self else { return }
+            self.actionsHandler?.preview3DButtonTapped(cell: self)
+     }
     }
     
     @IBAction func addPackageConfigButtonTapped(_ sender: Any) {
-        handleButtonTap {
-            // todo
+        handleButtonTap {  [weak self] in
+            guard let self = self else { return }
+            self.actionsHandler?.addPackageConfigButtonTapped(cell: self)
         }
     }
     
     @IBAction func savePackageConfigForLaterButtonTapped(_ sender: Any) {
-        handleButtonTap {
-            // todo
+        handleButtonTap {  [weak self] in
+            guard let self = self else { return }
+            self.actionsHandler?.savePackageConfigForLaterButtonTapped(cell: self)
+            
         }
     }
     

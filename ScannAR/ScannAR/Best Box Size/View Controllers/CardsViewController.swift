@@ -127,6 +127,24 @@ extension CardsViewController: SwipingCollectionViewCellDelegate {
 }
 
 extension CardsViewController: CardCollectionViewCellActionsHandler {
+    func savePackageConfigForLaterButtonTapped(cell: CardCollectionViewCell) {
+        if let index = cardsView.indexPath(for: cell)?.row {
+            
+        }
+    }
+    
+    func addPackageConfigButtonTapped(cell: CardCollectionViewCell) {
+        if let index = cardsView.indexPath(for: cell)?.row {
+            
+        }
+    }
+    
+    func preview3DButtonTapped(cell: CardCollectionViewCell) {
+        if let index = cardsView.indexPath(for: cell)?.row {
+            performSegue(withIdentifier: "Preview3DSegue", sender: self)
+        }
+    }
+    
     func deleteButtonTapped(cell: CardCollectionViewCell) {
         if let index = cardsView.indexPath(for: cell)?.row {
             storage.data.remove(at: index)
