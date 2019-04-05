@@ -261,20 +261,6 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         }
     }
     
-    private func testPostToPreviewPackages(){
-        
-        let product = productsFetchedResultsController.object(at: IndexPath(row: 0, section: 0))
-        
-        let packagingDict = PackagePreviewRequest(products: [product.uuid!.uuidString], boxType: nil)
-        scannARNetworkingController?.postPackagingPreview(packagingDict: packagingDict, completion: { (results, error) in
-            if let error = error {
-                print("Error: \(error)")
-                return
-            }
-            print("\(results)")
-        })
-    }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         switch segmentedControl.selectedSegmentIndex {
@@ -284,8 +270,8 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             let package = packagesFetchedResultsController.object(at: indexPath)
             
             // Configure the cell
-//            cell.package = package
-//            cell.idLabel.text = "\(package.uuid)"
+            cell.package = package
+//            cell.idLabel.text = "\(package.uuid?.uuidString)"
             
             return cell
         
@@ -308,10 +294,33 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             
             let product = productsFetchedResultsController.object(at: indexPath)
             
+            
+            
             // Configure the cell
             cell.product = product
             cell.titleLabel.text = product.name
             cell.detailLabel.text = "$\(product.value)"
+            cell.lwhLabel.text = "L: \(product.length) | W: \(product.width) | H: \(product.height)"
+            cell.weightLabel.text = "\(product.weight) lbs"
+            
+           
+//            self.scannARNetworkingController?.getAssetsForProduct(uuid: product.uuid!, completion: { (results, error) in
+//                
+//                guard let firstAsset = results?.first else { return }
+//                var data: Data
+//                do {
+//                    guard let url = URL(string: firstAsset.urlString) else { return }
+//                    data = try Data(contentsOf: url)
+//                } catch {
+//                    return
+//                }
+//                
+//                DispatchQueue.main.async {
+//                    cell.productImageView.image = UIImage(data: data)
+//                    self.collectionView.reloadItems(at: [indexPath])
+//                }
+//                
+//            })
             
             return cell
         }
@@ -327,7 +336,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let kWhateverHeightYouWant = 100
+        let kWhateverHeightYouWant = 180
         return CGSize(width: collectionView.bounds.size.width / 2 - 8, height: CGFloat(kWhateverHeightYouWant))
     }
     
@@ -364,10 +373,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         
         }
     }
-    @IBAction func testPackaginAPIT(_ sender: Any) {
-        testPostToPreviewPackages()
-    }
-    
+
     // MARK: - Tap gesture Recognizer
     @objc (handleLongPressWithGestureRecognizer:)
     func handleLongPress(gestureRecognizer : UILongPressGestureRecognizer){
@@ -454,10 +460,10 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         let fetchRequest: NSFetchRequest<Product> = Product.fetchRequest()
         
         fetchRequest.sortDescriptors = [
-            NSSortDescriptor(key: "lastUpdated", ascending: true)
+            NSSortDescriptor(key: "lastUpdated", ascending: false)
         ]
         let moc = CoreDataStack.shared.mainContext
-        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "lastUpdated", cacheName: nil)
         
         frc.delegate = self
         try? frc.performFetch()
