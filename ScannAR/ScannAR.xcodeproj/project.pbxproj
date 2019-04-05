@@ -54,6 +54,8 @@
 		AB7A3F572252912B003FF186 /* NavigationController+Transparent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A3F562252912B003FF186 /* NavigationController+Transparent.swift */; };
 		ABA70F742256A70C00A44C06 /* PackagesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABA70F722256A70C00A44C06 /* PackagesCollectionViewCell.xib */; };
 		ABA70F752256A70C00A44C06 /* PackagesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA70F732256A70C00A44C06 /* PackagesCollectionViewCell.swift */; };
+		ABA70F79225714A900A44C06 /* BestBoxSize.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABA70F78225714A900A44C06 /* BestBoxSize.storyboard */; };
+		ABA70F7C2257179E00A44C06 /* BoxConfig3DPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA70F7B2257179E00A44C06 /* BoxConfig3DPreviewViewController.swift */; };
 		ABB4C9EC2248BD7A0079E25D /* ARScan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABB4C9EE2248BD7A0079E25D /* ARScan.storyboard */; };
 		ABBDB0522253F65F000F7412 /* IBDesignable+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBDB0512253F65F000F7412 /* IBDesignable+UIKit.swift */; };
 		ABC2C3B7224A857D0045A7D2 /* ScannARNetworkingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB1DA2242E14F00720412 /* ScannARNetworkingController.swift */; };
@@ -197,6 +199,8 @@
 		AB7A3F562252912B003FF186 /* NavigationController+Transparent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationController+Transparent.swift"; sourceTree = "<group>"; };
 		ABA70F722256A70C00A44C06 /* PackagesCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PackagesCollectionViewCell.xib; path = ScannAR/Views/PackagesCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
 		ABA70F732256A70C00A44C06 /* PackagesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PackagesCollectionViewCell.swift; path = ScannAR/Views/PackagesCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		ABA70F78225714A900A44C06 /* BestBoxSize.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BestBoxSize.storyboard; sourceTree = "<group>"; };
+		ABA70F7B2257179E00A44C06 /* BoxConfig3DPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxConfig3DPreviewViewController.swift; sourceTree = "<group>"; };
 		ABB4C9ED2248BD7A0079E25D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ARScan.storyboard; sourceTree = "<group>"; };
 		ABBDB0512253F65F000F7412 /* IBDesignable+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IBDesignable+UIKit.swift"; sourceTree = "<group>"; };
 		D11802B32254F887002837D3 /* ShippingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingStatus.swift; sourceTree = "<group>"; };
@@ -480,6 +484,15 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		ABA70F7A225714B600A44C06 /* Best Box Size */ = {
+			isa = PBXGroup;
+			children = (
+				ABA70F78225714A900A44C06 /* BestBoxSize.storyboard */,
+				ABA70F7B2257179E00A44C06 /* BoxConfig3DPreviewViewController.swift */,
+			);
+			path = "Best Box Size";
+			sourceTree = "<group>";
+		};
 		D11802B522553059002837D3 /* AddProductTableViewCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -557,6 +570,7 @@
 			children = (
 				D1EAB2272244598C00720412 /* Login */,
 				D1EAB21B224405BE00720412 /* ScannARMainCollectionView.swift */,
+				ABA70F7A225714B600A44C06 /* Best Box Size */,
 				D13070B4224C62EC00164B9A /* AddProductViewController.swift */,
 				D11802CA22554B09002837D3 /* AddProductTableView.swift */,
 				D1EAB21D224405D700720412 /* ScannARMainViewController.swift */,
@@ -762,6 +776,7 @@
 				D11802C922553241002837D3 /* ThirdAddProductTableViewCell.xib in Resources */,
 				AB519F6C2242C6CB00B27A8B /* LaunchScreen.storyboard in Resources */,
 				D1EAB2162243B6AA00720412 /* SettingsViewController.storyboard in Resources */,
+				ABA70F79225714A900A44C06 /* BestBoxSize.storyboard in Resources */,
 				D142BEE4224AACE400699881 /* ShipmentsCollectionViewCell.xib in Resources */,
 				AB46C549224C06700075EF30 /* AuthViewTestScene.storyboard in Resources */,
 				AB38DD092245650F008DC8C0 /* LICENSE.txt in Resources */,
@@ -953,6 +968,7 @@
 				D1EAB23722492B0100720412 /* CoreDataStack.swift in Sources */,
 				D1EAB229224555B300720412 /* ScannARMainNavigationController.swift in Sources */,
 				AB38DCE922446295008DC8C0 /* ObjectOrigin.swift in Sources */,
+				ABA70F7C2257179E00A44C06 /* BoxConfig3DPreviewViewController.swift in Sources */,
 				AB38DCD222445EB7008DC8C0 /* FlashlightButton.swift in Sources */,
 				D11802CF22554EEF002837D3 /* AddProductProtocolDelegate.swift in Sources */,
 				AB46C545224B59960075EF30 /* AuthViewController.swift in Sources */,
