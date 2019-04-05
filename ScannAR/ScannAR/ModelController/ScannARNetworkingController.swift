@@ -52,6 +52,12 @@ class ScannARNetworkController {
         let request = createRequest(for: .POSTWebToken, with: dict)
         
         apiRequest(from: request) { (results: JSONWebToken?, error: Error?) in
+            
+            if let error = error {
+                print("Error: \(error)")
+                completion(nil, error)
+            }
+            
             guard let results = results else {
                 return completion(nil, nil)
             }
@@ -69,6 +75,12 @@ class ScannARNetworkController {
         let request = createRequest(for: .GETValidateToken)
         
         apiRequest(from: request) { (results: Bool?, error: Error?) in
+            
+            if let error = error {
+                print("Error: \(error)")
+                completion(nil, error)
+            }
+            
             completion(results, nil)
         }
         
@@ -82,6 +94,12 @@ class ScannARNetworkController {
         let request = createRequest(for: .POSTRegisterNewUser)
         
         apiRequest(from: request) { (results: Bool?, error: Error?) in
+            
+            if let error = error {
+                print("Error: \(error)")
+                completion(nil, error)
+            }
+            
             completion(results, nil)
         }
         
@@ -95,6 +113,12 @@ class ScannARNetworkController {
         let request = createRequest(for: .GETAccountInfo)
         
         apiRequest(from: request) { (results: Account?, error: Error?) in
+            
+            if let error = error {
+                print("Error: \(error)")
+                completion(nil, error)
+            }
+            
             completion(results, nil)
         }
         
@@ -108,6 +132,12 @@ class ScannARNetworkController {
         let request = createRequest(for: .PUTEditAccountInfo, with: dict)
 
         apiRequest(from: request) { (results: Account?, error: Error?) in
+            
+            if let error = error {
+                print("Error: \(error)")
+                completion(nil, error)
+            }
+            
             completion(results, nil)
         }
 
@@ -124,6 +154,11 @@ class ScannARNetworkController {
         let request = createRequest(for: .GETProducts)
         
         apiRequest(from: request) { (results: [ProductRepresentation]?, error: Error?) in
+            
+            if let error = error {
+                print("Error: \(error)")
+                completion(nil, error)
+            }
             
             guard let results = results else {
                 return completion(nil, nil)
@@ -150,6 +185,11 @@ class ScannARNetworkController {
         
         apiRequest(from: request) { (results: [ProductRepresentation]?, error: Error?) in
             
+            if let error = error {
+                print("Error: \(error)")
+                completion(nil, error)
+            }
+            
             completion(results, nil)
         }
     }
@@ -162,6 +202,12 @@ class ScannARNetworkController {
         let request = createRequest(for: .DELETEProduct, for: uuid)
         
         apiRequest(from: request) { (results: [ProductRepresentation]?, error: Error?) in
+            
+            if let error = error {
+                print("Error: \(error)")
+                completion(error)
+            }
+            
             completion(nil)
         }
     }
@@ -174,6 +220,12 @@ class ScannARNetworkController {
         let request = createRequest(for: .PUTEditProduct, with: dict, for: uuid)
         
         apiRequest(from: request) { (results: [ProductRepresentation]?, error: Error?) in
+            
+            if let error = error {
+                print("Error: \(error)")
+                completion(error)
+            }
+            
             completion(nil)
         }
     }
@@ -186,6 +238,11 @@ class ScannARNetworkController {
         let request = createRequest(for: .GETProductsAssets, for: uuid)
         
         apiRequest(from: request) { (results: [ProductAsset]?, error: Error?) in
+            
+            if let error = error {
+                print("Error: \(error)")
+                completion(nil, error)
+            }
             
             guard let results = results else {
                 return completion(nil, nil)
@@ -204,6 +261,11 @@ class ScannARNetworkController {
         
         apiRequest(from: request) { (results: [ProductAsset]?, error: Error?) in
             
+            if let error = error {
+                print("Error: \(error)")
+                completion(error)
+            }
+            
             completion(nil)
         }
     }
@@ -219,6 +281,11 @@ class ScannARNetworkController {
         let request = createRequest(for: .GETShipments)
         
         apiRequest(from: request) { (results: [ShipmentRepresentation]?, error: Error?) in
+            
+            if let error = error {
+                print("Error: \(error)")
+                completion(nil, error)
+            }
             
             guard let results = results else {
                 return completion(nil, nil)
@@ -245,6 +312,11 @@ class ScannARNetworkController {
         
         apiRequest(from: request) { (_ results: [ShipmentRepresentation]?, error: Error?) in
             
+            if let error = error {
+                print("Error: \(error)")
+                completion(error)
+            }
+            
             completion(nil)
         }
     }
@@ -258,12 +330,17 @@ class ScannARNetworkController {
         
         apiRequest(from: request) { (_ results: [ShipmentRepresentation]?, error: Error?) in
             
+            if let error = error {
+                print("Error: \(error)")
+                completion(error)
+            }
+            
             completion(nil)
         }
     }
     
     /*
-     Put edit a Shipment with a given UUID for a jsonToken representing the User
+     Post edit a Shipment with a given UUID for a jsonToken representing the User
      */
     func postNewShipment(dict: [String: String], uuid: UUID, completion: @escaping (Error?) -> Void) {
         
@@ -271,10 +348,51 @@ class ScannARNetworkController {
         
         apiRequest(from: request) { (_ results: [ShipmentRepresentation]?, error: Error?) in
             
+            if let error = error {
+                print("Error: \(error)")
+                completion(error)
+            }
+            
             completion(nil)
         }
     }
     
+    // MARK: - Packaging Networking Methods
+    /*
+     Post an array of Products to get a preview of potential packaging options for the products
+     */
+    func postPackagingPreview(packagingDict: PackagePreviewRequest, completion: @escaping ([PackageConfiguration]? ,Error?) -> Void) {
+        
+        let request = createRequest(for: .POSTPreviewPackaging, using: packagingDict)
+        
+        apiRequest(from: request) { (_ results: [PackageConfiguration]?, error: Error?) in
+            
+            if let error = error {
+                print("Error: \(error)")
+                completion(nil, error)
+            }
+            
+            completion(results, nil)
+        }
+    }
+    
+    /*
+     Post an array of Packaging Configurations (possibly just one) that you want to save as packages.
+     */
+    func postAddPackages(packagingConfigurations: [PackageConfiguration], completion: @escaping ([PackageConfiguration]? ,Error?) -> Void) {
+        
+        let request = createRequest(for: .POSTPreviewPackaging, packagingConfigurations: packagingConfigurations)
+        
+        apiRequest(from: request) { (_ results: [PackageConfiguration]?, error: Error?) in
+            
+            if let error = error {
+                print("Error: \(error)")
+                completion(nil, error)
+            }
+            
+            completion(results, nil)
+        }
+    }
     
     
     // MARK: - Properties
@@ -289,7 +407,7 @@ class ScannARNetworkController {
 extension ScannARNetworkController {
     
     // URLRequest Creation
-    func createRequest(for apiCallType: APICallType, with dict: [String:String]? = nil, for uuid: UUID? = nil) -> URLRequest {
+    func createRequest(for apiCallType: APICallType, with dict: [String:String]? = nil, using packagingDict: PackagePreviewRequest? = nil, packagingConfigurations: [PackageConfiguration]? = nil, for uuid: UUID? = nil) -> URLRequest {
         
         switch apiCallType {
         
@@ -601,6 +719,62 @@ extension ScannARNetworkController {
             // Create a PUT request
             var request = URLRequest(url: url)
             request.httpMethod = HTTPMethod.PUT.rawValue
+            request.addValue(jsonToken.token, forHTTPHeaderField: "Authorization")
+            request.httpBody = jsonData
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.setValue("application/json", forHTTPHeaderField: "Accept")
+            
+            return request
+            
+        case .POSTPreviewPackaging:
+            
+            guard let packagingDict = packagingDict else { fatalError("no packaging Dictionary passed") }
+            var url = baseURL
+            url = url.appendingPathComponent("packaging")
+            url = url.appendingPathComponent("preview")
+            
+            guard let jsonToken = jsonToken else { fatalError("The jsonToken is empty.") }
+            
+            var jsonData: Data
+            do {
+                let jsonEncoder = JSONEncoder()
+                jsonData = try jsonEncoder.encode(packagingDict)
+                print(jsonData)
+            } catch {
+                print("failed to convert dictionary to json")
+                fatalError("")
+            }
+            
+            // Create a POST request
+            var request = URLRequest(url: url)
+            request.httpMethod = HTTPMethod.POST.rawValue
+            request.addValue(jsonToken.token, forHTTPHeaderField: "Authorization")
+            request.httpBody = jsonData
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.setValue("application/json", forHTTPHeaderField: "Accept")
+            
+            return request
+            
+        case .POSTAddPackage:
+            
+            guard let packagingConfigurations = packagingConfigurations else { fatalError("no packaging Dictionary passed") }
+            var url = baseURL
+            url = url.appendingPathComponent("packages")
+            url = url.appendingPathComponent("add")
+            
+            guard let jsonToken = jsonToken else { fatalError("The jsonToken is empty.") }
+            
+            var jsonData: Data
+            do {
+                jsonData = try JSONSerialization.data(withJSONObject: packagingConfigurations)
+            } catch {
+                print("failed to convert array of packagingConfigurations to json")
+                fatalError("failed to convert array of packagingConfigurations to json")
+            }
+            
+            // Create a POST request
+            var request = URLRequest(url: url)
+            request.httpMethod = HTTPMethod.POST.rawValue
             request.addValue(jsonToken.token, forHTTPHeaderField: "Authorization")
             request.httpBody = jsonData
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")

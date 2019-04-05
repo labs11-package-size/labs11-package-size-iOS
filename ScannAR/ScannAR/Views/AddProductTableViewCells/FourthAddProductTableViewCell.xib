@@ -22,10 +22,11 @@
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UzU-3F-skx">
                         <rect key="frame" x="8" y="76" width="368" height="60"/>
-                        <color key="backgroundColor" name="appBlue"/>
+                        <color key="backgroundColor" name="appARKADarkBlue"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="60" id="iPm-FZ-MNO"/>
                         </constraints>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                         <state key="normal" title="Save for Later">
                             <color key="titleColor" name="appGray"/>
                         </state>
@@ -35,10 +36,11 @@
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sM6-wR-Zxs">
                         <rect key="frame" x="8" y="144" width="368" height="60"/>
-                        <color key="backgroundColor" name="appLightYellow"/>
+                        <color key="backgroundColor" name="appARKAGrey"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="60" id="Ay3-fp-Mmz"/>
                         </constraints>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                         <state key="normal" title="Cancel">
                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                         </state>
@@ -48,11 +50,14 @@
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2R-uj-fqb">
                         <rect key="frame" x="8" y="8" width="368" height="60"/>
-                        <color key="backgroundColor" name="appLightBlue"/>
+                        <color key="backgroundColor" name="appARKATeal"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="60" id="DrV-h8-cf2"/>
                         </constraints>
-                        <state key="normal" title="Pack it"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                        <state key="normal" title="Save and Pack it">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
                         <connections>
                             <action selector="packItButtonPushed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ODk-DI-epz"/>
                         </connections>
@@ -82,17 +87,17 @@
         </tableViewCell>
     </objects>
     <resources>
-        <namedColor name="appBlue">
-            <color red="0.0" green="0.4779999852180481" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="appARKADarkBlue">
+            <color red="0.046999998390674591" green="0.17299999296665192" blue="0.32499998807907104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="appARKAGrey">
+            <color red="0.63099998235702515" green="0.63099998235702515" blue="0.63099998235702515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="appARKATeal">
+            <color red="0.44699999690055847" green="0.74099999666213989" blue="0.63899999856948853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="appGray">
             <color red="0.80400002002716064" green="0.80400002002716064" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="appLightBlue">
-            <color red="0.46200001239776611" green="0.79500001668930054" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="appLightYellow">
-            <color red="1" green="0.94999998807907104" blue="0.75" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
