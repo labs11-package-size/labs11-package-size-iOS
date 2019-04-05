@@ -17,7 +17,11 @@ class ProductsCollectionViewCell: UICollectionViewCell {
         titleLabel.minimumScaleFactor = 0.5
     }
 
+    @IBOutlet weak var productImageView: UIImageView!
     var product: Product?
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var lwhLabel: UILabel!
+    @IBOutlet weak var weightLabel: UILabel!
+    
 }

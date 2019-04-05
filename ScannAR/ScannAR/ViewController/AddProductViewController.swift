@@ -11,6 +11,15 @@ import Foundation
 
 class AddProductViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddProductProtocolDelegate {
     
+    @IBAction func unwindToAddProductVC(segue: UIStoryboardSegue) {
+        let transition: CATransition = CATransition()
+        transition.duration = 0.7
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.fade
+        self.navigationController!.view.layer.add(transition, forKey: nil)
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -129,7 +138,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: thirdReuseIdentifier, for: indexPath) as? ThirdAddProductTableViewCell else { fatalError("Could not dequeue as ThirdAddProductTableViewCell")}
             cell.delegate = self
-            cell.valueTextField.text = NumberFormatter.localizedString(from: NSNumber(value: value), number: .currency) //String(format: "%.2f", (value))
+            cell.valueTextField.text = String(format: "%.2f", (value)) // NumberFormatter.localizedString(from: NSNumber(value: value), number: .currency)
             cell.weightTextField.text = String(format: "%.2f", (weight))
             
             cell.valueTextField.keyboardType = UIKeyboardType.decimalPad
@@ -157,7 +166,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     
     // MARK: - IBActions
     func saveForLaterTapped(_ sender: Any) {
-        guard let scannARNetworkController = scannARNetworkController else { fatalError("No networking controller present")}
+        let scannARNetworkController = ScannARNetworkController.shared
         
         guard height != 0.0,
             length != 0.0,
@@ -168,15 +177,44 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let newProduct = Product(fragile: fragile, height: Double(height), length: Double(length), manufacturerId: manufacturerId, name: name, productDescription: productDescription, value: value, weight: weight, width: Double(width), context: CoreDataStack.shared.container.newBackgroundContext())
         let dict = NetworkingHelpers.dictionaryFromProduct(product: newProduct)
-        scannARNetworkController.postNewProduct(dict: dict) { error in
+        let newProductAsset = ProductAsset(urlString:imageURLString ?? "", name: "Picture1")
+        let assetDict = NetworkingHelpers.dictionaryFromProductAsset(productAsset: newProductAsset)
+        scannARNetworkController.postNewProduct(dict: dict) { results,error in
+            
+            if let uuid = results?.last?.uuid {
+                
+                if newProductAsset.urlString != "" {
+                    scannARNetworkController.postNewAssetsForProduct(dict: assetDict, uuid: uuid, completion: { (error) in
+                        DispatchQueue.main.async {
+                            self.navigationController?.popViewController(animated: true)
+                            return
+                        }
+                    })
+                }
+                
+                
+                
+            }
             DispatchQueue.main.async {
                 self.navigationController?.popViewController(animated: true)
             }
+            
         }
     }
     
     func packItButtonTapped(_ sender: Any){
         print("Send to Packaging")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ScanARSegue"{
+        guard segue.destination is ARScanMenuScreenViewController else { fatalError("Segue should cast view controller as ARScanMenuScreenViewController but failed to do so.")}
+        let transition: CATransition = CATransition()
+        transition.duration = 0.7
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.fade
+        self.navigationController!.view.layer.add(transition, forKey: nil)
+        }
     }
     
     func cancelButtonPressed(_ sender: Any) {
@@ -187,7 +225,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func scanWithARButtonTapped(_ sender: Any) {
         DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "ScanARSegue", sender: nil)
+            self.performSegue(withIdentifier: "ScanARSegue", sender: sender)
         }
     }
     
@@ -201,7 +239,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     var previewImage: UIImage?
     var bestBoxSize: (length: Float?, width: Float?, height: Float?)
     @IBOutlet weak var addProductTableView: UITableView!
-    var scannARNetworkController: ScannARNetworkController?
+    var scannARNetworkController: ScannARNetworkController = ScannARNetworkController.shared
     var collectionViewToReload: UICollectionView?
     
     var displayImage: UIImage?

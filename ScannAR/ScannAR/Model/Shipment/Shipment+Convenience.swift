@@ -100,7 +100,7 @@ extension Shipment {
         }
         
         var lastUpdated: Date?
-        if let shipmentLastUpdated = shipmentRepresentation.dateArrived {
+        if let shipmentLastUpdated = shipmentRepresentation.lastUpdated {
             
             if shipmentLastUpdated == "null"{
                 lastUpdated = nil

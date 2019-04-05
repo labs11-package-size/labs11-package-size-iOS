@@ -22,28 +22,36 @@
                                 <rect key="frame" x="6" y="114" width="363" height="553"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4ky-jE-ZfK">
-                                    <size key="itemSize" width="161" height="142"/>
+                                    <size key="itemSize" width="160" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductCell" id="6NL-SR-EH6">
-                                        <rect key="frame" x="0.0" y="0.0" width="161" height="142"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="161" height="142"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="160" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
                                         <connections>
                                             <segue destination="axB-Tp-gcg" kind="show" identifier="ProductDetailSegue" id="543-wr-S5i"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ShipmentCell" id="dzz-Bd-1mS">
-                                        <rect key="frame" x="202" y="0.0" width="161" height="142"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PackageCell" id="NNt-La-4RZ" customClass="PackagesCollectionViewCell" customModule="ScannAR" customModuleProvider="target">
+                                        <rect key="frame" x="203" y="0.0" width="160" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="161" height="142"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="160" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ShipmentCell" id="dzz-Bd-1mS">
+                                        <rect key="frame" x="0.0" y="210" width="160" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="160" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
                                         <connections>
@@ -59,6 +67,7 @@
                                 </constraints>
                                 <segments>
                                     <segment title="Products"/>
+                                    <segment title="Packages"/>
                                     <segment title="Shipments"/>
                                 </segments>
                             </segmentedControl>
@@ -82,11 +91,7 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="IAg-H0-MNQ">
-                                <connections>
-                                    <segue destination="foL-tf-Chw" kind="show" identifier="ARScanMainMenuShow" animates="NO" id="ZGQ-nK-AXK"/>
-                                </connections>
-                            </barButtonItem>
+                            <barButtonItem title="🤪" id="IAg-H0-MNQ"/>
                             <barButtonItem title="Add" id="48A-4b-2gJ">
                                 <connections>
                                     <action selector="addButtonClicked:" destination="8s4-Ma-CAL" id="a9G-vE-DHo"/>

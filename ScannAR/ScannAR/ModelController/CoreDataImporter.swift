@@ -70,6 +70,62 @@ class CoreDataImporter {
         }
     }
     
+    func syncPackages(packageRepresentations: [PackageRepresentation], completion: @escaping (Error?) -> Void = { _ in }) {
+        
+        self.context.perform {
+            
+            let fetchRequest: NSFetchRequest<Package> = Package.fetchRequest() // create an Entry NSFetchRequest
+            var result: [Package]? = nil // create an entry array named 'result' that will store the entries you find in the Persistent Store
+            
+            do { // in the current (background) context, perform the fetch request from the persistent store
+                result = try self.context.fetch(fetchRequest) // assign the (error-throwing) fetch request, done on the background context, to result
+            } catch {
+                NSLog("Error fetching list of Packages: \(error)") // if the fetch request throws an error, NSLog it
+            }
+            
+            // we now need to check to see that we have results back
+            // if we do, let's create a dictionary to put those results in
+            
+            if let alreadyInCoreDataPackages = result, alreadyInCoreDataPackages.count > 0 {
+                var coreDataDictionary: [String: Package] = [:] // if there is already a list of arrays in core data, make a dictionary
+                
+                for existingPackage in alreadyInCoreDataPackages {
+                    guard let packageUUID = existingPackage.uuid?.uuidString else { return }
+                    coreDataDictionary[packageUUID] = existingPackage
+                }
+                
+                for packageRepresentation in packageRepresentations {
+                    let packageUUID = packageRepresentation.uuid.uuidString
+                    
+                    
+                    if let package = coreDataDictionary[packageUUID], package != packageRepresentation {
+                        self.updatePackage(package: package, with: packageRepresentation)
+                    } else if coreDataDictionary[packageUUID] == nil {
+                        _ = Package(packageRepresentation: packageRepresentation, context: self.context)
+                    }
+                    
+                }
+                
+            } else {
+                // the fetch request returned no results, meaning there was nothing in core data,
+                // meaning all we have to do is just create new entries from each entry representation
+                
+                for packageRepresentation in packageRepresentations {
+                    _ = Package(packageRepresentation: packageRepresentation, context: self.context)
+                }
+                
+            }
+            
+            do {
+                try self.context.save()
+            } catch let saveError {
+                print("Error saving context: \(saveError)")
+            }
+            
+            completion(nil)
+        }
+    }
+    
     func syncShipments(shipmentRepresentations: [ShipmentRepresentation], completion: @escaping (Error?) -> Void = { _ in }) {
         
         self.context.perform {
@@ -143,6 +199,35 @@ class CoreDataImporter {
         product.width = productRepresentation.width ?? 0
     }
     
+    private func updatePackage(package: Package, with packageRepresentation: PackageRepresentation) {
+        package.identifier = Int16(packageRepresentation.identifier)
+        package.boxId = Int16(packageRepresentation.boxId)
+        package.itemCount = Int16(packageRepresentation.itemCount)
+        package.totalWeight = packageRepresentation.totalWeight ?? 0.0
+        package.modelURL = packageRepresentation.modelURL
+        package.uuid = packageRepresentation.uuid
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:MM:SS"
+        
+        var lastUpdated: Date?
+        if let packageLastUpdated = packageRepresentation.lastUpdated {
+            
+            if packageLastUpdated == "null"{
+                lastUpdated = nil
+            }
+            
+            if let date = dateFormatter.date(from: packageLastUpdated) {
+                lastUpdated = date
+            } else {
+                lastUpdated = nil
+            }
+        } else {
+            lastUpdated = nil
+        }
+        package.lastUpdated = lastUpdated
+    }
+    
     private func updateShipment(shipment: Shipment, with shipmentRepresentation: ShipmentRepresentation) {
         
         shipment.identifier = Int16(shipmentRepresentation.identifier)
@@ -192,7 +277,7 @@ class CoreDataImporter {
         }
         
         var lastUpdated: Date?
-        if let shipmentLastUpdated = shipmentRepresentation.dateArrived {
+        if let shipmentLastUpdated = shipmentRepresentation.lastUpdated {
             
             if shipmentLastUpdated == "null"{
                 lastUpdated = nil

@@ -11,15 +11,16 @@ import CoreData
 
 class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NSFetchedResultsControllerDelegate, UISearchBarDelegate, UIGestureRecognizerDelegate {
     
-    @IBAction func unwindToScannARMainViewController(segue: UIStoryboardSegue) {
-        //nothing goes here
-    }
+//    @IBAction func unwindToScannARMainViewController(segue: UIStoryboardSegue) {
+//        //nothing goes here
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.collectionView!.register(UINib(nibName: "ShipmentsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: shipmentReuseIdentifier)
         self.collectionView!.register(UINib(nibName: "ProductsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: productReuseIdentifier)
+        self.collectionView!.register(UINib(nibName: "PackagesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: packageReuseIdentifier)
         
         // Do any additional setup after loading the view.
         collectionView.delegate = self
@@ -130,6 +131,22 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         
         switch segmentedControl.selectedSegmentIndex {
         case 1:
+            print("Networking to be implemented")
+//            scannARNetworkingController.getShipments { (results, error) in
+//
+//                guard let results = results else {
+//                    return
+//                }
+//
+//                self.coreDataImporter.syncShipments(shipmentRepresentations: results, completion: { (error) in
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                    }
+//                })
+//
+//            }
+        
+        case 2:
             
             scannARNetworkingController.getShipments { (results, error) in
                 
@@ -192,9 +209,8 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             destVC.shipment = shipment
             
         } else if segue.identifier == "ShowAddProductSegue" {
-            guard let destVC = segue.destination as? AddProductViewController else { fatalError("Segue should cast view controller as AddProductViewController but failed to do so.")}
-            destVC.scannARNetworkController = self.scannARNetworkingController
-        }else if segue.identifier == "ARScanMainMenuShow" {
+        
+        } else if segue.identifier == "ARScanMainMenuShow" {
             guard segue.destination is ARScanMenuScreenViewController else { fatalError("Segue should cast view controller as ARScanMenuScreenViewController but failed to do so.")}
             let transition: CATransition = CATransition()
             transition.duration = 0.7
@@ -213,6 +229,8 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         
         switch segmentedControl.selectedSegmentIndex {
         case 1:
+            return packagesFetchedResultsController.sections?.count ?? 0
+        case 2:
             return shipmentsFetchedResultsController.sections?.count ?? 0
         default:
             return productsFetchedResultsController.sections?.count ?? 0
@@ -223,6 +241,12 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         
         switch segmentedControl.selectedSegmentIndex {
         case 1:
+            if packagesFetchedResultsController.sections?.count ?? 0 > 0 {
+                return packagesFetchedResultsController.sections?[section].numberOfObjects ?? 0
+            } else {
+                return 0
+            }
+        case 2:
             if shipmentsFetchedResultsController.sections?.count ?? 0 > 0 {
                 return shipmentsFetchedResultsController.sections?[section].numberOfObjects ?? 0
             } else {
@@ -236,10 +260,22 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             }
         }
     }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         switch segmentedControl.selectedSegmentIndex {
         case 1:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: shipmentReuseIdentifier, for: indexPath) as? PackagesCollectionViewCell else { fatalError("Could not dequeue cell as PackageCollectionViewCell") }
+            
+            let package = packagesFetchedResultsController.object(at: indexPath)
+            
+            // Configure the cell
+            cell.package = package
+//            cell.idLabel.text = "\(package.uuid?.uuidString)"
+            
+            return cell
+        
+        case 2:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: shipmentReuseIdentifier, for: indexPath) as? ShipmentsCollectionViewCell else { fatalError("Could not dequeue cell as ShipmentsCollectionViewCell") }
             
             let shipment = shipmentsFetchedResultsController.object(at: indexPath)
@@ -258,10 +294,33 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             
             let product = productsFetchedResultsController.object(at: indexPath)
             
+            
+            
             // Configure the cell
             cell.product = product
             cell.titleLabel.text = product.name
             cell.detailLabel.text = "$\(product.value)"
+            cell.lwhLabel.text = "L: \(product.length) | W: \(product.width) | H: \(product.height)"
+            cell.weightLabel.text = "\(product.weight) lbs"
+            
+           
+//            self.scannARNetworkingController?.getAssetsForProduct(uuid: product.uuid!, completion: { (results, error) in
+//                
+//                guard let firstAsset = results?.first else { return }
+//                var data: Data
+//                do {
+//                    guard let url = URL(string: firstAsset.urlString) else { return }
+//                    data = try Data(contentsOf: url)
+//                } catch {
+//                    return
+//                }
+//                
+//                DispatchQueue.main.async {
+//                    cell.productImageView.image = UIImage(data: data)
+//                    self.collectionView.reloadItems(at: [indexPath])
+//                }
+//                
+//            })
             
             return cell
         }
@@ -277,7 +336,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let kWhateverHeightYouWant = 100
+        let kWhateverHeightYouWant = 180
         return CGSize(width: collectionView.bounds.size.width / 2 - 8, height: CGFloat(kWhateverHeightYouWant))
     }
     
@@ -285,6 +344,8 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         
         switch segmentedControl.selectedSegmentIndex {
         case 1:
+            print("Segue to Add Package")
+        case 2:
             performSegue(withIdentifier: "ShipmentDetailSegue", sender: nil)
         default:
             performSegue(withIdentifier: "ProductDetailSegue", sender: nil)
@@ -302,6 +363,8 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBAction func addButtonClicked(_ sender: Any) {
         switch segmentedControl.selectedSegmentIndex {
         case 1:
+            print("Add Package")
+        case 2:
             print("Add Shipment")
             
         default:
@@ -310,7 +373,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         
         }
     }
-    
+
     // MARK: - Tap gesture Recognizer
     @objc (handleLongPressWithGestureRecognizer:)
     func handleLongPress(gestureRecognizer : UILongPressGestureRecognizer){
@@ -335,40 +398,109 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     // MARK: - Display Alert View Controller
     func displayAlertViewController(for indexPath: IndexPath){
         
-        let productToDelete = self.productsFetchedResultsController.object(at: indexPath)
-        
-        let productName = productToDelete.name ?? ""
-        guard let uuid = productToDelete.uuid else {
-            print("Error: no UUID associated with the product")
-            return
+        let itemName: String
+        let itemUUID: UUID
+        switch segmentedControl.selectedSegmentIndex {
+        case 1:
+            let itemToDelete = self.packagesFetchedResultsController.object(at: indexPath)
+            itemName = itemToDelete.uuid?.uuidString ?? ""
+            itemUUID = itemToDelete.uuid!
+        case 2:
+            let itemToDelete = self.shipmentsFetchedResultsController.object(at: indexPath)
+            itemName = itemToDelete.shippedTo ?? ""
+            itemUUID = itemToDelete.uuid!
+            
+        default:
+            
+            let itemToDelete = self.productsFetchedResultsController.object(at: indexPath)
+            itemName = itemToDelete.name ?? ""
+            itemUUID = itemToDelete.uuid!
         }
         
-        let alert = UIAlertController(title: "Are you sure you want to delete product \(productName)?", message: "Press okay to remove it from the Library", preferredStyle: .alert)
+        
+        let alert = UIAlertController(title: "Are you sure you want to delete \(itemName)?", message: "Press okay to remove it from the Library", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { action in
             if action.style == .destructive {
-                let productToDelete = self.productsFetchedResultsController.object(at: indexPath)
-                self.scannARNetworkingController?.deleteProduct(uuid: uuid, completion: { (error) in
+                
+                switch self.segmentedControl.selectedSegmentIndex {
+                case 1:
                     
-                    if let error = error {
-                        print("Error deleting object: \(error)")
-                    }
+                    let packageToDelete = self.packagesFetchedResultsController.object(at: indexPath)
+                    // delete Package networking below once route is created.
+//                    self.scannARNetworkingController?.deletePackage(uuid: itemUUID, completion: { (results, error) in
+//
+//                        if let error = error {
+//                            print("Error deleting object: \(error)")
+//                        }
+//
+//                        let moc = CoreDataStack.shared.mainContext
+//                        moc.perform {
+//                            moc.delete(packageToDelete)
+//
+//                            do {
+//                                try moc.save()
+//                            } catch let saveError {
+//                                print("Error saving context: \(saveError)")
+//                            }
+//                            DispatchQueue.main.async {
+//                                self.collectionView.reloadData()
+//                                self.flashSaveOnServerNoticeToUser(itemName, type: "Deleted")
+//                            }
+//
+//                        }
+//                    })
                     
-                    let moc = CoreDataStack.shared.mainContext
-                    moc.perform {
-                        moc.delete(productToDelete)
+                case 2:
+                    let shipmentToDelete = self.shipmentsFetchedResultsController.object(at: indexPath)
+                    self.scannARNetworkingController?.deleteShipment(uuid: itemUUID, completion: { (results, error) in
                         
-                        do {
-                            try moc.save()
-                        } catch let saveError {
-                            print("Error saving context: \(saveError)")
-                        }
-                        DispatchQueue.main.async {
-                            self.collectionView.reloadData()
-                            self.flashSaveOnServerNoticeToUser(productName, type: "Deleted")
+                        if let error = error {
+                            print("Error deleting object: \(error)")
                         }
                         
-                    }
-                })
+                        let moc = CoreDataStack.shared.mainContext
+                        moc.perform {
+                            moc.delete(shipmentToDelete)
+                            
+                            do {
+                                try moc.save()
+                            } catch let saveError {
+                                print("Error saving context: \(saveError)")
+                            }
+                            DispatchQueue.main.async {
+                                self.collectionView.reloadData()
+                                self.flashSaveOnServerNoticeToUser(itemName, type: "Deleted")
+                            }
+                            
+                        }
+                    })
+                    
+                default:
+                    let productToDelete = self.productsFetchedResultsController.object(at: indexPath)
+                    self.scannARNetworkingController?.deleteProduct(uuid: itemUUID, completion: { (error) in
+                        
+                        if let error = error {
+                            print("Error deleting object: \(error)")
+                        }
+                        
+                        let moc = CoreDataStack.shared.mainContext
+                        moc.perform {
+                            moc.delete(productToDelete)
+                            
+                            do {
+                                try moc.save()
+                            } catch let saveError {
+                                print("Error saving context: \(saveError)")
+                            }
+                            DispatchQueue.main.async {
+                                self.collectionView.reloadData()
+                                self.flashSaveOnServerNoticeToUser(itemName, type: "Deleted")
+                            }
+                            
+                        }
+                    })
+                }
+                
                 
                 
             }}))
@@ -382,6 +514,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     
     // MARK: - Properties
     let productReuseIdentifier = "ProductCell"
+    let packageReuseIdentifier = "PackageCell"
     let shipmentReuseIdentifier = "ShipmentCell"
     @IBOutlet weak var newProductShipmentBarButton: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -396,10 +529,27 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         let fetchRequest: NSFetchRequest<Product> = Product.fetchRequest()
         
         fetchRequest.sortDescriptors = [
-            NSSortDescriptor(key: "lastUpdated", ascending: true)
+            NSSortDescriptor(key: "lastUpdated", ascending: false)
         ]
         let moc = CoreDataStack.shared.mainContext
-        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "lastUpdated", cacheName: nil)
+        
+        frc.delegate = self
+        try? frc.performFetch()
+        
+        return frc
+        
+    }()
+    
+    lazy var packagesFetchedResultsController: NSFetchedResultsController<Package> = {
+        
+        let fetchRequest: NSFetchRequest<Package> = Package.fetchRequest()
+        
+        fetchRequest.sortDescriptors = [
+            NSSortDescriptor(key: "identifier", ascending: false)
+        ]
+        let moc = CoreDataStack.shared.mainContext
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "boxId", cacheName: nil)
         
         frc.delegate = self
         try? frc.performFetch()

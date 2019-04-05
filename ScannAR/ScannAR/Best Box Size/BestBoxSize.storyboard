@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MNg-bt-vaj">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Box Config3D Preview View Controller-->
+        <scene sceneID="TxM-7V-0ke">
+            <objects>
+                <viewController storyboardIdentifier="BoxConfig3DPreviewVC" id="3OQ-4Y-HHt" customClass="BoxConfig3DPreviewViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="APP-i8-ReL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" allowsBackForwardNavigationGestures="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tJE-Mt-e4C">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences" javaScriptCanOpenWindowsAutomatically="YES"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="00s-dQ-CDK" firstAttribute="trailing" secondItem="tJE-Mt-e4C" secondAttribute="trailing" id="8Fm-i7-g9V"/>
+                            <constraint firstItem="tJE-Mt-e4C" firstAttribute="leading" secondItem="00s-dQ-CDK" secondAttribute="leading" id="DNF-PH-3rx"/>
+                            <constraint firstItem="tJE-Mt-e4C" firstAttribute="top" secondItem="00s-dQ-CDK" secondAttribute="top" id="z4p-a8-JFz"/>
+                            <constraint firstItem="00s-dQ-CDK" firstAttribute="bottom" secondItem="tJE-Mt-e4C" secondAttribute="bottom" id="zCR-Ja-jQg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="00s-dQ-CDK"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="SFU-Bu-5mI"/>
+                    <connections>
+                        <outlet property="webView" destination="tJE-Mt-e4C" id="9rZ-sx-HWS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GKw-Cd-geo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="701" y="46"/>
+        </scene>
+        <!--Cards View Controller-->
+        <scene sceneID="B7H-uP-X2P">
+            <objects>
+                <viewController storyboardIdentifier="CardsViewController" id="YXD-xV-Gcu" customClass="CardsViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ELS-bG-iVc"/>
+                        <viewControllerLayoutGuide type="bottom" id="ECz-RV-RKT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ema-Iu-MoC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nac-Oo-zP0">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </view>
+                            <visualEffectView opaque="NO" tag="69" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zqx-2p-BfD">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="D4y-1x-Qzz">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <vibrancyEffect>
+                                    <blurEffect style="light"/>
+                                </vibrancyEffect>
+                            </visualEffectView>
+                            <view clipsSubviews="YES" tag="70" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="27c-Fs-ycQ" userLabel="Container View">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gLV-R9-DLx" customClass="CardsView" customModule="ScannAR" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="134.5" width="414" height="627"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CDP-Iu-YNU">
+                                            <size key="itemSize" width="50" height="50"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="YXD-xV-Gcu" id="I3P-aF-BbE"/>
+                                        </connections>
+                                    </collectionView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2xO-Jm-ohu">
+                                        <rect key="frame" x="0.0" y="837" width="414" height="36"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xTu-cG-eR9">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="36"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cardsUp" translatesAutoresizingMaskIntoConstraints="NO" id="HfW-xE-6YC">
+                                                        <rect key="frame" x="199" y="0.0" width="16" height="9"/>
+                                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="9" id="4Gd-h4-GfS"/>
+                                                            <constraint firstAttribute="width" constant="16" id="5Bf-20-meh"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SWIPE CARD UP FOR MORE INFO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meg-wy-AJJ">
+                                                        <rect key="frame" x="0.0" y="19" width="414" height="17"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                        <color key="textColor" name="appARKADarkBlue"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="HfW-xE-6YC" firstAttribute="top" secondItem="xTu-cG-eR9" secondAttribute="top" id="5iJ-ZZ-WFe"/>
+                                                    <constraint firstAttribute="bottom" secondItem="meg-wy-AJJ" secondAttribute="bottom" id="7mC-wa-qdQ"/>
+                                                    <constraint firstAttribute="height" constant="36" id="JhB-x6-Zsr"/>
+                                                    <constraint firstAttribute="trailing" secondItem="meg-wy-AJJ" secondAttribute="trailing" id="NxL-f5-qbm"/>
+                                                    <constraint firstItem="HfW-xE-6YC" firstAttribute="centerX" secondItem="xTu-cG-eR9" secondAttribute="centerX" id="jsO-nA-Zep"/>
+                                                    <constraint firstItem="meg-wy-AJJ" firstAttribute="leading" secondItem="xTu-cG-eR9" secondAttribute="leading" id="qvG-RF-nXp"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="xTu-cG-eR9" secondAttribute="trailing" id="5vA-zg-urD"/>
+                                            <constraint firstItem="xTu-cG-eR9" firstAttribute="leading" secondItem="2xO-Jm-ohu" secondAttribute="leading" id="Zzg-OV-z4l"/>
+                                            <constraint firstItem="xTu-cG-eR9" firstAttribute="centerY" secondItem="2xO-Jm-ohu" secondAttribute="centerY" id="lZi-ao-05L"/>
+                                            <constraint firstAttribute="height" constant="36" id="v1I-bn-So7"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="2xO-Jm-ohu" secondAttribute="bottom" constant="23" id="Aph-lK-OhP"/>
+                                    <constraint firstItem="gLV-R9-DLx" firstAttribute="leading" secondItem="27c-Fs-ycQ" secondAttribute="leading" id="E1L-tD-hAT"/>
+                                    <constraint firstItem="2xO-Jm-ohu" firstAttribute="leading" secondItem="27c-Fs-ycQ" secondAttribute="leading" id="FPy-O3-hnM"/>
+                                    <constraint firstAttribute="trailing" secondItem="2xO-Jm-ohu" secondAttribute="trailing" id="MyK-c5-i5G"/>
+                                    <constraint firstItem="gLV-R9-DLx" firstAttribute="height" secondItem="27c-Fs-ycQ" secondAttribute="height" multiplier="0.7" id="WN0-Z1-0jg"/>
+                                    <constraint firstAttribute="trailing" secondItem="gLV-R9-DLx" secondAttribute="trailing" id="f83-5F-r9g"/>
+                                    <constraint firstItem="gLV-R9-DLx" firstAttribute="centerY" secondItem="27c-Fs-ycQ" secondAttribute="centerY" id="zOO-v5-Vyx"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" name="appARKATeal"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Nac-Oo-zP0" secondAttribute="bottom" id="35q-qp-LqY"/>
+                            <constraint firstItem="27c-Fs-ycQ" firstAttribute="width" secondItem="Ema-Iu-MoC" secondAttribute="width" id="5dO-OZ-YOe"/>
+                            <constraint firstItem="zqx-2p-BfD" firstAttribute="leading" secondItem="Ema-Iu-MoC" secondAttribute="leading" id="B08-4N-GvP"/>
+                            <constraint firstItem="27c-Fs-ycQ" firstAttribute="height" secondItem="Ema-Iu-MoC" secondAttribute="height" id="G4Q-0u-9al"/>
+                            <constraint firstItem="Nac-Oo-zP0" firstAttribute="leading" secondItem="Ema-Iu-MoC" secondAttribute="leading" id="MhN-vO-aHk"/>
+                            <constraint firstAttribute="trailing" secondItem="zqx-2p-BfD" secondAttribute="trailing" id="PK3-0f-shg"/>
+                            <constraint firstAttribute="trailing" secondItem="Nac-Oo-zP0" secondAttribute="trailing" id="ZWE-oP-dh5"/>
+                            <constraint firstAttribute="bottom" secondItem="zqx-2p-BfD" secondAttribute="bottom" id="bL9-tj-R0K"/>
+                            <constraint firstItem="27c-Fs-ycQ" firstAttribute="centerY" secondItem="Ema-Iu-MoC" secondAttribute="centerY" id="eij-Sp-Y4P"/>
+                            <constraint firstItem="zqx-2p-BfD" firstAttribute="top" secondItem="Ema-Iu-MoC" secondAttribute="top" id="f93-8W-ltR"/>
+                            <constraint firstItem="27c-Fs-ycQ" firstAttribute="centerX" secondItem="Ema-Iu-MoC" secondAttribute="centerX" id="p8V-31-aL1"/>
+                            <constraint firstItem="Nac-Oo-zP0" firstAttribute="top" secondItem="Ema-Iu-MoC" secondAttribute="top" id="zfC-Az-rHc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="sDP-dG-lx2"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="S0F-Vo-0xZ"/>
+                    <connections>
+                        <outlet property="backgroundView" destination="zqx-2p-BfD" id="WXB-oq-pPn"/>
+                        <outlet property="bottomView" destination="xTu-cG-eR9" id="Ztx-aF-N5C"/>
+                        <outlet property="cardsUpIconImageView" destination="HfW-xE-6YC" id="So7-Ll-iOq"/>
+                        <outlet property="cardsView" destination="gLV-R9-DLx" id="O7r-pY-BrD"/>
+                        <outlet property="contentView" destination="27c-Fs-ycQ" id="Pog-B0-2cR"/>
+                        <segue destination="3OQ-4Y-HHt" kind="show" identifier="Preview3DSegue" id="c4d-gP-Yg6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OoT-CJ-AHQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-149.27536231884059" y="45.535714285714285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lNQ-Hv-MXr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MNg-bt-vaj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ndr-oL-Vfa">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="YXD-xV-Gcu" kind="relationship" relationship="rootViewController" id="zIp-C3-Jy6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L17-qm-dYX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1059.4202898550725" y="45.535714285714285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cardsUp" width="16" height="9"/>
+        <namedColor name="appARKADarkBlue">
+            <color red="0.046999998390674591" green="0.17299999296665192" blue="0.32499998807907104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="appARKATeal">
+            <color red="0.44699999690055847" green="0.74099999666213989" blue="0.63899999856948853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -17,6 +17,7 @@ class ProductDetailViewController: UIViewController {
         
         setupDelegates()
         updateViews()
+        fetchAssets()
         changeEditingTo(false)
         lengthTextField.isUserInteractionEnabled = false
         widthTextField.isUserInteractionEnabled = false
@@ -37,13 +38,36 @@ class ProductDetailViewController: UIViewController {
         nameTextField.text = product.name
         descriptionTextField.text = product.productDescription
         manufacturerIdTextField.text = product.manufacturerId
-        valueTextField.text = NumberFormatter.localizedString(from: NSNumber(value: product.value), number: .currency) //String(format: "%.2f", (value))
+        valueTextField.text =  String(format: "%.2f", (product.value)) // NumberFormatter.localizedString(from: NSNumber(value: product.value), number: .currency)
         weightTextField.text = String(format: "%.2f", (product.weight))
         lengthTextField.text = String(format: "%.2f", (product.length))
         widthTextField.text = String(format: "%.2f", (product.width))
         heightTextField.text = String(format: "%.2f", (product.height))
         fragileSwitch.isOn =  product.fragile == 1 ? true : false
         
+    }
+    
+    private func fetchAssets(){
+        guard let product = product else {fatalError("No product available to show")}
+        guard let uuid = product.uuid else {fatalError("No uuid available to show")}
+        scannARNetworkingController?.getAssetsForProduct(uuid: uuid, completion: { (results, error) in
+            
+            guard let firstAsset = results?.first else { return }
+            guard let url = URL(string: firstAsset.urlString) else {
+                return
+            }
+            var data: Data
+            do {
+                data = try Data(contentsOf:  url)
+            } catch {
+                print("Could not get picture from URL")
+                return
+            }
+            DispatchQueue.main.async {
+                self.imageView.image = UIImage(data: data)
+            }
+            
+        })
     }
     
     private func updateProductValues(){
@@ -144,11 +168,15 @@ class ProductDetailViewController: UIViewController {
         updateProductOnServer()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonTapped))
     }
+    @IBAction func packItNowButtonTapped(_ sender: Any) {
+        
+    }
     
     // MARK: - Properties
     var scannARNetworkingController: ScannARNetworkController?
     var product: Product?
     var collectionViewToReload: UICollectionView?
+    @IBOutlet weak var packItNowButton: UIButton!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
     @IBOutlet weak var manufacturerIdTextField: UITextField!
@@ -158,7 +186,8 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet weak var widthTextField: UITextField!
     @IBOutlet weak var heightTextField: UITextField!
     @IBOutlet weak var fragileSwitch: UISwitch!
-
+    @IBOutlet weak var imageView: UIImageView!
+    
 }
 
 extension ProductDetailViewController: UITextFieldDelegate {

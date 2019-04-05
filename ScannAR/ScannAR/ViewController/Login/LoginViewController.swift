@@ -75,7 +75,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
     // MARK: - Properties
     
-    var scannARNetworkingController: ScannARNetworkController = ScannARNetworkController()
+    var scannARNetworkingController: ScannARNetworkController = ScannARNetworkController.shared
     var user: User?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     @IBOutlet weak var usernameTextField: UITextField!
