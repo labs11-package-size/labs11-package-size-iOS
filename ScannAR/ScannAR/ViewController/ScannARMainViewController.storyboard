@@ -85,11 +85,18 @@
                         <viewLayoutGuide key="safeArea" id="Hfh-tf-2fd"/>
                     </view>
                     <navigationItem key="navigationItem" title="ScannAR" id="JpJ-WN-EaK">
-                        <barButtonItem key="leftBarButtonItem" image="user-4" id="jze-1y-VjW">
-                            <connections>
-                                <segue destination="0qG-Dc-x7H" kind="show" identifier="AccountViewSegue" id="XEB-cj-2AL"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem image="user-4" id="jze-1y-VjW">
+                                <connections>
+                                    <segue destination="0qG-Dc-x7H" kind="show" identifier="AccountViewSegue" id="XEB-cj-2AL"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="TestPackage" id="iCJ-la-Jhs">
+                                <connections>
+                                    <segue destination="vbb-2Z-Ez8" kind="show" id="5vg-jz-FkW"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <rightBarButtonItems>
                             <barButtonItem title="🤪" id="IAg-H0-MNQ"/>
                             <barButtonItem title="Add" id="48A-4b-2gJ">
@@ -143,6 +150,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qJk-23-Wv8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="182.15892053973016"/>
+        </scene>
+        <!--CardsViewController-->
+        <scene sceneID="6UE-Pb-beX">
+            <objects>
+                <viewControllerPlaceholder storyboardName="BestBoxSize" referencedIdentifier="CardsViewController" id="vbb-2Z-Ez8" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t6F-I2-JBN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="519" y="729"/>
         </scene>
         <!--ProductDetailViewControllerSB-->
         <scene sceneID="Bxk-OW-keN">
