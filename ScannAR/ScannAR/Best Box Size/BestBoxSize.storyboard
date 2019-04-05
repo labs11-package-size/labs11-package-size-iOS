@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" allowsBackForwardNavigationGestures="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tJE-Mt-e4C">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -74,7 +74,7 @@
                             <view clipsSubviews="YES" tag="70" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="27c-Fs-ycQ" userLabel="Container View">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gLV-R9-DLx" customClass="CardsView" customModule="CardsView" customModuleProvider="target">
+                                    <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gLV-R9-DLx" customClass="CardsView" customModule="ScannAR" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="134.5" width="414" height="627"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CDP-Iu-YNU">
@@ -164,6 +164,7 @@
                         <outlet property="cardsUpIconImageView" destination="HfW-xE-6YC" id="So7-Ll-iOq"/>
                         <outlet property="cardsView" destination="gLV-R9-DLx" id="O7r-pY-BrD"/>
                         <outlet property="contentView" destination="27c-Fs-ycQ" id="Pog-B0-2cR"/>
+                        <segue destination="3OQ-4Y-HHt" kind="show" identifier="Preview3DSegue" id="c4d-gP-Yg6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OoT-CJ-AHQ" userLabel="First Responder" sceneMemberID="firstResponder"/>

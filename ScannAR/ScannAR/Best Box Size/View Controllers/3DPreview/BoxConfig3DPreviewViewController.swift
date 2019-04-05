@@ -15,8 +15,10 @@ class BoxConfig3DPreviewViewController: UIViewController, WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let previewURL = URL(string: "http://www.packit4me.com/api")!
-        webView?.load(URLRequest(url: previewURL))
+        let previewURL = URL(string: "http://www.packit4me.com/api/call/preview?bins=0:50:5x5x5&items=0:0:5:1x2x3,1:0:10:2x4x2&binId=0")!
+        var request = URLRequest(url: previewURL)
+        request.httpMethod = "POST"
+        webView?.load(request)
         webView.allowsBackForwardNavigationGestures = true
     }
     
