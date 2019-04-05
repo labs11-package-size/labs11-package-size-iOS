@@ -252,8 +252,26 @@
                         <viewLayoutGuide key="safeArea" id="SJU-49-guF"/>
                     </view>
                     <navigationItem key="navigationItem" title="Shipment Details" id="jey-Zq-hBW">
-                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="iGV-fT-rsL"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="iGV-fT-rsL">
+                            <connections>
+                                <action selector="deleteButtonPressed:" destination="2gm-xF-NW6" id="OET-Yi-4CL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="carrierNameLabel" destination="x7T-sm-fOH" id="ZjJ-L7-9Xz"/>
+                        <outlet property="dateArrivedLabel" destination="oK5-Dh-uv6" id="Jfd-t1-uq1"/>
+                        <outlet property="lastUpdatedLabel" destination="xKo-Xc-CaI" id="jeZ-Ut-W70"/>
+                        <outlet property="shipmentImageView" destination="Olb-cR-acz" id="XUg-4Y-Yj6"/>
+                        <outlet property="shipmentMapView" destination="hll-4P-d9B" id="lXz-RF-Shl"/>
+                        <outlet property="shippedDateLabel" destination="8dp-Rg-dh4" id="dWo-kT-DEl"/>
+                        <outlet property="shippedToLabel" destination="YqT-z5-mGO" id="3j1-go-u71"/>
+                        <outlet property="shippingTypeLabel" destination="hyG-D4-Uq8" id="mfQ-hR-W7z"/>
+                        <outlet property="statusLabel" destination="1av-dd-pZ8" id="yT0-0K-LAS"/>
+                        <outlet property="totalValueLabel" destination="duJ-1X-Njb" id="c0I-Dj-WgG"/>
+                        <outlet property="totalWeightLabel" destination="obr-Ov-WjY" id="l76-ww-LYF"/>
+                        <outlet property="trackingNumberLabel" destination="twr-qK-4cn" id="DcA-I2-aaz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WoC-cF-Mes" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -324,7 +324,7 @@ class ScannARNetworkController {
     /*
      Delete a Shipment with a given UUID for a jsonToken representing the User
      */
-    func postNewShipment(uuid: UUID, completion: @escaping (Error?) -> Void) {
+    func deleteShipment(uuid: UUID, completion: @escaping ([ShipmentRepresentation]?, Error?) -> Void) {
         
         let request = createRequest(for: .DELETEShipment, for: uuid)
         
@@ -332,10 +332,10 @@ class ScannARNetworkController {
             
             if let error = error {
                 print("Error: \(error)")
-                completion(error)
+                completion(nil,error)
             }
             
-            completion(nil)
+            completion(results, nil)
         }
     }
     
