@@ -169,4 +169,3 @@ extension SwipingCollectionViewCell: UIGestureRecognizerDelegate {
         return true
     }
 }
-

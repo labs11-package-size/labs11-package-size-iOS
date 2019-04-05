@@ -15,7 +15,7 @@ protocol SmallToLargeAnimatable {
     func prepareBeingDismissed()
 }
 
-class SmallToLargePresentingViewAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+class MiniToLargePresentingViewAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     let duration: TimeInterval
     let initialY: CGFloat
     

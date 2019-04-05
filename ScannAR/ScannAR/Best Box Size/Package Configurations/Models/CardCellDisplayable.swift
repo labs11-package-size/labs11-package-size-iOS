@@ -9,9 +9,10 @@
 import Foundation
 
 struct CardCellDisplayable {
-    let imageViewFileName: String
+    let boxTypeImageViewFileName: String
     let title: String
     let subtitle: String
     let details: String
     let itemImageName: String
+    //let itemImageNameArray: [String]
 }

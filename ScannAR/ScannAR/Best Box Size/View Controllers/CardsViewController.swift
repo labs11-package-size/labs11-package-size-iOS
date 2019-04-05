@@ -17,6 +17,7 @@ class CardsViewController: UIViewController {
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var cardsView: CardsView!
     @IBOutlet weak var bottomView: UIView!
+    @IBOutlet weak var cardsUpIconImageView: UIImageView!
     
     // MARK: Properties
     
@@ -25,7 +26,10 @@ class CardsViewController: UIViewController {
     lazy var cardImageViewHeight: CGFloat = cardsView.frame.height * 0.45 //  45% is cell.imageView height constraint's multiplier
     
     // MARK: Lifecycle
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super .viewWillAppear(animated)
+        cardsUpIconImageView.setImageColor(color: UIColor(named: "appARKADarkBlue")!)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setCardsViewLayout()
@@ -148,4 +152,3 @@ extension CardsViewController: SmallToLargeAnimatable {
         cardsView.hideAllCellsExceptSelected(animated: true)
     }
 }
-

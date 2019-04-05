@@ -149,4 +149,3 @@ public extension UIImage {
         completion(outputImage)
     }
 }
-

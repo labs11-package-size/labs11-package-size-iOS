@@ -27,26 +27,16 @@ class SmallToLargeTransitionController: NSObject, UIViewControllerTransitioningD
     
     // MARK: Methods
     
-    func prepareViewForCustomTransition(fromViewController: AddProductViewController) {
-        if self.toViewController != nil { return }
-        let toViewController = CardsViewController.instantiateViewController()
-        toViewController.transitioningDelegate = self
-        toViewController.modalPresentationStyle = .custom
-        class MockStorage {
-            static let shared = MockStorage()
-            let imageFileName = "james_bond"
-            lazy var data = [
-                CardCellDisplayable(imageViewFileName: imageFileName, title: "iOS Developer", subtitle: "Apple", details: "Animations/Transitions", itemImageName: "qrcode"),
-                CardCellDisplayable(imageViewFileName: imageFileName, title: "Android Developer", subtitle: "Google", details: "Location/Maps", itemImageName: "qrcode"),
-                CardCellDisplayable(imageViewFileName: imageFileName, title: "C++ Architect", subtitle: "Amazon", details: "Core", itemImageName: "qrcode")
-            ]
-            
-            private init() {}
-        }
-        interactiveDismissTransition = SmallToLargeViewInteractiveAnimator(fromViewController: toViewController, toViewController: nil, gestureView: toViewController.view)
-        self.toViewController = toViewController
-        //self.fromViewControllerGestureView = fromViewController.bottomTriggerView
-    }
+//    func prepareViewForCustomTransition(fromViewController: AddProductViewController) {
+//        if self.toViewController != nil { return }
+//        let toViewController = CardsViewController.instantiateViewController()
+//        toViewController.transitioningDelegate = self
+//        toViewController.modalPresentationStyle = .custom
+////        interactivePresentTransition = SmallToLargeViewInteractiveAnimator(fromViewController: fromViewController, toViewController: toViewController, gestureView: fromViewController.bottomTriggerView)
+////        interactiveDismissTransition = SmallToLargeViewInteractiveAnimator(fromViewController: toViewController, toViewController: nil, gestureView: toViewController.view)
+//        self.toViewController = toViewController
+////        self.fromViewControllerGestureView = fromViewController.bottomTriggerView
+//    }
     
     func removeCustomTransitionBehaviour() {
         interactivePresentTransition = nil
@@ -57,7 +47,7 @@ class SmallToLargeTransitionController: NSObject, UIViewControllerTransitioningD
     // MARK: UIViewControllerTransitioningDelegate
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return SmallToLargePresentingViewAnimator(initialY: toViewControllerInitialYPosition)
+        return MiniToLargePresentingViewAnimator(initialY: toViewControllerInitialYPosition)
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {

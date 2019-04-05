@@ -40,6 +40,7 @@
 		AB38DD02224562D1008DC8C0 /* ARScanMenuScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38DD01224562D1008DC8C0 /* ARScanMenuScreenViewController.swift */; };
 		AB38DD0422456379008DC8C0 /* ARDetectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38DD0322456379008DC8C0 /* ARDetectViewController.swift */; };
 		AB38DD092245650F008DC8C0 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = AB38DD082245650F008DC8C0 /* LICENSE.txt */; };
+		AB42F89E2257C25C0086938A /* UIIMage+ColorOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB42F89D2257C25C0086938A /* UIIMage+ColorOverlay.swift */; };
 		AB46C545224B59960075EF30 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB46C544224B59960075EF30 /* AuthViewController.swift */; };
 		AB46C547224BE24C0075EF30 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB46C546224BE24C0075EF30 /* GoogleService-Info.plist */; };
 		AB46C549224C06700075EF30 /* AuthViewTestScene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB46C548224C06700075EF30 /* AuthViewTestScene.storyboard */; };
@@ -194,6 +195,7 @@
 		AB38DD0322456379008DC8C0 /* ARDetectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDetectViewController.swift; sourceTree = "<group>"; };
 		AB38DD0522456411008DC8C0 /* SavedARScansListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedARScansListViewController.swift; sourceTree = "<group>"; };
 		AB38DD082245650F008DC8C0 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		AB42F89D2257C25C0086938A /* UIIMage+ColorOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIIMage+ColorOverlay.swift"; sourceTree = "<group>"; };
 		AB46C544224B59960075EF30 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		AB46C546224BE24C0075EF30 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AB46C548224C06700075EF30 /* AuthViewTestScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthViewTestScene.storyboard; sourceTree = "<group>"; };
@@ -572,6 +574,7 @@
 			isa = PBXGroup;
 			children = (
 				ABA70F8D225739D200A44C06 /* UIView+Extensions.swift */,
+				AB42F89D2257C25C0086938A /* UIIMage+ColorOverlay.swift */,
 				ABA70F9022573A2700A44C06 /* UIImage+Effects.swift */,
 			);
 			path = Extensions;
@@ -1121,6 +1124,7 @@
 				AB38DCDF22446244008DC8C0 /* BoundingBox.swift in Sources */,
 				D1698DAB224AF31400250E4D /* CoreDataImporter.swift in Sources */,
 				D11802B42254F887002837D3 /* ShippingStatus.swift in Sources */,
+				AB42F89E2257C25C0086938A /* UIIMage+ColorOverlay.swift in Sources */,
 				ABA70F9922573B7400A44C06 /* CardsView.swift in Sources */,
 				AB38DCDB224460DD008DC8C0 /* ARCamera+TrackingState.swift in Sources */,
 				D1EAB2412249379D00720412 /* Shipment+Encodable.swift in Sources */,

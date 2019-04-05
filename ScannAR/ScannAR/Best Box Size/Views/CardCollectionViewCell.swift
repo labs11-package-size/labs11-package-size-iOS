@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 protocol CardCollectionViewCellActionsHandler: class {
     func deleteButtonTapped(cell: CardCollectionViewCell)
 }
@@ -18,16 +17,14 @@ class CardCollectionViewCell: SwipingCollectionViewCell {
     // MARK: IBOutlets
     
     @IBOutlet weak var actionsView: UIView!
-    @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak var boxTypeImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var detailsLabel: UILabel!
-    @IBOutlet weak var qrCodeImageView: UIImageView!
-    @IBOutlet weak var action1Button: UIButton!
-    @IBOutlet weak var action2Button: UIButton!
-    @IBOutlet weak var action3Button: UIButton!
-    @IBOutlet weak var editButton: UIButton!
-    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var itemImageView: UIImageView!
+    @IBOutlet weak var preview3DButton: UIButton!
+    @IBOutlet weak var addPackageConfigButton: UIButton!
+    @IBOutlet weak var saveConfigForLaterButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     
     // MARK: Properties
@@ -45,28 +42,26 @@ class CardCollectionViewCell: SwipingCollectionViewCell {
     }
     
     func setContent(data: CardCellDisplayable) {
-        avatarImageView.image = UIImage(named: data.imageViewFileName)
+        boxTypeImageView.image = UIImage(named: data.boxTypeImageViewFileName)
         titleLabel.text = data.title
         subtitleLabel.text = data.subtitle
         detailsLabel.text = data.details
-        qrCodeImageView.image = UIImage(named: data.itemImageName)
+        itemImageView.image = UIImage(named: data.itemImageName)
     }
     
     override func frontViewPositionChanged(on percent: CGFloat) {
         super.frontViewPositionChanged(on: percent)
-        action3Button.alpha = percent
-        action2Button.alpha = percent
-        action1Button.alpha = percent
-        editButton.alpha = percent
-        shareButton.alpha = percent
+        saveConfigForLaterButton.alpha = percent
+        addPackageConfigButton.alpha = percent
+        preview3DButton.alpha = percent
+        
         deleteButton.alpha = percent
         
         let transformPercent = min(percent / 4 + 0.75, 1)
-        action3Button.transform = CGAffineTransform(scaleX: transformPercent, y: transformPercent)
-        action2Button.transform = CGAffineTransform(scaleX: transformPercent, y: transformPercent)
-        action1Button.transform = CGAffineTransform(scaleX: transformPercent, y: transformPercent)
-        editButton.transform = CGAffineTransform(scaleX: transformPercent, y: transformPercent)
-        shareButton.transform = CGAffineTransform(scaleX: transformPercent, y: transformPercent)
+        saveConfigForLaterButton.transform = CGAffineTransform(scaleX: transformPercent, y: transformPercent)
+        addPackageConfigButton.transform = CGAffineTransform(scaleX: transformPercent, y: transformPercent)
+        preview3DButton.transform = CGAffineTransform(scaleX: transformPercent, y: transformPercent)
+        
         deleteButton.transform = CGAffineTransform(scaleX: transformPercent, y: transformPercent)
     }
     
@@ -78,23 +73,29 @@ class CardCollectionViewCell: SwipingCollectionViewCell {
     
     // MARK: IBActions
     
-    @IBAction private func action1ButtonTapped(_ sender: Any) {
+    @IBAction private func preview3DButtonTapped(_ sender: Any) {
+        handleButtonTap {
+            let fromVC = UIStoryboard(name: "BestBoxSize", bundle: nil).instantiateViewController(withIdentifier: "CardsViewController") as! CardsViewController
+            let toVC = UIStoryboard(name: "BestBoxSize", bundle: nil).instantiateViewController(withIdentifier: "BoxConfig3DPreviewVC") as! BoxConfig3DPreviewViewController
+            DispatchQueue.main.async {
+                fromVC.navigationController?.pushViewController(toVC, animated: false)
+            }
+
+        }
+    }
+    
+    @IBAction func addPackageConfigButtonTapped(_ sender: Any) {
         handleButtonTap {
             // todo
         }
     }
     
-    @IBAction private func editButtonTapped(_ sender: Any) {
+    @IBAction func savePackageConfigForLaterButtonTapped(_ sender: Any) {
         handleButtonTap {
             // todo
         }
     }
     
-    @IBAction private func shareButtonTapped(_ sender: Any) {
-        handleButtonTap {
-            // todo
-        }
-    }
     
     @IBAction private func deleteButtonTapped(_ sender: Any) {
         handleButtonTap { [weak self] in
