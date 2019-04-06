@@ -342,7 +342,8 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
                         transition.type = CATransitionType.fade
                         DispatchQueue.main.async {
                             self.navigationController!.view.layer.add(transition, forKey: nil)
-                            self.navigationController?.pushViewController(viewController, animated: false)
+//                            viewController.navigationController?.pushViewController(viewController, animated: false)
+                            self.performSegue(withIdentifier: "unwindSegueToAddProductVC", sender: self)
                         }
                         
 //                        self.present(viewController, animated: false, completion: nil)
