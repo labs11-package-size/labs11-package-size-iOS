@@ -39,14 +39,19 @@ extension ARScanViewController {
                 startMessageExpirationTimer(duration: timeToKeepLastMessageOnScreen)
             } else {
                 // Otherwise hide the info label immediately.
-                self.sessionInfoLabel.text = ""
-                self.sessionInfoView.isHidden = true
+                DispatchQueue.main.async {
+                    self.sessionInfoLabel.text = ""
+                    self.sessionInfoView.isHidden = true
+                }
+                
             }
             return
         }
+        DispatchQueue.main.async {
+            self.sessionInfoLabel.text = message
+            self.sessionInfoView.isHidden = false
+        }
         
-        sessionInfoLabel.text = message
-        sessionInfoView.isHidden = false
     }
     
     func displayMessage(_ message: String, expirationTime: TimeInterval) {
@@ -63,10 +68,12 @@ extension ARScanViewController {
         cancelMessageExpirationTimer()
         
         messageExpirationTimer = Timer.scheduledTimer(withTimeInterval: duration, repeats: false) { (timer) in
-            self.cancelMessageExpirationTimer()
-            self.sessionInfoLabel.text = ""
-            self.sessionInfoView.isHidden = true
             
+            self.cancelMessageExpirationTimer()
+            DispatchQueue.main.async {
+                self.sessionInfoLabel.text = ""
+                self.sessionInfoView.isHidden = true
+            }
             self.startTimeOfLastMessage = nil
             self.expirationTimeOfLastMessage = nil
         }
