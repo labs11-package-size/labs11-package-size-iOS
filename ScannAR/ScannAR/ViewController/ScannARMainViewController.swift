@@ -133,20 +133,18 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         
         switch segmentedControl.selectedSegmentIndex {
         case 1:
-            print("Networking to be implemented")
-//            scannARNetworkingController.getShipments { (results, error) in
-//
-//                guard let results = results else {
-//                    return
-//                }
-//
-//                self.coreDataImporter.syncShipments(shipmentRepresentations: results, completion: { (error) in
+            
+            scannARNetworkingController.getPackages(completion: { (results, error) in
+                
+                guard let results = results else {
+                    return
+                }
+                self.coreDataImporter.syncPackages(packageRepresentations: results, completion: { (error) in
                     DispatchQueue.main.async {
                         self.collectionView.reloadData()
                     }
-//                })
-//
-//            }
+                })
+            })
         
         case 2:
             
@@ -267,13 +265,13 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         
         switch segmentedControl.selectedSegmentIndex {
         case 1:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: shipmentReuseIdentifier, for: indexPath) as? PackagesCollectionViewCell else { fatalError("Could not dequeue cell as PackageCollectionViewCell") }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: packageReuseIdentifier, for: indexPath) as? PackagesCollectionViewCell else { fatalError("Could not dequeue cell as PackageCollectionViewCell") }
             
             let package = packagesFetchedResultsController.object(at: indexPath)
             
             // Configure the cell
             cell.package = package
-//            cell.idLabel.text = "\(package.uuid?.uuidString)"
+            cell.idLabel.text = "\(package.uuid?.uuidString)"
             
             return cell
         
@@ -551,7 +549,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             NSSortDescriptor(key: "identifier", ascending: false)
         ]
         let moc = CoreDataStack.shared.mainContext
-        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "boxId", cacheName: nil)
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "dimensions", cacheName: nil)
         
         frc.delegate = self
         try? frc.performFetch()

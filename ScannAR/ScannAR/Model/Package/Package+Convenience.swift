@@ -13,9 +13,8 @@ extension Package {
     convenience init(identifier: Int? = nil,
                      lastUpdated: Date?,
                      totalWeight: Double = 0,
-                     itemCount: Int,
                      modelURL: String?,
-                     boxId: Int,
+                     dimensions: String,
                      uuid: UUID = UUID(),
                      context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
@@ -28,9 +27,7 @@ extension Package {
             self.modelURL = modelURL
         }
         
-        
-        self.boxId = Int16(boxId)
-        self.itemCount = Int16(itemCount)
+        self.dimensions = dimensions
         self.lastUpdated = lastUpdated
         self.uuid = uuid
         self.totalWeight = totalWeight
@@ -41,11 +38,10 @@ extension Package {
     
     convenience init(packageRepresentation: PackageRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
+        let dimensions = packageRepresentation.dimensions
         let identifier = packageRepresentation.identifier
         let totalWeight = packageRepresentation.totalWeight ?? 0.0
-        let itemCount = packageRepresentation.itemCount
         let modelURL = packageRepresentation.modelURL
-        let boxId = packageRepresentation.boxId
         
         let uuid = packageRepresentation.uuid
         
@@ -68,7 +64,7 @@ extension Package {
             lastUpdated = nil
         }
         
-        self.init(identifier: identifier, lastUpdated: lastUpdated, totalWeight: totalWeight, itemCount: itemCount, modelURL: modelURL, boxId: boxId, uuid: uuid, context: context)
+        self.init(identifier: identifier, lastUpdated: lastUpdated, totalWeight: totalWeight, modelURL: modelURL, dimensions: dimensions, uuid: uuid, context: context)
     }
     
     

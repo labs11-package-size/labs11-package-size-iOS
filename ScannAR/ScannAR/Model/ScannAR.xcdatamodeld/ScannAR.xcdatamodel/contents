@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.98" systemVersion="18D109" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Package" representedClassName="Package" syncable="YES" codeGenerationType="class">
-        <attribute name="boxId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="dimensions" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="itemCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="lastUpdated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="modelURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="totalWeight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -29,7 +28,7 @@
         <attribute name="dateArrived" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="identifier" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="lastUpdated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="productName" attributeType="String" syncable="YES"/>
+        <attribute name="productNames" attributeType="String" syncable="YES"/>
         <attribute name="shippedDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="shippedTo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="shippingType" optional="YES" attributeType="String" syncable="YES"/>
@@ -40,8 +39,8 @@
         <attribute name="uuid" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Package" positionX="-45" positionY="90" width="128" height="135"/>
         <element name="Product" positionX="-63" positionY="-18" width="128" height="240"/>
         <element name="Shipment" positionX="-54" positionY="-9" width="128" height="240"/>
-        <element name="Package" positionX="-45" positionY="90" width="128" height="150"/>
     </elements>
 </model>

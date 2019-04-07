@@ -17,9 +17,8 @@ extension Package: Encodable {
         case uuid
         case lastUpdated
         case totalWeight
-        case boxId
-        case itemCount
         case modelURL
+        case dimensions
     
     }
     
@@ -30,9 +29,8 @@ extension Package: Encodable {
         try container.encode(lastUpdated, forKey: .lastUpdated)
         try container.encode(totalWeight, forKey: .totalWeight)
         try container.encode(uuid, forKey: .uuid)
-        try container.encode(boxId, forKey: .boxId)
-        try container.encode(itemCount, forKey: .itemCount)
         try container.encode(modelURL, forKey: .modelURL)
+        try container.encode(dimensions, forKey: .dimensions)
     }
     
 }

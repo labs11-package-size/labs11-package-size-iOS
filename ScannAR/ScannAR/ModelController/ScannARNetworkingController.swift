@@ -394,12 +394,44 @@ class ScannARNetworkController {
         }
     }
     
+    /*
+     Get an array of Package saved by the user.
+     */
+    func getPackages(completion: @escaping ([PackageRepresentation]?, Error?) -> Void) {
+        
+        let request = createRequest(for: .GETPackages)
+        
+        apiRequest(from: request) { (results: [PackageRepresentation]?, error: Error?) in
+            
+            if let error = error {
+                print("Error: \(error)")
+                completion(nil, error)
+            }
+            
+            guard let results = results else {
+                return completion(nil, nil)
+            }
+            let moc = CoreDataStack.shared.container.newBackgroundContext()
+            
+            var tempPackages: [Package] = []
+            for result in results {
+                let newPackage = Package(packageRepresentation: result, context: moc)
+                tempPackages.append(newPackage)
+            }
+            self.packages = tempPackages
+            
+            completion(results, nil)
+        }
+    }
+    
+    
     
     // MARK: - Properties
     
     let baseURL = URL(string:"https://scannarserver.herokuapp.com/api")!
     private var jsonToken: JSONWebToken?
     var products: [Product] = []
+    var packages: [Package] = []
     var shipments: [Shipment] = []
 
 }
@@ -781,6 +813,21 @@ extension ScannARNetworkController {
             request.setValue("application/json", forHTTPHeaderField: "Accept")
             
             return request
+            
+        case .GETPackages:
+            
+            var url = baseURL
+            url = url.appendingPathComponent("packaging")
+        
+            guard let jsonToken = jsonToken else { fatalError("The jsonToken is empty.") }
+            
+            // Create a GET request
+            var request = URLRequest(url: url)
+            request.httpMethod = HTTPMethod.GET.rawValue
+            request.addValue(jsonToken.token, forHTTPHeaderField: "Authorization")
+            
+            return request
+            
         }
         
     }
