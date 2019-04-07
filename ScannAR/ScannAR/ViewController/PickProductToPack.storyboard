@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--ScannARMainViewControllerSB-->
+        <scene sceneID="mpa-n1-ncI">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="ScannARMainViewControllerSB" storyboardName="ScannARMainViewController" referencedIdentifier="ScannARMainViewControllerSB" id="npe-kW-R5w" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YKf-4B-hZt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="295" y="-118"/>
+        </scene>
+        <!--CardsViewController-->
+        <scene sceneID="3Ac-9a-UMU">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="BestBoxSizeNavControllerSB" storyboardName="BestBoxSize" referencedIdentifier="CardsViewController" id="mUk-co-WEr" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xmg-Y6-wdA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="241" y="113"/>
+        </scene>
+        <!--Pick Product To Pack View Controller-->
+        <scene sceneID="U2N-4a-Op3">
+            <objects>
+                <viewController storyboardIdentifier="PickProductToPackViewControllerSB" id="4S8-c0-774" customClass="PickProductToPackViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Crx-zm-EbN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xvh-yb-fsn">
+                                <rect key="frame" x="8" y="52" width="398" height="56"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" placeholder="Search for products" translatesAutoresizingMaskIntoConstraints="NO" id="gIV-9x-btj">
+                                        <rect key="frame" x="0.0" y="0.0" width="306" height="56"/>
+                                        <color key="backgroundColor" name="appARKATeal"/>
+                                        <color key="barTintColor" name="appARKATeal"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5F-4i-A5f">
+                                        <rect key="frame" x="306" y="0.0" width="92" height="56"/>
+                                        <color key="backgroundColor" name="appARKATeal"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <segue destination="npe-kW-R5w" kind="show" id="quH-8d-4ux"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="q5F-4i-A5f" firstAttribute="width" secondItem="gIV-9x-btj" secondAttribute="width" multiplier="0.3" id="VVA-wp-qiZ"/>
+                                </constraints>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7UT-Ky-cyG">
+                                <rect key="frame" x="8" y="116" width="398" height="650"/>
+                                <color key="backgroundColor" name="appARKATeal"/>
+                                <color key="separatorColor" name="appARKATeal"/>
+                                <color key="sectionIndexBackgroundColor" name="appARKATeal"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PickProductCell" id="FdX-Na-eLB" customClass="PickProductTableViewCell" customModule="ScannAR" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="398" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FdX-Na-eLB" id="VWx-sf-goo">
+                                            <rect key="frame" x="0.0" y="0.0" width="398" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z80-R4-SU2">
+                                <rect key="frame" x="8" y="774" width="398" height="80"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fns-eR-4WF">
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="80"/>
+                                        <color key="backgroundColor" name="appARKADarkBlue"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Preview Packages"/>
+                                        <connections>
+                                            <segue destination="mUk-co-WEr" kind="show" identifier="PreviewPackagingSegue" id="jnR-ak-I1j"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Fns-eR-4WF" secondAttribute="bottom" id="IeU-YP-ask"/>
+                                    <constraint firstAttribute="height" constant="80" id="S8s-FM-CeL"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fns-eR-4WF" secondAttribute="trailing" id="kQN-Jw-vQS"/>
+                                    <constraint firstItem="Fns-eR-4WF" firstAttribute="leading" secondItem="z80-R4-SU2" secondAttribute="leading" id="o0F-2r-dJy"/>
+                                    <constraint firstItem="Fns-eR-4WF" firstAttribute="top" secondItem="z80-R4-SU2" secondAttribute="top" id="tbM-Em-hKS"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" name="appARKATeal"/>
+                        <constraints>
+                            <constraint firstItem="AAb-GK-88W" firstAttribute="bottom" secondItem="z80-R4-SU2" secondAttribute="bottom" constant="8" id="0PV-3f-yrR"/>
+                            <constraint firstAttribute="trailing" secondItem="xvh-yb-fsn" secondAttribute="trailing" constant="8" id="1XG-mM-1Yg"/>
+                            <constraint firstItem="7UT-Ky-cyG" firstAttribute="leading" secondItem="AAb-GK-88W" secondAttribute="leading" constant="8" id="V8k-aY-mZl"/>
+                            <constraint firstItem="AAb-GK-88W" firstAttribute="trailing" secondItem="z80-R4-SU2" secondAttribute="trailing" constant="8" id="WfE-D6-XWd"/>
+                            <constraint firstItem="7UT-Ky-cyG" firstAttribute="top" secondItem="xvh-yb-fsn" secondAttribute="bottom" constant="8" id="e9c-rx-wNK"/>
+                            <constraint firstItem="AAb-GK-88W" firstAttribute="trailing" secondItem="7UT-Ky-cyG" secondAttribute="trailing" constant="8" id="klR-bj-HY3"/>
+                            <constraint firstItem="xvh-yb-fsn" firstAttribute="leading" secondItem="AAb-GK-88W" secondAttribute="leading" constant="8" id="n5B-Od-V9T"/>
+                            <constraint firstItem="xvh-yb-fsn" firstAttribute="top" secondItem="AAb-GK-88W" secondAttribute="top" constant="8" id="o6p-xu-mwy"/>
+                            <constraint firstItem="z80-R4-SU2" firstAttribute="leading" secondItem="AAb-GK-88W" secondAttribute="leading" constant="8" id="tPu-tg-pOO"/>
+                            <constraint firstItem="z80-R4-SU2" firstAttribute="top" secondItem="7UT-Ky-cyG" secondAttribute="bottom" constant="8" id="wDW-gE-vAZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AAb-GK-88W"/>
+                    </view>
+                    <connections>
+                        <outlet property="buttonContainerView" destination="z80-R4-SU2" id="yeG-n2-qT0"/>
+                        <outlet property="cancelButton" destination="q5F-4i-A5f" id="9TZ-b0-90r"/>
+                        <outlet property="previewPackagesButton" destination="Fns-eR-4WF" id="K9h-DJ-BWE"/>
+                        <outlet property="searchBar" destination="gIV-9x-btj" id="ewZ-QZ-2fT"/>
+                        <outlet property="tableView" destination="7UT-Ky-cyG" id="m8s-QK-dTd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Azs-9R-LSW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-379.71014492753625" y="21.428571428571427"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="appARKADarkBlue">
+            <color red="0.046999998390674591" green="0.17299999296665192" blue="0.32499998807907104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="appARKATeal">
+            <color red="0.44699999690055847" green="0.74099999666213989" blue="0.63899999856948853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

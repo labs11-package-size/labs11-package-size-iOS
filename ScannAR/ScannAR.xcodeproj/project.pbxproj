@@ -91,10 +91,17 @@
 		D11802CF22554EEF002837D3 /* AddProductProtocolDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11802CE22554EEF002837D3 /* AddProductProtocolDelegate.swift */; };
 		D11802D12255B14F002837D3 /* ProductAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11802D02255B14F002837D3 /* ProductAsset.swift */; };
 		D13070B5224C62EC00164B9A /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13070B4224C62EC00164B9A /* AddProductViewController.swift */; };
+		D132530B225A85980021ED29 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D132530A225A85980021ED29 /* Appearance.swift */; };
 		D134D68E225707280022F6C4 /* PackagePreviewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D134D68D225707280022F6C4 /* PackagePreviewRequest.swift */; };
 		D135E657224C89F5008CC7DF /* NetworkingHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D135E656224C89F5008CC7DF /* NetworkingHelpers.swift */; };
 		D142BEE3224AACE400699881 /* ShipmentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D142BEE1224AACE400699881 /* ShipmentsCollectionViewCell.swift */; };
 		D142BEE4224AACE400699881 /* ShipmentsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D142BEE2224AACE400699881 /* ShipmentsCollectionViewCell.xib */; };
+		D14F66B92259416F0008DCF2 /* PickProductToPack.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D14F66B82259416F0008DCF2 /* PickProductToPack.storyboard */; };
+		D14F66BD225949AE0008DCF2 /* PickProductToPackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F66BC225949AE0008DCF2 /* PickProductToPackViewController.swift */; };
+		D14F66C122594ACC0008DCF2 /* PickProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F66BF22594ACC0008DCF2 /* PickProductTableViewCell.swift */; };
+		D14F66C222594ACC0008DCF2 /* PickProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D14F66C022594ACC0008DCF2 /* PickProductTableViewCell.xib */; };
+		D14F66C422595D0E0008DCF2 /* ProductPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F66C322595D0E0008DCF2 /* ProductPickerDelegate.swift */; };
+		D14F66C622595FEA0008DCF2 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F66C522595FEA0008DCF2 /* Array+Extension.swift */; };
 		D152CA5D2253BFD2000F8ACD /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D152CA5C2253BFD2000F8ACD /* Account.swift */; };
 		D152CA6022542521000F8ACD /* UIView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D152CA5F22542521000F8ACD /* UIView+Helpers.swift */; };
 		D1698DAB224AF31400250E4D /* CoreDataImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1698DAA224AF31400250E4D /* CoreDataImporter.swift */; };
@@ -250,10 +257,17 @@
 		D11802CE22554EEF002837D3 /* AddProductProtocolDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductProtocolDelegate.swift; sourceTree = "<group>"; };
 		D11802D02255B14F002837D3 /* ProductAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAsset.swift; sourceTree = "<group>"; };
 		D13070B4224C62EC00164B9A /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
+		D132530A225A85980021ED29 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		D134D68D225707280022F6C4 /* PackagePreviewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagePreviewRequest.swift; sourceTree = "<group>"; };
 		D135E656224C89F5008CC7DF /* NetworkingHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingHelpers.swift; sourceTree = "<group>"; };
 		D142BEE1224AACE400699881 /* ShipmentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentsCollectionViewCell.swift; sourceTree = "<group>"; };
 		D142BEE2224AACE400699881 /* ShipmentsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShipmentsCollectionViewCell.xib; sourceTree = "<group>"; };
+		D14F66B82259416F0008DCF2 /* PickProductToPack.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PickProductToPack.storyboard; sourceTree = "<group>"; };
+		D14F66BC225949AE0008DCF2 /* PickProductToPackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickProductToPackViewController.swift; sourceTree = "<group>"; };
+		D14F66BF22594ACC0008DCF2 /* PickProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickProductTableViewCell.swift; sourceTree = "<group>"; };
+		D14F66C022594ACC0008DCF2 /* PickProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickProductTableViewCell.xib; sourceTree = "<group>"; };
+		D14F66C322595D0E0008DCF2 /* ProductPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPickerDelegate.swift; sourceTree = "<group>"; };
+		D14F66C522595FEA0008DCF2 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		D152CA5C2253BFD2000F8ACD /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		D152CA5F22542521000F8ACD /* UIView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
 		D1698DAA224AF31400250E4D /* CoreDataImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataImporter.swift; sourceTree = "<group>"; };
@@ -632,14 +646,26 @@
 				D135E656224C89F5008CC7DF /* NetworkingHelpers.swift */,
 				D152CA5F22542521000F8ACD /* UIView+Helpers.swift */,
 				D11802B32254F887002837D3 /* ShippingStatus.swift */,
+				D14F66C522595FEA0008DCF2 /* Array+Extension.swift */,
+				D132530A225A85980021ED29 /* Appearance.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D14F66BE22594AAE0008DCF2 /* PickProductViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D14F66BF22594ACC0008DCF2 /* PickProductTableViewCell.swift */,
+				D14F66C022594ACC0008DCF2 /* PickProductTableViewCell.xib */,
+			);
+			path = PickProductViewController;
 			sourceTree = "<group>";
 		};
 		D1698DAC224AFE5E00250E4D /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
 				D11802CE22554EEF002837D3 /* AddProductProtocolDelegate.swift */,
+				D14F66C322595D0E0008DCF2 /* ProductPickerDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -699,6 +725,8 @@
 				D1EAB2112243B68300720412 /* AccountViewController.storyboard */,
 				D1EAB2032243B4CF00720412 /* ShipmentsDetailViewController.swift */,
 				D1EAB2052243B4E500720412 /* ShipmentsDetailViewController.storyboard */,
+				D14F66B82259416F0008DCF2 /* PickProductToPack.storyboard */,
+				D14F66BC225949AE0008DCF2 /* PickProductToPackViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -706,6 +734,7 @@
 		D1EAB1CC2242D47D00720412 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D14F66BE22594AAE0008DCF2 /* PickProductViewController */,
 				D196E76D2256C8350012A3F7 /* PackagesCollectionViewCell.swift */,
 				D196E76E2256C8350012A3F7 /* PackagesCollectionViewCell.xib */,
 				D1EAB1D52242D64800720412 /* ProductsCollectionViewCell.swift */,
@@ -890,6 +919,7 @@
 				AB519F622242C6CA00B27A8B /* art.scnassets in Resources */,
 				D11802C922553241002837D3 /* ThirdAddProductTableViewCell.xib in Resources */,
 				AB519F6C2242C6CB00B27A8B /* LaunchScreen.storyboard in Resources */,
+				D14F66C222594ACC0008DCF2 /* PickProductTableViewCell.xib in Resources */,
 				D1EAB2162243B6AA00720412 /* SettingsViewController.storyboard in Resources */,
 				ABA70F79225714A900A44C06 /* BestBoxSize.storyboard in Resources */,
 				D142BEE4224AACE400699881 /* ShipmentsCollectionViewCell.xib in Resources */,
@@ -903,6 +933,7 @@
 				D1EAB220224405F900720412 /* ScannARMainViewController.storyboard in Resources */,
 				AB519F672242C6CA00B27A8B /* Main.storyboard in Resources */,
 				D11802BD225530AF002837D3 /* SecondAddProductTableViewCell.xib in Resources */,
+				D14F66B92259416F0008DCF2 /* PickProductToPack.storyboard in Resources */,
 				AB46C547224BE24C0075EF30 /* GoogleService-Info.plist in Resources */,
 				D11802C5225530D0002837D3 /* FourthAddProductTableViewCell.xib in Resources */,
 			);
@@ -1056,9 +1087,12 @@
 				AB38DCD622445F99008DC8C0 /* ThresholdPinchGestureRecognizer.swift in Sources */,
 				D142BEE3224AACE400699881 /* ShipmentsCollectionViewCell.swift in Sources */,
 				AB38DCF522446339008DC8C0 /* Tile.swift in Sources */,
+				D14F66C122594ACC0008DCF2 /* PickProductTableViewCell.swift in Sources */,
 				D1EAB21C224405BE00720412 /* ScannARMainCollectionView.swift in Sources */,
 				D1EAB2262244597D00720412 /* WalkthroughViewController.swift in Sources */,
 				D196E75F225691020012A3F7 /* Package+Encodable.swift in Sources */,
+				D14F66C422595D0E0008DCF2 /* ProductPickerDelegate.swift in Sources */,
+				D14F66C622595FEA0008DCF2 /* Array+Extension.swift in Sources */,
 				ABA70F80225733FA00A44C06 /* SmallToLargeAnimatable.swift in Sources */,
 				D1EAB1D72242D64800720412 /* ProductsCollectionViewCell.swift in Sources */,
 				AB38DCCB22445E3E008DC8C0 /* Message.swift in Sources */,
@@ -1094,6 +1128,7 @@
 				AB38DCE922446295008DC8C0 /* ObjectOrigin.swift in Sources */,
 				ABA70F7C2257179E00A44C06 /* BoxConfig3DPreviewViewController.swift in Sources */,
 				ABA70F8E225739D200A44C06 /* UIView+Extensions.swift in Sources */,
+				D132530B225A85980021ED29 /* Appearance.swift in Sources */,
 				AB38DCD222445EB7008DC8C0 /* FlashlightButton.swift in Sources */,
 				D11802CF22554EEF002837D3 /* AddProductProtocolDelegate.swift in Sources */,
 				AB46C545224B59960075EF30 /* AuthViewController.swift in Sources */,
@@ -1127,6 +1162,7 @@
 				AB42F89E2257C25C0086938A /* UIIMage+ColorOverlay.swift in Sources */,
 				ABA70F9922573B7400A44C06 /* CardsView.swift in Sources */,
 				AB38DCDB224460DD008DC8C0 /* ARCamera+TrackingState.swift in Sources */,
+				D14F66BD225949AE0008DCF2 /* PickProductToPackViewController.swift in Sources */,
 				D1EAB2412249379D00720412 /* Shipment+Encodable.swift in Sources */,
 				AB38DCEF224462FD008DC8C0 /* PointCloud+CreateVisualization.swift in Sources */,
 				D134D68E225707280022F6C4 /* PackagePreviewRequest.swift in Sources */,
