@@ -33,7 +33,9 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = false
+        scannARNetworkingController = ScannARNetworkController.shared
         fetchNetworkRequests()
+        
     }
     
     // Private Methods
