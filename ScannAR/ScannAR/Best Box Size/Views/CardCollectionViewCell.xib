@@ -194,6 +194,11 @@
             </connections>
             <point key="canvasLocation" x="245" y="-35"/>
         </collectionViewCell>
+        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="uIW-kg-pwd">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <point key="canvasLocation" x="1066" y="-67"/>
+        </scrollView>
     </objects>
     <resources>
         <image name="cardDeleteIcon" width="64" height="64"/>

@@ -71,10 +71,13 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         ARScanViewController.instance = self
-        sessionInfoView.backgroundColor = UIColor.black.withAlphaComponent(0.1)
-        sessionInfoLabel.backgroundColor = UIColor.black.withAlphaComponent(0.42)
-        instructionLabel.backgroundColor = UIColor.black.withAlphaComponent(0.1)
-        instructionLabel.backgroundColor = UIColor.black.withAlphaComponent(0.42)
+        DispatchQueue.main.async {
+            self.sessionInfoView.backgroundColor = UIColor.black.withAlphaComponent(0.1)
+            self.sessionInfoLabel.backgroundColor = UIColor.black.withAlphaComponent(0.42)
+            self.instructionLabel.backgroundColor = UIColor.black.withAlphaComponent(0.1)
+            self.instructionLabel.backgroundColor = UIColor.black.withAlphaComponent(0.42)
+        }
+        
         
     }
     
@@ -220,6 +223,7 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
     func showAlert(title: String, message: String, buttonTitle: String? = "OK", showCancel: Bool = false, buttonHandler: ((UIAlertAction) -> Void)? = nil) {
         print(title + "\n" + message)
         
+        DispatchQueue.main.async {
         var actions = [UIAlertAction]()
         if let buttonTitle = buttonTitle {
             actions.append(UIAlertAction(title: buttonTitle, style: .default, handler: buttonHandler))
@@ -227,7 +231,7 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
         if showCancel {
             actions.append(UIAlertAction(title: "Cancel", style: .cancel))
         }
-        DispatchQueue.main.async {
+        
             self.showAlert(title: title, message: message, actions: actions)
             
         }
@@ -235,9 +239,10 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
     
     func showAlert(title: String, message: String, actions: [UIAlertAction]) {
         let showAlertBlock = {
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            actions.forEach { alertController.addAction($0) }
+            
             DispatchQueue.main.async {
+                let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                actions.forEach { alertController.addAction($0) }
                 self.present(alertController, animated: true, completion: nil)
             }
         }
@@ -306,54 +311,51 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
         DispatchQueue.global().async {
             do {
                 let documentDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor:nil, create:false)
-                
-                let alert = UIAlertController(title: "Enter object Name", message: "", preferredStyle: .alert)
-                alert.addTextField { (textField) in
-                    textField.placeholder = "Please Enter object Name"
-                }
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
-                    let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
-                    print("Text field: \((textField?.text)!)")
-                    let documentURL = documentDirectory.appendingPathComponent((textField?.text)! + ".\(SavedARScansListViewController.aRObjectPathExtension)")
-                    DispatchQueue.global().async {
-                        do {
-                            // MARK: - Preview Image Generated here.
-                            try object.export(to: documentURL, previewImage: testRun.previewImage)
-                        } catch {
-                            fatalError("Failed to save the file to \(documentURL)")
-                        }
+                DispatchQueue.main.async {
+                    let alert = UIAlertController(title: "Enter object Name", message: "", preferredStyle: .alert)
+                    
+                    alert.addTextField { (textField) in
+                        textField.placeholder = "Please Enter object Name"
+                    }
+                    
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
                         
+                        let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+                        print("Text field: \((textField?.text)!)")
+                        let documentURL = documentDirectory.appendingPathComponent((textField?.text)! + ".\(SavedARScansListViewController.aRObjectPathExtension)")
+                        
+                        DispatchQueue.global().async {
+                            do {
+                                // MARK: - Preview Image Generated here.
+                                try object.export(to: documentURL, previewImage: testRun.previewImage)
+                            } catch {
+                                fatalError("Failed to save the file to \(documentURL)")
+                            }
+                        }
                         
                         
                         let viewController = UIStoryboard(name: "ScannARMainViewController", bundle: nil).instantiateViewController(withIdentifier: "AddProductViewControllerSB") as! AddProductViewController
-                        DispatchQueue.main.async {
-                            let rotatedScreenshot = self.objectScreenshot?.imageRotatedByDegrees(degrees: 90, flip: false)
-                            viewController.previewImage = rotatedScreenshot
-                        }
+                        
+                        let rotatedScreenshot = self.objectScreenshot?.imageRotatedByDegrees(degrees: 90, flip: false)
+                        viewController.previewImage = rotatedScreenshot
+                        
                         viewController.bestBoxSize = self.boundingBoxSize
                         print(self.boundingBoxSize)
                         
-                        //  DispatchQueue.main.async {
-                        //                            let rotatedScreenshot = self.objectScreenshot?.imageRotatedByDegrees(degrees: 90, flip: false)
-                        //                            viewController.previewImage = rotatedScreenshot
                         let transition: CATransition = CATransition()
                         transition.duration = 0.7
                         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
                         transition.type = CATransitionType.fade
-                        DispatchQueue.main.async {
-                            self.navigationController!.view.layer.add(transition, forKey: nil)
-                            self.navigationController?.pushViewController(viewController, animated: false)
-                        }
                         
-//                        self.present(viewController, animated: false, completion: nil)
-                        //let vc = self.storyboard?.instantiateViewController(withIdentifier: "ARScanMainMenu") as! ARScanMenuScreenViewController
-                        // }
-                    }
+                        self.navigationController!.view.layer.add(transition, forKey: nil)
+                        self.performSegue(withIdentifier: "unwindSegueToAddProductVC", sender: self)
+
                 }))
+                
                 DispatchQueue.main.async {
                     self.present(alert, animated: true, completion: nil)
+                    }
                 }
-                
             } catch {
                 print(error)
             }

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class CardsViewController: UIViewController {
+class CardsViewController: UIViewController, UIScrollViewDelegate {
     
     // MARK: IBOutlets
     
@@ -72,12 +72,12 @@ class CardsViewController: UIViewController {
     func handleViewControllerDismiss() {
         let amountOfCells = cardsView.numberOfItems(inSection: 0)
         if amountOfCells == 0 { return }
-        var indexPathesToDelete = [IndexPath]()
+        var indexPathsToDelete = [IndexPath]()
         for index in (1 ..< amountOfCells).reversed() {
-            indexPathesToDelete.append(IndexPath(row: index, section: 0))
+            indexPathsToDelete.append(IndexPath(row: index, section: 0))
             displayData.remove(at: index)
         }
-        cardsView.deleteItems(at: indexPathesToDelete)
+        cardsView.deleteItems(at: indexPathsToDelete)
     }
 }
 
@@ -129,13 +129,13 @@ extension CardsViewController: SwipingCollectionViewCellDelegate {
 extension CardsViewController: CardCollectionViewCellActionsHandler {
     func savePackageConfigForLaterButtonTapped(cell: CardCollectionViewCell) {
         if let index = cardsView.indexPath(for: cell)?.row {
-            
+            // Save package config for later without adding to shipment
         }
     }
     
     func addPackageConfigButtonTapped(cell: CardCollectionViewCell) {
         if let index = cardsView.indexPath(for: cell)?.row {
-            
+            // Add configuration to a shipment
         }
     }
     

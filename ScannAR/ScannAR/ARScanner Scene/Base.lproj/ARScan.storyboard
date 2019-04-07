@@ -312,9 +312,11 @@
                         <outlet property="sessionInfoLabel" destination="UrR-38-pup" id="EUV-Ee-dHk"/>
                         <outlet property="sessionInfoView" destination="EiA-XD-X8R" id="Ipb-ZM-laj"/>
                         <outlet property="toggleInstructionsButton" destination="bG7-IC-Bnx" id="kdh-cQ-8Ym"/>
+                        <segue destination="VnN-09-gk0" kind="unwind" identifier="unwindSegueToAddProductVC" animates="NO" unwindAction="unwindToAddProductVCWithSegue:" id="wiV-sL-PWc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+                <exit id="VnN-09-gk0" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="lb4-4q-tkf">
                     <connections>
                         <action selector="didTap:" destination="BV1-FR-VrT" id="QTP-61-gx0"/>
