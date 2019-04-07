@@ -156,6 +156,14 @@ class ProductDetailViewController: UIViewController {
         
     }
     
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PackItNowSegue"{
+            guard let product = product else { fatalError("No Product present")}
+            guard let destVC = segue.destination as? PickProductToPackViewController else { fatalError("Did not transition to PickProductToPackViewController")}
+            destVC.startingProduct = product
+        }
+    }
    
     // MARK: - IBActions
     @IBAction func editButtonTapped(_ sender: Any) {

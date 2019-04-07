@@ -19,9 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions
         launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
        
-         FirebaseApp.configure()
-         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
-         GIDSignIn.sharedInstance().delegate = self
+        Appearance.setupNavAppearance()
+        FirebaseApp.configure()
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance().delegate = self
        
         return true
     }

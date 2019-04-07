@@ -252,6 +252,7 @@
                                 </state>
                                 <connections>
                                     <action selector="packItNowButtonTapped:" destination="Lea-Cs-evB" eventType="touchUpInside" id="Qj8-fa-KDH"/>
+                                    <segue destination="o6T-1J-8cb" kind="show" identifier="PackItNowSegue" id="v5f-wD-YDx"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -294,6 +295,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aVs-7j-bz8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="612" y="43.628185907046479"/>
+        </scene>
+        <!--PickProductToPackViewControllerSB-->
+        <scene sceneID="thc-AR-ORG">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="PickProductToPackTableViewControllerSB" storyboardName="PickProductToPack" referencedIdentifier="PickProductToPackViewControllerSB" id="o6T-1J-8cb" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dYR-90-ozo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1235" y="193"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lfM-NE-0XH">

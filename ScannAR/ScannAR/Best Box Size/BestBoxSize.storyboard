@@ -174,7 +174,7 @@
         <!--Navigation Controller-->
         <scene sceneID="lNQ-Hv-MXr">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MNg-bt-vaj" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="BestBoxSizeNavControllerSB" automaticallyAdjustsScrollViewInsets="NO" id="MNg-bt-vaj" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ndr-oL-Vfa">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
