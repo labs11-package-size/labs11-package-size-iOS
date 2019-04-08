@@ -11,7 +11,6 @@ import Foundation
 struct ShipmentRepresentation: Codable {
     
     let carrierName: String
-    let identifier: Int
     let productNames: [String]?
     let dateArrived: String?
     let totalWeight: Double?
@@ -26,7 +25,6 @@ struct ShipmentRepresentation: Codable {
     
     enum CodingKeys: String, CodingKey {
         case carrierName
-        case identifier
         case productNames
         case shippedDate = "dateShipped"
         case shippedTo
