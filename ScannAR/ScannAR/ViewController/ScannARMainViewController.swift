@@ -277,7 +277,29 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             
             // Configure the cell
             cell.package = package
-            cell.idLabel.text = "\(package.uuid?.uuidString)"
+            
+            cell.contentView.layer.cornerRadius = 10
+            cell.contentView.layer.borderWidth = 1.0
+            
+            cell.contentView.layer.borderColor = UIColor.clear.cgColor
+            cell.contentView.layer.masksToBounds = true
+            
+            cell.layer.shadowColor = UIColor.gray.cgColor
+            cell.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+            cell.layer.shadowRadius = 2.0
+            cell.layer.shadowOpacity = 1.0
+            cell.layer.cornerRadius = 8
+            cell.layer.masksToBounds = false
+            cell.layer.shadowPath = UIBezierPath(roundedRect:cell.bounds, cornerRadius:cell.contentView.layer.cornerRadius).cgPath
+            
+            guard let dimensions = package.dimensions,
+                let productNames = package.productNames else { return cell }
+            
+            cell.dimensionsLabel.text = "\(dimensions)"
+            cell.numberOfProductsLabel.text = "\(productNames.count)"
+            cell.productNamesLabel.text = "Products in Package: \(productNames.joined(separator: ", "))"
+            
+            
             
             return cell
         
@@ -287,11 +309,28 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             let shipment = shipmentsFetchedResultsController.object(at: indexPath)
             
             // Configure the cell
+            cell.contentView.layer.cornerRadius = 10
+            cell.contentView.layer.borderWidth = 1.0
             
-            cell.trackingNumberLabel.text = "\(shipment.trackingNumber)"
-            cell.dateShippedLabel.text = "\(shipment.shippedDate)"
-            cell.carrierNameLabel.text = "\(shipment.carrierName)"
-            cell.statusLabel.text = "\(shipment.status)"
+            cell.contentView.layer.borderColor = UIColor.clear.cgColor
+            cell.contentView.layer.masksToBounds = true
+            
+            cell.layer.shadowColor = UIColor.gray.cgColor
+            cell.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+            cell.layer.shadowRadius = 2.0
+            cell.layer.shadowOpacity = 1.0
+            cell.layer.cornerRadius = 8
+            cell.layer.masksToBounds = false
+            cell.layer.shadowPath = UIBezierPath(roundedRect:cell.bounds, cornerRadius:cell.contentView.layer.cornerRadius).cgPath
+            
+            cell.statusLabel.text = "Status: \(shipment.status)"
+            cell.totalWeightLabel.text = "Weight: \(shipment.totalWeight)"
+            cell.trackingNumberLabel.text = "Tracking #: \(shipment.trackingNumber ?? "N/A")"
+            
+            guard
+                let shippedTo = shipment.shippedTo else { return cell }
+            cell.shippedToLabel.text = "To: \(shippedTo)"
+            
             
             return cell
             
@@ -324,8 +363,21 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
                         cell.productImageView.image = UIImage(data: data)
                     }
                 }
-                
             }
+            
+            cell.contentView.layer.cornerRadius = 10
+            cell.contentView.layer.borderWidth = 1.0
+            
+            cell.contentView.layer.borderColor = UIColor.clear.cgColor
+            cell.contentView.layer.masksToBounds = true
+            
+            cell.layer.shadowColor = UIColor.gray.cgColor
+            cell.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+            cell.layer.shadowRadius = 2.0
+            cell.layer.shadowOpacity = 1.0
+            cell.layer.cornerRadius = 8
+            cell.layer.masksToBounds = false
+            cell.layer.shadowPath = UIBezierPath(roundedRect:cell.bounds, cornerRadius:cell.contentView.layer.cornerRadius).cgPath
             
             return cell
         }

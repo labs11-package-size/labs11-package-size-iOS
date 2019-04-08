@@ -14,34 +14,66 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PackagesCollectionViewCell" customModule="ScannAR" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="153" height="125"/>
+            <rect key="frame" x="0.0" y="0.0" width="179" height="155"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="153" height="125"/>
+                <rect key="frame" x="0.0" y="0.0" width="179" height="155"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KaG-g5-LQr">
-                        <rect key="frame" x="0.0" y="52" width="153" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" name="selectedMenuItemTextColor" catalog="System" colorSpace="catalog"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="standardMailerBox" translatesAutoresizingMaskIntoConstraints="NO" id="sT8-rg-Igg">
+                        <rect key="frame" x="8" y="8" width="163" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="80" id="S1v-s7-Rd3"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="kvU-rm-eIv">
+                        <rect key="frame" x="8" y="96" width="163" height="51"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KaG-g5-LQr">
+                                <rect key="frame" x="0.0" y="0.0" width="163" height="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                <color key="textColor" name="selectedMenuItemTextColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFo-j2-6cc">
+                                <rect key="frame" x="0.0" y="17" width="163" height="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYW-tR-aCF">
+                                <rect key="frame" x="0.0" y="34" width="163" height="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
                 </subviews>
             </view>
             <color key="backgroundColor" name="appARKATeal"/>
             <constraints>
-                <constraint firstItem="KaG-g5-LQr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="901-dJ-TYV"/>
-                <constraint firstAttribute="trailing" secondItem="KaG-g5-LQr" secondAttribute="trailing" id="L6X-Or-bzo"/>
+                <constraint firstAttribute="trailing" secondItem="sT8-rg-Igg" secondAttribute="trailing" constant="8" id="1GL-ph-kKi"/>
+                <constraint firstItem="sT8-rg-Igg" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="4Ll-d5-CKn"/>
+                <constraint firstItem="sT8-rg-Igg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="9Fm-cw-sRi"/>
+                <constraint firstItem="sT8-rg-Igg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="Eei-Uk-fVe"/>
+                <constraint firstItem="kvU-rm-eIv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="Rns-IL-UuS"/>
+                <constraint firstAttribute="trailing" secondItem="kvU-rm-eIv" secondAttribute="trailing" constant="8" id="cwV-Kg-SpF"/>
+                <constraint firstItem="kvU-rm-eIv" firstAttribute="top" secondItem="sT8-rg-Igg" secondAttribute="bottom" constant="8" id="glI-07-qoR"/>
+                <constraint firstAttribute="bottom" secondItem="kvU-rm-eIv" secondAttribute="bottom" constant="8" id="hHh-KT-1Pn"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="153" height="125"/>
+            <size key="customSize" width="179" height="155"/>
             <connections>
-                <outlet property="idLabel" destination="KaG-g5-LQr" id="yv0-Hd-7mJ"/>
+                <outlet property="dimensionsLabel" destination="KaG-g5-LQr" id="tMl-HH-vud"/>
+                <outlet property="numberOfProductsLabel" destination="WYW-tR-aCF" id="F06-KQ-JcK"/>
+                <outlet property="productNamesLabel" destination="AFo-j2-6cc" id="1R2-cB-849"/>
             </connections>
-            <point key="canvasLocation" x="212.31884057971016" y="130.91517857142856"/>
+            <point key="canvasLocation" x="231.15942028985509" y="140.29017857142856"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="standardMailerBox" width="460" height="500"/>
         <namedColor name="appARKATeal">
             <color red="0.44699999690055847" green="0.74099999666213989" blue="0.63899999856948853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
