@@ -424,7 +424,23 @@ class ScannARNetworkController {
         }
     }
     
-    
+    /*
+     DELETE Package for jsonToken representing the User, for a UUID
+     */
+    func deletePackage(uuid: UUID, completion: @escaping (Error?) -> Void) {
+        
+        let request = createRequest(for: .DELETEPackage, for: uuid)
+        
+        apiRequest(from: request) { (results: [PackageRepresentation]?, error: Error?) in
+            
+            if let error = error {
+                print("Error: \(error)")
+                completion(error)
+            }
+            
+            completion(nil)
+        }
+    }
     
     // MARK: - Properties
     
@@ -828,7 +844,25 @@ extension ScannARNetworkController {
             
             return request
             
+        case .DELETEPackage:
+            guard let uuid = uuid else { fatalError("no UUID passed") }
+            var url = baseURL
+            url = url.appendingPathComponent("packaging")
+            url = url.appendingPathComponent("delete")
+            url = url.appendingPathComponent("\(uuid.uuidString)")
+            
+            guard let jsonToken = jsonToken else { fatalError("The jsonToken is empty.") }
+            
+            // Create a DELETE request
+            var request = URLRequest(url: url)
+            request.httpMethod = HTTPMethod.DELETE.rawValue
+            request.addValue(jsonToken.token, forHTTPHeaderField: "Authorization")
+            
+            return request
+            
         }
+        
+        
         
     }
 }

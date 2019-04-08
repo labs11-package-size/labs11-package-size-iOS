@@ -37,4 +37,5 @@ enum APICallType: String, Codable {
     case POSTPreviewPackaging
     case POSTAddPackage
     case GETPackages
+    case DELETEPackage
 }

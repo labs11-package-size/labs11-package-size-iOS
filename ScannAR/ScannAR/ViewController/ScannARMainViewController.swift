@@ -429,28 +429,28 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
                     
                     let packageToDelete = self.packagesFetchedResultsController.object(at: indexPath)
                     // delete Package networking below once route is created.
-//                    self.scannARNetworkingController?.deletePackage(uuid: itemUUID, completion: { (results, error) in
-//
-//                        if let error = error {
-//                            print("Error deleting object: \(error)")
-//                        }
-//
-//                        let moc = CoreDataStack.shared.mainContext
-//                        moc.perform {
-//                            moc.delete(packageToDelete)
-//
-//                            do {
-//                                try moc.save()
-//                            } catch let saveError {
-//                                print("Error saving context: \(saveError)")
-//                            }
-//                            DispatchQueue.main.async {
-//                                self.collectionView.reloadData()
-//                                self.flashSaveOnServerNoticeToUser(itemName, type: "Deleted")
-//                            }
-//
-//                        }
-//                    })
+                    self.scannARNetworkingController?.deletePackage(uuid: itemUUID, completion: { (error) in
+
+                        if let error = error {
+                            print("Error deleting object: \(error)")
+                        }
+
+                        let moc = CoreDataStack.shared.mainContext
+                        moc.perform {
+                            moc.delete(packageToDelete)
+
+                            do {
+                                try moc.save()
+                            } catch let saveError {
+                                print("Error saving context: \(saveError)")
+                            }
+                            DispatchQueue.main.async {
+                                self.collectionView.reloadData()
+                                self.flashSaveOnServerNoticeToUser(itemName, type: "Deleted")
+                            }
+
+                        }
+                    })
                     
                 case 2:
                     let shipmentToDelete = self.shipmentsFetchedResultsController.object(at: indexPath)
