@@ -196,16 +196,21 @@ class CoreDataImporter {
         product.value = productRepresentation.value
         product.weight = productRepresentation.weight
         product.uuid = productRepresentation.uuid
+        product.thumbnail = productRepresentation.thumbnail
         product.width = productRepresentation.width ?? 0
+        product.thumbnail = productRepresentation.thumbnail
     }
     
     private func updatePackage(package: Package, with packageRepresentation: PackageRepresentation) {
-        package.identifier = Int16(packageRepresentation.identifier)
-        package.boxId = Int16(packageRepresentation.boxId)
-        package.itemCount = Int16(packageRepresentation.itemCount)
         package.totalWeight = packageRepresentation.totalWeight ?? 0.0
         package.modelURL = packageRepresentation.modelURL
         package.uuid = packageRepresentation.uuid
+        package.dimensions = packageRepresentation.dimensions
+        
+        if let identifier = packageRepresentation.identifier {
+            package.identifier = Int16(identifier)
+        }
+        
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:MM:SS"
@@ -232,7 +237,7 @@ class CoreDataImporter {
         
         shipment.identifier = Int16(shipmentRepresentation.identifier)
         shipment.carrierName = shipmentRepresentation.carrierName
-        shipment.productName = shipmentRepresentation.productName
+        shipment.productNames = shipmentRepresentation.productNames?.joined(separator: ", ")
         shipment.totalValue = shipmentRepresentation.totalValue ?? 0.0
         shipment.totalWeight = shipmentRepresentation.totalWeight ?? 0.0
         shipment.shippingType = shipmentRepresentation.shippingType

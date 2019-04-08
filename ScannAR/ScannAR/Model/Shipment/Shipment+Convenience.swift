@@ -12,7 +12,7 @@ import CoreData
 extension Shipment {
     convenience init(identifier: Int? = nil,
                      carrierName: String?,
-                     productName: String? = nil,
+                     productNames: String? = nil,
                      shippedDate: Date?,
                      dateArrived: Date?,
                      lastUpdated: Date?,
@@ -30,8 +30,8 @@ extension Shipment {
         if let identifier = identifier {
             self.identifier = Int16(identifier)
         }
-        if let productName = productName {
-            self.productName = productName
+        if let productNames = productNames {
+            self.productNames = productNames
         }
         
         
@@ -54,7 +54,7 @@ extension Shipment {
         
         let identifier = shipmentRepresentation.identifier
         let carrierName = shipmentRepresentation.carrierName
-        let productName = shipmentRepresentation.productName
+        let productNames = shipmentRepresentation.productNames?.joined(separator: ", ")
         let totalValue = shipmentRepresentation.totalValue ?? 0.0
         let totalWeight = shipmentRepresentation.totalWeight ?? 0.0
     
@@ -115,7 +115,7 @@ extension Shipment {
             lastUpdated = nil
         }
         
-        self.init(identifier: identifier, carrierName: carrierName, productName: productName, shippedDate: shippedDate, dateArrived: dateArrived, lastUpdated: lastUpdated, shippingType: shippingType, totalWeight: totalWeight, totalValue: totalValue, status: status, trackingNumber: trackingNumber, shippedTo: shippedTo, uuid: uuid, context: context)
+        self.init(identifier: identifier, carrierName: carrierName, productNames: productNames, shippedDate: shippedDate, dateArrived: dateArrived, lastUpdated: lastUpdated, shippingType: shippingType, totalWeight: totalWeight, totalValue: totalValue, status: status, trackingNumber: trackingNumber, shippedTo: shippedTo, uuid: uuid, context: context)
     }
     
     

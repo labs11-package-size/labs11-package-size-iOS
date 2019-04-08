@@ -24,6 +24,7 @@ extension Product {
                      weight: Double,
                      width: Double,
                      uuid: UUID? = UUID(),
+                     thumbnail: URL? = nil,
                      context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         
@@ -45,6 +46,10 @@ extension Product {
         }
         if let length = length {
             self.length = length
+        }
+        
+        if let thumbnail = thumbnail {
+            self.thumbnail = thumbnail
         }
         
         self.lastUpdated = lastUpdated
@@ -70,6 +75,7 @@ extension Product {
         let value = productRepresentation.value
         let weight = productRepresentation.weight
         let uuid = productRepresentation.uuid
+        let thumbnail = productRepresentation.thumbnail
         
         var manufacturerId: String?
         if productRepresentation.manufacturerId == "null"{
@@ -105,6 +111,6 @@ extension Product {
             width = 0.0
         }
         
-        self.init(fragile: fragile, height: height, lastUpdated: lastUpdated, identifier: identifier, length: length, manufacturerId: manufacturerId, name: name, productDescription: productDescription, userId: userId, value: value, weight: weight, width: width, uuid: uuid, context: context)
+        self.init(fragile: fragile, height: height, lastUpdated: lastUpdated, identifier: identifier, length: length, manufacturerId: manufacturerId, name: name, productDescription: productDescription, userId: userId, value: value, weight: weight, width: width, uuid: uuid, thumbnail: thumbnail, context: context)
     }
 }

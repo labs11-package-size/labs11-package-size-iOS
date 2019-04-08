@@ -21,6 +21,7 @@ extension Product : Encodable {
         case weight
         case width
         case uuid
+        case thumbnail
     }
     
     // MARK: - Encode
@@ -38,6 +39,7 @@ extension Product : Encodable {
         try container.encode(weight, forKey: .weight)
         try container.encode(width, forKey: .width)
         try container.encode(uuid, forKey: .uuid)
+        try container.encode(thumbnail, forKey: .thumbnail)
     }
     
 }

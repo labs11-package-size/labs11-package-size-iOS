@@ -133,20 +133,18 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         
         switch segmentedControl.selectedSegmentIndex {
         case 1:
-            print("Networking to be implemented")
-//            scannARNetworkingController.getShipments { (results, error) in
-//
-//                guard let results = results else {
-//                    return
-//                }
-//
-//                self.coreDataImporter.syncShipments(shipmentRepresentations: results, completion: { (error) in
+            
+            scannARNetworkingController.getPackages(completion: { (results, error) in
+                
+                guard let results = results else {
+                    return
+                }
+                self.coreDataImporter.syncPackages(packageRepresentations: results, completion: { (error) in
                     DispatchQueue.main.async {
                         self.collectionView.reloadData()
                     }
-//                })
-//
-//            }
+                })
+            })
         
         case 2:
             
@@ -219,6 +217,12 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
             transition.type = CATransitionType.fade
             self.navigationController!.view.layer.add(transition, forKey: nil)
+        } else if segue.identifier == "PackageDetailSegue" {
+            guard let destVC = segue.destination as? PackageDetailViewController else { fatalError("Segue should cast view controller as PackageDetailViewController but failed to do so.")}
+            guard let indexPath = collectionView.indexPathsForSelectedItems?.first else {fatalError("No selected indexPath")}
+            let package = packagesFetchedResultsController.object(at: indexPath)
+            destVC.scannARNetworkingController = self.scannARNetworkingController
+            destVC.package = package
         }
         
         
@@ -267,13 +271,13 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         
         switch segmentedControl.selectedSegmentIndex {
         case 1:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: shipmentReuseIdentifier, for: indexPath) as? PackagesCollectionViewCell else { fatalError("Could not dequeue cell as PackageCollectionViewCell") }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: packageReuseIdentifier, for: indexPath) as? PackagesCollectionViewCell else { fatalError("Could not dequeue cell as PackageCollectionViewCell") }
             
             let package = packagesFetchedResultsController.object(at: indexPath)
             
             // Configure the cell
             cell.package = package
-//            cell.idLabel.text = "\(package.uuid?.uuidString)"
+            cell.idLabel.text = "\(package.uuid?.uuidString)"
             
             return cell
         
@@ -305,24 +309,20 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             cell.lwhLabel.text = "L: \(product.length) | W: \(product.width) | H: \(product.height)"
             cell.weightLabel.text = "\(product.weight) lbs"
             
-           
-//            self.scannARNetworkingController?.getAssetsForProduct(uuid: product.uuid!, completion: { (results, error) in
-//                
-//                guard let firstAsset = results?.first else { return }
-//                var data: Data
-//                do {
-//                    guard let url = URL(string: firstAsset.urlString) else { return }
-//                    data = try Data(contentsOf: url)
-//                } catch {
-//                    return
-//                }
-//                
-//                DispatchQueue.main.async {
-//                    cell.productImageView.image = UIImage(data: data)
-//                    self.collectionView.reloadItems(at: [indexPath])
-//                }
-//                
-//            })
+            if let url = product.thumbnail {
+                
+                var data: Data
+                do {
+                    data = try Data(contentsOf: url)
+                } catch {
+                    print("Could not get image from Thumbnail image URL.")
+                    return cell
+                }
+                
+                DispatchQueue.main.async {
+                    cell.productImageView.image = UIImage(data: data)
+                }
+            }
             
             return cell
         }
@@ -346,7 +346,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         
         switch segmentedControl.selectedSegmentIndex {
         case 1:
-            print("Segue to Add Package")
+            performSegue(withIdentifier: "PackageDetailSegue", sender: nil)
         case 2:
             performSegue(withIdentifier: "ShipmentDetailSegue", sender: nil)
         default:
@@ -551,7 +551,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             NSSortDescriptor(key: "identifier", ascending: false)
         ]
         let moc = CoreDataStack.shared.mainContext
-        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "boxId", cacheName: nil)
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "dimensions", cacheName: nil)
         
         frc.delegate = self
         try? frc.performFetch()

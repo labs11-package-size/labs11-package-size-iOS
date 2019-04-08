@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MN1-zW-VSH">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Package Detail View Controller-->
+        <scene sceneID="n6T-Pa-gb4">
+            <objects>
+                <viewController storyboardIdentifier="PackageDetailViewControllerSB" id="MN1-zW-VSH" customClass="PackageDetailViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YZD-Mh-xGf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wbk-BO-Z28">
+                                <rect key="frame" x="125.5" y="498" width="163" height="30"/>
+                                <color key="backgroundColor" name="appARKADarkBlue"/>
+                                <state key="normal" title="Add A Tracking Number">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="showTrackingNumberButtonTapped:" destination="MN1-zW-VSH" eventType="touchUpInside" id="3Hf-3D-Q4o"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kZ3-Xz-JxY">
+                                <rect key="frame" x="20" y="418" width="374" height="60"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="adi-Kd-DVn">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dimensions:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zx-nQ-cNx">
+                                                <rect key="frame" x="0.0" y="0.0" width="136.5" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="asm-OI-sDZ">
+                                                <rect key="frame" x="162.5" y="0.0" width="211.5" height="30"/>
+                                                <color key="backgroundColor" name="appARKATeal"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="4iA-wf-VkP">
+                                        <rect key="frame" x="0.0" y="30" width="374" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Weight:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33Q-cV-mLb">
+                                                <rect key="frame" x="0.0" y="0.0" width="136.5" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EGx-10-ZJw">
+                                                <rect key="frame" x="162.5" y="0.0" width="211.5" height="30"/>
+                                                <color key="backgroundColor" name="appARKATeal"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <viewLayoutGuide key="safeArea" id="kB8-uG-jBC"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="33Q-cV-mLb" firstAttribute="width" secondItem="8zx-nQ-cNx" secondAttribute="width" id="dNg-vX-c0c"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="N2O-II-Ee8">
+                                <rect key="frame" x="20" y="548" width="374" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracking Number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNG-4f-N7S">
+                                        <rect key="frame" x="0.0" y="0.0" width="136.5" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vvy-cE-FLb">
+                                        <rect key="frame" x="162.5" y="0.0" width="211.5" height="30"/>
+                                        <color key="backgroundColor" name="appARKATeal"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="dqt-4T-32E"/>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8f8-sZ-aQU">
+                                <rect key="frame" x="100.5" y="598" width="213" height="30"/>
+                                <color key="backgroundColor" name="appARKADarkBlue"/>
+                                <state key="normal" title="Create Shipment from Package">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="nmA-QY-gdE" kind="show" identifier="CreateShipmentSegue" id="Eb0-sh-Cdq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="appARKATeal"/>
+                        <constraints>
+                            <constraint firstItem="N2O-II-Ee8" firstAttribute="top" secondItem="Wbk-BO-Z28" secondAttribute="bottom" constant="20" id="FEp-Ko-t8U"/>
+                            <constraint firstItem="Wbk-BO-Z28" firstAttribute="centerX" secondItem="YZD-Mh-xGf" secondAttribute="centerX" id="KMA-J9-Wtf"/>
+                            <constraint firstItem="HNG-4f-N7S" firstAttribute="width" secondItem="33Q-cV-mLb" secondAttribute="width" id="UEJ-R4-dUl"/>
+                            <constraint firstItem="9nF-sU-qAT" firstAttribute="trailing" secondItem="N2O-II-Ee8" secondAttribute="trailing" constant="20" id="Uad-uL-Hak"/>
+                            <constraint firstItem="kZ3-Xz-JxY" firstAttribute="centerY" secondItem="YZD-Mh-xGf" secondAttribute="centerY" id="X92-y9-5GK"/>
+                            <constraint firstItem="kZ3-Xz-JxY" firstAttribute="leading" secondItem="9nF-sU-qAT" secondAttribute="leading" constant="20" id="XIG-WI-Slz"/>
+                            <constraint firstItem="8f8-sZ-aQU" firstAttribute="centerX" secondItem="YZD-Mh-xGf" secondAttribute="centerX" id="a8S-07-YxJ"/>
+                            <constraint firstItem="9nF-sU-qAT" firstAttribute="trailing" secondItem="kZ3-Xz-JxY" secondAttribute="trailing" constant="20" id="jcW-qI-Rug"/>
+                            <constraint firstItem="kZ3-Xz-JxY" firstAttribute="centerX" secondItem="YZD-Mh-xGf" secondAttribute="centerX" id="kTT-x4-YUe"/>
+                            <constraint firstItem="N2O-II-Ee8" firstAttribute="leading" secondItem="9nF-sU-qAT" secondAttribute="leading" constant="20" id="puK-cS-CFG"/>
+                            <constraint firstItem="8f8-sZ-aQU" firstAttribute="top" secondItem="N2O-II-Ee8" secondAttribute="bottom" constant="20" id="wE3-yQ-7cL"/>
+                            <constraint firstItem="Wbk-BO-Z28" firstAttribute="top" secondItem="kZ3-Xz-JxY" secondAttribute="bottom" constant="20" id="wFe-4B-VxV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9nF-sU-qAT"/>
+                    </view>
+                    <connections>
+                        <outlet property="createShipmentButton" destination="8f8-sZ-aQU" id="557-5t-xU2"/>
+                        <outlet property="dimensionsTextField" destination="asm-OI-sDZ" id="7C2-FF-1f7"/>
+                        <outlet property="showTrackingNumber" destination="Wbk-BO-Z28" id="KBp-DY-REc"/>
+                        <outlet property="totalWeightTextField" destination="EGx-10-ZJw" id="c04-FG-EIc"/>
+                        <outlet property="trackingNumberEnterStackView" destination="N2O-II-Ee8" id="TDr-be-0NH"/>
+                        <outlet property="trackingNumberTextField" destination="vvy-cE-FLb" id="hPw-bQ-aoF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iaC-PS-qBv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136" y="202"/>
+        </scene>
+        <!--ScannARMainViewControllerSB-->
+        <scene sceneID="VLf-37-nmw">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="ScannARMainViewControllerSB" storyboardName="ScannARMainViewController" referencedIdentifier="ScannARMainViewControllerSB" id="nmA-QY-gdE" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ph0-RV-lv3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="801" y="191"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="appARKADarkBlue">
+            <color red="0.046999998390674591" green="0.17299999296665192" blue="0.32499998807907104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="appARKATeal">
+            <color red="0.44699999690055847" green="0.74099999666213989" blue="0.63899999856948853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
