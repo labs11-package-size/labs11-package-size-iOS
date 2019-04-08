@@ -54,9 +54,9 @@ class PackageDetailViewController: UIViewController {
         guard trackingNumberTextField.text != "" else { return }
         
         guard let uuid = package?.uuid else { return }
-        let productNames = "Test" // package?.productNames else { return }
+        let productNames = ["Test"] // package?.productNames else { return }
         
-        let newShipment = Shipment(identifier: nil, carrierName: nil, productNames: productNames, shippedDate: nil, dateArrived: nil, lastUpdated: nil, shippingType: nil, status: 1, trackingNumber: trackingNumberTextField.text!, shippedTo: nil, uuid: uuid, context: CoreDataStack.shared.container.newBackgroundContext())
+        let newShipment = Shipment(carrierName: nil, productNames: productNames, shippedDate: nil, dateArrived: nil, lastUpdated: nil, shippingType: nil, status: 1, trackingNumber: trackingNumberTextField.text!, shippedTo: nil, uuid: uuid, context: CoreDataStack.shared.container.newBackgroundContext())
         let dict = NetworkingHelpers.dictionaryFromShipment(shipment: newShipment)
         
         scannARNetworkingController?.postNewShipment(dict: dict, uuid: uuid, completion: { (results, error) in

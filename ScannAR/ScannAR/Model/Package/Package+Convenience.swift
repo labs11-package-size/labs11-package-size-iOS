@@ -13,7 +13,7 @@ extension Package {
     convenience init(identifier: Int? = nil,
                      lastUpdated: Date?,
                      totalWeight: Double = 0,
-                     productNames: String? = nil,
+                     productNames: [String]?,
                      modelURL: String?,
                      dimensions: String,
                      uuid: UUID = UUID(),
@@ -46,7 +46,7 @@ extension Package {
         let identifier = packageRepresentation.identifier
         let totalWeight = packageRepresentation.totalWeight ?? 0.0
         let modelURL = packageRepresentation.modelURL
-        
+        let productNames = packageRepresentation.productNames
         let uuid = packageRepresentation.uuid
         
         let dateFormatter = DateFormatter()
@@ -68,7 +68,7 @@ extension Package {
             lastUpdated = nil
         }
         
-        self.init(identifier: identifier, lastUpdated: lastUpdated, totalWeight: totalWeight, modelURL: modelURL, dimensions: dimensions, uuid: uuid, context: context)
+        self.init(identifier: identifier, lastUpdated: lastUpdated, totalWeight: totalWeight, productNames: productNames, modelURL: modelURL, dimensions: dimensions, uuid: uuid, context: context)
     }
     
     

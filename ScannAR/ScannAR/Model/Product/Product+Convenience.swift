@@ -14,12 +14,10 @@ extension Product {
     convenience init(fragile: Int,
                      height: Double? = nil,
                      lastUpdated: Date? = Date(),
-                     identifier: Int? = nil,
                      length: Double? = nil,
                      manufacturerId: String?,
                      name: String,
                      productDescription: String? = "",
-                     userId: Int? = nil,
                      value: Double,
                      weight: Double,
                      width: Double,
@@ -30,13 +28,6 @@ extension Product {
         
         self.init(context:context)
         
-        
-        if let identifier = identifier{
-            self.identifier = Int16(identifier)
-        }
-        if let userId = userId {
-            self.userId = Int16(userId)
-        }
         if let manufacturerId = manufacturerId {
             self.manufacturerId = manufacturerId
         }
@@ -65,13 +56,11 @@ extension Product {
     
     convenience init(productRepresentation: ProductRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
-        let identifier = productRepresentation.identifier
         let fragile = productRepresentation.fragile
         let height = productRepresentation.height
         let length = productRepresentation.length
         let name = productRepresentation.name
         let productDescription = productRepresentation.productDescription
-        let userId = productRepresentation.userId
         let value = productRepresentation.value
         let weight = productRepresentation.weight
         let uuid = productRepresentation.uuid
@@ -111,6 +100,6 @@ extension Product {
             width = 0.0
         }
         
-        self.init(fragile: fragile, height: height, lastUpdated: lastUpdated, identifier: identifier, length: length, manufacturerId: manufacturerId, name: name, productDescription: productDescription, userId: userId, value: value, weight: weight, width: width, uuid: uuid, thumbnail: thumbnail, context: context)
+        self.init(fragile: fragile, height: height, lastUpdated: lastUpdated, length: length, manufacturerId: manufacturerId, name: name, productDescription: productDescription, value: value, weight: weight, width: width, uuid: uuid, thumbnail: thumbnail, context: context)
     }
 }

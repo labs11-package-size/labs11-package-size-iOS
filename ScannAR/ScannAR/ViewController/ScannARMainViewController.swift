@@ -568,7 +568,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         let fetchRequest: NSFetchRequest<Shipment> = Shipment.fetchRequest()
         
         fetchRequest.sortDescriptors = [
-            NSSortDescriptor(key: "identifier", ascending: false)
+            NSSortDescriptor(key: "status", ascending: false)
         ]
         let moc = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "status", cacheName: nil)
