@@ -131,6 +131,12 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
         // so it can be retrieved later from outside the main thread.
         screenCenter = sceneView.center
     }
+//    // MARK: - Navigation
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "unwindSegueToAddProductVC" {
+//            let unwindToVC = segue.destination
+//        }
+//    }
     
     // MARK: - UI Event Handling
     
@@ -332,7 +338,7 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
                                 fatalError("Failed to save the file to \(documentURL)")
                             }
                         }
-                        
+                       
                         
                         let viewController = UIStoryboard(name: "ScannARMainViewController", bundle: nil).instantiateViewController(withIdentifier: "AddProductViewControllerSB") as! AddProductViewController
                         
