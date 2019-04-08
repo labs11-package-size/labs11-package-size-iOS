@@ -68,7 +68,9 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             //getting the input values from user
             let imageURLString = alertController.textFields?[0].text
             
+            self.thumbnail = imageURLString!
             self.imageURLString = imageURLString
+            
             self.addProductTableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
             
         }
@@ -175,7 +177,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             value != 0.0,
             weight != 0.0 else { return }
         
-        let newProduct = Product(fragile: fragile, height: Double(height), length: Double(length), manufacturerId: manufacturerId, name: name, productDescription: productDescription, value: value, weight: weight, width: Double(width), context: CoreDataStack.shared.container.newBackgroundContext())
+        let newProduct = Product(fragile: fragile, height: Double(height), length: Double(length), manufacturerId: manufacturerId, name: name, productDescription: productDescription, value: value, weight: weight, width: Double(width), thumbnail: thumbnail, context: CoreDataStack.shared.container.newBackgroundContext())
         let dict = NetworkingHelpers.dictionaryFromProduct(product: newProduct)
         let newProductAsset = ProductAsset(urlString:imageURLString ?? "", name: "Picture1")
         let assetDict = NetworkingHelpers.dictionaryFromProductAsset(productAsset: newProductAsset)
@@ -259,6 +261,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     var value: Double = 0.0
     var weight: Double = 0.0
     var fragile: Int = 0
+    var thumbnail: String = ""
     var imageURLString: String? {
         didSet {
             guard let url = URL(string: imageURLString!) else {

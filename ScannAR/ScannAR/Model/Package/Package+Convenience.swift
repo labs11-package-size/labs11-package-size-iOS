@@ -13,9 +13,9 @@ extension Package {
     convenience init(identifier: Int? = nil,
                      lastUpdated: Date?,
                      totalWeight: Double = 0,
-                     itemCount: Int,
+                     productNames: [String]?,
                      modelURL: String?,
-                     boxId: Int,
+                     dimensions: String,
                      uuid: UUID = UUID(),
                      context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
@@ -28,25 +28,25 @@ extension Package {
             self.modelURL = modelURL
         }
         
+        if let productNames = productNames {
+            self.productNames = productNames
+        }
         
-        self.boxId = Int16(boxId)
-        self.itemCount = Int16(itemCount)
+        self.dimensions = dimensions
         self.lastUpdated = lastUpdated
         self.uuid = uuid
         self.totalWeight = totalWeight
 
-        
     }
     
     
     convenience init(packageRepresentation: PackageRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
+        let dimensions = packageRepresentation.dimensions
         let identifier = packageRepresentation.identifier
         let totalWeight = packageRepresentation.totalWeight ?? 0.0
-        let itemCount = packageRepresentation.itemCount
         let modelURL = packageRepresentation.modelURL
-        let boxId = packageRepresentation.boxId
-        
+        let productNames = packageRepresentation.productNames
         let uuid = packageRepresentation.uuid
         
         let dateFormatter = DateFormatter()
@@ -68,7 +68,7 @@ extension Package {
             lastUpdated = nil
         }
         
-        self.init(identifier: identifier, lastUpdated: lastUpdated, totalWeight: totalWeight, itemCount: itemCount, modelURL: modelURL, boxId: boxId, uuid: uuid, context: context)
+        self.init(identifier: identifier, lastUpdated: lastUpdated, totalWeight: totalWeight, productNames: productNames, modelURL: modelURL, dimensions: dimensions, uuid: uuid, context: context)
     }
     
     

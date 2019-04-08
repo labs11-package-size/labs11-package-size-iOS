@@ -133,20 +133,18 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         
         switch segmentedControl.selectedSegmentIndex {
         case 1:
-            print("Networking to be implemented")
-//            scannARNetworkingController.getShipments { (results, error) in
-//
-//                guard let results = results else {
-//                    return
-//                }
-//
-//                self.coreDataImporter.syncShipments(shipmentRepresentations: results, completion: { (error) in
+            
+            scannARNetworkingController.getPackages(completion: { (results, error) in
+                
+                guard let results = results else {
+                    return
+                }
+                self.coreDataImporter.syncPackages(packageRepresentations: results, completion: { (error) in
                     DispatchQueue.main.async {
                         self.collectionView.reloadData()
                     }
-//                })
-//
-//            }
+                })
+            })
         
         case 2:
             
@@ -219,6 +217,12 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
             transition.type = CATransitionType.fade
             self.navigationController!.view.layer.add(transition, forKey: nil)
+        } else if segue.identifier == "PackageDetailSegue" {
+            guard let destVC = segue.destination as? PackageDetailViewController else { fatalError("Segue should cast view controller as PackageDetailViewController but failed to do so.")}
+            guard let indexPath = collectionView.indexPathsForSelectedItems?.first else {fatalError("No selected indexPath")}
+            let package = packagesFetchedResultsController.object(at: indexPath)
+            destVC.scannARNetworkingController = self.scannARNetworkingController
+            destVC.package = package
         }
         
         
@@ -267,13 +271,35 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         
         switch segmentedControl.selectedSegmentIndex {
         case 1:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: shipmentReuseIdentifier, for: indexPath) as? PackagesCollectionViewCell else { fatalError("Could not dequeue cell as PackageCollectionViewCell") }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: packageReuseIdentifier, for: indexPath) as? PackagesCollectionViewCell else { fatalError("Could not dequeue cell as PackageCollectionViewCell") }
             
             let package = packagesFetchedResultsController.object(at: indexPath)
             
             // Configure the cell
             cell.package = package
-//            cell.idLabel.text = "\(package.uuid?.uuidString)"
+            
+            cell.contentView.layer.cornerRadius = 10
+            cell.contentView.layer.borderWidth = 1.0
+            
+            cell.contentView.layer.borderColor = UIColor.clear.cgColor
+            cell.contentView.layer.masksToBounds = true
+            
+            cell.layer.shadowColor = UIColor.gray.cgColor
+            cell.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+            cell.layer.shadowRadius = 2.0
+            cell.layer.shadowOpacity = 1.0
+            cell.layer.cornerRadius = 8
+            cell.layer.masksToBounds = false
+            cell.layer.shadowPath = UIBezierPath(roundedRect:cell.bounds, cornerRadius:cell.contentView.layer.cornerRadius).cgPath
+            
+            guard let dimensions = package.dimensions,
+                let productNames = package.productNames else { return cell }
+            
+            cell.dimensionsLabel.text = "\(dimensions)"
+            cell.numberOfProductsLabel.text = "\(productNames.count)"
+            cell.productNamesLabel.text = "Products in Package: \(productNames.joined(separator: ", "))"
+            
+            
             
             return cell
         
@@ -283,11 +309,28 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             let shipment = shipmentsFetchedResultsController.object(at: indexPath)
             
             // Configure the cell
+            cell.contentView.layer.cornerRadius = 10
+            cell.contentView.layer.borderWidth = 1.0
             
-            cell.trackingNumberLabel.text = "\(shipment.trackingNumber)"
-            cell.dateShippedLabel.text = "\(shipment.shippedDate)"
-            cell.carrierNameLabel.text = "\(shipment.carrierName)"
-            cell.statusLabel.text = "\(shipment.status)"
+            cell.contentView.layer.borderColor = UIColor.clear.cgColor
+            cell.contentView.layer.masksToBounds = true
+            
+            cell.layer.shadowColor = UIColor.gray.cgColor
+            cell.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+            cell.layer.shadowRadius = 2.0
+            cell.layer.shadowOpacity = 1.0
+            cell.layer.cornerRadius = 8
+            cell.layer.masksToBounds = false
+            cell.layer.shadowPath = UIBezierPath(roundedRect:cell.bounds, cornerRadius:cell.contentView.layer.cornerRadius).cgPath
+            
+            cell.statusLabel.text = "Status: \(shipment.status)"
+            cell.totalWeightLabel.text = "Weight: \(shipment.totalWeight)"
+            cell.trackingNumberLabel.text = "Tracking #: \(shipment.trackingNumber ?? "N/A")"
+            
+            guard
+                let shippedTo = shipment.shippedTo else { return cell }
+            cell.shippedToLabel.text = "To: \(shippedTo)"
+            
             
             return cell
             
@@ -305,24 +348,36 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             cell.lwhLabel.text = "L: \(product.length) | W: \(product.width) | H: \(product.height)"
             cell.weightLabel.text = "\(product.weight) lbs"
             
-           
-//            self.scannARNetworkingController?.getAssetsForProduct(uuid: product.uuid!, completion: { (results, error) in
-//                
-//                guard let firstAsset = results?.first else { return }
-//                var data: Data
-//                do {
-//                    guard let url = URL(string: firstAsset.urlString) else { return }
-//                    data = try Data(contentsOf: url)
-//                } catch {
-//                    return
-//                }
-//                
-//                DispatchQueue.main.async {
-//                    cell.productImageView.image = UIImage(data: data)
-//                    self.collectionView.reloadItems(at: [indexPath])
-//                }
-//                
-//            })
+            if let urlString = product.thumbnail {
+                
+                if let url = URL(string: urlString){
+                    var data: Data
+                    do {
+                        data = try Data(contentsOf: url)
+                    } catch {
+                        print("Could not get image from Thumbnail image URL.")
+                        return cell
+                    }
+                    
+                    DispatchQueue.main.async {
+                        cell.productImageView.image = UIImage(data: data)
+                    }
+                }
+            }
+            
+            cell.contentView.layer.cornerRadius = 10
+            cell.contentView.layer.borderWidth = 1.0
+            
+            cell.contentView.layer.borderColor = UIColor.clear.cgColor
+            cell.contentView.layer.masksToBounds = true
+            
+            cell.layer.shadowColor = UIColor.gray.cgColor
+            cell.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+            cell.layer.shadowRadius = 2.0
+            cell.layer.shadowOpacity = 1.0
+            cell.layer.cornerRadius = 8
+            cell.layer.masksToBounds = false
+            cell.layer.shadowPath = UIBezierPath(roundedRect:cell.bounds, cornerRadius:cell.contentView.layer.cornerRadius).cgPath
             
             return cell
         }
@@ -346,7 +401,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         
         switch segmentedControl.selectedSegmentIndex {
         case 1:
-            print("Segue to Add Package")
+            performSegue(withIdentifier: "PackageDetailSegue", sender: nil)
         case 2:
             performSegue(withIdentifier: "ShipmentDetailSegue", sender: nil)
         default:
@@ -429,28 +484,28 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
                     
                     let packageToDelete = self.packagesFetchedResultsController.object(at: indexPath)
                     // delete Package networking below once route is created.
-//                    self.scannARNetworkingController?.deletePackage(uuid: itemUUID, completion: { (results, error) in
-//
-//                        if let error = error {
-//                            print("Error deleting object: \(error)")
-//                        }
-//
-//                        let moc = CoreDataStack.shared.mainContext
-//                        moc.perform {
-//                            moc.delete(packageToDelete)
-//
-//                            do {
-//                                try moc.save()
-//                            } catch let saveError {
-//                                print("Error saving context: \(saveError)")
-//                            }
-//                            DispatchQueue.main.async {
-//                                self.collectionView.reloadData()
-//                                self.flashSaveOnServerNoticeToUser(itemName, type: "Deleted")
-//                            }
-//
-//                        }
-//                    })
+                    self.scannARNetworkingController?.deletePackage(uuid: itemUUID, completion: { (error) in
+
+                        if let error = error {
+                            print("Error deleting object: \(error)")
+                        }
+
+                        let moc = CoreDataStack.shared.mainContext
+                        moc.perform {
+                            moc.delete(packageToDelete)
+
+                            do {
+                                try moc.save()
+                            } catch let saveError {
+                                print("Error saving context: \(saveError)")
+                            }
+                            DispatchQueue.main.async {
+                                self.collectionView.reloadData()
+                                self.flashSaveOnServerNoticeToUser(itemName, type: "Deleted")
+                            }
+
+                        }
+                    })
                     
                 case 2:
                     let shipmentToDelete = self.shipmentsFetchedResultsController.object(at: indexPath)
@@ -551,7 +606,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             NSSortDescriptor(key: "identifier", ascending: false)
         ]
         let moc = CoreDataStack.shared.mainContext
-        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "boxId", cacheName: nil)
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "dimensions", cacheName: nil)
         
         frc.delegate = self
         try? frc.performFetch()
@@ -565,7 +620,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         let fetchRequest: NSFetchRequest<Shipment> = Shipment.fetchRequest()
         
         fetchRequest.sortDescriptors = [
-            NSSortDescriptor(key: "identifier", ascending: false)
+            NSSortDescriptor(key: "status", ascending: false)
         ]
         let moc = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "status", cacheName: nil)

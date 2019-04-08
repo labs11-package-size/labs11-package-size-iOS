@@ -23,6 +23,10 @@ class NetworkingHelpers{
         dict["manufacturerId"] = product.manufacturerId
         dict["fragile"] = "\(product.fragile)"
         
+        if let thumbnail = product.thumbnail, thumbnail != "" {
+            dict["thumbnail"] = "\(thumbnail)"
+        }
+        
         guard let uuid = product.uuid else { return dict }
         
         dict["uuid"] = "\(uuid)"
@@ -77,6 +81,14 @@ class NetworkingHelpers{
         
         dict["products"] = array
         // dict["boxType"] = "shipper"
+        
+        return dict
+    }
+    
+    static func dictionaryFromShipment(shipment:Shipment) -> [String: String]{
+        var dict: [String: String] = [:]
+        
+        dict["trackingNumber"] = shipment.trackingNumber
         
         return dict
     }

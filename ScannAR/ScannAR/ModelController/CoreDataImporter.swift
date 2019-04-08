@@ -185,27 +185,30 @@ class CoreDataImporter {
     
     
     private func updateProduct(product: Product, with productRepresentation: ProductRepresentation) {
-        product.identifier = Int16(productRepresentation.identifier)
         product.fragile = Int16(productRepresentation.fragile)
         product.height = productRepresentation.height ?? 0
         product.length = productRepresentation.length ?? 0
         product.manufacturerId = productRepresentation.manufacturerId
         product.name = productRepresentation.name
         product.productDescription = productRepresentation.productDescription
-        product.userId = Int16(productRepresentation.userId)
         product.value = productRepresentation.value
         product.weight = productRepresentation.weight
         product.uuid = productRepresentation.uuid
+        product.thumbnail = productRepresentation.thumbnail
         product.width = productRepresentation.width ?? 0
+        product.thumbnail = productRepresentation.thumbnail
     }
     
     private func updatePackage(package: Package, with packageRepresentation: PackageRepresentation) {
-        package.identifier = Int16(packageRepresentation.identifier)
-        package.boxId = Int16(packageRepresentation.boxId)
-        package.itemCount = Int16(packageRepresentation.itemCount)
         package.totalWeight = packageRepresentation.totalWeight ?? 0.0
         package.modelURL = packageRepresentation.modelURL
         package.uuid = packageRepresentation.uuid
+        package.dimensions = packageRepresentation.dimensions
+        
+        if let identifier = packageRepresentation.identifier {
+            package.identifier = Int16(identifier)
+        }
+        
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:MM:SS"
@@ -230,9 +233,8 @@ class CoreDataImporter {
     
     private func updateShipment(shipment: Shipment, with shipmentRepresentation: ShipmentRepresentation) {
         
-        shipment.identifier = Int16(shipmentRepresentation.identifier)
         shipment.carrierName = shipmentRepresentation.carrierName
-        shipment.productName = shipmentRepresentation.productName
+        shipment.productNames = shipmentRepresentation.productNames
         shipment.totalValue = shipmentRepresentation.totalValue ?? 0.0
         shipment.totalWeight = shipmentRepresentation.totalWeight ?? 0.0
         shipment.shippingType = shipmentRepresentation.shippingType

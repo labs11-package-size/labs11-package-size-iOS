@@ -11,22 +11,22 @@ import Foundation
 
 struct PackageRepresentation: Codable {
     
-    let identifier: Int
+    let identifier: Int?
+    let dimensions: String
     let totalWeight: Double?
     let lastUpdated: String?
+    let productNames: [String]?
     let uuid: UUID
-    let itemCount: Int
     let modelURL: String
-    let boxId: Int
     
     enum CodingKeys: String, CodingKey {
         case identifier
+        case dimensions
         case uuid
         case totalWeight
         case lastUpdated
-        case itemCount
-        case boxId
         case modelURL
+        case productNames
     }
     
 }

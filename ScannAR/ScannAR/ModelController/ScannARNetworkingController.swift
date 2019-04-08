@@ -304,24 +304,6 @@ class ScannARNetworkController {
     }
     
     /*
-     Post a new Shipment using a USPS Tracking Number for jsonToken representing the User
-     */
-    func postNewShipment(dict: [String: String], completion: @escaping (Error?) -> Void) {
-        
-        let request = createRequest(for: .POSTNewShipment, with: dict)
-        
-        apiRequest(from: request) { (_ results: [ShipmentRepresentation]?, error: Error?) in
-            
-            if let error = error {
-                print("Error: \(error)")
-                completion(error)
-            }
-            
-            completion(nil)
-        }
-    }
-    
-    /*
      Delete a Shipment with a given UUID for a jsonToken representing the User
      */
     func deleteShipment(uuid: UUID, completion: @escaping ([ShipmentRepresentation]?, Error?) -> Void) {
@@ -342,18 +324,18 @@ class ScannARNetworkController {
     /*
      Post edit a Shipment with a given UUID for a jsonToken representing the User
      */
-    func postNewShipment(dict: [String: String], uuid: UUID, completion: @escaping (Error?) -> Void) {
+    func postNewShipment(dict: [String: String], uuid: UUID, completion: @escaping ([ShipmentRepresentation]?,Error?) -> Void) {
         
-        let request = createRequest(for: .PUTEditShipment, with: dict, for: uuid)
+        let request = createRequest(for: .POSTNewShipment, with: dict, for: uuid)
         
         apiRequest(from: request) { (_ results: [ShipmentRepresentation]?, error: Error?) in
             
             if let error = error {
                 print("Error: \(error)")
-                completion(error)
+                completion(nil, error)
             }
             
-            completion(nil)
+            completion(results, nil)
         }
     }
     
@@ -394,12 +376,60 @@ class ScannARNetworkController {
         }
     }
     
+    /*
+     Get an array of Package saved by the user.
+     */
+    func getPackages(completion: @escaping ([PackageRepresentation]?, Error?) -> Void) {
+        
+        let request = createRequest(for: .GETPackages)
+        
+        apiRequest(from: request) { (results: [PackageRepresentation]?, error: Error?) in
+            
+            if let error = error {
+                print("Error: \(error)")
+                completion(nil, error)
+            }
+            
+            guard let results = results else {
+                return completion(nil, nil)
+            }
+            let moc = CoreDataStack.shared.container.newBackgroundContext()
+            
+            var tempPackages: [Package] = []
+            for result in results {
+                let newPackage = Package(packageRepresentation: result, context: moc)
+                tempPackages.append(newPackage)
+            }
+            self.packages = tempPackages
+            
+            completion(results, nil)
+        }
+    }
+    
+    /*
+     DELETE Package for jsonToken representing the User, for a UUID
+     */
+    func deletePackage(uuid: UUID, completion: @escaping (Error?) -> Void) {
+        
+        let request = createRequest(for: .DELETEPackage, for: uuid)
+        
+        apiRequest(from: request) { (results: [PackageRepresentation]?, error: Error?) in
+            
+            if let error = error {
+                print("Error: \(error)")
+                completion(error)
+            }
+            
+            completion(nil)
+        }
+    }
     
     // MARK: - Properties
     
     let baseURL = URL(string:"https://scannarserver.herokuapp.com/api")!
     private var jsonToken: JSONWebToken?
     var products: [Product] = []
+    var packages: [Package] = []
     var shipments: [Shipment] = []
 
 }
@@ -659,9 +689,11 @@ extension ScannARNetworkController {
             return request
 
         case .POSTNewShipment:
+            guard let uuid = uuid else { fatalError("no UUID passed") }
             var url = baseURL
             url = url.appendingPathComponent("shipments")
             url = url.appendingPathComponent("add")
+            url = url.appendingPathComponent("\(uuid.uuidString)")
             
             guard let jsonToken = jsonToken else { fatalError("The jsonToken is empty.") }
             
@@ -781,7 +813,40 @@ extension ScannARNetworkController {
             request.setValue("application/json", forHTTPHeaderField: "Accept")
             
             return request
+            
+        case .GETPackages:
+            
+            var url = baseURL
+            url = url.appendingPathComponent("packaging")
+        
+            guard let jsonToken = jsonToken else { fatalError("The jsonToken is empty.") }
+            
+            // Create a GET request
+            var request = URLRequest(url: url)
+            request.httpMethod = HTTPMethod.GET.rawValue
+            request.addValue(jsonToken.token, forHTTPHeaderField: "Authorization")
+            
+            return request
+            
+        case .DELETEPackage:
+            guard let uuid = uuid else { fatalError("no UUID passed") }
+            var url = baseURL
+            url = url.appendingPathComponent("packaging")
+            url = url.appendingPathComponent("delete")
+            url = url.appendingPathComponent("\(uuid.uuidString)")
+            
+            guard let jsonToken = jsonToken else { fatalError("The jsonToken is empty.") }
+            
+            // Create a DELETE request
+            var request = URLRequest(url: url)
+            request.httpMethod = HTTPMethod.DELETE.rawValue
+            request.addValue(jsonToken.token, forHTTPHeaderField: "Authorization")
+            
+            return request
+            
         }
+        
+        
         
     }
 }

@@ -23,5 +23,6 @@ class ProductsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var lwhLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
+    @IBOutlet weak var infoStackView: UIStackView!
     
 }
