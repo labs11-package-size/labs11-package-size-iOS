@@ -19,6 +19,7 @@ extension Package: Encodable {
         case totalWeight
         case modelURL
         case dimensions
+        case productNames
     
     }
     
@@ -31,6 +32,7 @@ extension Package: Encodable {
         try container.encode(uuid, forKey: .uuid)
         try container.encode(modelURL, forKey: .modelURL)
         try container.encode(dimensions, forKey: .dimensions)
+        try container.encode(productNames, forKey: .productNames)
     }
     
 }

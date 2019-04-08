@@ -304,24 +304,6 @@ class ScannARNetworkController {
     }
     
     /*
-     Post a new Shipment using a USPS Tracking Number for jsonToken representing the User
-     */
-    func postNewShipment(dict: [String: String], completion: @escaping (Error?) -> Void) {
-        
-        let request = createRequest(for: .POSTNewShipment, with: dict)
-        
-        apiRequest(from: request) { (_ results: [ShipmentRepresentation]?, error: Error?) in
-            
-            if let error = error {
-                print("Error: \(error)")
-                completion(error)
-            }
-            
-            completion(nil)
-        }
-    }
-    
-    /*
      Delete a Shipment with a given UUID for a jsonToken representing the User
      */
     func deleteShipment(uuid: UUID, completion: @escaping ([ShipmentRepresentation]?, Error?) -> Void) {
@@ -342,18 +324,18 @@ class ScannARNetworkController {
     /*
      Post edit a Shipment with a given UUID for a jsonToken representing the User
      */
-    func postNewShipment(dict: [String: String], uuid: UUID, completion: @escaping (Error?) -> Void) {
+    func postNewShipment(dict: [String: String], uuid: UUID, completion: @escaping ([ShipmentRepresentation]?,Error?) -> Void) {
         
-        let request = createRequest(for: .PUTEditShipment, with: dict, for: uuid)
+        let request = createRequest(for: .POSTNewShipment, with: dict, for: uuid)
         
         apiRequest(from: request) { (_ results: [ShipmentRepresentation]?, error: Error?) in
             
             if let error = error {
                 print("Error: \(error)")
-                completion(error)
+                completion(nil, error)
             }
             
-            completion(nil)
+            completion(results, nil)
         }
     }
     
@@ -707,9 +689,11 @@ extension ScannARNetworkController {
             return request
 
         case .POSTNewShipment:
+            guard let uuid = uuid else { fatalError("no UUID passed") }
             var url = baseURL
             url = url.appendingPathComponent("shipments")
             url = url.appendingPathComponent("add")
+            url = url.appendingPathComponent("\(uuid.uuidString)")
             
             guard let jsonToken = jsonToken else { fatalError("The jsonToken is empty.") }
             

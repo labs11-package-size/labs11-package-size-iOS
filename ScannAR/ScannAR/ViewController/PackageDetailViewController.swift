@@ -49,6 +49,27 @@ class PackageDetailViewController: UIViewController {
         createShipmentButton.isHidden = !createShipmentButton.isHidden
     }
     
+    @IBAction func createShipmentTapped(_ sender: Any) {
+        
+        guard trackingNumberTextField.text != "" else { return }
+        
+        guard let uuid = package?.uuid else { return }
+        let productNames = "Test" // package?.productNames else { return }
+        
+        let newShipment = Shipment(identifier: nil, carrierName: nil, productNames: productNames, shippedDate: nil, dateArrived: nil, lastUpdated: nil, shippingType: nil, status: 1, trackingNumber: trackingNumberTextField.text!, shippedTo: nil, uuid: uuid, context: CoreDataStack.shared.container.newBackgroundContext())
+        let dict = NetworkingHelpers.dictionaryFromShipment(shipment: newShipment)
+        
+        scannARNetworkingController?.postNewShipment(dict: dict, uuid: uuid, completion: { (results, error) in
+            
+            if let error = error {
+                print("Error: \(error)")
+            }
+            
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
+        })
+    }
     
     // MARK: - Properties
     var scannARNetworkingController: ScannARNetworkController?

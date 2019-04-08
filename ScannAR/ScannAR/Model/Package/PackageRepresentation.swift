@@ -15,6 +15,7 @@ struct PackageRepresentation: Codable {
     let dimensions: String
     let totalWeight: Double?
     let lastUpdated: String?
+    let productNames: [String]?
     let uuid: UUID
     let modelURL: String
     
@@ -25,6 +26,7 @@ struct PackageRepresentation: Codable {
         case totalWeight
         case lastUpdated
         case modelURL
+        case productNames
     }
     
 }

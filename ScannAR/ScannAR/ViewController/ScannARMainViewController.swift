@@ -309,19 +309,22 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             cell.lwhLabel.text = "L: \(product.length) | W: \(product.width) | H: \(product.height)"
             cell.weightLabel.text = "\(product.weight) lbs"
             
-            if let url = product.thumbnail {
+            if let urlString = product.thumbnail {
                 
-                var data: Data
-                do {
-                    data = try Data(contentsOf: url)
-                } catch {
-                    print("Could not get image from Thumbnail image URL.")
-                    return cell
+                if let url = URL(string: urlString){
+                    var data: Data
+                    do {
+                        data = try Data(contentsOf: url)
+                    } catch {
+                        print("Could not get image from Thumbnail image URL.")
+                        return cell
+                    }
+                    
+                    DispatchQueue.main.async {
+                        cell.productImageView.image = UIImage(data: data)
+                    }
                 }
                 
-                DispatchQueue.main.async {
-                    cell.productImageView.image = UIImage(data: data)
-                }
             }
             
             return cell

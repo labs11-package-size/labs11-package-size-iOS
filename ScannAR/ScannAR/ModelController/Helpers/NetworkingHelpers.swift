@@ -81,4 +81,12 @@ class NetworkingHelpers{
         return dict
     }
     
+    static func dictionaryFromShipment(shipment:Shipment) -> [String: String]{
+        var dict: [String: String] = [:]
+        
+        dict["trackingNumber"] = shipment.trackingNumber
+        
+        return dict
+    }
+    
 }
