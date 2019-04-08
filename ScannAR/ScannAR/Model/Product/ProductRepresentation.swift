@@ -23,7 +23,7 @@ struct ProductRepresentation: Codable {
     var weight: Double
     var width: Double?
     var uuid: UUID
-    var thumbnail: URL?
+    var thumbnail: String?
     
     enum CodingKeys: String, CodingKey {
         case fragile

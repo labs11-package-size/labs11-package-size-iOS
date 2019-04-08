@@ -24,7 +24,7 @@ extension Product {
                      weight: Double,
                      width: Double,
                      uuid: UUID? = UUID(),
-                     thumbnail: URL? = nil,
+                     thumbnail: String? = nil,
                      context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         

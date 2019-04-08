@@ -34,7 +34,6 @@ extension Shipment {
             self.productNames = productNames
         }
         
-        
         self.carrierName = carrierName
         self.shippedDate = shippedDate
         self.dateArrived = dateArrived
