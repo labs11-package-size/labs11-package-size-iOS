@@ -14,6 +14,8 @@ class PackagesCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    @IBOutlet weak var idLabel: UILabel!
+    @IBOutlet weak var dimensionsLabel: UILabel!
+    @IBOutlet weak var numberOfProductsLabel: UILabel!
+    @IBOutlet weak var productNamesLabel: UILabel!
     var package: Package?
 }
