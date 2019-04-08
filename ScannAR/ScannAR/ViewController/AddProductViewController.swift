@@ -17,7 +17,10 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         transition.type = CATransitionType.fade
         self.navigationController!.view.layer.add(transition, forKey: nil)
-
+        if let sourceVC = segue.source as? ARScanViewController {
+            //FIXME: - Properly as Bestboxsize
+            bestBoxSize = sourceVC.boundingBoxSize
+        }
     }
     
     override func viewDidLoad() {
@@ -35,9 +38,10 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super .viewWillAppear(animated)
+        super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = false
         // fill
+        print(bestBoxSize)
         if bestBoxSize.height == nil || bestBoxSize.length == nil || bestBoxSize.width == nil {
             length = Double(0.0)
             width = Double(0.0)
@@ -209,6 +213,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "ScanARSegue"{
         guard segue.destination is ARScanMenuScreenViewController else { fatalError("Segue should cast view controller as ARScanMenuScreenViewController but failed to do so.")}
         let transition: CATransition = CATransition()
@@ -216,8 +221,20 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         transition.type = CATransitionType.fade
         self.navigationController!.view.layer.add(transition, forKey: nil)
+            
         }
-    }
+//        else if segue.identifier == "unwindSegueToAddProductVC" {
+//            guard segue.destination is AddProductViewController else {
+//                fatalError("Segue should cast view controller as AddProductViewController but failed to do so.")}
+//            let transition: CATransition = CATransition()
+//            transition.duration = 0.7
+//            transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+//            transition.type = CATransitionType.fade
+//            self.navigationController!.view.layer.add(transition, forKey: nil)
+//
+//            }
+        }
+    
     
     func cancelButtonPressed(_ sender: Any) {
         DispatchQueue.main.async {
