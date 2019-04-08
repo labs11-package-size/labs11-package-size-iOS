@@ -196,7 +196,9 @@ class CoreDataImporter {
         product.value = productRepresentation.value
         product.weight = productRepresentation.weight
         product.uuid = productRepresentation.uuid
+        product.thumbnail = productRepresentation.thumbnail
         product.width = productRepresentation.width ?? 0
+        product.thumbnail = productRepresentation.thumbnail
     }
     
     private func updatePackage(package: Package, with packageRepresentation: PackageRepresentation) {

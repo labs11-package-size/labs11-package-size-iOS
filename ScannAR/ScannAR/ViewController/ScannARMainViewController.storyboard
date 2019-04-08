@@ -46,6 +46,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="160" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
+                                        <connections>
+                                            <segue destination="fvm-Oc-IFh" kind="show" identifier="PackageDetailSegue" id="11N-Qu-ITZ"/>
+                                        </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ShipmentCell" id="dzz-Bd-1mS">
                                         <rect key="frame" x="0.0" y="210" width="160" height="200"/>
@@ -158,6 +161,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t6F-I2-JBN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="519" y="729"/>
+        </scene>
+        <!--PackageDetailViewControllerSB-->
+        <scene sceneID="1Xi-so-FIM">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PackageDetailViewController" referencedIdentifier="PackageDetailViewControllerSB" id="fvm-Oc-IFh" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ub9-3Z-HgL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1889" y="122"/>
         </scene>
         <!--ProductDetailViewControllerSB-->
         <scene sceneID="Bxk-OW-keN">
