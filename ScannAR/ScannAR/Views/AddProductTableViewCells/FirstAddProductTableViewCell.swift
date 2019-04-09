@@ -17,6 +17,8 @@ class FirstAddProductTableViewCell: UITableViewCell, UITextFieldDelegate, UIText
         descriptionTextView.tag = 1
         nameTextField.delegate = self
         descriptionTextView.delegate = self
+        self.separatorInset = UIEdgeInsets.zero
+        self.layoutMargins = UIEdgeInsets.zero
     }
     
     // MARK: TextFieldDelegate & TextViewDelegate

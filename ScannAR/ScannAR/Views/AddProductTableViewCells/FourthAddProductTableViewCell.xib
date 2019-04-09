@@ -22,28 +22,40 @@
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UzU-3F-skx">
                         <rect key="frame" x="8" y="76" width="368" height="60"/>
-                        <color key="backgroundColor" name="appARKADarkBlue"/>
+                        <color key="backgroundColor" name="appARKATeal"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="60" id="iPm-FZ-MNO"/>
                         </constraints>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                        <state key="normal" title="Save for Later">
-                            <color key="titleColor" name="appGray"/>
-                        </state>
+                        <state key="normal" title="Save for Later"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <action selector="saveForLaterButtonPushed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="X5x-Qh-puL"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sM6-wR-Zxs">
                         <rect key="frame" x="8" y="144" width="368" height="60"/>
-                        <color key="backgroundColor" name="appARKAGrey"/>
+                        <color key="backgroundColor" name="appARKATeal"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="60" id="Ay3-fp-Mmz"/>
                         </constraints>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                        <state key="normal" title="Cancel">
-                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                        </state>
+                        <state key="normal" title="Cancel"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <action selector="cancelButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gfv-bi-hWI"/>
                         </connections>
@@ -56,13 +68,23 @@
                         </constraints>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                         <state key="normal" title="Save and Pack it">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="titleColor" name="appBlue"/>
+                            <color key="titleShadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <action selector="packItButtonPushed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ODk-DI-epz"/>
                         </connections>
                     </button>
                 </subviews>
+                <color key="backgroundColor" name="appARKATeal"/>
                 <constraints>
                     <constraint firstItem="sM6-wR-Zxs" firstAttribute="top" secondItem="UzU-3F-skx" secondAttribute="bottom" constant="8" id="3Q6-tj-Xz3"/>
                     <constraint firstItem="UzU-3F-skx" firstAttribute="top" secondItem="P2R-uj-fqb" secondAttribute="bottom" constant="8" id="AaM-Lz-SDl"/>
@@ -76,6 +98,11 @@
                     <constraint firstItem="sM6-wR-Zxs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="ue4-Mp-FmX"/>
                     <constraint firstItem="UzU-3F-skx" firstAttribute="top" secondItem="P2R-uj-fqb" secondAttribute="bottom" constant="8" id="xdb-U4-Bqg"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                        <color key="value" name="appARKADarkBlue"/>
+                    </userDefinedRuntimeAttribute>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
@@ -90,14 +117,11 @@
         <namedColor name="appARKADarkBlue">
             <color red="0.046999998390674591" green="0.17299999296665192" blue="0.32499998807907104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="appARKAGrey">
-            <color red="0.63099998235702515" green="0.63099998235702515" blue="0.63099998235702515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="appARKATeal">
             <color red="0.44699999690055847" green="0.74099999666213989" blue="0.63899999856948853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="appGray">
-            <color red="0.80400002002716064" green="0.80400002002716064" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="appBlue">
+            <color red="0.0" green="0.4779999852180481" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

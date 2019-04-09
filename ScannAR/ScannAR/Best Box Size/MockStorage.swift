@@ -20,6 +20,7 @@ class MockStorage {
         CardCellDisplayable(boxTypeImageViewFileName: shipperBox, title: "ShipperBox2", subtitle: "8x6x4", details: "Yes, Yes, without the oops! ", itemImageName: "toyboots")
     ]
     
+    
     private init() {}
 }
 
