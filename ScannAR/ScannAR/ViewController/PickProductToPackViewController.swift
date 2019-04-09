@@ -145,6 +145,14 @@ class PickProductToPackViewController: UIViewController, UITableViewDelegate, UI
         if segue.identifier == "PreviewPackagingSegue" {
             guard let destVC = segue.destination as? CardsViewController else { return }
             destVC.products = self.pickedProducts
+            switch boxSegmentedControl.selectedSegmentIndex {
+            case 0:
+                print("No Box.")
+            case 1:
+                destVC.boxType = .shipper
+            default:
+                destVC.boxType = .mailer
+            }
         }
     }
 
