@@ -51,6 +51,14 @@ class NetworkingHelpers{
         return dict
     }
     
+    static func arrayOfProductUUIDsFromProducts(products:[Product]) -> [String]{
+        var array: [String] = []
+        
+        array = products.map { $0.uuid!.uuidString }
+        
+        return array
+    }
+    
     static func dictionaryFromAccount(account:Account) -> [String: String]{
         var dict: [String: String] = [:]
         

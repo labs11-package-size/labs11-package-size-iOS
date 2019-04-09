@@ -95,18 +95,11 @@
                         <viewLayoutGuide key="safeArea" id="Hfh-tf-2fd"/>
                     </view>
                     <navigationItem key="navigationItem" title="ScannAR" id="JpJ-WN-EaK">
-                        <leftBarButtonItems>
-                            <barButtonItem image="user-4" id="jze-1y-VjW">
-                                <connections>
-                                    <segue destination="0qG-Dc-x7H" kind="show" identifier="AccountViewSegue" id="XEB-cj-2AL"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="TestPackage" id="iCJ-la-Jhs">
-                                <connections>
-                                    <segue destination="vbb-2Z-Ez8" kind="show" id="5vg-jz-FkW"/>
-                                </connections>
-                            </barButtonItem>
-                        </leftBarButtonItems>
+                        <barButtonItem key="leftBarButtonItem" image="user-4" id="jze-1y-VjW">
+                            <connections>
+                                <segue destination="0qG-Dc-x7H" kind="show" identifier="AccountViewSegue" id="XEB-cj-2AL"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="🤪" id="IAg-H0-MNQ"/>
                             <barButtonItem title="Add" id="48A-4b-2gJ">
@@ -161,14 +154,6 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="182.15892053973016"/>
         </scene>
-        <!--CardsViewController-->
-        <scene sceneID="6UE-Pb-beX">
-            <objects>
-                <viewControllerPlaceholder storyboardName="BestBoxSize" referencedIdentifier="CardsViewController" id="vbb-2Z-Ez8" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="t6F-I2-JBN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="519" y="729"/>
-        </scene>
         <!--PackageDetailViewControllerSB-->
         <scene sceneID="1Xi-so-FIM">
             <objects>
@@ -201,15 +186,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="I2a-KS-dVX" customClass="AddProductTableView" customModule="ScannAR" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="I2a-KS-dVX" customClass="AddProductTableView" customModule="ScannAR" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="375" height="936"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" name="appARKATeal"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FirstCell" rowHeight="217" id="2O7-Gq-ELM" customClass="FirstAddProductTableViewCell" customModule="ScannAR" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="217"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2O7-Gq-ELM" id="Juv-IW-yP4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="216.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="217"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -217,7 +202,7 @@
                                         <rect key="frame" x="0.0" y="245" width="375" height="230"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="avB-4R-a2o" id="ziF-gl-7hU">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="229.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -225,7 +210,7 @@
                                         <rect key="frame" x="0.0" y="475" width="375" height="169"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BoQ-TG-2oy" id="2p5-Md-NHw">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="168.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="169"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -233,14 +218,14 @@
                                         <rect key="frame" x="0.0" y="644" width="375" height="113"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fxi-Se-FCJ" id="hKx-9M-Mul">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="112.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="113"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="appARKATeal"/>
                         <constraints>
                             <constraint firstItem="I2a-KS-dVX" firstAttribute="leading" secondItem="FZy-vf-GVH" secondAttribute="leading" id="Geq-MY-afb"/>
                             <constraint firstItem="FZy-vf-GVH" firstAttribute="trailing" secondItem="I2a-KS-dVX" secondAttribute="trailing" id="XDH-DI-hzu"/>

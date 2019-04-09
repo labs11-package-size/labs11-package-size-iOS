@@ -111,7 +111,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         switch indexPath.row {
-        case 1: return manualEntryHidden ? 115 : 180
+        case 1: return manualEntryHidden ? 124 : 500
             
         case 2: return 200
             
@@ -133,6 +133,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.widthTextField.text = String(format: "%.2f", (width))
             cell.heightTextField.text = String(format: "%.2f", (height))
             
+    
             cell.lengthTextField.keyboardType = UIKeyboardType.decimalPad
             cell.widthTextField.keyboardType = UIKeyboardType.decimalPad
             cell.heightTextField.keyboardType = UIKeyboardType.decimalPad
@@ -207,6 +208,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             
         }
     }
+
     
     func packItButtonTapped(_ sender: Any){
         print("Send to Packaging")

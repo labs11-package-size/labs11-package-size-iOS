@@ -11,8 +11,6 @@ import CoreData
 
 class PickProductToPackViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, ProductPickerDelegate {
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -144,19 +142,26 @@ class PickProductToPackViewController: UIViewController, UITableViewDelegate, UI
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        print(segue.destination)
+        if segue.identifier == "PreviewPackagingSegue" {
+            guard let destVC = segue.destination as? CardsViewController else { return }
+            destVC.products = self.pickedProducts
+        }
     }
 
     // MARK: - IBActions
-    
-    
-    
+    @IBAction func previewPackages(_ sender: Any) {
+        
+        guard pickedProducts.count > 0 else { return }
+        
+    }
+
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var previewPackagesButton: UIButton!
     @IBOutlet weak var buttonContainerView: UIView!
+    @IBOutlet weak var boxSegmentedControl: UISegmentedControl!
     
     // MARK: - Properties
     var pickedProducts: [Product] = [] {

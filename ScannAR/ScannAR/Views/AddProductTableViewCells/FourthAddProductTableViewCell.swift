@@ -10,6 +10,19 @@ import UIKit
 
 class FourthAddProductTableViewCell: UITableViewCell {
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+        packItButton.layer.cornerRadius = 20
+        packItButton.clipsToBounds = true
+        saveForLaterButton.layer.cornerRadius = 20
+        saveForLaterButton.clipsToBounds = true
+        cancelButton.layer.cornerRadius = 20
+        cancelButton.clipsToBounds = true
+        self.separatorInset = UIEdgeInsets.zero
+        self.layoutMargins = UIEdgeInsets.zero
+        
+    }
     
     @IBAction func packItButtonPushed(_ sender: Any) {
         delegate?.packItButtonTapped(self)
