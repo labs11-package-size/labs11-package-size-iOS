@@ -18,38 +18,29 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         transition.type = CATransitionType.fade
         self.navigationController!.view.layer.add(transition, forKey: nil)
         if let sourceVC = segue.source as? ARScanViewController {
-            
+            //FIXME: - Properly as Bestboxsize
             bestBoxSize = sourceVC.boundingBoxSize
-            previewImage = sourceVC.previewImage
-            name = sourceVC.scannedObjectName
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.addProductTableView.register(UINib(nibName: "FirstAddProductTableViewCell", bundle: nil), forCellReuseIdentifier: firstReuseIdentifier)
-        self.addProductTableView.register(UINib(nibName: "SecondAddProductTableViewCell", bundle: nil), forCellReuseIdentifier: secondReuseIdentifier)
-        self.addProductTableView.register(UINib(nibName: "ThirdAddProductTableViewCell", bundle: nil), forCellReuseIdentifier: thirdReuseIdentifier)
-        self.addProductTableView.register(UINib(nibName: "FourthAddProductTableViewCell", bundle: nil), forCellReuseIdentifier: fourthReuseIdentifier)
         
         addProductTableView.delegate = self
         addProductTableView.dataSource = self
         addProductTableView.keyboardDismissMode = UIScrollView.KeyboardDismissMode.onDrag
-        //displayImage = previewImage
-//        addProductTableView.reloadData()
+        
+        self.addProductTableView.register(UINib(nibName: "FirstAddProductTableViewCell", bundle: nil), forCellReuseIdentifier: firstReuseIdentifier)
+        self.addProductTableView.register(UINib(nibName: "SecondAddProductTableViewCell", bundle: nil), forCellReuseIdentifier: secondReuseIdentifier)
+        self.addProductTableView.register(UINib(nibName: "ThirdAddProductTableViewCell", bundle: nil), forCellReuseIdentifier: thirdReuseIdentifier)
+        self.addProductTableView.register(UINib(nibName: "FourthAddProductTableViewCell", bundle: nil), forCellReuseIdentifier: fourthReuseIdentifier)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        DispatchQueue.main.async {
-            self.navigationController?.isNavigationBarHidden = false
-        }
-        
+        self.navigationController?.isNavigationBarHidden = false
         // fill
-        displayImage = previewImage
-        
         print(bestBoxSize)
         if bestBoxSize.height == nil || bestBoxSize.length == nil || bestBoxSize.width == nil {
             length = Double(0.0)
@@ -62,13 +53,6 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             DispatchQueue.main.async {
                 self.manualEntryHidden = false
             }
-        }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        DispatchQueue.main.async {
-            self.addProductTableView.reloadData()
         }
     }
     // MARK: - Private Methods
@@ -91,29 +75,24 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             self.thumbnail = imageURLString!
             self.imageURLString = imageURLString
             
-            DispatchQueue.main.async {
-                 self.addProductTableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
-            }
-           
+            self.addProductTableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+            
         }
         
         //the cancel action doing nothing
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
         
+        //adding textfields to our dialog box
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Enter Picture URL"
+        }
+        
         //adding the action to dialogbox
         alertController.addAction(confirmAction)
         alertController.addAction(cancelAction)
-        //adding textfields to our dialog box
         
-        DispatchQueue.main.async {
-            alertController.addTextField { (textField) in
-                textField.placeholder = "Enter Picture URL"
-                //finally presenting the dialog box
-                self.present(alertController, animated: true, completion: nil)
-            }
-    
-        }
-    
+        //finally presenting the dialog box
+        self.present(alertController, animated: true, completion: nil)
     }
     
     // MARK: - UITableViewDelegate and UITableViewDataSource
@@ -183,10 +162,10 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         default:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: firstReuseIdentifier, for: indexPath) as? FirstAddProductTableViewCell else { fatalError("Could not dequeue as FirstAddProductTableViewCell")}
             cell.delegate = self
-            cell.productImageView.image = self.displayImage
-            cell.nameTextField.text = self.name
-            cell.descriptionTextView.text = self.productDescription
-            cell.setNeedsDisplay()
+            cell.productImageView.image = displayImage
+            cell.nameTextField.text = name
+            cell.descriptionTextView.text = productDescription
+            
             return cell
         }
        
@@ -219,6 +198,9 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
                         }
                     })
                 }
+                
+                
+                
             }
             DispatchQueue.main.async {
                 self.navigationController?.popViewController(animated: true)
@@ -240,11 +222,20 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         transition.duration = 0.7
         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         transition.type = CATransitionType.fade
-            DispatchQueue.main.async {
-                self.navigationController!.view.layer.add(transition, forKey: nil)
-            }
+        self.navigationController!.view.layer.add(transition, forKey: nil)
+            
         }
-    }
+//        else if segue.identifier == "unwindSegueToAddProductVC" {
+//            guard segue.destination is AddProductViewController else {
+//                fatalError("Segue should cast view controller as AddProductViewController but failed to do so.")}
+//            let transition: CATransition = CATransition()
+//            transition.duration = 0.7
+//            transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+//            transition.type = CATransitionType.fade
+//            self.navigationController!.view.layer.add(transition, forKey: nil)
+//
+//            }
+        }
     
     
     func cancelButtonPressed(_ sender: Any) {
@@ -303,7 +294,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
                 print("Could not get data for image at URL.")
                 return
             }
-            let image = UIImage(data: imageData) ?? previewImage
+            let image = UIImage(data: imageData)
             displayImage = image
             
         }

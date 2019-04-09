@@ -1,5 +1,5 @@
 //
-//  UIImage+ColorOverlay.swift
+//  UIIMage+ColorOverlay.swift
 //  ScannAR
 //
 //  Created by Joshua Kaunert on 4/5/19.
