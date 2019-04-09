@@ -28,6 +28,7 @@ class CardsViewController: UIViewController, UIScrollViewDelegate {
     let shipperBox = "shipperBox"
     let mailerBox = "standardMailerBox"
     var products: [Product] = []
+    var boxType: BoxType?
     let scannARNetworkController = ScannARNetworkController.shared
     lazy var data: [CardCellDisplayable] = [
 //        CardCellDisplayable(boxTypeImageViewFileName: shipperBox, title: "ShipperBox1", subtitle: "12x12x8", details: "Is this my espresso machine?", itemImageName: "toy1")
@@ -63,7 +64,7 @@ class CardsViewController: UIViewController, UIScrollViewDelegate {
     private func fetchPreview() {
         guard products.count > 0 else { return }
         let productUUIDs = products.map { $0.uuid!.uuidString }
-        let packagePreview = PackagePreviewRequest(products: productUUIDs, boxType: nil) // could add boxType specifier here as well.
+        let packagePreview = PackagePreviewRequest(products: productUUIDs, boxType: boxType ?? nil) // could add boxType specifier here as well.
         scannARNetworkController.postPackagingPreview(packagingDict: packagePreview) { (results, error) in
             
             if let error = error {
