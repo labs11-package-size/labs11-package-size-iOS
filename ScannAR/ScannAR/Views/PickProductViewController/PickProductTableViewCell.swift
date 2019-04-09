@@ -14,7 +14,7 @@ class PickProductTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         addRemoveButton.clipsToBounds = true
-        addRemoveButton.layer.cornerRadius = 6
+            addRemoveButton.layer.cornerRadius = 6
     }
     
     // MARK: - IBActions
