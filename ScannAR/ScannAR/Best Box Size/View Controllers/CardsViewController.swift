@@ -38,7 +38,7 @@ class CardsViewController: UIViewController, UIScrollViewDelegate {
     
     // MARK: Lifecycle
     override func viewWillAppear(_ animated: Bool) {
-        super .viewWillAppear(animated)
+        super.viewWillAppear(animated)
         cardsUpIconImageView.setImageColor(color: UIColor(named: "appARKADarkBlue")!)
     }
     override func viewDidLoad() {
@@ -136,9 +136,15 @@ extension CardsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardCollectionViewCell.reuseIdentifier, for: indexPath) as! CardCollectionViewCell
+        
         cell.setContent(data: displayData[indexPath.row])
+        for view in cell.scrollView.subviews {
+            view.removeFromSuperview()
+        }
+        cell.setScrollView()
         cell.delegate = self
         cell.actionsHandler = self
+        
         return cell
     }
 }
@@ -182,7 +188,6 @@ extension CardsViewController: CardCollectionViewCellActionsHandler {
             performSegue(withIdentifier: "Preview3DSegue", sender: self)
         }
     }
-    
     func deleteButtonTapped(cell: CardCollectionViewCell) {
         if let index = cardsView.indexPath(for: cell)?.row {
             data.remove(at: index)

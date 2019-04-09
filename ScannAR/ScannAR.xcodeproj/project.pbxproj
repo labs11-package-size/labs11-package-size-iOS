@@ -40,7 +40,7 @@
 		AB38DD02224562D1008DC8C0 /* ARScanMenuScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38DD01224562D1008DC8C0 /* ARScanMenuScreenViewController.swift */; };
 		AB38DD0422456379008DC8C0 /* ARDetectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38DD0322456379008DC8C0 /* ARDetectViewController.swift */; };
 		AB38DD092245650F008DC8C0 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = AB38DD082245650F008DC8C0 /* LICENSE.txt */; };
-		AB42F89E2257C25C0086938A /* UIIMage+ColorOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB42F89D2257C25C0086938A /* UIIMage+ColorOverlay.swift */; };
+		AB42F89E2257C25C0086938A /* UIImage+ColorOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB42F89D2257C25C0086938A /* UIImage+ColorOverlay.swift */; };
 		AB46C545224B59960075EF30 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB46C544224B59960075EF30 /* AuthViewController.swift */; };
 		AB46C547224BE24C0075EF30 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB46C546224BE24C0075EF30 /* GoogleService-Info.plist */; };
 		AB46C549224C06700075EF30 /* AuthViewTestScene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB46C548224C06700075EF30 /* AuthViewTestScene.storyboard */; };
@@ -70,13 +70,14 @@
 		ABA70F9922573B7400A44C06 /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA70F9822573B7400A44C06 /* CardsView.swift */; };
 		ABA70F9B22573BC100A44C06 /* SwipingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA70F9A22573BC100A44C06 /* SwipingCollectionViewCell.swift */; };
 		ABA70FA022573C9C00A44C06 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA70F9E22573C9C00A44C06 /* CardCollectionViewCell.swift */; };
-		ABA70FA122573C9C00A44C06 /* CardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABA70F9F22573C9C00A44C06 /* CardCollectionViewCell.xib */; };
 		ABA70FA322573D4200A44C06 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA70FA222573D4200A44C06 /* CardsViewController.swift */; };
 		ABA70FA622573E7B00A44C06 /* MockStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA70FA522573E7B00A44C06 /* MockStorage.swift */; };
 		ABB4C9EC2248BD7A0079E25D /* ARScan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABB4C9EE2248BD7A0079E25D /* ARScan.storyboard */; };
 		ABBDB0522253F65F000F7412 /* IBDesignable+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBDB0512253F65F000F7412 /* IBDesignable+UIKit.swift */; };
 		ABC2C3B7224A857D0045A7D2 /* ScannARNetworkingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB1DA2242E14F00720412 /* ScannARNetworkingController.swift */; };
 		ABC2C3B8224A857D0045A7D2 /* SavedARScansListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38DD0522456411008DC8C0 /* SavedARScansListViewController.swift */; };
+		ABE99A02225D13E700228791 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE99A01225D13E700228791 /* UIImage+Resize.swift */; };
+		ABE99A0B225D30CE00228791 /* CardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABE99A0A225D30CE00228791 /* CardCollectionViewCell.xib */; };
 		C28743A6DB52C5982AC7F7E0 /* Pods_ScannARTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EC70ED6367728869B15E014 /* Pods_ScannARTests.framework */; };
 		D11802B42254F887002837D3 /* ShippingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11802B32254F887002837D3 /* ShippingStatus.swift */; };
 		D11802B82255309D002837D3 /* FirstAddProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11802B62255309D002837D3 /* FirstAddProductTableViewCell.swift */; };
@@ -204,7 +205,7 @@
 		AB38DD0322456379008DC8C0 /* ARDetectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDetectViewController.swift; sourceTree = "<group>"; };
 		AB38DD0522456411008DC8C0 /* SavedARScansListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedARScansListViewController.swift; sourceTree = "<group>"; };
 		AB38DD082245650F008DC8C0 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
-		AB42F89D2257C25C0086938A /* UIIMage+ColorOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIIMage+ColorOverlay.swift"; sourceTree = "<group>"; };
+		AB42F89D2257C25C0086938A /* UIImage+ColorOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ColorOverlay.swift"; sourceTree = "<group>"; };
 		AB46C544224B59960075EF30 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		AB46C546224BE24C0075EF30 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AB46C548224C06700075EF30 /* AuthViewTestScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthViewTestScene.storyboard; sourceTree = "<group>"; };
@@ -241,11 +242,12 @@
 		ABA70F9822573B7400A44C06 /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
 		ABA70F9A22573BC100A44C06 /* SwipingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingCollectionViewCell.swift; sourceTree = "<group>"; };
 		ABA70F9E22573C9C00A44C06 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
-		ABA70F9F22573C9C00A44C06 /* CardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCollectionViewCell.xib; sourceTree = "<group>"; };
 		ABA70FA222573D4200A44C06 /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
 		ABA70FA522573E7B00A44C06 /* MockStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStorage.swift; sourceTree = "<group>"; };
 		ABB4C9ED2248BD7A0079E25D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ARScan.storyboard; sourceTree = "<group>"; };
 		ABBDB0512253F65F000F7412 /* IBDesignable+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IBDesignable+UIKit.swift"; sourceTree = "<group>"; };
+		ABE99A01225D13E700228791 /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
+		ABE99A0A225D30CE00228791 /* CardCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardCollectionViewCell.xib; sourceTree = "<group>"; };
 		D11802B32254F887002837D3 /* ShippingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingStatus.swift; sourceTree = "<group>"; };
 		D11802B62255309D002837D3 /* FirstAddProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAddProductTableViewCell.swift; sourceTree = "<group>"; };
 		D11802B72255309D002837D3 /* FirstAddProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstAddProductTableViewCell.xib; sourceTree = "<group>"; };
@@ -592,8 +594,9 @@
 			isa = PBXGroup;
 			children = (
 				ABA70F8D225739D200A44C06 /* UIView+Extensions.swift */,
-				AB42F89D2257C25C0086938A /* UIIMage+ColorOverlay.swift */,
+				AB42F89D2257C25C0086938A /* UIImage+ColorOverlay.swift */,
 				ABA70F9022573A2700A44C06 /* UIImage+Effects.swift */,
+				ABE99A01225D13E700228791 /* UIImage+Resize.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -612,8 +615,8 @@
 			children = (
 				ABA70F9822573B7400A44C06 /* CardsView.swift */,
 				ABA70F9A22573BC100A44C06 /* SwipingCollectionViewCell.swift */,
+				ABE99A0A225D30CE00228791 /* CardCollectionViewCell.xib */,
 				ABA70F9E22573C9C00A44C06 /* CardCollectionViewCell.swift */,
-				ABA70F9F22573C9C00A44C06 /* CardCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -936,12 +939,12 @@
 				AB519F692242C6CB00B27A8B /* Assets.xcassets in Resources */,
 				D1EAB2122243B68300720412 /* AccountViewController.storyboard in Resources */,
 				D11802B92255309D002837D3 /* FirstAddProductTableViewCell.xib in Resources */,
-				ABA70FA122573C9C00A44C06 /* CardCollectionViewCell.xib in Resources */,
 				D1EAB220224405F900720412 /* ScannARMainViewController.storyboard in Resources */,
 				AB519F672242C6CA00B27A8B /* Main.storyboard in Resources */,
 				D11802BD225530AF002837D3 /* SecondAddProductTableViewCell.xib in Resources */,
 				D14F66B92259416F0008DCF2 /* PickProductToPack.storyboard in Resources */,
 				AB46C547224BE24C0075EF30 /* GoogleService-Info.plist in Resources */,
+				ABE99A0B225D30CE00228791 /* CardCollectionViewCell.xib in Resources */,
 				D11802C5225530D0002837D3 /* FourthAddProductTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1166,7 +1169,7 @@
 				AB38DCDF22446244008DC8C0 /* BoundingBox.swift in Sources */,
 				D1698DAB224AF31400250E4D /* CoreDataImporter.swift in Sources */,
 				D11802B42254F887002837D3 /* ShippingStatus.swift in Sources */,
-				AB42F89E2257C25C0086938A /* UIIMage+ColorOverlay.swift in Sources */,
+				AB42F89E2257C25C0086938A /* UIImage+ColorOverlay.swift in Sources */,
 				ABA70F9922573B7400A44C06 /* CardsView.swift in Sources */,
 				D132530F225ABD590021ED29 /* PackageDetailViewController.swift in Sources */,
 				AB38DCDB224460DD008DC8C0 /* ARCamera+TrackingState.swift in Sources */,
@@ -1188,6 +1191,7 @@
 				D1EAB2332249227800720412 /* ScannAR.xcdatamodeld in Sources */,
 				D1EAB2222244138D00720412 /* LoginViewController.swift in Sources */,
 				D135E657224C89F5008CC7DF /* NetworkingHelpers.swift in Sources */,
+				ABE99A02225D13E700228791 /* UIImage+Resize.swift in Sources */,
 				AB519F602242C6CA00B27A8B /* AppDelegate.swift in Sources */,
 				AB38DCEB224462A4008DC8C0 /* ObjectOriginAxis.swift in Sources */,
 				D1EAB23B22492D8200720412 /* ProductRepresentation.swift in Sources */,
@@ -1308,7 +1312,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1363,7 +1367,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
