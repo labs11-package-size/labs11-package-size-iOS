@@ -18,7 +18,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         transition.type = CATransitionType.fade
         self.navigationController!.view.layer.add(transition, forKey: nil)
         if let sourceVC = segue.source as? ARScanViewController {
-            //FIXME: - Properly as Bestboxsize
+            
             bestBoxSize = sourceVC.boundingBoxSize
             previewImage = sourceVC.previewImage
             name = sourceVC.scannedObjectName

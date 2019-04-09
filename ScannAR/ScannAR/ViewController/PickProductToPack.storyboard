@@ -19,11 +19,11 @@
             </objects>
             <point key="canvasLocation" x="295" y="-118"/>
         </scene>
-        <!--CardsViewController-->
+        <!--BestBoxSizeSceneNavController-->
         <scene sceneID="3Ac-9a-UMU">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="BestBoxSizeNavControllerSB" storyboardName="BestBoxSize" referencedIdentifier="CardsViewController" id="mUk-co-WEr" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xmg-Y6-wdA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardIdentifier="BestBoxSizeNavControllerSB" storyboardName="BestBoxSize" referencedIdentifier="BestBoxSizeNavControllerSB" id="mUk-co-WEr" userLabel="BestBoxSizeSceneNavController" sceneMemberID="viewController"/>
             </objects>
             <point key="canvasLocation" x="241" y="113"/>
         </scene>

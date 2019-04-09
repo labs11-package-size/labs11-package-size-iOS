@@ -113,4 +113,3 @@ extension CardsView: UICollectionViewDelegate {
         targetContentOffset.pointee = point
     }
 }
-
