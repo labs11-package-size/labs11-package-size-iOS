@@ -25,8 +25,8 @@ class CardCollectionViewCell: SwipingCollectionViewCell {
     
     @IBOutlet weak var actionsView: UIView!
     @IBOutlet weak var boxTypeImageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var subtitleLabel: UILabel!
+    @IBOutlet weak var boxTypeNameLabel: UILabel!
+    @IBOutlet weak var boxSizeLabel: UILabel!
     @IBOutlet weak var detailsLabel: UILabel!
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var preview3DButton: UIButton!
@@ -113,8 +113,8 @@ class CardCollectionViewCell: SwipingCollectionViewCell {
     }
     func setContent(data: CardCellDisplayable) {
         boxTypeImageView.image = UIImage(named: data.boxTypeImageViewFileName)
-        titleLabel.text = data.title
-        subtitleLabel.text = data.subtitle
+        boxTypeNameLabel.text = data.title
+        boxSizeLabel.text = data.subtitle
         //        detailsLabel.text = data.details
         //        itemImageView.image = UIImage(named: data.itemImageName)
         
