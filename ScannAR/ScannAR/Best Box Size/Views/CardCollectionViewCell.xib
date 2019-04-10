@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -136,13 +136,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aH4-8m-oZ3">
-                                <rect key="frame" x="0.0" y="321" width="320" height="151"/>
+                                <rect key="frame" x="0.0" y="295" width="320" height="171"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SiN-FJ-UrC">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="151"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="171"/>
                                     </scrollView>
                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="yQ2-Bx-5l7">
-                                        <rect key="frame" x="140.5" y="128" width="39" height="37"/>
+                                        <rect key="frame" x="140.66666666666666" y="148.33333333333331" width="39" height="37"/>
                                         <color key="pageIndicatorTintColor" name="appARKATeal"/>
                                         <color key="currentPageIndicatorTintColor" name="appARKADarkBlue"/>
                                     </pageControl>
@@ -155,7 +155,7 @@
                                     <constraint firstAttribute="trailing" secondItem="SiN-FJ-UrC" secondAttribute="trailing" id="KJ4-uj-wJn"/>
                                     <constraint firstItem="SiN-FJ-UrC" firstAttribute="top" secondItem="aH4-8m-oZ3" secondAttribute="top" id="RQe-3l-5cH"/>
                                     <constraint firstAttribute="bottom" secondItem="yQ2-Bx-5l7" secondAttribute="bottom" constant="-14.199999999999999" id="bnf-KG-ktj"/>
-                                    <constraint firstAttribute="height" constant="151" id="dAo-7O-bbF"/>
+                                    <constraint firstAttribute="height" constant="171" id="dAo-7O-bbF"/>
                                     <constraint firstItem="SiN-FJ-UrC" firstAttribute="centerX" secondItem="aH4-8m-oZ3" secondAttribute="centerX" id="h0M-hd-WGf"/>
                                     <constraint firstItem="SiN-FJ-UrC" firstAttribute="centerY" secondItem="aH4-8m-oZ3" secondAttribute="centerY" id="myw-vB-xOZ"/>
                                     <constraint firstItem="SiN-FJ-UrC" firstAttribute="width" secondItem="aH4-8m-oZ3" secondAttribute="width" id="oSR-s4-15j"/>
@@ -166,12 +166,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="rNP-8G-gut" secondAttribute="trailing" constant="10" id="1F6-pX-gdB"/>
-                            <constraint firstAttribute="bottom" secondItem="aH4-8m-oZ3" secondAttribute="bottom" constant="8" id="4uv-v1-4kx"/>
+                            <constraint firstAttribute="bottom" secondItem="aH4-8m-oZ3" secondAttribute="bottom" constant="14" id="4uv-v1-4kx"/>
                             <constraint firstItem="Cph-GG-viQ" firstAttribute="top" secondItem="LhB-3v-6gM" secondAttribute="bottom" constant="30" id="6qb-8o-m0S"/>
                             <constraint firstItem="LhB-3v-6gM" firstAttribute="top" secondItem="ZhE-ar-8Mz" secondAttribute="top" id="CZj-c3-STP"/>
                             <constraint firstItem="aH4-8m-oZ3" firstAttribute="centerX" secondItem="ZhE-ar-8Mz" secondAttribute="centerX" id="Ph0-re-xEE"/>
                             <constraint firstItem="LhB-3v-6gM" firstAttribute="leading" secondItem="ZhE-ar-8Mz" secondAttribute="leading" id="ReA-vl-rxB"/>
                             <constraint firstItem="rNP-8G-gut" firstAttribute="leading" secondItem="ZhE-ar-8Mz" secondAttribute="leading" constant="10" id="c25-jj-ud4"/>
+                            <constraint firstItem="aH4-8m-oZ3" firstAttribute="top" relation="lessThanOrEqual" secondItem="rNP-8G-gut" secondAttribute="bottom" constant="8" id="dux-oD-IVV"/>
                             <constraint firstItem="LhB-3v-6gM" firstAttribute="height" secondItem="ZhE-ar-8Mz" secondAttribute="height" multiplier="45%" id="fvo-Gl-Axs"/>
                             <constraint firstAttribute="trailing" secondItem="Cph-GG-viQ" secondAttribute="trailing" constant="10" id="gqE-Jt-WdR"/>
                             <constraint firstAttribute="trailing" secondItem="aH4-8m-oZ3" secondAttribute="trailing" id="mrE-38-c4Z"/>
