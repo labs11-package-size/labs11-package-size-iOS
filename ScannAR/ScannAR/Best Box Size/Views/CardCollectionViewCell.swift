@@ -27,8 +27,6 @@ class CardCollectionViewCell: SwipingCollectionViewCell {
     @IBOutlet weak var boxTypeImageView: UIImageView!
     @IBOutlet weak var boxTypeNameLabel: UILabel!
     @IBOutlet weak var boxSizeLabel: UILabel!
-    @IBOutlet weak var detailsLabel: UILabel!
-    @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var preview3DButton: UIButton!
     @IBOutlet weak var addPackageConfigButton: UIButton!
     @IBOutlet weak var saveConfigForLaterButton: UIButton!
@@ -64,6 +62,7 @@ class CardCollectionViewCell: SwipingCollectionViewCell {
         scrollView.isPagingEnabled = true
         smallView.bringSubviewToFront(pageControl)
     }
+    
     func setScrollView(){
         
         for name in imgNamesArray {
