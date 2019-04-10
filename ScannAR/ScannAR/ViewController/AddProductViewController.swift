@@ -132,7 +132,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         switch indexPath.row {
-        case 1: return manualEntryHidden ? 124 : 500
+        case 1: return manualEntryHidden ? 124 : 400
             
         case 2: return 200
             

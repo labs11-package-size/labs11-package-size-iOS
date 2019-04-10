@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScannAR/ViewController/AddProductViewController.swift"
-            timestampString = "576611888.210935"
+            timestampString = "576622171.6199189"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "188"
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScannAR/ViewController/AddProductViewController.swift"
-            timestampString = "576611888.211076"
+            timestampString = "576622171.6200269"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "171"
@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScannAR/ViewController/AddProductViewController.swift"
-            timestampString = "576611888.211179"
+            timestampString = "576622171.620156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "173"
@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScannAR/ViewController/AddProductViewController.swift"
-            timestampString = "576611888.2112271"
+            timestampString = "576622171.6202199"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "163"
@@ -122,7 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScannAR/ViewController/AddProductViewController.swift"
-            timestampString = "576611888.21127"
+            timestampString = "576622171.620291"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "189"
@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScannAR/ViewController/ScannARMainViewController.swift"
-            timestampString = "576611888.21136"
+            timestampString = "576622171.620427"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "315"
-            endingLineNumber = "315"
+            startingLineNumber = "355"
+            endingLineNumber = "355"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -394,11 +394,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScannAR/ViewController/ScannARMainViewController.swift"
-            timestampString = "576611888.212005"
+            timestampString = "576622171.620792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "413"
-            endingLineNumber = "413"
+            startingLineNumber = "435"
+            endingLineNumber = "435"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -410,27 +410,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScannAR/ViewController/ScannARMainViewController.swift"
-            timestampString = "576611888.212278"
+            timestampString = "576622171.620877"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "396"
-            endingLineNumber = "396"
-            landmarkName = "collectionView(_:cellForItemAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ScannAR/ViewController/ScannARMainViewController.swift"
-            timestampString = "576611888.212539"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "263"
-            endingLineNumber = "263"
+            startingLineNumber = "303"
+            endingLineNumber = "303"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -458,11 +442,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScannAR/ViewController/ScannARMainViewController.swift"
-            timestampString = "576611888.2128561"
+            timestampString = "576622171.62098"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "316"
-            endingLineNumber = "316"
+            startingLineNumber = "356"
+            endingLineNumber = "356"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -650,11 +634,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScannAR/ViewController/ScannARMainViewController.swift"
-            timestampString = "576611888.213214"
+            timestampString = "576622171.621189"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
             landmarkName = "fetchNetworkRequests()"
             landmarkType = "7">
             <Locations>
@@ -714,11 +698,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScannAR/ViewController/ScannARMainViewController.swift"
-            timestampString = "576611888.213495"
+            timestampString = "576622171.62131"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
+            startingLineNumber = "322"
+            endingLineNumber = "322"
             landmarkName = "numberOfSections(in:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -730,11 +714,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScannAR/ViewController/ScannARMainViewController.swift"
-            timestampString = "576611888.213786"
+            timestampString = "576622171.621455"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "298"
-            endingLineNumber = "298"
+            startingLineNumber = "338"
+            endingLineNumber = "338"
             landmarkName = "collectionView(_:numberOfItemsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -746,11 +730,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScannAR/ViewController/ScannARMainViewController.swift"
-            timestampString = "576611888.21425"
+            timestampString = "576622171.621591"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "349"
-            endingLineNumber = "349"
+            startingLineNumber = "389"
+            endingLineNumber = "389"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -762,11 +746,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScannAR/ViewController/ScannARMainViewController.swift"
-            timestampString = "576611888.214694"
+            timestampString = "576622171.621668"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
+            startingLineNumber = "240"
+            endingLineNumber = "240"
             landmarkName = "fetchNetworkRequests()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1050,11 +1034,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScannAR/Views/AddProductTableViewCells/SecondAddProductTableViewCell.swift"
-            timestampString = "576527757.3151129"
+            timestampString = "576622171.622088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "pickerView(_:didSelectRow:inComponent:)"
             landmarkType = "7">
             <Locations>
@@ -1066,12 +1050,12 @@
                   moduleName = "ScannAR"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bhhakes/development/scannAR/labs11-package-size-iOS/ScannAR/ScannAR/Views/AddProductTableViewCells/SecondAddProductTableViewCell.swift"
-                  timestampString = "576525459.862841"
+                  timestampString = "576618327.259321"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "79"
-                  endingLineNumber = "79"
-                  offsetFromSymbolStart = "1132">
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "4412">
                </Location>
                <Location
                   shouldBeEnabled = "No"
@@ -1081,12 +1065,12 @@
                   moduleName = "ScannAR"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bhhakes/development/scannAR/labs11-package-size-iOS/ScannAR/ScannAR/Views/AddProductTableViewCells/SecondAddProductTableViewCell.swift"
-                  timestampString = "576525459.8649189"
+                  timestampString = "576618327.2659889"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "79"
-                  endingLineNumber = "79"
-                  offsetFromSymbolStart = "1192">
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "6256">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1098,11 +1082,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScannAR/Views/AddProductTableViewCells/SecondAddProductTableViewCell.swift"
-            timestampString = "576527757.31522"
+            timestampString = "576622171.62219"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "pickerView(_:didSelectRow:inComponent:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1114,11 +1098,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScannAR/ViewController/ScannARMainViewController.swift"
-            timestampString = "576611888.215291"
+            timestampString = "576622171.622262"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
+            startingLineNumber = "256"
+            endingLineNumber = "256"
             landmarkName = "fetchNetworkRequests()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1130,11 +1114,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScannAR/ViewController/ScannARMainViewController.swift"
-            timestampString = "576611888.215855"
+            timestampString = "576622171.622349"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "390"
-            endingLineNumber = "390"
+            startingLineNumber = "429"
+            endingLineNumber = "429"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1146,7 +1130,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScannAR/ViewController/ScannARMainViewController.swift"
-            timestampString = "576611888.216872"
+            timestampString = "576622171.622406"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "37"
@@ -1162,11 +1146,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScannAR/ViewController/ScannARMainViewController.swift"
-            timestampString = "576611888.217338"
+            timestampString = "576622171.622485"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
+            startingLineNumber = "249"
+            endingLineNumber = "249"
             landmarkName = "fetchNetworkRequests()"
             landmarkType = "7">
             <Locations>
@@ -1210,11 +1194,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScannAR/ViewController/ScannARMainViewController.swift"
-            timestampString = "576611888.217736"
+            timestampString = "576622171.6225719"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "215"
-            endingLineNumber = "215"
+            startingLineNumber = "255"
+            endingLineNumber = "255"
             landmarkName = "fetchNetworkRequests()"
             landmarkType = "7">
             <Locations>
@@ -1249,6 +1233,166 @@
                   offsetFromSymbolStart = "180">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ScannAR/ViewController/AddProductViewController.swift"
+            timestampString = "576622171.622648"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
+            landmarkName = "saveForLaterTapped(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ScannAR/Views/AddProductTableViewCells/SecondAddProductTableViewCell.swift"
+            timestampString = "576622171.622694"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "pickerView(_:didSelectRow:inComponent:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ScannAR.SecondAddProductTableViewCell.pickerView(_: __C.UIPickerView, didSelectRow: Swift.Int, inComponent: Swift.Int) -&gt; ()"
+                  moduleName = "ScannAR"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bhhakes/development/scannAR/labs11-package-size-iOS/ScannAR/ScannAR/Views/AddProductTableViewCells/SecondAddProductTableViewCell.swift"
+                  timestampString = "576618327.280744"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "540">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ScannAR.SecondAddProductTableViewCell.pickerView(_: __C.UIPickerView, didSelectRow: Swift.Int, inComponent: Swift.Int) -&gt; ()"
+                  moduleName = "ScannAR"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bhhakes/development/scannAR/labs11-package-size-iOS/ScannAR/ScannAR/Views/AddProductTableViewCells/SecondAddProductTableViewCell.swift"
+                  timestampString = "576618327.285571"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "2384">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ScannAR/Views/AddProductTableViewCells/SecondAddProductTableViewCell.swift"
+            timestampString = "576622171.62275"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "pickerView(_:didSelectRow:inComponent:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ScannAR.SecondAddProductTableViewCell.pickerView(_: __C.UIPickerView, didSelectRow: Swift.Int, inComponent: Swift.Int) -&gt; ()"
+                  moduleName = "ScannAR"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bhhakes/development/scannAR/labs11-package-size-iOS/ScannAR/ScannAR/Views/AddProductTableViewCells/SecondAddProductTableViewCell.swift"
+                  timestampString = "576618327.292771"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "8268">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ScannAR.SecondAddProductTableViewCell.pickerView(_: __C.UIPickerView, didSelectRow: Swift.Int, inComponent: Swift.Int) -&gt; ()"
+                  moduleName = "ScannAR"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bhhakes/development/scannAR/labs11-package-size-iOS/ScannAR/ScannAR/Views/AddProductTableViewCells/SecondAddProductTableViewCell.swift"
+                  timestampString = "576618327.296301"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "10112">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ScannAR/Views/AddProductTableViewCells/SecondAddProductTableViewCell.swift"
+            timestampString = "576622171.622794"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "pickerView(_:didSelectRow:inComponent:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ScannAR/ViewController/ScannARMainViewController.swift"
+            timestampString = "576622171.622839"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "loadImage(forCell:forItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ScannAR/ViewController/ScannARMainViewController.swift"
+            timestampString = "576622171.622893"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "451"
+            endingLineNumber = "451"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -34,11 +34,31 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = false
         scannARNetworkingController = ScannARNetworkController.shared
+        getAccount()
         fetchNetworkRequests()
+        
         
     }
     
     // Private Methods
+    
+    private func getAccount(){
+        guard let scannARNetworkingController = scannARNetworkingController else { fatalError(" Error: No networking controller available")}
+        
+        scannARNetworkingController.getUserAccountInfo { (result, error) in
+            
+            if let error = error {
+                print("There was an error getting your account information: \(error)")
+                return
+            }
+            
+            guard let result = result else {fatalError("There was no Account information returned for the user.")}
+            
+            self.account = result
+            
+        }
+        
+    }
     
     private func loadImage(forCell cell: ProductsCollectionViewCell, forItemAt indexPath: IndexPath) {
         let photoReference = photoReferences[indexPath.item]
@@ -76,6 +96,26 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         OperationQueue.main.addOperation(completionOp)
         
         operations[photoReference.uuid] = fetchOp
+    }
+    
+    private func updateAccountPicture() {
+        guard let account = account else { return }
+        guard let photoURL = account.photoURL else { return }
+        guard let profileURL = URL(string: photoURL) else { return }
+        var data: Data
+        do {
+            data = try Data.init(contentsOf: profileURL)
+        } catch {
+            print("Could not get profile image.")
+            return
+        }
+        let image = UIImage(data: data)
+        DispatchQueue.main.async {
+            
+//            self.navigationItem.leftBarButtonItem?.setBackgroundImage(image, for: .normal, barMetrics: .default)
+            
+            
+        }
     }
     
     private func setupLongPress(){
@@ -380,8 +420,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: productReuseIdentifier, for: indexPath) as? ProductsCollectionViewCell else { fatalError("Could not dequeue cell as ProductsCollectionViewCell") }
             
             let product = productsFetchedResultsController.object(at: indexPath)
-            
-            
+            print(indexPath.item)
             
             // Configure the cell
             if photoReferences.count > 0 {
@@ -394,23 +433,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             cell.lwhLabel.text = "L: \(product.length) | W: \(product.width) | H: \(product.height)"
             cell.weightLabel.text = "\(product.weight) lbs"
             
-//            if let urlString = product.thumbnail {
-//
-//                if let url = URL(string: urlString){
-//                    var data: Data
-//                    do {
-//                        data = try Data(contentsOf: url)
-//                    } catch {
-//                        print("Could not get image from Thumbnail image URL.")
-//                        return cell
-//                    }
-//
-//                    DispatchQueue.main.async {
-//                        cell.productImageView.image = UIImage(data: data)
-//                    }
-//                }
-//            }
-            
+
             cell.contentView.layer.cornerRadius = 10
             cell.contentView.layer.borderWidth = 1.0
             
@@ -619,6 +642,11 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     let productReuseIdentifier = "ProductCell"
     let packageReuseIdentifier = "PackageCell"
     let shipmentReuseIdentifier = "ShipmentCell"
+    var account: Account? {
+        didSet {
+            updateAccountPicture()
+        }
+    }
     @IBOutlet weak var newProductShipmentBarButton: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
     var searchBar: UISearchBar!
@@ -631,7 +659,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     private var operations = [UUID : Operation]()
     private var photoReferences = [ProductRepresentation]() {
         didSet {
-//            cache.clear()
+            cache.clear()
             DispatchQueue.main.async { self.collectionView?.reloadData() }
         }
     }
@@ -641,10 +669,10 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         let fetchRequest: NSFetchRequest<Product> = Product.fetchRequest()
         
         fetchRequest.sortDescriptors = [
-            NSSortDescriptor(key: "lastUpdated", ascending: false)
+            NSSortDescriptor(key: "fragile", ascending: true)
         ]
         let moc = CoreDataStack.shared.mainContext
-        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "lastUpdated", cacheName: nil)
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "fragile", cacheName: nil)
         
         frc.delegate = self
         try? frc.performFetch()
