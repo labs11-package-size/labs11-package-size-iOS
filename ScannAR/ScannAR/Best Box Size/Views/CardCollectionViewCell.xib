@@ -197,7 +197,9 @@
             <connections>
                 <outlet property="actionsView" destination="zca-BE-rz3" id="CmX-xC-ECd"/>
                 <outlet property="addPackageConfigButton" destination="SSg-ff-BRj" id="Vis-fY-xxo"/>
+                <outlet property="boxSizeLabel" destination="rNP-8G-gut" id="ChC-Fo-ohN"/>
                 <outlet property="boxTypeImageView" destination="LhB-3v-6gM" id="dy1-jo-OCI"/>
+                <outlet property="boxTypeNameLabel" destination="Cph-GG-viQ" id="B9Q-o1-73C"/>
                 <outlet property="deleteButton" destination="J1m-H7-6Nh" id="Ixn-nU-q3C"/>
                 <outlet property="frontContentView" destination="ZhE-ar-8Mz" id="i9n-6T-KA6"/>
                 <outlet property="pageControl" destination="yQ2-Bx-5l7" id="8VE-iD-FzN"/>
@@ -205,8 +207,6 @@
                 <outlet property="saveConfigForLaterButton" destination="dfc-Z1-gpO" id="lom-lS-Ada"/>
                 <outlet property="scrollView" destination="SiN-FJ-UrC" id="KZc-L5-qgi"/>
                 <outlet property="smallView" destination="aH4-8m-oZ3" id="iTo-RD-e0X"/>
-                <outlet property="subtitleLabel" destination="rNP-8G-gut" id="wed-zP-mME"/>
-                <outlet property="titleLabel" destination="Cph-GG-viQ" id="B9Q-o1-73C"/>
             </connections>
             <point key="canvasLocation" x="251" y="-25"/>
         </collectionViewCell>
