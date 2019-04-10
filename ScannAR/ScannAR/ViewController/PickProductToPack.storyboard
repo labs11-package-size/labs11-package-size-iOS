@@ -19,11 +19,11 @@
             </objects>
             <point key="canvasLocation" x="295" y="-118"/>
         </scene>
-        <!--CardsViewController-->
+        <!--BestBoxSizeSceneNavController-->
         <scene sceneID="3Ac-9a-UMU">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="BestBoxSizeNavControllerSB" storyboardName="BestBoxSize" referencedIdentifier="CardsViewController" id="mUk-co-WEr" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xmg-Y6-wdA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardIdentifier="BestBoxSizeNavControllerSB" storyboardName="BestBoxSize" referencedIdentifier="BestBoxSizeNavControllerSB" id="mUk-co-WEr" userLabel="BestBoxSizeSceneNavController" sceneMemberID="viewController"/>
             </objects>
             <point key="canvasLocation" x="241" y="113"/>
         </scene>
@@ -35,32 +35,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xvh-yb-fsn">
-                                <rect key="frame" x="8" y="52" width="398" height="56"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="xvh-yb-fsn">
+                                <rect key="frame" x="8" y="52" width="398" height="88"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" placeholder="Search for products" translatesAutoresizingMaskIntoConstraints="NO" id="gIV-9x-btj">
-                                        <rect key="frame" x="0.0" y="0.0" width="306" height="56"/>
-                                        <color key="backgroundColor" name="appARKATeal"/>
-                                        <color key="barTintColor" name="appARKATeal"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </searchBar>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5F-4i-A5f">
-                                        <rect key="frame" x="306" y="0.0" width="92" height="56"/>
-                                        <color key="backgroundColor" name="appARKATeal"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Cancel"/>
-                                        <connections>
-                                            <segue destination="npe-kW-R5w" kind="show" id="quH-8d-4ux"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQS-TD-fJb">
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="56"/>
+                                        <subviews>
+                                            <searchBar contentMode="redraw" placeholder="Search for products" translatesAutoresizingMaskIntoConstraints="NO" id="gIV-9x-btj">
+                                                <rect key="frame" x="0.0" y="0.0" width="306" height="56"/>
+                                                <color key="backgroundColor" name="appARKATeal"/>
+                                                <color key="barTintColor" name="appARKATeal"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </searchBar>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5F-4i-A5f">
+                                                <rect key="frame" x="306" y="0.0" width="92" height="56"/>
+                                                <color key="backgroundColor" name="appARKATeal"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Cancel"/>
+                                                <connections>
+                                                    <segue destination="npe-kW-R5w" kind="show" id="quH-8d-4ux"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="q5F-4i-A5f" firstAttribute="width" secondItem="gIV-9x-btj" secondAttribute="width" multiplier="0.3" id="FdZ-Ka-XOl"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pOr-zO-e4b">
+                                        <rect key="frame" x="0.0" y="60" width="398" height="28"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Box Type: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KdH-KU-HK8">
+                                                <rect key="frame" x="0.0" y="0.0" width="79.5" height="28"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="reL-hq-GEB">
+                                                <rect key="frame" x="79.5" y="0.0" width="318.5" height="29"/>
+                                                <color key="backgroundColor" name="appARKATeal"/>
+                                                <segments>
+                                                    <segment title="Any"/>
+                                                    <segment title="Shipper"/>
+                                                    <segment title="Mailer"/>
+                                                </segments>
+                                                <color key="tintColor" name="appARKADarkBlue"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="appARKADarkBlue"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </segmentedControl>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="q5F-4i-A5f" firstAttribute="width" secondItem="gIV-9x-btj" secondAttribute="width" multiplier="0.3" id="VVA-wp-qiZ"/>
-                                </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7UT-Ky-cyG">
-                                <rect key="frame" x="8" y="116" width="398" height="650"/>
+                                <rect key="frame" x="8" y="148" width="398" height="618"/>
                                 <color key="backgroundColor" name="appARKATeal"/>
                                 <color key="separatorColor" name="appARKATeal"/>
                                 <color key="sectionIndexBackgroundColor" name="appARKATeal"/>
@@ -85,6 +116,7 @@
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Preview Packages"/>
                                         <connections>
+                                            <action selector="previewPackages:" destination="4S8-c0-774" eventType="touchUpInside" id="dfF-8c-RGo"/>
                                             <segue destination="mUk-co-WEr" kind="show" identifier="PreviewPackagingSegue" id="jnR-ak-I1j"/>
                                         </connections>
                                     </button>
@@ -115,6 +147,7 @@
                         <viewLayoutGuide key="safeArea" id="AAb-GK-88W"/>
                     </view>
                     <connections>
+                        <outlet property="boxSegmentedControl" destination="reL-hq-GEB" id="hPO-D3-KHO"/>
                         <outlet property="buttonContainerView" destination="z80-R4-SU2" id="yeG-n2-qT0"/>
                         <outlet property="cancelButton" destination="q5F-4i-A5f" id="9TZ-b0-90r"/>
                         <outlet property="previewPackagesButton" destination="Fns-eR-4WF" id="K9h-DJ-BWE"/>

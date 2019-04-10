@@ -20,6 +20,8 @@ class ThirdAddProductTableViewCell: UITableViewCell, UITextFieldDelegate {
         manufacturerIdTextField.delegate = self
         weightTextField.delegate = self
         valueTextField.delegate = self
+        self.separatorInset = UIEdgeInsets.zero
+        self.layoutMargins = UIEdgeInsets.zero
     }
     
     // MARK: TextFieldDelegate

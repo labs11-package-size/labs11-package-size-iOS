@@ -16,6 +16,8 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
     static let appStateUserInfoKey = "AppState"
     var boundingBoxSize: (length: Float?, width: Float?, height: Float?) = (4,2,0)
     var objectScreenshot: UIImage?
+    var previewImage: UIImage?
+    var scannedObjectName: String = ""
     static var instance: ARScanViewController?
     
     @IBOutlet weak var sceneView: ARSCNView!
@@ -322,6 +324,7 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
                         
                         let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
                         print("Text field: \((textField?.text)!)")
+                        self.scannedObjectName = textField?.text ?? ""
                         let documentURL = documentDirectory.appendingPathComponent((textField?.text)! + ".\(SavedARScansListViewController.aRObjectPathExtension)")
                         
                         DispatchQueue.global().async {
@@ -332,22 +335,22 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
                                 fatalError("Failed to save the file to \(documentURL)")
                             }
                         }
+                       
                         
-                        
-                        let viewController = UIStoryboard(name: "ScannARMainViewController", bundle: nil).instantiateViewController(withIdentifier: "AddProductViewControllerSB") as! AddProductViewController
+//                        let viewController = UIStoryboard(name: "ScannARMainViewController", bundle: nil).instantiateViewController(withIdentifier: "AddProductViewControllerSB") as! AddProductViewController
                         
                         let rotatedScreenshot = self.objectScreenshot?.imageRotatedByDegrees(degrees: 90, flip: false)
-                        viewController.previewImage = rotatedScreenshot
+                        self.previewImage = rotatedScreenshot
                         
-                        viewController.bestBoxSize = self.boundingBoxSize
-                        print(self.boundingBoxSize)
+                        //viewController.bestBoxSize = self.boundingBoxSize
+                        //print(self.boundingBoxSize)
                         
-                        let transition: CATransition = CATransition()
-                        transition.duration = 0.7
-                        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-                        transition.type = CATransitionType.fade
-                        
-                        self.navigationController!.view.layer.add(transition, forKey: nil)
+//                        let transition: CATransition = CATransition()
+//                        transition.duration = 0.7
+//                        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+//                        transition.type = CATransitionType.fade
+//
+//                        self.navigationController!.view.layer.add(transition, forKey: nil)
                         self.performSegue(withIdentifier: "unwindSegueToAddProductVC", sender: self)
 
                 }))

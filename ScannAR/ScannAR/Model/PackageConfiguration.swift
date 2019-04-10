@@ -27,6 +27,7 @@ struct PackageConfiguration: Codable {
     }
     
     struct Item: Codable {
+        let uuid: String
         let id, origSize, spSize: String
         let size1, size2, size3, spSize1: Double
         let spSize2, spSize3: Double
@@ -37,6 +38,7 @@ struct PackageConfiguration: Codable {
         
         enum CodingKeys: String, CodingKey {
             case id
+            case uuid
             case origSize = "orig_size"
             case spSize = "sp_size"
             case size1 = "size_1"
