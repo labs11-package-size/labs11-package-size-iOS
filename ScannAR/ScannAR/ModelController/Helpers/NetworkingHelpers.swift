@@ -23,7 +23,7 @@ class NetworkingHelpers{
         dict["manufacturerId"] = product.manufacturerId
         dict["fragile"] = "\(product.fragile)"
         
-        if let thumbnail = product.thumbnail, thumbnail != "" {
+        if let thumbnail = product.thumbnail {
             dict["thumbnail"] = "\(thumbnail)"
         }
         

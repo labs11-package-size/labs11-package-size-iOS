@@ -22,7 +22,7 @@ extension Product {
                      weight: Double,
                      width: Double,
                      uuid: UUID? = UUID(),
-                     thumbnail: String? = nil,
+                     thumbnail: URL? = nil,
                      context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         
