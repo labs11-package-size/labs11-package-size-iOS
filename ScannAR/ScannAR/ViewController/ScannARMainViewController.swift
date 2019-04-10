@@ -62,21 +62,24 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     
     private func loadImage(forCell cell: ProductsCollectionViewCell, forItemAt indexPath: IndexPath) {
         let photoReference = photoReferences[indexPath.item]
+        guard let uuid = photoReference.uuid else { return }
         // Check for image in cache
-        if let cachedImage = cache.value(for: photoReference.uuid) {
+        
+        if let cachedImage = cache.value(for: uuid) {
             cell.productImageView.image = cachedImage
             return
+            
         }
         
         // Start an operation to fetch image data
         let fetchOp = FetchPhotoOperation(photoReference: photoReference)
         let cacheOp = BlockOperation {
             if let image = fetchOp.image {
-                self.cache.cache(value: image, for: photoReference.uuid)
+                self.cache.cache(value: image, for: uuid)
             }
         }
         let completionOp = BlockOperation {
-            defer { self.operations.removeValue(forKey: photoReference.uuid) }
+            defer { self.operations.removeValue(forKey: uuid) }
             
             if let currentIndexPath = self.collectionView?.indexPath(for: cell),
                 currentIndexPath != indexPath {
@@ -95,7 +98,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         photoFetchQueue.addOperation(cacheOp)
         OperationQueue.main.addOperation(completionOp)
         
-        operations[photoReference.uuid] = fetchOp
+        operations[uuid] = fetchOp
     }
     
     private func updateAccountPicture() {
@@ -253,8 +256,9 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
                 }
                 
                 self.coreDataImporter.syncProducts(productRepresentations: results, completion: { (error) in
-                    self.photoReferences = results
+                    
                     DispatchQueue.main.async {
+                        self.photoReferences = self.productsFetchedResultsController.fetchedObjects ?? []
                         self.collectionView.reloadData()
                     }
                 })
@@ -420,7 +424,6 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: productReuseIdentifier, for: indexPath) as? ProductsCollectionViewCell else { fatalError("Could not dequeue cell as ProductsCollectionViewCell") }
             
             let product = productsFetchedResultsController.object(at: indexPath)
-            print(indexPath.item)
             
             // Configure the cell
             if photoReferences.count > 0 {
@@ -569,8 +572,10 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
                                 print("Error saving context: \(saveError)")
                             }
                             DispatchQueue.main.async {
+                                
                                 self.collectionView.reloadData()
-                                self.flashSaveOnServerNoticeToUser(itemName, type: "Deleted")
+                                
+                                    self.flashSaveOnServerNoticeToUser(itemName, type: "Deleted")
                             }
 
                         }
@@ -619,6 +624,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
                                 print("Error saving context: \(saveError)")
                             }
                             DispatchQueue.main.async {
+                                self.photoReferences = self.productsFetchedResultsController.fetchedObjects ?? []
                                 self.collectionView.reloadData()
                                 self.flashSaveOnServerNoticeToUser(itemName, type: "Deleted")
                             }
@@ -651,16 +657,16 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet weak var collectionView: UICollectionView!
     var searchBar: UISearchBar!
     var scannARNetworkingController: ScannARNetworkController?
-    var coreDataImporter: CoreDataImporter = CoreDataImporter(context: CoreDataStack.shared.mainContext)
+    lazy var coreDataImporter: CoreDataImporter = { CoreDataImporter(context: CoreDataStack.shared.mainContext)
+        }()
     private var blockOperation = BlockOperation()
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     private let cache = Cache<UUID, UIImage>()
     private let photoFetchQueue = OperationQueue()
     private var operations = [UUID : Operation]()
-    private var photoReferences = [ProductRepresentation]() {
+    private var photoReferences = [Product]() {
         didSet {
             cache.clear()
-            DispatchQueue.main.async { self.collectionView?.reloadData() }
         }
     }
     
@@ -669,7 +675,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         let fetchRequest: NSFetchRequest<Product> = Product.fetchRequest()
         
         fetchRequest.sortDescriptors = [
-            NSSortDescriptor(key: "fragile", ascending: true)
+            NSSortDescriptor(key: "name", ascending: true)
         ]
         let moc = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "fragile", cacheName: nil)
