@@ -171,10 +171,10 @@
             </objects>
             <point key="canvasLocation" x="-149.27536231884059" y="45.535714285714285"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--BestBoxSizeSceneNavController-->
         <scene sceneID="lNQ-Hv-MXr">
             <objects>
-                <navigationController storyboardIdentifier="BestBoxSizeNavControllerSB" automaticallyAdjustsScrollViewInsets="NO" id="MNg-bt-vaj" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="BestBoxSizeNavControllerSB" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MNg-bt-vaj" userLabel="BestBoxSizeSceneNavController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ndr-oL-Vfa">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
