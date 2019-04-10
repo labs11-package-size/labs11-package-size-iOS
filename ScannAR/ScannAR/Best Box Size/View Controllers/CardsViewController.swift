@@ -20,7 +20,7 @@ class CardsViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var cardsUpIconImageView: UIImageView!
     
     // MARK: Properties
-    
+    var boxType: BoxType?
     let storage = MockStorage.shared
     var displayData = [CardCellDisplayable]()
     lazy var cardImageViewHeight: CGFloat = cardsView.frame.height * 0.45 //  45% is cell.imageView height constraint's multiplier
