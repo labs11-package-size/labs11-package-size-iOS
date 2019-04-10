@@ -203,7 +203,9 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             value != 0.0,
             weight != 0.0 else { return }
         
-        let newProduct = Product(fragile: fragile, height: Double(height), length: Double(length), manufacturerId: manufacturerId, name: name, productDescription: productDescription, value: value, weight: weight, width: Double(width), thumbnail: thumbnail, context: CoreDataStack.shared.container.newBackgroundContext())
+        let thumbnailURL = URL(string:thumbnail)
+        
+        let newProduct = Product(fragile: fragile, height: Double(height), length: Double(length), manufacturerId: manufacturerId, name: name, productDescription: productDescription, value: value, weight: weight, width: Double(width), thumbnail: thumbnailURL, context: CoreDataStack.shared.container.newBackgroundContext())
         let dict = NetworkingHelpers.dictionaryFromProduct(product: newProduct)
         let newProductAsset = ProductAsset(urlString:imageURLString ?? "", name: "Picture1")
         let assetDict = NetworkingHelpers.dictionaryFromProductAsset(productAsset: newProductAsset)
