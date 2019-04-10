@@ -142,8 +142,14 @@ class PickProductToPackViewController: UIViewController, UITableViewDelegate, UI
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
         if segue.identifier == "PreviewPackagingSegue" {
             guard let destVC = segue.destination as? CardsViewController else { return }
+            destVC.navigationController?.navigationItem.backBarButtonItem?.tintColor = UIColor(named: "appARKADarkBlue")
+            destVC.navigationController?.navigationBar.isTranslucent = true
+            destVC.navigationController?.navigationBar.backgroundColor = UIColor.clear
+            destVC.navigationController?.navigationBar.alpha = 0.1
+            destVC.navigationController?.setNavigationBarHidden(false, animated: false)
             destVC.products = self.pickedProducts
             switch boxSegmentedControl.selectedSegmentIndex {
             case 0:
