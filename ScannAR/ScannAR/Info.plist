@@ -139,5 +139,7 @@
 			<string>http://www.packit4me.com</string>
 		</dict>
 	</dict>
+	<key>FirebaseScreenReportingEnabled</key>
+	<false/>
 </dict>
 </plist>

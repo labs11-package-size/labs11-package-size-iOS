@@ -33,7 +33,7 @@ class CardCollectionViewCell: SwipingCollectionViewCell {
     @IBOutlet weak var deleteButton: UIButton!
     
     // MARK: Properties
-    
+    var boxTypeImageViewFileName: String = ""
     var previousContentOffset: CGPoint = .zero
     var imgNamesArray: [String] = ["0", "1", "2"]
     var imgArray: [UIImage] = []
@@ -110,10 +110,10 @@ class CardCollectionViewCell: SwipingCollectionViewCell {
         }
         
     }
-    func setContent(data: CardCellDisplayable) {
-        boxTypeImageView.image = UIImage(named: data.boxTypeImageViewFileName)
-        boxTypeNameLabel.text = data.title
-        boxSizeLabel.text = data.subtitle
+    func setContent(data: PackageConfiguration) {
+        boxTypeImageView.image = UIImage(named: PackageConfigViewStorage.shared.boxType.rawValue)
+        boxTypeNameLabel.text = data.id + ", " + data.size + ", \(PackageConfigViewStorage.shared.boxType.rawValue)"
+        boxSizeLabel.text = String(data.weightLimit) + ", " + String(data.currWeight) + ", " + String(data.itemCount)
         //        detailsLabel.text = data.details
         //        itemImageView.image = UIImage(named: data.itemImageName)
         

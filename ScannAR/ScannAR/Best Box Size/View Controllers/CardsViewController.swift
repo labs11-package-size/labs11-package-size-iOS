@@ -21,8 +21,9 @@ class CardsViewController: UIViewController, UIScrollViewDelegate {
     
     // MARK: Properties
     var boxType: BoxType?
-    let storage = MockStorage.shared
-    var displayData = [CardCellDisplayable]()
+    let storage = PackageConfigViewStorage.shared
+//    var displayData = [CardCellDisplayable]()
+    var displayData = [PackageConfiguration]()
     lazy var cardImageViewHeight: CGFloat = cardsView.frame.height * 0.45 //  45% is cell.imageView height constraint's multiplier
     
 //    let shipperBox = "shipperBox"
@@ -45,6 +46,8 @@ class CardsViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         setCardsViewLayout()
         fetchPreview()
+        print(products)
+        print(products.count)
         
     }
     
@@ -66,32 +69,41 @@ class CardsViewController: UIViewController, UIScrollViewDelegate {
     }
     
     private func fetchPreview() {
-//        guard products.count > 0 else { return }
-//        let productUUIDs = products.map { $0.uuid!.uuidString }
-//        let packagePreview = PackagePreviewRequest(products: productUUIDs, boxType: nil) // could add boxType specifier here as well.
-//        scannARNetworkController.postPackagingPreview(packagingDict: packagePreview) { (results, error) in
-//
-//            if let error = error {
-//                print("Error: \(error)")
-//                return
-//            }
-//            guard let results = results else {
-//                print("No Results")
-//                return
-//            }
-            
-//            for result in results {
-//                self.storage.data.append(CardCellDisplayable(boxTypeImageViewFileName: "shipperBox", title: result.size, subtitle: "\(result.weightLimit)", details: "Is this my espresso machine?", itemImageName: "toy2"))
-//            }
-            
-                if let firstItem = self.storage.data.first {
-                    self.displayData.append(firstItem)
-                }
+        guard products.count > 0 else { return }
+        let productUUIDs = products.map { $0.uuid!.uuidString }
+        let packagePreview = PackagePreviewRequest(products: productUUIDs, boxType: nil) // could add boxType specifier here as well.
+        scannARNetworkController.postPackagingPreview(packagingDict: packagePreview) { (results, error) in
+
+            if let error = error {
+                print("Error: \(error)")
+                return
+            }
+            guard let results = results else {
+                print("No Results")
+                return
+            }
+
+            for result in results {
+                print("result: \(result)")
+                self.displayData.append(result)
+            }
+
+//                if let firstItem = self.storage.data.first {
+//                    self.displayData.append(firstItem)
+//                }
+            DispatchQueue.main.async {
+                self.cardsView.reloadData()
+                self.reloadInputViews()
+            }
+        }
+        
+//        if let firstItem = self.storage.data.first {
+//            self.displayData.append(firstItem)
+//        }
+        DispatchQueue.main.async {
             self.cardsView.reloadData()
-                ///self.reloadInputViews()
-            
-            
-      //  }
+            self.reloadInputViews()
+        }
     }
     
     
