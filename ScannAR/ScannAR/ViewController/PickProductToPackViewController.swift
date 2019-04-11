@@ -11,6 +11,10 @@ import CoreData
 
 class PickProductToPackViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, ProductPickerDelegate {
     
+    @IBAction func unwindToPickProductToPackVC(segue: UIStoryboardSegue) {
+                //nothing goes here
+            }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

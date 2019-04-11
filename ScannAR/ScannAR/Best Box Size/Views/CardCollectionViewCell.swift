@@ -81,8 +81,7 @@ class CardCollectionViewCell: SwipingCollectionViewCell {
             
             let imageView = UIImageView()
             let imageLabel = UILabel()
-            //imageLabel.removeFromSuperview()
-            //            imageLabel.text = ""
+           
             imageView.image = imgArray[i].resizedImage(newSize: CGSize(width: smallView.frame.height, height: smallView.frame.height))
             imageView.contentMode = .left
             let xPosition = self.smallView.frame.width * CGFloat(i)
@@ -110,16 +109,12 @@ class CardCollectionViewCell: SwipingCollectionViewCell {
         }
         
     }
+    let storage = PackageConfigViewStorage.shared
     func setContent(data: PackageConfiguration) {
-        boxTypeImageView.image = UIImage(named: PackageConfigViewStorage.shared.boxType.rawValue)
-        boxTypeNameLabel.text = data.id + ", " + data.size + ", \(PackageConfigViewStorage.shared.boxType.rawValue)"
+        boxTypeImageView.image = UIImage(named: "Mailer")
+        boxTypeNameLabel.text = data.id + ", " + data.size + ", \(storage.boxType.rawValue)"
         boxSizeLabel.text = String(data.weightLimit) + ", " + String(data.currWeight) + ", " + String(data.itemCount)
-        //        detailsLabel.text = data.details
-        //        itemImageView.image = UIImage(named: data.itemImageName)
-        
-        //        setScrollView()
-        
-        
+//        setScrollView()
     }
     
     override func frontViewPositionChanged(on percent: CGFloat) {
@@ -248,9 +243,7 @@ extension CardCollectionViewCell: UIScrollViewDelegate {
         k = min(max(0, k), kMaxIndex)
         DispatchQueue.main.async {
             scrollView.setContentOffset(CGPoint(x: k * (pageSize + pageSpacing), y: scrollView.contentOffset.y), animated: true)
-            //            self.scrollView.reloadInputViews()
         }
-        //        scrollView.reloadInputViews()
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {

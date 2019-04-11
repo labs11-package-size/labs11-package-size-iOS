@@ -66,7 +66,6 @@
 		ABA70F8E225739D200A44C06 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA70F8D225739D200A44C06 /* UIView+Extensions.swift */; };
 		ABA70F9122573A2700A44C06 /* UIImage+Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA70F9022573A2700A44C06 /* UIImage+Effects.swift */; };
 		ABA70F9322573A7400A44C06 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA70F9222573A7400A44C06 /* Storyboard.swift */; };
-		ABA70F9622573AF400A44C06 /* CardCellDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA70F9522573AF400A44C06 /* CardCellDisplayable.swift */; };
 		ABA70F9922573B7400A44C06 /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA70F9822573B7400A44C06 /* CardsView.swift */; };
 		ABA70F9B22573BC100A44C06 /* SwipingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA70F9A22573BC100A44C06 /* SwipingCollectionViewCell.swift */; };
 		ABA70FA022573C9C00A44C06 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA70F9E22573C9C00A44C06 /* CardCollectionViewCell.swift */; };
@@ -242,7 +241,6 @@
 		ABA70F8D225739D200A44C06 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		ABA70F9022573A2700A44C06 /* UIImage+Effects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Effects.swift"; sourceTree = "<group>"; };
 		ABA70F9222573A7400A44C06 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
-		ABA70F9522573AF400A44C06 /* CardCellDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCellDisplayable.swift; sourceTree = "<group>"; };
 		ABA70F9822573B7400A44C06 /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
 		ABA70F9A22573BC100A44C06 /* SwipingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingCollectionViewCell.swift; sourceTree = "<group>"; };
 		ABA70F9E22573C9C00A44C06 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -552,7 +550,6 @@
 			isa = PBXGroup;
 			children = (
 				ABA70F78225714A900A44C06 /* BestBoxSize.storyboard */,
-				ABA70FA522573E7B00A44C06 /* PackageConfigViewStorage.swift */,
 				ABA70F7D225732E400A44C06 /* Package Configurations */,
 				ABA70F9722573B2700A44C06 /* Views */,
 				ABA70FA422573D4900A44C06 /* View Controllers */,
@@ -614,7 +611,7 @@
 			isa = PBXGroup;
 			children = (
 				ABA70F9222573A7400A44C06 /* Storyboard.swift */,
-				ABA70F9522573AF400A44C06 /* CardCellDisplayable.swift */,
+				ABA70FA522573E7B00A44C06 /* PackageConfigViewStorage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1156,7 +1153,6 @@
 				D1EAB2102243B67100720412 /* AccountViewController.swift in Sources */,
 				D1EAB23722492B0100720412 /* CoreDataStack.swift in Sources */,
 				D1EAB229224555B300720412 /* ScannARMainNavigationController.swift in Sources */,
-				ABA70F9622573AF400A44C06 /* CardCellDisplayable.swift in Sources */,
 				D137E683225E5066009CA684 /* Cache.swift in Sources */,
 				AB38DCE922446295008DC8C0 /* ObjectOrigin.swift in Sources */,
 				ABA70F7C2257179E00A44C06 /* BoxConfig3DPreviewViewController.swift in Sources */,
