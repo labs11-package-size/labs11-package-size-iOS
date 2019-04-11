@@ -141,5 +141,7 @@
 	</dict>
 	<key>FirebaseScreenReportingEnabled</key>
 	<false/>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

@@ -16,6 +16,7 @@ class ProductDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         setupDelegates()
+        setupTapGestures()
         updateViews()
         fetchAssets()
         changeEditingTo(false)
@@ -33,10 +34,26 @@ class ProductDetailViewController: UIViewController {
         lengthTextField.keyboardType = UIKeyboardType.decimalPad
         widthTextField.keyboardType = UIKeyboardType.decimalPad
         
+        packItNowButton.clipsToBounds = true
+        packItNowButton.cornerRadius = 12
+        
         
         guard let product = product else {fatalError("No product available to show")}
+        if let thumbnail = product.thumbnail {
+            var data: Data
+            do {
+                data = try Data(contentsOf: thumbnail)
+                imageView.image = UIImage(data: data)
+            } catch {
+                print("could not get image")
+                imageView.image = UIImage(named: "ET")
+            }
+        } else {
+            imageView.image = UIImage(named: "ET")
+        }
+        
         nameTextField.text = product.name
-        descriptionTextField.text = product.productDescription
+        descriptionTextView.text = product.productDescription
         manufacturerIdTextField.text = product.manufacturerId
         valueTextField.text =  String(format: "%.2f", (product.value)) // NumberFormatter.localizedString(from: NSNumber(value: product.value), number: .currency)
         weightTextField.text = String(format: "%.2f", (product.weight))
@@ -44,6 +61,15 @@ class ProductDetailViewController: UIViewController {
         widthTextField.text = String(format: "%.2f", (product.width))
         heightTextField.text = String(format: "%.2f", (product.height))
         fragileSwitch.isOn =  product.fragile == 1 ? true : false
+        
+    }
+    
+    private func setupTapGestures(){
+        
+        let tapGestureForDescription = UITapGestureRecognizer(target: self, action: #selector(self.handleDescriptionTap(_:)))
+       
+        self.descriptionStackView.isUserInteractionEnabled = true
+        self.descriptionStackView.addGestureRecognizer(tapGestureForDescription)
         
     }
     
@@ -74,7 +100,7 @@ class ProductDetailViewController: UIViewController {
     
         guard let product = product else { fatalError("No Product present")}
         product.name = nameTextField.text
-        product.productDescription = descriptionTextField.text
+        product.productDescription = descriptionTextView.text
         product.manufacturerId = manufacturerIdTextField.text
         
         if let value = Double("\(valueTextField.text)") {
@@ -90,7 +116,7 @@ class ProductDetailViewController: UIViewController {
     
     private func setupDelegates() {
         nameTextField.delegate = self
-        descriptionTextField.delegate = self
+        descriptionTextView.delegate = self
         manufacturerIdTextField.delegate = self
         valueTextField.delegate = self
         weightTextField.delegate = self
@@ -101,12 +127,11 @@ class ProductDetailViewController: UIViewController {
     
     private func changeEditingTo(_ bool: Bool) {
         nameTextField.isUserInteractionEnabled = bool
-        descriptionTextField.isUserInteractionEnabled = bool
+        descriptionTextView.isUserInteractionEnabled = bool
         manufacturerIdTextField.isUserInteractionEnabled = bool
         valueTextField.isUserInteractionEnabled = bool
         weightTextField.isUserInteractionEnabled = bool
         fragileSwitch.isUserInteractionEnabled = bool
-        
         
     }
     
@@ -162,31 +187,45 @@ class ProductDetailViewController: UIViewController {
             guard let product = product else { fatalError("No Product present")}
             guard let destVC = segue.destination as? PickProductToPackViewController else { fatalError("Did not transition to PickProductToPackViewController")}
             destVC.startingProduct = product
+        } else if segue.identifier == "ProductDescriptionSegue"{
+            guard let description = product?.productDescription else { fatalError("No Product description available")}
+            guard let destVC = segue.destination as? ProductDescriptionViewController else { fatalError("Did not transition to ProductDescriptionViewController")}
+            destVC.productDescription = description
+            destVC.product = product
         }
     }
    
     // MARK: - IBActions
     @IBAction func editButtonTapped(_ sender: Any) {
         changeEditingTo(true)
+        notification.notificationOccurred(.warning)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveTapped))
     }
     
     @objc func saveTapped(sender: UIButton) {
         changeEditingTo(false)
+        notification.notificationOccurred(.success)
         updateProductOnServer()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonTapped))
     }
-    @IBAction func packItNowButtonTapped(_ sender: Any) {
-        
+    
+    @objc func handleDescriptionTap(_ sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "ProductDescriptionSegue", sender: self)
     }
+    
+    @IBAction func packItNowButtonTapped(_ sender: Any) {
+        notification.notificationOccurred(.success)
+    }
+
     
     // MARK: - Properties
     var scannARNetworkingController: ScannARNetworkController?
     var product: Product?
+    let notification = UINotificationFeedbackGenerator()
     var collectionViewToReload: UICollectionView?
     @IBOutlet weak var packItNowButton: UIButton!
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var descriptionTextField: UITextField!
+    @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var manufacturerIdTextField: UITextField!
     @IBOutlet weak var valueTextField: UITextField!
     @IBOutlet weak var weightTextField: UITextField!
@@ -195,13 +234,18 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet weak var heightTextField: UITextField!
     @IBOutlet weak var fragileSwitch: UISwitch!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var descriptionStackView: UIStackView!
     
 }
 
-extension ProductDetailViewController: UITextFieldDelegate {
+extension ProductDetailViewController: UITextFieldDelegate, UITextViewDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        textView.resignFirstResponder()
     }
     
 }
