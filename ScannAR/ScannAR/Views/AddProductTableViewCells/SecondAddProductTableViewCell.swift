@@ -73,8 +73,12 @@ class SecondAddProductTableViewCell: UITableViewCell, UITextFieldDelegate, UIPic
             switch component {
             case 0:
                 lengthTextField.text = "\(inches[row] + decimal[lengthPickerView.selectedRow(inComponent: 1)])"
+                delegate?.length = Double("\(self.lengthTextField.text!)") ?? 0.0
+
             case 1:
                 lengthTextField.text = "\(inches[lengthPickerView.selectedRow(inComponent: 0)] + decimal[row])"
+                delegate?.length = Double("\(self.lengthTextField.text!)") ?? 0.0
+
             default:
                 print("")
             }
@@ -82,8 +86,10 @@ class SecondAddProductTableViewCell: UITableViewCell, UITextFieldDelegate, UIPic
             switch component {
             case 0:
                 widthTextField.text = "\(inches[row] + decimal[widthPickerView.selectedRow(inComponent: 1)])"
+                delegate?.width = Double("\(self.widthTextField.text!)") ?? 0.0
             case 1:
                 widthTextField.text = "\(inches[widthPickerView.selectedRow(inComponent: 0)] + decimal[row])"
+                delegate?.width = Double("\(self.widthTextField.text!)") ?? 0.0
             default:
                 print("")
             }
@@ -92,8 +98,10 @@ class SecondAddProductTableViewCell: UITableViewCell, UITextFieldDelegate, UIPic
             switch component {
             case 0:
                 heightTextField.text = "\(inches[row] + decimal[heightPickerView.selectedRow(inComponent: 1)])"
+                delegate?.height = Double("\(self.heightTextField.text!)") ?? 0.0
             case 1:
                 heightTextField.text = "\(inches[heightPickerView.selectedRow(inComponent: 0)] + decimal[row])"
+                delegate?.height = Double("\(self.heightTextField.text!)") ?? 0.0
             default:
                 print("")
             }
@@ -133,21 +141,9 @@ class SecondAddProductTableViewCell: UITableViewCell, UITextFieldDelegate, UIPic
     
     // MARK: Outlets
     
-    @IBOutlet weak var lengthPickerView: UIPickerView! {
-        didSet {
-            delegate?.length = Double("\(self.lengthTextField.text!)") ?? 0.0
-        }
-    }
-    @IBOutlet weak var widthPickerView: UIPickerView! {
-        didSet {
-            delegate?.width = Double("\(self.widthTextField.text!)") ?? 0.0
-        }
-    }
-    @IBOutlet weak var heightPickerView: UIPickerView! {
-        didSet {
-            delegate?.height = Double("\(self.heightTextField.text!)") ?? 0.0
-        }
-    }
+    @IBOutlet weak var lengthPickerView: UIPickerView!
+    @IBOutlet weak var widthPickerView: UIPickerView!
+    @IBOutlet weak var heightPickerView: UIPickerView!
     @IBOutlet weak var enterManuallyButton: UIButton!
     @IBOutlet weak var scanWithARButton: UIButton!
     @IBOutlet weak var manualEntryStackView: UIStackView!
