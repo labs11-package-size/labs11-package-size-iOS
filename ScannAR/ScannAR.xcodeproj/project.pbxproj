@@ -66,12 +66,11 @@
 		ABA70F8E225739D200A44C06 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA70F8D225739D200A44C06 /* UIView+Extensions.swift */; };
 		ABA70F9122573A2700A44C06 /* UIImage+Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA70F9022573A2700A44C06 /* UIImage+Effects.swift */; };
 		ABA70F9322573A7400A44C06 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA70F9222573A7400A44C06 /* Storyboard.swift */; };
-		ABA70F9622573AF400A44C06 /* CardCellDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA70F9522573AF400A44C06 /* CardCellDisplayable.swift */; };
 		ABA70F9922573B7400A44C06 /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA70F9822573B7400A44C06 /* CardsView.swift */; };
 		ABA70F9B22573BC100A44C06 /* SwipingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA70F9A22573BC100A44C06 /* SwipingCollectionViewCell.swift */; };
 		ABA70FA022573C9C00A44C06 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA70F9E22573C9C00A44C06 /* CardCollectionViewCell.swift */; };
 		ABA70FA322573D4200A44C06 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA70FA222573D4200A44C06 /* CardsViewController.swift */; };
-		ABA70FA622573E7B00A44C06 /* MockStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA70FA522573E7B00A44C06 /* MockStorage.swift */; };
+		ABA70FA622573E7B00A44C06 /* PackageConfigViewStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA70FA522573E7B00A44C06 /* PackageConfigViewStorage.swift */; };
 		ABB4C9EC2248BD7A0079E25D /* ARScan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABB4C9EE2248BD7A0079E25D /* ARScan.storyboard */; };
 		ABBDB0522253F65F000F7412 /* IBDesignable+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBDB0512253F65F000F7412 /* IBDesignable+UIKit.swift */; };
 		ABC2C3B7224A857D0045A7D2 /* ScannARNetworkingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB1DA2242E14F00720412 /* ScannARNetworkingController.swift */; };
@@ -242,12 +241,11 @@
 		ABA70F8D225739D200A44C06 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		ABA70F9022573A2700A44C06 /* UIImage+Effects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Effects.swift"; sourceTree = "<group>"; };
 		ABA70F9222573A7400A44C06 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
-		ABA70F9522573AF400A44C06 /* CardCellDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCellDisplayable.swift; sourceTree = "<group>"; };
 		ABA70F9822573B7400A44C06 /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
 		ABA70F9A22573BC100A44C06 /* SwipingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingCollectionViewCell.swift; sourceTree = "<group>"; };
 		ABA70F9E22573C9C00A44C06 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		ABA70FA222573D4200A44C06 /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
-		ABA70FA522573E7B00A44C06 /* MockStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStorage.swift; sourceTree = "<group>"; };
+		ABA70FA522573E7B00A44C06 /* PackageConfigViewStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageConfigViewStorage.swift; sourceTree = "<group>"; };
 		ABB4C9ED2248BD7A0079E25D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ARScan.storyboard; sourceTree = "<group>"; };
 		ABBDB0512253F65F000F7412 /* IBDesignable+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IBDesignable+UIKit.swift"; sourceTree = "<group>"; };
 		ABE99A01225D13E700228791 /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
@@ -552,7 +550,6 @@
 			isa = PBXGroup;
 			children = (
 				ABA70F78225714A900A44C06 /* BestBoxSize.storyboard */,
-				ABA70FA522573E7B00A44C06 /* MockStorage.swift */,
 				ABA70F7D225732E400A44C06 /* Package Configurations */,
 				ABA70F9722573B2700A44C06 /* Views */,
 				ABA70FA422573D4900A44C06 /* View Controllers */,
@@ -614,7 +611,7 @@
 			isa = PBXGroup;
 			children = (
 				ABA70F9222573A7400A44C06 /* Storyboard.swift */,
-				ABA70F9522573AF400A44C06 /* CardCellDisplayable.swift */,
+				ABA70FA522573E7B00A44C06 /* PackageConfigViewStorage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1156,7 +1153,6 @@
 				D1EAB2102243B67100720412 /* AccountViewController.swift in Sources */,
 				D1EAB23722492B0100720412 /* CoreDataStack.swift in Sources */,
 				D1EAB229224555B300720412 /* ScannARMainNavigationController.swift in Sources */,
-				ABA70F9622573AF400A44C06 /* CardCellDisplayable.swift in Sources */,
 				D137E683225E5066009CA684 /* Cache.swift in Sources */,
 				AB38DCE922446295008DC8C0 /* ObjectOrigin.swift in Sources */,
 				ABA70F7C2257179E00A44C06 /* BoxConfig3DPreviewViewController.swift in Sources */,
@@ -1168,7 +1164,7 @@
 				AB38DCF922446380008DC8C0 /* BoundingBox+Snapping.swift in Sources */,
 				D1EAB2082243B50B00720412 /* ProductDetailViewController.swift in Sources */,
 				AB38DCCE22445E5E008DC8C0 /* MessageLabel.swift in Sources */,
-				ABA70FA622573E7B00A44C06 /* MockStorage.swift in Sources */,
+				ABA70FA622573E7B00A44C06 /* PackageConfigViewStorage.swift in Sources */,
 				D1EAB23F224934E400720412 /* Product+Encodable.swift in Sources */,
 				AB38DCD022445E9C008DC8C0 /* RoundedButton.swift in Sources */,
 				AB38DD0422456379008DC8C0 /* ARDetectViewController.swift in Sources */,

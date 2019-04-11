@@ -21,20 +21,13 @@ class CardsViewController: UIViewController, UIScrollViewDelegate {
     
     // MARK: Properties
     var boxType: BoxType?
-    let storage = MockStorage.shared
-    var displayData = [CardCellDisplayable]()
+    let storage = PackageConfigViewStorage.shared
+    var displayData = [PackageConfiguration]()
     lazy var cardImageViewHeight: CGFloat = cardsView.frame.height * 0.45 //  45% is cell.imageView height constraint's multiplier
-    
-//    let shipperBox = "shipperBox"
-//    let mailerBox = "standardMailerBox"
+
     var products: [Product] = []
     let scannARNetworkController = ScannARNetworkController.shared
-//    lazy var data: [CardCellDisplayable] = [
-//        CardCellDisplayable(boxTypeImageViewFileName: shipperBox, title: "ShipperBox1", subtitle: "12x12x8", details: "Is this my espresso machine?", itemImageName: "toy1")
-//        ,
-//        CardCellDisplayable(boxTypeImageViewFileName: mailerBox, title: "MailerBox1", subtitle: "10x8x4", details: "Hey, you know how I'm, like, always trying to save the planet?", itemImageName: "toy2"),
-//        CardCellDisplayable(boxTypeImageViewFileName: shipperBox, title: "ShipperBox2", subtitle: "8x6x4", details: "Yes, Yes, without the oops! ", itemImageName: "toyboots")
-//    ]
+
     
     // MARK: Lifecycle
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +38,8 @@ class CardsViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         setCardsViewLayout()
         fetchPreview()
+        print(products)
+        print(products.count)
         
     }
     
@@ -66,32 +61,41 @@ class CardsViewController: UIViewController, UIScrollViewDelegate {
     }
     
     private func fetchPreview() {
-//        guard products.count > 0 else { return }
-//        let productUUIDs = products.map { $0.uuid!.uuidString }
-//        let packagePreview = PackagePreviewRequest(products: productUUIDs, boxType: nil) // could add boxType specifier here as well.
-//        scannARNetworkController.postPackagingPreview(packagingDict: packagePreview) { (results, error) in
-//
-//            if let error = error {
-//                print("Error: \(error)")
-//                return
-//            }
-//            guard let results = results else {
-//                print("No Results")
-//                return
-//            }
-            
-//            for result in results {
-//                self.storage.data.append(CardCellDisplayable(boxTypeImageViewFileName: "shipperBox", title: result.size, subtitle: "\(result.weightLimit)", details: "Is this my espresso machine?", itemImageName: "toy2"))
-//            }
-            
-                if let firstItem = self.storage.data.first {
-                    self.displayData.append(firstItem)
-                }
+        guard products.count > 0 else { return }
+        let productUUIDs = products.map { $0.uuid!.uuidString }
+        let packagePreview = PackagePreviewRequest(products: productUUIDs, boxType: boxType) // could add boxType specifier here as well.
+        scannARNetworkController.postPackagingPreview(packagingDict: packagePreview) { (results, error) in
+
+            if let error = error {
+                print("Error: \(error)")
+                return
+            }
+            guard let results = results else {
+                print("No Results")
+                return
+            }
+
+            for result in results {
+                print("result: \(result)")
+                self.displayData.append(result)
+            }
+
+//                if let firstItem = self.storage.data.first {
+//                    self.displayData.append(firstItem)
+//                }
+            DispatchQueue.main.async {
+                self.cardsView.reloadData()
+                self.reloadInputViews()
+            }
+        }
+        
+//        if let firstItem = self.storage.data.first {
+//            self.displayData.append(firstItem)
+//        }
+        DispatchQueue.main.async {
             self.cardsView.reloadData()
-                ///self.reloadInputViews()
-            
-            
-      //  }
+            self.reloadInputViews()
+        }
     }
     
     

@@ -161,6 +161,9 @@
                     <navigationItem key="navigationItem" id="S0F-Vo-0xZ">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Ume-ae-Ufp">
                             <color key="tintColor" name="appARKADarkBlue"/>
+                            <connections>
+                                <segue destination="x1K-Wr-SAM" kind="unwind" unwindAction="unwindToPickProductToPackVCWithSegue:" id="toU-RU-ooA"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -173,6 +176,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OoT-CJ-AHQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="x1K-Wr-SAM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-149.27536231884059" y="45.535714285714285"/>
         </scene>
