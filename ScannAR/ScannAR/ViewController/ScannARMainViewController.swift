@@ -61,12 +61,13 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     private func loadImage(forCell cell: ProductsCollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard let thumbnail = photoReferences[indexPath.item].thumbnail else {
+        let photoReference = productsFetchedResultsController.object(at: indexPath)
+        guard let thumbnail = photoReference.thumbnail else {
             cell.productImageView.image = UIImage(named: "ET")
             return
             
         }
-        let photoReference = photoReferences[indexPath.item]
+        
         guard let uuid = photoReference.uuid else { return }
         // Check for image in cache
         
