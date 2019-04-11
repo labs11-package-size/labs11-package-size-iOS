@@ -21,8 +21,9 @@ class CardsViewController: UIViewController, UIScrollViewDelegate {
     
     // MARK: Properties
     var boxType: BoxType?
-    let storage = MockStorage.shared
-    var displayData = [CardCellDisplayable]()
+    let storage = PackageConfigViewStorage.shared
+//    var displayData = [CardCellDisplayable]()
+    var displayData = [PackageConfiguration]()
     lazy var cardImageViewHeight: CGFloat = cardsView.frame.height * 0.45 //  45% is cell.imageView height constraint's multiplier
     
 //    let shipperBox = "shipperBox"
@@ -84,21 +85,21 @@ class CardsViewController: UIViewController, UIScrollViewDelegate {
 
             for result in results {
                 print("result: \(result)")
-//                self.storage.data.append(CardCellDisplayable(boxTypeImageViewFileName: "shipperBox", title: result.size, subtitle: "\(result.weightLimit)", details: "Is this my espresso machine?", itemImageName: "toy2"))
+                self.displayData.append(result)
             }
 
-                if let firstItem = self.storage.data.first {
-                    self.displayData.append(firstItem)
-                }
+//                if let firstItem = self.storage.data.first {
+//                    self.displayData.append(firstItem)
+//                }
             DispatchQueue.main.async {
                 self.cardsView.reloadData()
                 self.reloadInputViews()
             }
         }
         
-        if let firstItem = self.storage.data.first {
-            self.displayData.append(firstItem)
-        }
+//        if let firstItem = self.storage.data.first {
+//            self.displayData.append(firstItem)
+//        }
         DispatchQueue.main.async {
             self.cardsView.reloadData()
             self.reloadInputViews()
