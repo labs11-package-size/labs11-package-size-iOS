@@ -61,6 +61,11 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     private func loadImage(forCell cell: ProductsCollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let thumbnail = photoReferences[indexPath.item].thumbnail else {
+            cell.productImageView.image = UIImage(named: "ET")
+            return
+            
+        }
         let photoReference = photoReferences[indexPath.item]
         guard let uuid = photoReference.uuid else { return }
         // Check for image in cache
@@ -70,7 +75,6 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             return
             
         }
-        
         // Start an operation to fetch image data
         let fetchOp = FetchPhotoOperation(photoReference: photoReference)
         let cacheOp = BlockOperation {
@@ -88,6 +92,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             
             if let image = fetchOp.image {
                 cell.productImageView.image = image
+                
             }
         }
         
