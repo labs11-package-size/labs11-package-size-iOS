@@ -45,6 +45,8 @@ class CardsViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         setCardsViewLayout()
         fetchPreview()
+        print(products)
+        print(products.count)
         
     }
     
@@ -66,32 +68,41 @@ class CardsViewController: UIViewController, UIScrollViewDelegate {
     }
     
     private func fetchPreview() {
-//        guard products.count > 0 else { return }
-//        let productUUIDs = products.map { $0.uuid!.uuidString }
-//        let packagePreview = PackagePreviewRequest(products: productUUIDs, boxType: nil) // could add boxType specifier here as well.
-//        scannARNetworkController.postPackagingPreview(packagingDict: packagePreview) { (results, error) in
-//
-//            if let error = error {
-//                print("Error: \(error)")
-//                return
-//            }
-//            guard let results = results else {
-//                print("No Results")
-//                return
-//            }
-            
-//            for result in results {
+        guard products.count > 0 else { return }
+        let productUUIDs = products.map { $0.uuid!.uuidString }
+        let packagePreview = PackagePreviewRequest(products: productUUIDs, boxType: nil) // could add boxType specifier here as well.
+        scannARNetworkController.postPackagingPreview(packagingDict: packagePreview) { (results, error) in
+
+            if let error = error {
+                print("Error: \(error)")
+                return
+            }
+            guard let results = results else {
+                print("No Results")
+                return
+            }
+
+            for result in results {
+                print("result: \(result)")
 //                self.storage.data.append(CardCellDisplayable(boxTypeImageViewFileName: "shipperBox", title: result.size, subtitle: "\(result.weightLimit)", details: "Is this my espresso machine?", itemImageName: "toy2"))
-//            }
-            
+            }
+
                 if let firstItem = self.storage.data.first {
                     self.displayData.append(firstItem)
                 }
+            DispatchQueue.main.async {
+                self.cardsView.reloadData()
+                self.reloadInputViews()
+            }
+        }
+        
+        if let firstItem = self.storage.data.first {
+            self.displayData.append(firstItem)
+        }
+        DispatchQueue.main.async {
             self.cardsView.reloadData()
-                ///self.reloadInputViews()
-            
-            
-      //  }
+            self.reloadInputViews()
+        }
     }
     
     

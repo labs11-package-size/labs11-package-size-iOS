@@ -144,7 +144,8 @@ class PickProductToPackViewController: UIViewController, UITableViewDelegate, UI
         // Pass the selected object to the new view controller.
         
         if segue.identifier == "PreviewPackagingSegue" {
-            guard let destVC = segue.destination as? CardsViewController else { return }
+            guard let destNavController = segue.destination as? UINavigationController else { return }
+            let destVC = destNavController.topViewController as! CardsViewController
             destVC.navigationController?.navigationItem.backBarButtonItem?.tintColor = UIColor(named: "appARKADarkBlue")
             destVC.navigationController?.navigationBar.isTranslucent = true
             destVC.navigationController?.navigationBar.backgroundColor = UIColor.clear
