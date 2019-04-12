@@ -90,7 +90,9 @@ class PackageDetailViewController: UIViewController {
         
     }
     @IBAction func threeDPackagePreviewButton(_ sender: Any) {
-        
+        guard let urlString = package?.modelURL, urlString != "http://www.google.com" else { return }
+        guard let url = URL(string: urlString) else { return }
+        linkToURL(with: url)
     }
     
     @IBAction func createShipmentTapped(_ sender: Any) {
