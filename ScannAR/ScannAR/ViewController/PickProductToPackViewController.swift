@@ -12,12 +12,12 @@ import CoreData
 class PickProductToPackViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, ProductPickerDelegate {
     
     @IBAction func unwindToPickProductToPackVC(segue: UIStoryboardSegue) {
-                //nothing goes here
-            }
+        //nothing goes here
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         updateViews()
         tableView.dataSource = self
@@ -28,7 +28,7 @@ class PickProductToPackViewController: UIViewController, UITableViewDelegate, UI
         self.tableView.register(UINib(nibName: "PickProductTableViewCell", bundle: nil), forCellReuseIdentifier: pickProductReuseIdentifier)
         
     }
-
+    
     // MARK: - Private Methods
     private func updateViews(){
         
@@ -137,17 +137,15 @@ class PickProductToPackViewController: UIViewController, UITableViewDelegate, UI
             return cell
         }
         
-    
+        
     }
     
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        
+       
         if segue.identifier == "PreviewPackagingSegue" {
+            
             guard let destNavController = segue.destination as? UINavigationController else { return }
             let destVC = destNavController.topViewController as! CardsViewController
             destVC.navigationController?.navigationItem.backBarButtonItem?.tintColor = UIColor(named: "appARKADarkBlue")
@@ -156,9 +154,10 @@ class PickProductToPackViewController: UIViewController, UITableViewDelegate, UI
             destVC.navigationController?.navigationBar.alpha = 0.1
             destVC.navigationController?.setNavigationBarHidden(false, animated: false)
             destVC.products = self.pickedProducts
+            destVC.fetchResults = self.fetchResults
             switch boxSegmentedControl.selectedSegmentIndex {
             case 0:
-                print("No Box.")
+                destVC.boxType = .any
             case 1:
                 destVC.boxType = .shipper
             default:
@@ -166,14 +165,18 @@ class PickProductToPackViewController: UIViewController, UITableViewDelegate, UI
             }
         }
     }
-
+    
     // MARK: - IBActions
     @IBAction func previewPackages(_ sender: Any) {
-        
-        guard pickedProducts.count > 0 else { return }
-        
+        if pickedProducts.count > 0 {
+            self.fetchPreview()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                self.performSegue(withIdentifier: "PreviewPackagingSegue", sender: AnyObject.self)
+            }
+        }
     }
-
+    
+    
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -218,4 +221,25 @@ class PickProductToPackViewController: UIViewController, UITableViewDelegate, UI
         
     }()
     
+    // MARK: - package config fetch
+    var boxType: BoxType?
+    var fetchResults: [PackageConfiguration] = []
+    let scannARNetworkController = ScannARNetworkController.shared
+    func fetchPreview() {
+        guard pickedProducts.count > 0 else { return }
+        let productUUIDs = pickedProducts.map { $0.uuid!.uuidString }
+        let packagePreview = PackagePreviewRequest(products: productUUIDs, boxType: boxType) // could add boxType specifier here as well.
+        scannARNetworkController.postPackagingPreview(packagingDict: packagePreview) { (results, error) in
+            
+            if let error = error {
+                print("Error: \(error)")
+                return
+            }
+            guard let results = results else {
+                print("No Results")
+                return
+            }
+            self.fetchResults = results
+        }
+    }
 }
