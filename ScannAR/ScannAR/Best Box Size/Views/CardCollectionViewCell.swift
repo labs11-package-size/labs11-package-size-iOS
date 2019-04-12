@@ -135,7 +135,7 @@ class CardCollectionViewCell: SwipingCollectionViewCell {
                             Name: \(item.uuid?.prefix(7) ?? "1234567")
                             Weight: \(item.weight)oz
                             Size: \(item.origSize)
-                """
+              """
                 i += 1
                 
                 
