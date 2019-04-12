@@ -169,14 +169,16 @@ class PickProductToPackViewController: UIViewController, UITableViewDelegate, UI
     // MARK: - IBActions
     @IBAction func previewPackages(_ sender: Any) {
         if pickedProducts.count > 0 {
-            self.fetchPreview()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 4.20) {
-                self.performSegue(withIdentifier: "PreviewPackagingSegue", sender: AnyObject.self)
-            }
+            self.fetchPreview(completionHandler: {
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "PreviewPackagingSegue", sender: AnyObject.self)
+                }
+            })
+            
         }
     }
     
-    
+    //After(deadline: .now() + 7.0)
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -225,7 +227,7 @@ class PickProductToPackViewController: UIViewController, UITableViewDelegate, UI
     var boxType: BoxType?
     var fetchResults: [PackageConfiguration] = []
     let scannARNetworkController = ScannARNetworkController.shared
-    func fetchPreview() {
+    func fetchPreview(completionHandler: @escaping () -> Void) {
         guard pickedProducts.count > 0 else { return }
         let productUUIDs = pickedProducts.map { $0.uuid!.uuidString }
         let packagePreview = PackagePreviewRequest(products: productUUIDs, boxType: boxType) // could add boxType specifier here as well.
@@ -240,6 +242,8 @@ class PickProductToPackViewController: UIViewController, UITableViewDelegate, UI
                 return
             }
             self.fetchResults = results
+            completionHandler()
+            
         }
     }
 }

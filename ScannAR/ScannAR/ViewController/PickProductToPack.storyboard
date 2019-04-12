@@ -152,7 +152,7 @@
                         <outlet property="previewPackagesButton" destination="Fns-eR-4WF" id="K9h-DJ-BWE"/>
                         <outlet property="searchBar" destination="gIV-9x-btj" id="ewZ-QZ-2fT"/>
                         <outlet property="tableView" destination="7UT-Ky-cyG" id="m8s-QK-dTd"/>
-                        <segue destination="mUk-co-WEr" kind="show" identifier="PreviewPackagingSegue" id="TfO-w6-cF5"/>
+                        <segue destination="mUk-co-WEr" kind="show" identifier="PreviewPackagingSegue" id="eZJ-lQ-W8n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Azs-9R-LSW" userLabel="First Responder" sceneMemberID="firstResponder"/>
