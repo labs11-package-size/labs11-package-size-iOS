@@ -38,12 +38,7 @@ class CardCollectionViewCell: SwipingCollectionViewCell {
     var imgNamesArray: [String] = ["0", "1", "2"]
     var imgArray: [UIImage] = []
     var pageIndex: Int = 0
-    var labelText = """
-                Item #: 12345
-                Name: Ducky
-                Weight: 420oz
-                Size: 3x4x9
-"""
+    var labelText = ""
     
     weak var actionsHandler: CardCollectionViewCellActionsHandler?
     override var swipeDistanceOnY: CGFloat {
@@ -81,6 +76,12 @@ class CardCollectionViewCell: SwipingCollectionViewCell {
             
             let imageView = UIImageView()
             let imageLabel = UILabel()
+            labelText = """
+            Item #: 12345
+            Name: Ducky
+            Weight: 420oz
+            Size: 3x4x9
+            """
            
             imageView.image = imgArray[i].resizedImage(newSize: CGSize(width: smallView.frame.height, height: smallView.frame.height))
             imageView.contentMode = .left
