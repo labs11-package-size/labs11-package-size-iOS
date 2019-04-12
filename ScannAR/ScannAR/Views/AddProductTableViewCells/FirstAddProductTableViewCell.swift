@@ -19,6 +19,10 @@ class FirstAddProductTableViewCell: UITableViewCell, UITextFieldDelegate, UIText
         descriptionTextView.delegate = self
         self.separatorInset = UIEdgeInsets.zero
         self.layoutMargins = UIEdgeInsets.zero
+        productImageView.layer.cornerRadius = 16
+        productImageView.clipsToBounds = true
+        descriptionTextView.layer.cornerRadius = 8
+        nameTextField.layer.cornerRadius = 8
     }
     
     // MARK: TextFieldDelegate & TextViewDelegate

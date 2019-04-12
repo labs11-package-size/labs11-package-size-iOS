@@ -95,6 +95,8 @@
 		D132530D225ABCF80021ED29 /* PackageDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D132530C225ABCF80021ED29 /* PackageDetailViewController.storyboard */; };
 		D132530F225ABD590021ED29 /* PackageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D132530E225ABD590021ED29 /* PackageDetailViewController.swift */; };
 		D134D68E225707280022F6C4 /* PackagePreviewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D134D68D225707280022F6C4 /* PackagePreviewRequest.swift */; };
+		D134F43922603A31003F8CB3 /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = D134F43822603A31003F8CB3 /* Slide.swift */; };
+		D134F43B22603A43003F8CB3 /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = D134F43A22603A43003F8CB3 /* Slide.xib */; };
 		D135E657224C89F5008CC7DF /* NetworkingHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D135E656224C89F5008CC7DF /* NetworkingHelpers.swift */; };
 		D137E683225E5066009CA684 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D137E682225E5066009CA684 /* Cache.swift */; };
 		D137E686225E50AD009CA684 /* ConcurrentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D137E685225E50AD009CA684 /* ConcurrentOperation.swift */; };
@@ -269,6 +271,8 @@
 		D132530C225ABCF80021ED29 /* PackageDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PackageDetailViewController.storyboard; sourceTree = "<group>"; };
 		D132530E225ABD590021ED29 /* PackageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailViewController.swift; sourceTree = "<group>"; };
 		D134D68D225707280022F6C4 /* PackagePreviewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagePreviewRequest.swift; sourceTree = "<group>"; };
+		D134F43822603A31003F8CB3 /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
+		D134F43A22603A43003F8CB3 /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
 		D135E656224C89F5008CC7DF /* NetworkingHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingHelpers.swift; sourceTree = "<group>"; };
 		D137E682225E5066009CA684 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		D137E685225E50AD009CA684 /* ConcurrentOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrentOperation.swift; sourceTree = "<group>"; };
@@ -757,6 +761,8 @@
 				D14F66B82259416F0008DCF2 /* PickProductToPack.storyboard */,
 				D132530E225ABD590021ED29 /* PackageDetailViewController.swift */,
 				D132530C225ABCF80021ED29 /* PackageDetailViewController.storyboard */,
+				D134F43822603A31003F8CB3 /* Slide.swift */,
+				D134F43A22603A43003F8CB3 /* Slide.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -951,6 +957,7 @@
 				D1EAB20A2243B51D00720412 /* ProductDetailViewController.storyboard in Resources */,
 				AB519F622242C6CA00B27A8B /* art.scnassets in Resources */,
 				D11802C922553241002837D3 /* ThirdAddProductTableViewCell.xib in Resources */,
+				D134F43B22603A43003F8CB3 /* Slide.xib in Resources */,
 				AB519F6C2242C6CB00B27A8B /* LaunchScreen.storyboard in Resources */,
 				D14F66C222594ACC0008DCF2 /* PickProductTableViewCell.xib in Resources */,
 				D1EAB2162243B6AA00720412 /* SettingsViewController.storyboard in Resources */,
@@ -1173,6 +1180,7 @@
 				ABA70FA622573E7B00A44C06 /* PackageConfigViewStorage.swift in Sources */,
 				D1EAB23F224934E400720412 /* Product+Encodable.swift in Sources */,
 				AB38DCD022445E9C008DC8C0 /* RoundedButton.swift in Sources */,
+				D134F43922603A31003F8CB3 /* Slide.swift in Sources */,
 				AB38DD0422456379008DC8C0 /* ARDetectViewController.swift in Sources */,
 				ABBDB0522253F65F000F7412 /* IBDesignable+UIKit.swift in Sources */,
 				AB12DBAC2242E8BB00886A11 /* ARScanViewController+ARSessionState.swift in Sources */,
