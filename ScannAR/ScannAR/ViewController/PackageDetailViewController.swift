@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class PackageDetailViewController: UIViewController {
     
@@ -17,6 +18,7 @@ class PackageDetailViewController: UIViewController {
         
         updateViews()
         trackingNumberTextField.delegate = self
+        updatePicture()
     }
     // MARK: - Private Methods
     
@@ -24,29 +26,71 @@ class PackageDetailViewController: UIViewController {
         
         
         guard let package = package else {fatalError("No package available to show")}
-        dimensionsTextField.text = package.dimensions
-        totalWeightTextField.text = String(format: "%.2f",package.totalWeight)
+        dimensionsLabel.text = package.dimensions
+        totalWeightLabel.text = String(format: "%.2f",package.totalWeight)
         trackingNumberEnterStackView.isHidden = true
         createShipmentButton.isHidden = true
         
+        showTrackingNumber.layer.cornerRadius = 8
+        showTrackingNumber.clipsToBounds = true
+        createShipmentButton.layer.cornerRadius = 8
+        createShipmentButton.clipsToBounds = true
+        threeDPackagePreviewButton.layer.cornerRadius = 8
+        threeDPackagePreviewButton.clipsToBounds = true
     }
     
-    private func changeEditingTo(_ bool: Bool) {
-        dimensionsTextField.isUserInteractionEnabled = bool
-        totalWeightTextField.isUserInteractionEnabled = bool
-        
+    private func updatePicture() {
+        guard let package = package else { fatalError("No package present in this VC")}
+        if let dimensions = package.dimensions {
+            if let boxType = Box.boxVarieties[dimensions] {
+                
+                switch boxType {
+                case .shipper:
+                    self.boxImageView.image = UIImage(named: "standardMailerBox")
+                    self.boxTypeLabel.text = "Mailer"
+                default:
+                    self.boxImageView.image = UIImage(named: "Shipper")
+                    self.boxTypeLabel.text = "Shipper"
+                }
+            } else {
+                self.boxImageView.image = UIImage(named: "Shipper")
+                self.boxTypeLabel.text = "Shipper"
+            }
+            
+        } else {
+            self.boxImageView.image = UIImage(named: "Shipper")
+            self.boxTypeLabel.text = "N/A"
+        }
+        boxImageView.clipsToBounds = true
+        boxImageView.layer.cornerRadius = 12
     }
     
+    private func linkToURL(with url: URL) {
+            
+        let svc = SFSafariViewController(url: url)
+        present(svc, animated: true, completion: nil)
+            
+    }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    
+        if segue.identifier == "CreateShipmentSegue" {
+            guard let destVC = segue.destination as? ScannARMainViewController else { fatalError("Supposed to segue to ScannARMainViewController but did not.")}
+
+        }
+        
     }
     
     // MARK: - IBActions
     @IBAction func showTrackingNumberButtonTapped(_ sender: Any) {
-        trackingNumberEnterStackView.isHidden = !trackingNumberEnterStackView.isHidden
-        createShipmentButton.isHidden = !createShipmentButton.isHidden
+        UIView.animate(withDuration: 0.8) {
+            self.trackingNumberEnterStackView.isHidden = !self.trackingNumberEnterStackView.isHidden
+            self.createShipmentButton.isHidden = !self.createShipmentButton.isHidden
+        }
+        
+    }
+    @IBAction func threeDPackagePreviewButton(_ sender: Any) {
+        
     }
     
     @IBAction func createShipmentTapped(_ sender: Any) {
@@ -64,10 +108,10 @@ class PackageDetailViewController: UIViewController {
             if let error = error {
                 print("Error: \(error)")
             }
-            
             DispatchQueue.main.async {
-                self.navigationController?.popViewController(animated: true)
+                self.performSegue(withIdentifier: "CreateShipmentSegue", sender: nil)
             }
+            
         })
     }
     
@@ -75,11 +119,16 @@ class PackageDetailViewController: UIViewController {
     var scannARNetworkingController: ScannARNetworkController?
     var package: Package?
     var collectionViewToReload: UICollectionView?
-
+    @IBOutlet weak var boxImageView: UIImageView!
+    
+    
+    @IBOutlet weak var threeDPackagePreviewButton: UIButton!
     @IBOutlet weak var showTrackingNumber: UIButton!
     @IBOutlet weak var createShipmentButton: UIButton!
-    @IBOutlet weak var dimensionsTextField: UITextField!
-    @IBOutlet weak var totalWeightTextField: UITextField!
+    @IBOutlet weak var dimensionsLabel: UILabel!
+    @IBOutlet weak var totalWeightLabel: UILabel!
+    @IBOutlet weak var boxTypeLabel: UILabel!
+    
     @IBOutlet weak var trackingNumberTextField: UITextField!
     @IBOutlet weak var trackingNumberEnterStackView: UIStackView!
     

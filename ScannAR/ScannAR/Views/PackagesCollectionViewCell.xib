@@ -65,6 +65,7 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="179" height="155"/>
             <connections>
+                <outlet property="boxImageView" destination="sT8-rg-Igg" id="dDV-3A-twc"/>
                 <outlet property="dimensionsLabel" destination="KaG-g5-LQr" id="tMl-HH-vud"/>
                 <outlet property="numberOfProductsLabel" destination="WYW-tR-aCF" id="F06-KQ-JcK"/>
                 <outlet property="productNamesLabel" destination="AFo-j2-6cc" id="1R2-cB-849"/>

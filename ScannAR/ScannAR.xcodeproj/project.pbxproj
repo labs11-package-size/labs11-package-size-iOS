@@ -101,6 +101,7 @@
 		D137E688225E51F7009CA684 /* FetchPhotoOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D137E687225E51F7009CA684 /* FetchPhotoOperation.swift */; };
 		D137E68A225E6157009CA684 /* URL+Secure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D137E689225E6157009CA684 /* URL+Secure.swift */; };
 		D137E68E225FA3AA009CA684 /* ProductDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D137E68D225FA3AA009CA684 /* ProductDescriptionViewController.swift */; };
+		D137E690225FE703009CA684 /* ShipmentStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D137E68F225FE703009CA684 /* ShipmentStatus.swift */; };
 		D142BEE3224AACE400699881 /* ShipmentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D142BEE1224AACE400699881 /* ShipmentsCollectionViewCell.swift */; };
 		D142BEE4224AACE400699881 /* ShipmentsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D142BEE2224AACE400699881 /* ShipmentsCollectionViewCell.xib */; };
 		D14F66B92259416F0008DCF2 /* PickProductToPack.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D14F66B82259416F0008DCF2 /* PickProductToPack.storyboard */; };
@@ -274,6 +275,7 @@
 		D137E687225E51F7009CA684 /* FetchPhotoOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPhotoOperation.swift; sourceTree = "<group>"; };
 		D137E689225E6157009CA684 /* URL+Secure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Secure.swift"; sourceTree = "<group>"; };
 		D137E68D225FA3AA009CA684 /* ProductDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDescriptionViewController.swift; sourceTree = "<group>"; };
+		D137E68F225FE703009CA684 /* ShipmentStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentStatus.swift; sourceTree = "<group>"; };
 		D142BEE1224AACE400699881 /* ShipmentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentsCollectionViewCell.swift; sourceTree = "<group>"; };
 		D142BEE2224AACE400699881 /* ShipmentsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShipmentsCollectionViewCell.xib; sourceTree = "<group>"; };
 		D14F66B82259416F0008DCF2 /* PickProductToPack.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PickProductToPack.storyboard; sourceTree = "<group>"; };
@@ -801,6 +803,7 @@
 				D1EAB22B224920C800720412 /* JSONWebToken.swift */,
 				D152CA5C2253BFD2000F8ACD /* Account.swift */,
 				D11802D02255B14F002837D3 /* ProductAsset.swift */,
+				D137E68F225FE703009CA684 /* ShipmentStatus.swift */,
 				D196E760225695010012A3F7 /* Box.swift */,
 				D196E7662256B56E0012A3F7 /* BoxType.swift */,
 				D134D68D225707280022F6C4 /* PackagePreviewRequest.swift */,
@@ -1202,6 +1205,7 @@
 				AB38DCEF224462FD008DC8C0 /* PointCloud+CreateVisualization.swift in Sources */,
 				D134D68E225707280022F6C4 /* PackagePreviewRequest.swift in Sources */,
 				D152CA5D2253BFD2000F8ACD /* Account.swift in Sources */,
+				D137E690225FE703009CA684 /* ShipmentStatus.swift in Sources */,
 				D11802BC225530AF002837D3 /* SecondAddProductTableViewCell.swift in Sources */,
 				ABA70F9B22573BC100A44C06 /* SwipingCollectionViewCell.swift in Sources */,
 				AB12DBB32242EA0E00886A11 /* ARScan.swift in Sources */,
