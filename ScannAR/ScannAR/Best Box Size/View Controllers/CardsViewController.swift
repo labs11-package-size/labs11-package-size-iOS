@@ -42,11 +42,7 @@ class CardsViewController: UIViewController, UIScrollViewDelegate {
         if let firstItem = storage.data.first {
             displayData.append(firstItem)
         }
-        cardsView.reloadData()
-//        print("productsCount: \(products.count)")
-//        print("displayDataCount: \(displayData.count)")
-//        print("storageDataCount: \(storage.data.count)")
-        
+        cardsView.reloadData()  
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -56,7 +52,6 @@ class CardsViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-//        print(self.storage.data)
         handleViewControllerDismiss()
     }
     
@@ -114,10 +109,11 @@ extension CardsViewController: UICollectionViewDataSource {
         for view in cell.scrollView.subviews {
             view.removeFromSuperview()
         }
-        cell.setScrollView()
+        
         cell.delegate = self
         cell.actionsHandler = self
-        
+        cell.pageControl.numberOfPages = displayData[indexPath.row].itemCount
+        cell.setScrollView()
         return cell
     }
 }

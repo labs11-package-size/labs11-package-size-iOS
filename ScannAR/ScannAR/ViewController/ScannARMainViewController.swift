@@ -370,6 +370,23 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             // Configure the cell
             cell.package = package
             
+            if let dimensions = package.dimensions {
+                if let boxType = Box.boxVarieties[dimensions] {
+                    
+                    switch boxType {
+                    case .shipper:
+                        cell.boxImageView.image = UIImage(named: "standardMailerBox")
+                    default:
+                        cell.boxImageView.image = UIImage(named: "Shipper")
+                    }
+                } else {
+                    cell.boxImageView.image = UIImage(named: "Shipper")
+                }
+                
+            } else {
+                cell.boxImageView.image = UIImage(named: "Shipper")
+            }
+            
             cell.contentView.layer.cornerRadius = 10
             cell.contentView.layer.borderWidth = 1.0
             
@@ -396,9 +413,12 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             return cell
         
         case 2:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: shipmentReuseIdentifier, for: indexPath) as? ShipmentsCollectionViewCell else { fatalError("Could not dequeue cell as ShipmentsCollectionViewCell") }
             
             let shipment = shipmentsFetchedResultsController.object(at: indexPath)
+            
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: shipmentReuseIdentifier, for: indexPath) as? ShipmentsCollectionViewCell else { fatalError("Could not dequeue cell as ShipmentsCollectionViewCell") }
+            
+            cell.shipment = shipment
             
             // Configure the cell
             cell.contentView.layer.cornerRadius = 10
@@ -415,14 +435,46 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             cell.layer.masksToBounds = false
             cell.layer.shadowPath = UIBezierPath(roundedRect:cell.bounds, cornerRadius:cell.contentView.layer.cornerRadius).cgPath
             
-            cell.statusLabel.text = "Status: \(shipment.status)"
+            cell.statusLabel.text = "Status: \(ShipmentStatus.dict[Int(shipment.status)]!)"
             cell.totalWeightLabel.text = "Weight: \(shipment.totalWeight)"
             cell.trackingNumberLabel.text = "Tracking #: \(shipment.trackingNumber ?? "N/A")"
-            
-            guard
-                let shippedTo = shipment.shippedTo else { return cell }
+            guard let shippedTo = shipment.shippedTo else { return cell }
             cell.shippedToLabel.text = "To: \(shippedTo)"
             
+            // make emoji identifiers
+            var emojiString = ""
+            
+            switch shipment.status {
+            case 0:
+                emojiString = "❓"
+            case 1:
+                emojiString = "📬"
+            case 2:
+                emojiString = "✈️"
+            case 3:
+                emojiString = "🚛"
+            case 4:
+                emojiString = "🏠"
+            default:
+                emojiString = "⏱"
+            }
+            
+            switch shipment.totalValue {
+            case (Double.greatestFiniteMagnitude * -1)..<10.00:
+                emojiString = "\(emojiString) 💲"
+            case 10.00..<100.00:
+                emojiString = "\(emojiString) 💲💲"
+            default:
+                emojiString = "\(emojiString) 💲💲💲"
+            }
+            
+            switch shipment.totalWeight {
+            case (Double.greatestFiniteMagnitude * -1)..<100.00:
+                emojiString = "\(emojiString)"
+            default:
+                emojiString = "\(emojiString) 🐘"
+            }
+            cell.emojiTextLabel.text = emojiString
             
             return cell
             
@@ -715,7 +767,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         let fetchRequest: NSFetchRequest<Shipment> = Shipment.fetchRequest()
         
         fetchRequest.sortDescriptors = [
-            NSSortDescriptor(key: "status", ascending: false)
+            NSSortDescriptor(key: "status", ascending: true)
         ]
         let moc = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "status", cacheName: nil)

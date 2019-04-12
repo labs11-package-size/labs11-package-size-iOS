@@ -9,13 +9,15 @@
 import UIKit
 import MapKit
 
-class ShipmentsDetailViewController: UIViewController {
+class ShipmentsDetailViewController: UIViewController, MKMapViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         updateViews()
+        addAnnotation()
+        shipmentMapView.delegate = self
         
     }
     
@@ -24,7 +26,7 @@ class ShipmentsDetailViewController: UIViewController {
         guard let shipment = shipment else { fatalError("No shipment passed to this VC") }
         trackingNumberLabel.text = shipment.trackingNumber
         carrierNameLabel.text = shipment.carrierName
-        statusLabel.text = "\(shipment.status)"
+        statusLabel.text = ShipmentStatus.dict[Int(shipment.status)]
         shippedToLabel.text = shipment.shippedTo
         totalValueLabel.text = "\(shipment.totalValue)"
         totalWeightLabel.text = "\(shipment.totalWeight)"
@@ -50,6 +52,29 @@ class ShipmentsDetailViewController: UIViewController {
         } else {
             lastUpdatedLabel.text = "N/A"
         }
+        
+    }
+    
+    private func addAnnotation() {
+        
+        guard let address = shipment?.shippedTo else { return }
+        let geocoder = CLGeocoder()
+        let destination = MKPointAnnotation()
+        destination.title = address
+        
+        geocoder.geocodeAddressString(address, completionHandler: {(placemarks, error) -> Void in
+            if((error) != nil){
+                print("Error", error)
+            }
+            if let placemark = placemarks?.first {
+                destination.coordinate = placemark.location!.coordinate
+                self.shipmentMapView.setCenter(placemark.location!.coordinate,
+                                          animated: true)
+            }
+        })
+        
+        
+        shipmentMapView.addAnnotation(destination)
         
     }
     
@@ -94,7 +119,25 @@ class ShipmentsDetailViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-
+    
+    // MARK: - MapViewDelegate
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard annotation is MKPointAnnotation else { return nil }
+        
+        let identifier = "Annotation"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        
+        if annotationView == nil {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView!.canShowCallout = true
+        } else {
+            annotationView!.annotation = annotation
+        }
+        
+        return annotationView
+    }
+    
     
     // MARK: - Navigation
 

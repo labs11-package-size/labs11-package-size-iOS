@@ -42,7 +42,7 @@
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sM6-wR-Zxs">
                         <rect key="frame" x="8" y="144" width="368" height="60"/>
-                        <color key="backgroundColor" name="appARKATeal"/>
+                        <color key="backgroundColor" name="appARKAGrey"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="60" id="Ay3-fp-Mmz"/>
                         </constraints>
@@ -62,7 +62,7 @@
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2R-uj-fqb">
                         <rect key="frame" x="8" y="8" width="368" height="60"/>
-                        <color key="backgroundColor" name="appARKATeal"/>
+                        <color key="backgroundColor" name="appARKADarkBlue"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="60" id="DrV-h8-cf2"/>
                         </constraints>
@@ -73,7 +73,7 @@
                         </state>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="value" name="appARKADarkBlue"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                 <real key="value" value="1"/>
@@ -116,6 +116,9 @@
     <resources>
         <namedColor name="appARKADarkBlue">
             <color red="0.046999998390674591" green="0.17299999296665192" blue="0.32499998807907104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="appARKAGrey">
+            <color red="0.63099998235702515" green="0.63099998235702515" blue="0.63099998235702515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="appARKATeal">
             <color red="0.44699999690055847" green="0.74099999666213989" blue="0.63899999856948853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

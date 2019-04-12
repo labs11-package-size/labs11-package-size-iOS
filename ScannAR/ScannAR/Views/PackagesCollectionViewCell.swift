@@ -18,5 +18,7 @@ class PackagesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var dimensionsLabel: UILabel!
     @IBOutlet weak var numberOfProductsLabel: UILabel!
     @IBOutlet weak var productNamesLabel: UILabel!
+    @IBOutlet weak var boxImageView: UIImageView!
+    
     var package: Package?
 }

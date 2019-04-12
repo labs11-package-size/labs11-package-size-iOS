@@ -27,7 +27,7 @@ struct PackageConfiguration: Codable {
     }
     
     struct Item: Codable {
-        let uuid: String
+        let uuid: String?
         let id, origSize, spSize: String
         let size1, size2, size3, spSize1: Double
         let spSize2, spSize3: Double
@@ -35,6 +35,7 @@ struct PackageConfiguration: Codable {
         let yOriginInBin: Double
         let zOriginInBin: Double
         let weight, constraints: Double
+        let modelURL: URL?
         
         enum CodingKeys: String, CodingKey {
             case id
@@ -51,6 +52,7 @@ struct PackageConfiguration: Codable {
             case yOriginInBin = "y_origin_in_bin"
             case zOriginInBin = "z_origin_in_bin"
             case weight, constraints
+            case modelURL
         }
     }
     
