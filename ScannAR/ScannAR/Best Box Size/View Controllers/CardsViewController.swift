@@ -107,13 +107,15 @@ extension CardsViewController: UICollectionViewDataSource {
         
         cell.setContent(data: displayData[indexPath.row])
         for view in cell.scrollView.subviews {
+            print(view)
             view.removeFromSuperview()
+            print(view)
         }
-        
+        cell.setScrollView()
         cell.delegate = self
         cell.actionsHandler = self
         cell.pageControl.numberOfPages = displayData[indexPath.row].itemCount
-        cell.setScrollView()
+        
         return cell
     }
 }
