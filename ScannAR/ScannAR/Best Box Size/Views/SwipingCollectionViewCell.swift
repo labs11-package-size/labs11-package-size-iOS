@@ -55,8 +55,17 @@ class SwipingCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         frontContentView.transform = .identity
+        for view in self.subviews {
+            if view.isKind(of: CardCollectionViewCell.self){
+                for subview in view.subviews {
+                    if subview.isKind(of: UIScrollView.self){
+                        view.removeFromSuperview()
+                        print(view)
+                }
+            }
+        }
     }
-    
+}
     /// Called, when user tapped on any of the buttons at frontView of cell.
     func moveCellToInitialState(completion: @escaping () -> Void) {
         moveTargetViewToInitialPoint {

@@ -106,11 +106,12 @@ extension CardsViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardCollectionViewCell.reuseIdentifier, for: indexPath) as! CardCollectionViewCell
         
         cell.setContent(data: displayData[indexPath.row])
-        for view in cell.scrollView.subviews {
-            print(view)
-            view.removeFromSuperview()
-            print(view)
-        }
+//        for view in cell.subviews {
+//            if view.isKind(of: UIScrollView.self){
+//                print(view)
+//                view.removeFromSuperview()
+//            }
+//        }
         cell.setScrollView()
         cell.delegate = self
         cell.actionsHandler = self
