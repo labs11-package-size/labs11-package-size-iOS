@@ -109,9 +109,10 @@ class CardCollectionViewCell: SwipingCollectionViewCell {
         }
         
     }
+    
     let storage = PackageConfigViewStorage.shared
     func setContent(data: PackageConfiguration) {
-        boxTypeImageView.image = UIImage(named: "Mailer")
+        boxTypeImageView.image = UIImage(named: "\(storage.boxType.rawValue)")
         boxTypeNameLabel.text = data.id + ", " + data.size + ", \(storage.boxType.rawValue)"
         boxSizeLabel.text = String(data.weightLimit) + ", " + String(data.currWeight) + ", " + String(data.itemCount)
 //        setScrollView()
