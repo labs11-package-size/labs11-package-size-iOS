@@ -24,7 +24,7 @@ class CardsViewController: UIViewController, UIScrollViewDelegate {
     let storage = PackageConfigViewStorage.shared
     var displayData = [PackageConfiguration]()
     lazy var cardImageViewHeight: CGFloat = cardsView.frame.height * 0.45 //  45% is cell.imageView height constraint's multiplier
-
+    var fetchResults: [PackageConfiguration] = []
     var products: [Product] = []
     let scannARNetworkController = ScannARNetworkController.shared
 
@@ -37,9 +37,14 @@ class CardsViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setCardsViewLayout()
-        fetchPreview()
-        print(products)
-        print(products.count)
+        storage.data = fetchResults
+        if let firstItem = storage.data.first {
+            displayData.append(firstItem)
+        }
+        cardsView.reloadData()
+//        print("productsCount: \(products.count)")
+//        print("displayDataCount: \(displayData.count)")
+//        print("storageDataCount: \(storage.data.count)")
         
     }
     
@@ -50,6 +55,7 @@ class CardsViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+//        print(self.storage.data)
         handleViewControllerDismiss()
     }
     
@@ -59,47 +65,7 @@ class CardsViewController: UIViewController, UIScrollViewDelegate {
         view.layoutIfNeeded()
         cardsView.setLayout()
     }
-    
-    private func fetchPreview() {
-        guard products.count > 0 else { return }
-        let productUUIDs = products.map { $0.uuid!.uuidString }
-        let packagePreview = PackagePreviewRequest(products: productUUIDs, boxType: boxType) // could add boxType specifier here as well.
-        scannARNetworkController.postPackagingPreview(packagingDict: packagePreview) { (results, error) in
 
-            if let error = error {
-                print("Error: \(error)")
-                return
-            }
-            guard let results = results else {
-                print("No Results")
-                return
-            }
-
-            for result in results {
-                print("result: \(result)")
-                self.displayData.append(result)
-            }
-
-//                if let firstItem = self.storage.data.first {
-//                    self.displayData.append(firstItem)
-//                }
-            DispatchQueue.main.async {
-                self.cardsView.reloadData()
-                self.reloadInputViews()
-            }
-        }
-        
-//        if let firstItem = self.storage.data.first {
-//            self.displayData.append(firstItem)
-//        }
-        DispatchQueue.main.async {
-            self.cardsView.reloadData()
-            self.reloadInputViews()
-        }
-    }
-    
-    
-    
     func handleViewControllerPresentation() {
         if displayData.count == storage.data.count { return }
         cardsView.scrollToItem(at: 0)

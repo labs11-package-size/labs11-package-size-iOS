@@ -22,8 +22,8 @@
         <!--BestBoxSizeSceneNavController-->
         <scene sceneID="3Ac-9a-UMU">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xmg-Y6-wdA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardIdentifier="BestBoxSizeNavControllerSB" storyboardName="BestBoxSize" referencedIdentifier="BestBoxSizeNavControllerSB" id="mUk-co-WEr" userLabel="BestBoxSizeSceneNavController" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xmg-Y6-wdA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="241" y="113"/>
         </scene>
@@ -117,7 +117,6 @@
                                         <state key="normal" title="Preview Packages"/>
                                         <connections>
                                             <action selector="previewPackages:" destination="4S8-c0-774" eventType="touchUpInside" id="dfF-8c-RGo"/>
-                                            <segue destination="mUk-co-WEr" kind="show" identifier="PreviewPackagingSegue" id="jnR-ak-I1j"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -153,6 +152,7 @@
                         <outlet property="previewPackagesButton" destination="Fns-eR-4WF" id="K9h-DJ-BWE"/>
                         <outlet property="searchBar" destination="gIV-9x-btj" id="ewZ-QZ-2fT"/>
                         <outlet property="tableView" destination="7UT-Ky-cyG" id="m8s-QK-dTd"/>
+                        <segue destination="mUk-co-WEr" kind="show" identifier="PreviewPackagingSegue" id="TfO-w6-cF5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Azs-9R-LSW" userLabel="First Responder" sceneMemberID="firstResponder"/>
