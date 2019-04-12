@@ -170,7 +170,7 @@ class PickProductToPackViewController: UIViewController, UITableViewDelegate, UI
     @IBAction func previewPackages(_ sender: Any) {
         if pickedProducts.count > 0 {
             self.fetchPreview()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4.20) {
                 self.performSegue(withIdentifier: "PreviewPackagingSegue", sender: AnyObject.self)
             }
         }

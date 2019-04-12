@@ -38,6 +38,7 @@ class CardsViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         setCardsViewLayout()
         storage.data = fetchResults
+        storage.boxType = boxType
         if let firstItem = storage.data.first {
             displayData.append(firstItem)
         }

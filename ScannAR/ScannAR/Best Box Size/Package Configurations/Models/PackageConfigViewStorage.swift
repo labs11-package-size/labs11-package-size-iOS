@@ -11,9 +11,7 @@ import UIKit
 
 class PackageConfigViewStorage {
     static let shared = PackageConfigViewStorage()
-//    let shipperBox = "shipperBox"
-//    let mailerBox = "standardMailerBox"
-    var boxType: BoxType = .mailer
+    var boxType: BoxType!
     var boxTypeImageViewFileName: String = ""
     var data: [PackageConfiguration] = []
     
