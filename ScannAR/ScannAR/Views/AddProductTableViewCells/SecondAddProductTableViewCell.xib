@@ -20,18 +20,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="364" height="402.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="dqf-Vj-nIg">
-                        <rect key="frame" x="8" y="8" width="348" height="338"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="dqf-Vj-nIg">
+                        <rect key="frame" x="8" y="8" width="348" height="342"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Object Dimensions:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zG-fi-jPJ">
-                                <rect key="frame" x="0.0" y="0.0" width="348" height="16"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                <color key="textColor" name="appARKADarkBlue"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EuU-dW-YSc">
-                                <rect key="frame" x="0.0" y="20" width="348" height="60"/>
-                                <color key="backgroundColor" name="appARKATeal"/>
+                                <rect key="frame" x="0.0" y="0.0" width="348" height="60"/>
+                                <color key="backgroundColor" name="appARKADarkBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="CDM-gf-pXk"/>
                                 </constraints>
@@ -39,52 +33,92 @@
                                 <state key="normal" title="Scan with AR">
                                     <color key="titleColor" name="appBlue"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="appARKADarkBlue"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="scanWithARButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="doh-53-6N1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="gYz-Tv-Mhb">
-                                <rect key="frame" x="0.0" y="84" width="348" height="24"/>
-                                <color key="backgroundColor" name="appLightYellow"/>
+                                <rect key="frame" x="0.0" y="76" width="348" height="24"/>
+                                <color key="backgroundColor" name="appARKAGrey"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <state key="normal" title="Enter Manually"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="appARKAGrey"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="manualEntryTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="glW-Yb-fIu"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dIU-rW-rE5">
-                                <rect key="frame" x="0.0" y="112" width="348" height="226"/>
+                                <rect key="frame" x="0.0" y="116" width="348" height="226"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Nzx-PI-6rB">
                                         <rect key="frame" x="0.0" y="0.0" width="348" height="226"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NP2-gQ-b8f">
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="NP2-gQ-b8f">
                                                 <rect key="frame" x="0.0" y="0.0" width="348" height="70"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Length:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIB-cT-TCU">
-                                                        <rect key="frame" x="0.0" y="25" width="60" height="20.5"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="0Vk-kr-39D">
+                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Length:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIB-cT-TCU">
+                                                                <rect key="frame" x="0.0" y="0.0" width="70" height="20.5"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="70" id="qdb-ma-GGd"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rwz-mS-s1V">
+                                                                <rect key="frame" x="0.0" y="24.5" width="70" height="45.5"/>
+                                                                <color key="backgroundColor" name="appARKATeal"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                        </subviews>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="JWX-FY-3QH"/>
+                                                            <constraint firstAttribute="bottom" secondItem="rwz-mS-s1V" secondAttribute="bottom" id="62D-ED-rvr"/>
+                                                            <constraint firstAttribute="trailing" secondItem="rwz-mS-s1V" secondAttribute="trailing" id="76v-Gs-fNq"/>
+                                                            <constraint firstItem="QIB-cT-TCU" firstAttribute="top" secondItem="0Vk-kr-39D" secondAttribute="top" id="8cv-GF-QDO"/>
+                                                            <constraint firstAttribute="trailing" secondItem="QIB-cT-TCU" secondAttribute="trailing" id="MdP-9D-hA1"/>
+                                                            <constraint firstItem="rwz-mS-s1V" firstAttribute="leading" secondItem="0Vk-kr-39D" secondAttribute="leading" id="b2g-GT-tM3"/>
+                                                            <constraint firstItem="QIB-cT-TCU" firstAttribute="leading" secondItem="0Vk-kr-39D" secondAttribute="leading" id="ttE-TI-euI"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rwz-mS-s1V">
-                                                        <rect key="frame" x="68" y="20" width="44" height="30"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="44" id="FZM-Ke-iJG"/>
-                                                        </constraints>
-                                                        <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
+                                                    </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wC7-BK-hl9">
-                                                        <rect key="frame" x="120" y="0.0" width="228" height="70"/>
+                                                        <rect key="frame" x="74" y="0.0" width="274" height="70"/>
                                                         <subviews>
                                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KwV-Og-b9e">
-                                                                <rect key="frame" x="0.0" y="0.0" width="228" height="70"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="274" height="70"/>
                                                                 <color key="backgroundColor" name="appARKATeal"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                             </pickerView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -95,33 +129,73 @@
                                                             <constraint firstAttribute="height" constant="70" id="RuE-fm-vPe"/>
                                                             <constraint firstItem="KwV-Og-b9e" firstAttribute="leading" secondItem="wC7-BK-hl9" secondAttribute="leading" id="STX-Q3-sPg"/>
                                                         </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </view>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="0Vk-kr-39D" firstAttribute="leading" secondItem="NP2-gQ-b8f" secondAttribute="leading" id="MLR-3W-PfM"/>
+                                                    <constraint firstAttribute="bottom" secondItem="0Vk-kr-39D" secondAttribute="bottom" id="qeA-p4-3Tl"/>
+                                                    <constraint firstItem="0Vk-kr-39D" firstAttribute="top" secondItem="NP2-gQ-b8f" secondAttribute="top" id="wDW-AS-iY3"/>
+                                                </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wZE-uS-5qA">
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="wZE-uS-5qA">
                                                 <rect key="frame" x="0.0" y="78" width="348" height="70"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Width:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLa-zc-gco">
-                                                        <rect key="frame" x="0.0" y="25" width="60" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="agb-tl-FnV">
-                                                        <rect key="frame" x="68" y="20" width="44" height="30"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="1A8-r7-ha8">
+                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Width:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLa-zc-gco">
+                                                                <rect key="frame" x="0.0" y="0.0" width="70" height="20.5"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="agb-tl-FnV">
+                                                                <rect key="frame" x="0.0" y="24.5" width="70" height="45.5"/>
+                                                                <color key="backgroundColor" name="appARKATeal"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                        </subviews>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="44" id="PcY-lJ-Q9c"/>
+                                                            <constraint firstItem="gLa-zc-gco" firstAttribute="leading" secondItem="1A8-r7-ha8" secondAttribute="leading" id="1g7-ph-ZCJ"/>
+                                                            <constraint firstAttribute="bottom" secondItem="agb-tl-FnV" secondAttribute="bottom" id="7Ha-bV-8CC"/>
+                                                            <constraint firstItem="gLa-zc-gco" firstAttribute="top" secondItem="1A8-r7-ha8" secondAttribute="top" id="DAa-X1-RHW"/>
+                                                            <constraint firstItem="agb-tl-FnV" firstAttribute="leading" secondItem="1A8-r7-ha8" secondAttribute="leading" id="V3u-za-4xf"/>
+                                                            <constraint firstAttribute="trailing" secondItem="gLa-zc-gco" secondAttribute="trailing" id="XYt-kI-Jau"/>
+                                                            <constraint firstAttribute="trailing" secondItem="agb-tl-FnV" secondAttribute="trailing" id="jiT-g4-W64"/>
                                                         </constraints>
-                                                        <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
+                                                    </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h69-7Y-VzZ">
-                                                        <rect key="frame" x="120" y="0.0" width="228" height="70"/>
+                                                        <rect key="frame" x="74" y="0.0" width="274" height="70"/>
                                                         <subviews>
                                                             <pickerView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3fr-wo-S5n">
-                                                                <rect key="frame" x="0.0" y="0.0" width="228" height="70"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="274" height="70"/>
                                                                 <color key="backgroundColor" name="appARKATeal"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                             </pickerView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -133,34 +207,74 @@
                                                             <constraint firstItem="3fr-wo-S5n" firstAttribute="top" secondItem="h69-7Y-VzZ" secondAttribute="top" id="keZ-vB-lip"/>
                                                         </constraints>
                                                         <viewLayoutGuide key="safeArea" id="XPF-w4-dvZ"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </view>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="1A8-r7-ha8" firstAttribute="leading" secondItem="cO7-Oe-PLC" secondAttribute="leading" id="3Kf-oT-ro8"/>
+                                                    <constraint firstItem="cO7-Oe-PLC" firstAttribute="bottom" secondItem="1A8-r7-ha8" secondAttribute="bottom" id="6aI-a0-Fc9"/>
+                                                    <constraint firstItem="1A8-r7-ha8" firstAttribute="top" secondItem="cO7-Oe-PLC" secondAttribute="top" id="90O-hK-Mv5"/>
+                                                </constraints>
                                                 <viewLayoutGuide key="safeArea" id="cO7-Oe-PLC"/>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mOb-GL-g6w">
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="mOb-GL-g6w">
                                                 <rect key="frame" x="0.0" y="156" width="348" height="70"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ptf-bX-ThQ">
-                                                        <rect key="frame" x="0.0" y="25" width="60" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O3E-mH-zRu">
-                                                        <rect key="frame" x="68" y="20" width="44" height="30"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="9bC-bD-yUJ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ptf-bX-ThQ">
+                                                                <rect key="frame" x="0.0" y="0.0" width="70" height="20.5"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O3E-mH-zRu">
+                                                                <rect key="frame" x="0.0" y="24.5" width="70" height="45.5"/>
+                                                                <color key="backgroundColor" name="appARKATeal"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                        </subviews>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="44" id="fxv-G1-pmM"/>
+                                                            <constraint firstAttribute="trailing" secondItem="O3E-mH-zRu" secondAttribute="trailing" id="06e-M3-jNY"/>
+                                                            <constraint firstAttribute="trailing" secondItem="ptf-bX-ThQ" secondAttribute="trailing" id="JWM-Z6-Opp"/>
+                                                            <constraint firstItem="O3E-mH-zRu" firstAttribute="leading" secondItem="9bC-bD-yUJ" secondAttribute="leading" id="PUa-cR-wbU"/>
+                                                            <constraint firstItem="ptf-bX-ThQ" firstAttribute="leading" secondItem="9bC-bD-yUJ" secondAttribute="leading" id="PhE-gp-tnu"/>
+                                                            <constraint firstItem="ptf-bX-ThQ" firstAttribute="top" secondItem="9bC-bD-yUJ" secondAttribute="top" id="RRL-X3-qbv"/>
+                                                            <constraint firstAttribute="bottom" secondItem="O3E-mH-zRu" secondAttribute="bottom" id="jls-5w-cPf"/>
                                                         </constraints>
-                                                        <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
+                                                    </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iPg-DD-dcZ">
-                                                        <rect key="frame" x="120" y="0.0" width="228" height="70"/>
+                                                        <rect key="frame" x="74" y="0.0" width="274" height="70"/>
                                                         <subviews>
                                                             <pickerView tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kjc-W1-EhL">
-                                                                <rect key="frame" x="0.0" y="0.0" width="228" height="70"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="274" height="70"/>
                                                                 <color key="backgroundColor" name="appARKATeal"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                             </pickerView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -172,15 +286,27 @@
                                                             <constraint firstAttribute="trailing" secondItem="kjc-W1-EhL" secondAttribute="trailing" id="zcK-gE-ocL"/>
                                                         </constraints>
                                                         <viewLayoutGuide key="safeArea" id="SXr-fu-zz5"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </view>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="9bC-bD-yUJ" firstAttribute="top" secondItem="EJv-eQ-Wsj" secondAttribute="top" id="9ny-5I-diF"/>
+                                                    <constraint firstItem="9bC-bD-yUJ" firstAttribute="leading" secondItem="EJv-eQ-Wsj" secondAttribute="leading" id="K02-xd-M8q"/>
+                                                    <constraint firstItem="EJv-eQ-Wsj" firstAttribute="bottom" secondItem="9bC-bD-yUJ" secondAttribute="bottom" id="QZz-I3-Sh9"/>
+                                                </constraints>
                                                 <viewLayoutGuide key="safeArea" id="EJv-eQ-Wsj"/>
                                             </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="NP2-gQ-b8f" firstAttribute="width" secondItem="wZE-uS-5qA" secondAttribute="width" id="UHs-uD-O84"/>
-                                            <constraint firstItem="gLa-zc-gco" firstAttribute="width" secondItem="ptf-bX-ThQ" secondAttribute="width" id="gEd-et-jG5"/>
-                                            <constraint firstItem="QIB-cT-TCU" firstAttribute="width" secondItem="gLa-zc-gco" secondAttribute="width" id="lAR-TJ-g77"/>
+                                            <constraint firstItem="QIB-cT-TCU" firstAttribute="width" secondItem="gLa-zc-gco" secondAttribute="width" id="6JP-Aw-fbf"/>
+                                            <constraint firstItem="ptf-bX-ThQ" firstAttribute="width" secondItem="gLa-zc-gco" secondAttribute="width" id="h3q-nx-QQO"/>
                                             <constraint firstItem="wZE-uS-5qA" firstAttribute="width" secondItem="mOb-GL-g6w" secondAttribute="width" id="z11-3H-FdJ"/>
                                         </constraints>
                                     </stackView>
@@ -202,12 +328,15 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="enterManuallyButton" destination="gYz-Tv-Mhb" id="cvt-zd-cYD"/>
+                <outlet property="heightPickerContainerView" destination="iPg-DD-dcZ" id="aM9-Sa-DBT"/>
                 <outlet property="heightPickerView" destination="kjc-W1-EhL" id="qAR-pg-PS9"/>
                 <outlet property="heightTextField" destination="O3E-mH-zRu" id="ANe-ey-ejc"/>
+                <outlet property="lengthPickerContainerView" destination="wC7-BK-hl9" id="39s-mL-0AH"/>
                 <outlet property="lengthPickerView" destination="KwV-Og-b9e" id="kuc-u3-bGl"/>
                 <outlet property="lengthTextField" destination="rwz-mS-s1V" id="Kwk-gB-yOY"/>
                 <outlet property="manualEntryStackView" destination="dIU-rW-rE5" id="PK8-Tj-wAn"/>
                 <outlet property="scanWithARButton" destination="EuU-dW-YSc" id="axG-jS-Cca"/>
+                <outlet property="widthPickerContainerView" destination="h69-7Y-VzZ" id="E6o-Jv-zCC"/>
                 <outlet property="widthPickerView" destination="3fr-wo-S5n" id="08K-jq-OzO"/>
                 <outlet property="widthTextField" destination="agb-tl-FnV" id="BZI-4D-2CW"/>
             </connections>
@@ -218,14 +347,14 @@
         <namedColor name="appARKADarkBlue">
             <color red="0.046999998390674591" green="0.17299999296665192" blue="0.32499998807907104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="appARKAGrey">
+            <color red="0.63099998235702515" green="0.63099998235702515" blue="0.63099998235702515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="appARKATeal">
             <color red="0.44699999690055847" green="0.74099999666213989" blue="0.63899999856948853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="appBlue">
             <color red="0.0" green="0.4779999852180481" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="appLightYellow">
-            <color red="1" green="0.94999998807907104" blue="0.75" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -363,7 +363,7 @@ class ScannARNetworkController {
      */
     func postAddPackages(packagingConfigurations: [PackageConfiguration], completion: @escaping ([PackageConfiguration]? ,Error?) -> Void) {
         
-        let request = createRequest(for: .POSTPreviewPackaging, packagingConfigurations: packagingConfigurations)
+        let request = createRequest(for: .POSTAddPackage, packagingConfigurations: packagingConfigurations)
         
         apiRequest(from: request) { (_ results: [PackageConfiguration]?, error: Error?) in
             
@@ -791,7 +791,7 @@ extension ScannARNetworkController {
             
             guard let packagingConfigurations = packagingConfigurations else { fatalError("no packaging Dictionary passed") }
             var url = baseURL
-            url = url.appendingPathComponent("packages")
+            url = url.appendingPathComponent("packaging")
             url = url.appendingPathComponent("add")
             
             guard let jsonToken = jsonToken else { fatalError("The jsonToken is empty.") }

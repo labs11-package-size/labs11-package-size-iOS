@@ -13,6 +13,7 @@ class ThirdAddProductTableViewCell: UITableViewCell, UITextFieldDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        updateViews()
         manufacturerIdTextField.tag = 0
         weightTextField.tag = 1
         valueTextField.tag = 2
@@ -20,10 +21,20 @@ class ThirdAddProductTableViewCell: UITableViewCell, UITextFieldDelegate {
         manufacturerIdTextField.delegate = self
         weightTextField.delegate = self
         valueTextField.delegate = self
-        self.separatorInset = UIEdgeInsets.zero
-        self.layoutMargins = UIEdgeInsets.zero
+        
     }
     
+    // MARK: Private Methods
+    private func updateViews(){
+        self.separatorInset = UIEdgeInsets.zero
+        self.layoutMargins = UIEdgeInsets.zero
+        manufacturerIdTextField.clipsToBounds = true
+        manufacturerIdTextField.layer.cornerRadius = 8
+        valueTextField.clipsToBounds = true
+        valueTextField.layer.cornerRadius = 8
+        weightTextField.clipsToBounds = true
+        weightTextField.layer.cornerRadius = 8
+    }
     // MARK: TextFieldDelegate
     func textFieldDidEndEditing(_ textField: UITextField) {
         

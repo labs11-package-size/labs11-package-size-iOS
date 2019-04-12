@@ -38,7 +38,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QKR-PQ-QHy">
-                                <rect key="frame" x="-3.5" y="596" width="300" height="30"/>
+                                <rect key="frame" x="-3.5" y="608" width="300" height="30"/>
                                 <color key="backgroundColor" name="appARKADarkBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="4nd-jL-iTC"/>
@@ -51,13 +51,6 @@
                                     <action selector="threeDPackagePreviewButton:" destination="MN1-zW-VSH" eventType="touchUpInside" id="DHw-xO-wwF"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5vZ-a0-Qz2">
-                                <rect key="frame" x="-3.5" y="288" width="300" height="300"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="DN5-KX-Amj"/>
-                                    <constraint firstAttribute="height" constant="300" id="itD-Oe-Crt"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tmq-Hd-hT1">
                                 <rect key="frame" x="158" y="367" width="0.0" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -147,8 +140,32 @@
                                     <constraint firstItem="33Q-cV-mLb" firstAttribute="width" secondItem="8zx-nQ-cNx" secondAttribute="width" id="dNg-vX-c0c"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8f8-sZ-aQU">
-                                <rect key="frame" x="40" y="646" width="213" height="40"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zrn-20-40E">
+                                <rect key="frame" x="-3.5" y="288" width="300" height="300"/>
+                                <subviews>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="CBy-xC-wuf">
+                                        <rect key="frame" x="114.5" y="255" width="71" height="37"/>
+                                        <color key="backgroundColor" name="appARKATeal"/>
+                                    </pageControl>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u4v-1z-uJD">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                        <color key="backgroundColor" name="appARKATeal"/>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="4Of-m3-0wY"/>
+                                    <constraint firstAttribute="bottom" secondItem="u4v-1z-uJD" secondAttribute="bottom" id="7P3-7D-NmL"/>
+                                    <constraint firstAttribute="height" constant="300" id="AUh-aa-h0l"/>
+                                    <constraint firstItem="u4v-1z-uJD" firstAttribute="leading" secondItem="Zrn-20-40E" secondAttribute="leading" id="JSS-2e-tZX"/>
+                                    <constraint firstItem="u4v-1z-uJD" firstAttribute="top" secondItem="Zrn-20-40E" secondAttribute="top" id="XPb-QB-Ubq"/>
+                                    <constraint firstItem="CBy-xC-wuf" firstAttribute="centerX" secondItem="Zrn-20-40E" secondAttribute="centerX" id="g8P-jK-p8Q"/>
+                                    <constraint firstAttribute="bottom" secondItem="CBy-xC-wuf" secondAttribute="bottom" constant="8" id="gfO-OO-aBI"/>
+                                    <constraint firstAttribute="trailing" secondItem="u4v-1z-uJD" secondAttribute="trailing" id="wtm-qZ-ReC"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8f8-sZ-aQU">
+                                <rect key="frame" x="52" y="662" width="213" height="40"/>
                                 <color key="backgroundColor" name="appARKADarkBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Fsb-gm-avW"/>
@@ -164,30 +181,32 @@
                         </subviews>
                         <color key="backgroundColor" name="appARKATeal"/>
                         <constraints>
+                            <constraint firstItem="QKR-PQ-QHy" firstAttribute="top" secondItem="Zrn-20-40E" secondAttribute="bottom" constant="20" id="3gi-Tj-1Sn"/>
+                            <constraint firstItem="Zrn-20-40E" firstAttribute="centerX" secondItem="YZD-Mh-xGf" secondAttribute="centerX" id="4Sj-8r-DLp"/>
                             <constraint firstItem="9nF-sU-qAT" firstAttribute="trailing" secondItem="8f8-sZ-aQU" secondAttribute="trailing" constant="40" id="59m-ni-wnp"/>
-                            <constraint firstItem="QKR-PQ-QHy" firstAttribute="top" secondItem="5vZ-a0-Qz2" secondAttribute="bottom" constant="8" id="6gn-St-n0U"/>
                             <constraint firstItem="Wbk-BO-Z28" firstAttribute="top" secondItem="9nF-sU-qAT" secondAttribute="top" constant="20" id="8VU-em-7nf"/>
                             <constraint firstItem="8f8-sZ-aQU" firstAttribute="top" secondItem="QKR-PQ-QHy" secondAttribute="bottom" constant="20" id="Ag0-lG-Iun"/>
-                            <constraint firstItem="9nF-sU-qAT" firstAttribute="trailing" secondItem="Wbk-BO-Z28" secondAttribute="trailing" constant="40" id="BjZ-aF-jDt"/>
-                            <constraint firstItem="5vZ-a0-Qz2" firstAttribute="centerX" secondItem="YZD-Mh-xGf" secondAttribute="centerX" id="D1d-YA-bQk"/>
                             <constraint firstItem="8f8-sZ-aQU" firstAttribute="leading" secondItem="9nF-sU-qAT" secondAttribute="leading" constant="40" id="F53-Yw-nxC"/>
                             <constraint firstItem="kZ3-Xz-JxY" firstAttribute="top" secondItem="Wbk-BO-Z28" secondAttribute="bottom" constant="20" id="Gcr-Xk-I2p"/>
                             <constraint firstItem="Wbk-BO-Z28" firstAttribute="centerX" secondItem="YZD-Mh-xGf" secondAttribute="centerX" id="KMA-J9-Wtf"/>
+                            <constraint firstItem="9nF-sU-qAT" firstAttribute="trailing" secondItem="Wbk-BO-Z28" secondAttribute="trailing" constant="40" id="V9L-kC-i2o"/>
                             <constraint firstItem="kZ3-Xz-JxY" firstAttribute="leading" secondItem="9nF-sU-qAT" secondAttribute="leading" constant="20" id="XIG-WI-Slz"/>
                             <constraint firstItem="QKR-PQ-QHy" firstAttribute="centerX" secondItem="YZD-Mh-xGf" secondAttribute="centerX" id="Y12-qq-InB"/>
                             <constraint firstItem="8f8-sZ-aQU" firstAttribute="centerX" secondItem="YZD-Mh-xGf" secondAttribute="centerX" id="a8S-07-YxJ"/>
                             <constraint firstItem="9nF-sU-qAT" firstAttribute="trailing" secondItem="kZ3-Xz-JxY" secondAttribute="trailing" constant="20" id="jcW-qI-Rug"/>
+                            <constraint firstItem="Zrn-20-40E" firstAttribute="top" secondItem="kZ3-Xz-JxY" secondAttribute="bottom" constant="20" id="kKc-pV-S66"/>
                             <constraint firstItem="kZ3-Xz-JxY" firstAttribute="centerX" secondItem="YZD-Mh-xGf" secondAttribute="centerX" id="kTT-x4-YUe"/>
-                            <constraint firstItem="5vZ-a0-Qz2" firstAttribute="top" secondItem="kZ3-Xz-JxY" secondAttribute="bottom" constant="20" id="sSI-nk-hS2"/>
-                            <constraint firstItem="Wbk-BO-Z28" firstAttribute="leading" secondItem="9nF-sU-qAT" secondAttribute="leading" constant="40" id="ujI-ru-7JQ"/>
+                            <constraint firstItem="Wbk-BO-Z28" firstAttribute="leading" secondItem="9nF-sU-qAT" secondAttribute="leading" constant="40" id="q2z-Kp-E08"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9nF-sU-qAT"/>
                     </view>
                     <connections>
-                        <outlet property="boxImageView" destination="5vZ-a0-Qz2" id="6G7-Xi-4QX"/>
                         <outlet property="boxTypeLabel" destination="Nj5-eK-NEn" id="5Wn-Jk-u2v"/>
                         <outlet property="createShipmentButton" destination="8f8-sZ-aQU" id="557-5t-xU2"/>
                         <outlet property="dimensionsLabel" destination="tNI-K0-bSg" id="aS8-61-EUA"/>
+                        <outlet property="pageControl" destination="CBy-xC-wuf" id="Lxp-iH-7lR"/>
+                        <outlet property="scrollContainerView" destination="Zrn-20-40E" id="Cv4-Fd-5jx"/>
+                        <outlet property="scrollView" destination="u4v-1z-uJD" id="p7W-0p-WDJ"/>
                         <outlet property="showTrackingNumber" destination="Wbk-BO-Z28" id="KBp-DY-REc"/>
                         <outlet property="threeDPackagePreviewButton" destination="QKR-PQ-QHy" id="BcE-pK-Q2b"/>
                         <outlet property="totalWeightLabel" destination="zh8-uC-sn4" id="Uss-mt-iFN"/>

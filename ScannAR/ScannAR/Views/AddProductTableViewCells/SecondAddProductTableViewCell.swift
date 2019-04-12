@@ -37,6 +37,18 @@ class SecondAddProductTableViewCell: UITableViewCell, UITextFieldDelegate, UIPic
         enterManuallyButton.layer.cornerRadius = 4
         self.separatorInset = UIEdgeInsets.zero
         self.layoutMargins = UIEdgeInsets.zero
+        lengthPickerContainerView.clipsToBounds = true
+        lengthPickerContainerView.layer.cornerRadius = 8
+        widthPickerContainerView.clipsToBounds = true
+        widthPickerContainerView.layer.cornerRadius = 8
+        heightPickerContainerView.clipsToBounds = true
+        heightPickerContainerView.layer.cornerRadius = 8
+        lengthTextField.clipsToBounds = true
+        lengthTextField.layer.cornerRadius = 8
+        widthTextField.clipsToBounds = true
+        widthTextField.layer.cornerRadius = 8
+        heightTextField.clipsToBounds = true
+        heightTextField.layer.cornerRadius = 8
     }
 
     // MARK: UIPickerView Delegate & DataSource
@@ -132,9 +144,14 @@ class SecondAddProductTableViewCell: UITableViewCell, UITextFieldDelegate, UIPic
     @IBAction func manualEntryTapped(_ sender: Any) {
         
         if manualEntryStackView.isHidden {
-            delegate?.manualEntryHidden = false
+            UIView.animate(withDuration: 0.5) {
+                self.delegate?.manualEntryHidden = false
+            }
+            
         } else {
-            delegate?.manualEntryHidden = true
+            UIView.animate(withDuration: 0.5) {
+                self.delegate?.manualEntryHidden = true
+            }
         }
     }
     
@@ -150,6 +167,9 @@ class SecondAddProductTableViewCell: UITableViewCell, UITextFieldDelegate, UIPic
     @IBOutlet weak var lengthTextField: UITextField!
     @IBOutlet weak var widthTextField: UITextField!
     @IBOutlet weak var heightTextField: UITextField!
+    @IBOutlet weak var heightPickerContainerView: UIView!
+    @IBOutlet weak var widthPickerContainerView: UIView!
+    @IBOutlet weak var lengthPickerContainerView: UIView!
     
     // MARK: Properties
     weak var delegate: AddProductProtocolDelegate?
