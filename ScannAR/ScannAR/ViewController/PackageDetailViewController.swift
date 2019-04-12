@@ -8,6 +8,7 @@
 
 import UIKit
 import SafariServices
+import CoreData
 
 class PackageDetailViewController: UIViewController {
     
@@ -22,14 +23,17 @@ class PackageDetailViewController: UIViewController {
         
         
         scrollView.delegate = self
+        
         slides = createSlides()
         setupSlideScrollView(slides: slides)
-        
         pageControl.numberOfPages = slides.count
         pageControl.currentPage = 0
         pageControl.layer.cornerRadius = 8
         pageControl.clipsToBounds = true
         scrollContainerView.bringSubviewToFront(pageControl)
+        
+
+        
     }
     // MARK: - Private Methods
     
@@ -48,6 +52,8 @@ class PackageDetailViewController: UIViewController {
         createShipmentButton.clipsToBounds = true
         threeDPackagePreviewButton.layer.cornerRadius = 8
         threeDPackagePreviewButton.clipsToBounds = true
+        
+        
     }
     
     private func updatePicture() {
@@ -83,12 +89,26 @@ class PackageDetailViewController: UIViewController {
             
     }
     
+    private func getCompoundPredicate()->NSCompoundPredicate{
+        var predicateArray: [NSPredicate] = []
+        for uuidString in productUUIDStrings {
+            let uuid = UUID(uuidString: uuidString)
+            let predicate = NSPredicate(format: "uuid = %@", argumentArray: [uuid])
+            predicateArray.append(predicate)
+            print(predicate)
+        }
+        
+        
+        return NSCompoundPredicate.init(type: .or, subpredicates: predicateArray)
+    }
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CreateShipmentSegue" {
             guard segue.destination is ScannARMainViewController else { fatalError("Supposed to segue to ScannARMainViewController but did not.")}
 
         }
+        
         
     }
     
@@ -134,6 +154,37 @@ class PackageDetailViewController: UIViewController {
     var slides: [Slide] = []
     var collectionViewToReload: UICollectionView?
 //    @IBOutlet weak var boxImageView: UIImageView!
+    var productUUIDStrings: [String] = ["2325525b-5ce7-11e9-b3ba-63904f403033",
+                                        "23040ea8-5ce7-11e9-b3ba-63904f403033",
+                                        "23040ea4-5ce7-11e9-b3ba-63904f403033",
+                                        "23040ea3-5ce7-11e9-b3ba-63904f403033",
+                                        "23040ea2-5ce7-11e9-b3ba-63904f403033",
+                                        "23040ea1-5ce7-11e9-b3ba-63904f403033"]
+    
+    lazy var filteredProducts: [Product] = {
+        
+        let fetchRequest: NSFetchRequest<Product> = Product.fetchRequest()
+        let moc = CoreDataStack.shared.mainContext
+        
+        fetchRequest.sortDescriptors = [
+            NSSortDescriptor(key: "name", ascending: true)
+        ]
+        let compoundPredicate = getCompoundPredicate()
+        fetchRequest.predicate = compoundPredicate
+        
+        var fetchedProducts: [Product] = []
+        do {
+            fetchedProducts = try moc.fetch(fetchRequest)
+        } catch {
+            fatalError("Failed to fetch product: \(error)")
+        }
+        
+        
+        return fetchedProducts
+        
+        
+    }()
+    
     
     @IBOutlet weak var scrollContainerView: UIView!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -162,33 +213,28 @@ extension PackageDetailViewController {
     
     func createSlides() -> [Slide] {
         
+        var slides: [Slide] = []
+        
         let slide1:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide1.imageView.image = UIImage(named: "logistics-package")
-//        slide1.titleLabel.text = "A real-life bear"
-//        slide1.descriptionLabel.text = "Did you know that Winnie the chubby little cubby was based on a real, young bear in London"
         
-        let slide2:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide2.imageView.image = UIImage(named: "package-delivery")
-//        slide2.titleLabel.text = "A real-life bear"
-//        slide2.descriptionLabel.text = "Did you know that Winnie the chubby little cubby was based on a real, young bear in London"
+        slide1.imageView.image = UIImage(named: "Shipper")
+        slides.append(slide1)
         
-        let slide3:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide3.imageView.image = UIImage(named: "package-for-delivery")
-//        slide3.titleLabel.text = "A real-life bear"
-//        slide3.descriptionLabel.text = "Did you know that Winnie the chubby little cubby was based on a real, young bear in London"
+        for product in filteredProducts {
+            let slide: Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
+            
+            var data: Data
+            do {
+                data = try Data(contentsOf: product.thumbnail!)
+                slide.imageView.image = UIImage(data: data)
+            } catch {
+                print("error")
+            }
+            
+            slides.append(slide)
+        }
         
-        let slide4:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide4.imageView.image = UIImage(named: "package-delivery-in-hand")
-//        slide4.titleLabel.text = "A real-life bear"
-//        slide4.descriptionLabel.text = "Did you know that Winnie the chubby little cubby was based on a real, young bear in London"
-        
-        
-        let slide5:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide5.imageView.image = UIImage(named: "package-cube-box-for-delivery")
-//        slide5.titleLabel.text = "A real-life bear"
-//        slide5.descriptionLabel.text = "Did you know that Winnie the chubby little cubby was based on a real, young bear in London"
-        
-        return [slide1, slide2, slide3, slide4, slide5]
+        return slides
     }
     
     func setupSlideScrollView(slides : [Slide]) {
