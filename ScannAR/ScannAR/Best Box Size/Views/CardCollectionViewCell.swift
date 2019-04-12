@@ -59,8 +59,8 @@ class CardCollectionViewCell: SwipingCollectionViewCell {
         print(imgNamesArray)
         frontContentView.layer.cornerRadius = 10.0
         scrollView.delegate = self
-        scrollView.frame = smallView.frame
-        pageControl.currentPage = 0
+        scrollView.frame.size = smallView.frame.size
+        //pageControl.currentPage = 0
         scrollView.isPagingEnabled = true
         smallView.bringSubviewToFront(pageControl)
         
@@ -112,7 +112,7 @@ class CardCollectionViewCell: SwipingCollectionViewCell {
                 imageView.image = imgArray[i].resizedImage(newSize: CGSize(width: smallView.frame.height, height: smallView.frame.height))
                 imageView.contentMode = .left
                 let xPosition = self.smallView.frame.width * CGFloat(i)
-                imageView.frame = CGRect(x: xPosition + 0.0, y: 0, width: self.scrollView.frame.width, height: self.scrollView.frame.height)
+                imageView.frame = CGRect(x: xPosition + 0.0, y: 0, width: self.smallView.frame.width, height: self.smallView.frame.height)
                 
                 imageLabel.frame = CGRect(x: imageView.frame.origin.x + 104.0, y: imageView.frame.origin.y, width: imageView.frame.size.width, height: imageView.frame.size.height)
                 imageLabel.contentMode = .right
@@ -123,8 +123,8 @@ class CardCollectionViewCell: SwipingCollectionViewCell {
                 imageLabel.lineBreakMode = .byWordWrapping
                 imageLabel.numberOfLines = 0
                 
-                scrollView.contentSize.width = scrollView.frame.width * CGFloat(i + 1)
-                scrollView.contentSize.height = scrollView.frame.height
+                scrollView.contentSize.width = smallView.frame.width * CGFloat(i + 1)
+                scrollView.contentSize.height = smallView.frame.height
                 
                 
                 scrollView.addSubview(imageView)
