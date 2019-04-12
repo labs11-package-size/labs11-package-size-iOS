@@ -171,7 +171,7 @@ class PickProductToPackViewController: UIViewController, UITableViewDelegate, UI
         if pickedProducts.count > 0 {
             self.fetchPreview(completionHandler: {
                 DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "PreviewPackagingSegue", sender: AnyObject.self)
+                    self.performSegue(withIdentifier: "PreviewPackagingSegue", sender: self)
                 }
             })
             

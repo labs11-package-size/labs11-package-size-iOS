@@ -33,12 +33,18 @@ class CardCollectionViewCell: SwipingCollectionViewCell {
     @IBOutlet weak var deleteButton: UIButton!
     
     // MARK: Properties
+    let storage = PackageConfigViewStorage.shared
     var boxTypeImageViewFileName: String = ""
     var previousContentOffset: CGPoint = .zero
-    var imgNamesArray: [String] = ["0", "1", "2"]
+    var imgNamesArray = [String]()
     var imgArray: [UIImage] = []
     var pageIndex: Int = 0
-    var labelText = ""
+    var labelText = """
+                Item #: 12345
+                Name: Ducky
+                Weight: 420oz
+                Size: 3x4x9
+"""
     
     weak var actionsHandler: CardCollectionViewCellActionsHandler?
     override var swipeDistanceOnY: CGFloat {
@@ -49,17 +55,42 @@ class CardCollectionViewCell: SwipingCollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        imgNamesArray = (0..<storage.data.count).map{ String($0) }
+        print(imgNamesArray)
         frontContentView.layer.cornerRadius = 10.0
         scrollView.delegate = self
         scrollView.frame = smallView.frame
-        pageControl.numberOfPages = imgNamesArray.count
         pageControl.currentPage = 0
         scrollView.isPagingEnabled = true
         smallView.bringSubviewToFront(pageControl)
+        
     }
     
+//    private func fetchAssets(){
+//        //guard let product = product else {fatalError("No product available to show")}
+//        //guard let uuid = product.uuid else {fatalError("No uuid available to show")}
+//        ScannARNetworkController?.getAssetsForProduct(uuid: uuid, completion: { (results, error) in
+//
+//            guard let firstAsset = results?.first else { return }
+//            guard let url = URL(string: firstAsset.urlString) else {
+//                return
+//            }
+//            var data: Data
+//            do {
+//                data = try Data(contentsOf:  url)
+//            } catch {
+//                print("Could not get picture from URL")
+//                return
+//            }
+//            DispatchQueue.main.async {
+//                self.imageView.image = UIImage(data: data)
+//            }
+//
+//        })
+//    }
+    
     func setScrollView(){
-        
+        // dynamically builds package detail paging scrollViews from fetched results
         for name in imgNamesArray {
             guard let img = UIImage(named: name) else { return }
             if !imgArray.contains(img) {
@@ -68,55 +99,53 @@ class CardCollectionViewCell: SwipingCollectionViewCell {
                 print("Image already exists.")
             }
         }
-        
-        print(imgArray.count)
-        
-        for i in 0..<imgArray.count {
+
+        for packageConfig in storage.data {
+            var i = 0
             
-            
-            let imageView = UIImageView()
-            let imageLabel = UILabel()
-            labelText = """
-            Item #: 12345
-            Name: Ducky
-            Weight: 420oz
-            Size: 3x4x9
-            """
-           
-            imageView.image = imgArray[i].resizedImage(newSize: CGSize(width: smallView.frame.height, height: smallView.frame.height))
-            imageView.contentMode = .left
-            let xPosition = self.smallView.frame.width * CGFloat(i)
-            imageView.frame = CGRect(x: xPosition + 0.0, y: 0, width: self.scrollView.frame.width, height: self.scrollView.frame.height)
-            
-            imageLabel.frame = CGRect(x: imageView.frame.origin.x + 104.0, y: imageView.frame.origin.y, width: imageView.frame.size.width, height: imageView.frame.size.height)
-            imageLabel.textColor = UIColor.black
-            //            imageLabel.frame.origin.x = imageView.frame.origin.x + 42.0
-            
-            imageLabel.backgroundColor = UIColor.clear
-            imageLabel.textColor = UIColor.black
-            imageLabel.lineBreakMode = .byWordWrapping
-            imageLabel.numberOfLines = 0
-            
-            scrollView.contentSize.width = scrollView.frame.width * CGFloat(i + 1)
-            scrollView.contentSize.height = scrollView.frame.height
-            
-            
-            scrollView.addSubview(imageView)
-            scrollView.addSubview(imageLabel)
-            imageLabel.text = labelText
-            
-            
+            for _ in packageConfig.items {
+                print("packageConfig \(i), itemCount: \(packageConfig.itemCount)")
+                let imageView = UIImageView()
+                let imageLabel = UILabel()
+                
+                
+                imageView.image = imgArray[i].resizedImage(newSize: CGSize(width: smallView.frame.height, height: smallView.frame.height))
+                imageView.contentMode = .left
+                let xPosition = self.smallView.frame.width * CGFloat(i)
+                imageView.frame = CGRect(x: xPosition + 0.0, y: 0, width: self.scrollView.frame.width, height: self.scrollView.frame.height)
+                
+                imageLabel.frame = CGRect(x: imageView.frame.origin.x + 104.0, y: imageView.frame.origin.y, width: imageView.frame.size.width, height: imageView.frame.size.height)
+                imageLabel.contentMode = .right
+                imageLabel.textColor = UIColor.black
+                
+                imageLabel.backgroundColor = UIColor.clear
+                imageLabel.textColor = UIColor.black
+                imageLabel.lineBreakMode = .byWordWrapping
+                imageLabel.numberOfLines = 0
+                
+                scrollView.contentSize.width = scrollView.frame.width * CGFloat(i + 1)
+                scrollView.contentSize.height = scrollView.frame.height
+                
+                
+                scrollView.addSubview(imageView)
+                scrollView.addSubview(imageLabel)
+                imageLabel.text = labelText
+                i += 1
+                
+                
+                
+            }
             
         }
-        
+    
     }
     
-    let storage = PackageConfigViewStorage.shared
+  
     func setContent(data: PackageConfiguration) {
         boxTypeImageView.image = UIImage(named: "\(storage.boxType.rawValue)")
         boxTypeNameLabel.text = data.id + ", " + data.size + ", \(storage.boxType.rawValue)"
         boxSizeLabel.text = String(data.weightLimit) + ", " + String(data.currWeight) + ", " + String(data.itemCount)
-//        setScrollView()
+
     }
     
     override func frontViewPositionChanged(on percent: CGFloat) {
@@ -186,7 +215,7 @@ extension CardCollectionViewCell: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pageIndex = round(scrollView.contentOffset.x/scrollView.frame.width)
         pageControl.currentPage = Int(pageIndex)
-        print(pageControl.currentPage)
+       // print(pageControl.currentPage)
         
         let maximumHorizontalOffset: CGFloat = scrollView.contentSize.width - scrollView.frame.width
         let currentHorizontalOffset: CGFloat = scrollView.contentOffset.x

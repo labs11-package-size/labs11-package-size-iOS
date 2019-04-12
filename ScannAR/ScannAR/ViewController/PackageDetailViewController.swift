@@ -75,7 +75,7 @@ class PackageDetailViewController: UIViewController {
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CreateShipmentSegue" {
-            guard let destVC = segue.destination as? ScannARMainViewController else { fatalError("Supposed to segue to ScannARMainViewController but did not.")}
+            guard segue.destination is ScannARMainViewController else { fatalError("Supposed to segue to ScannARMainViewController but did not.")}
 
         }
         
