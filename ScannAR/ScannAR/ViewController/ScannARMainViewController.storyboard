@@ -100,15 +100,12 @@
                                 <segue destination="0qG-Dc-x7H" kind="show" identifier="AccountViewSegue" id="XEB-cj-2AL"/>
                             </connections>
                         </barButtonItem>
-                        <rightBarButtonItems>
-                            <barButtonItem title="🤪" id="IAg-H0-MNQ"/>
-                            <barButtonItem title="Add" id="48A-4b-2gJ">
-                                <connections>
-                                    <action selector="addButtonClicked:" destination="8s4-Ma-CAL" id="a9G-vE-DHo"/>
-                                    <segue destination="Qem-YB-khX" kind="show" identifier="ShowAddProductSegue" id="DG4-Bt-tna"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="48A-4b-2gJ">
+                            <connections>
+                                <action selector="addButtonClicked:" destination="8s4-Ma-CAL" id="a9G-vE-DHo"/>
+                                <segue destination="Qem-YB-khX" kind="show" identifier="ShowAddProductSegue" id="DG4-Bt-tna"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="aSe-Zc-dbB" id="Hnz-F9-tfu"/>
