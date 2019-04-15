@@ -26,25 +26,25 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MKj-Vn-Vwr">
                                 <rect key="frame" x="0.0" y="0.0" width="133" height="20.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" name="appARKADarkBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ccc-zh-zrT">
                                 <rect key="frame" x="0.0" y="24.5" width="133" height="19.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" name="appARKADarkBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOa-2E-qkN">
                                 <rect key="frame" x="0.0" y="48" width="133" height="14.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" name="appARKADarkBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpp-U4-u3O">
                                 <rect key="frame" x="0.0" y="66.5" width="133" height="14.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" name="appARKADarkBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -60,7 +60,7 @@
                     </imageView>
                 </subviews>
             </view>
-            <color key="backgroundColor" name="appARKATeal"/>
+            <color key="backgroundColor" red="0.94841229790000003" green="0.94841229790000003" blue="0.94841229790000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="OxV-J1-UW3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="8sk-Fq-x0h"/>
                 <constraint firstItem="OxV-J1-UW3" firstAttribute="topMargin" secondItem="7LY-Db-M0F" secondAttribute="bottom" constant="8" id="9Rc-Ss-UDm"/>
@@ -85,6 +85,9 @@
     </objects>
     <resources>
         <image name="ET" width="42" height="41"/>
+        <namedColor name="appARKADarkBlue">
+            <color red="0.046999998390674591" green="0.17299999296665192" blue="0.32499998807907104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="appARKATeal">
             <color red="0.44699999690055847" green="0.74099999666213989" blue="0.63899999856948853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

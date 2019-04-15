@@ -26,31 +26,31 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xnE-aC-MlS">
                                 <rect key="frame" x="0.0" y="0.0" width="174" height="12.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" name="appARKADarkBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyX-MB-WXg">
                                 <rect key="frame" x="0.0" y="14.5" width="174" height="12.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" name="appARKADarkBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brq-uL-miu">
                                 <rect key="frame" x="0.0" y="29" width="174" height="13"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" name="appARKADarkBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GjK-zr-1Ty">
                                 <rect key="frame" x="0.0" y="44" width="174" height="12.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" name="appARKADarkBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BoF-Om-sZv">
                                 <rect key="frame" x="0.0" y="58.5" width="174" height="17.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" name="appARKADarkBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -63,7 +63,7 @@
                     </imageView>
                 </subviews>
             </view>
-            <color key="backgroundColor" name="appARKATeal"/>
+            <color key="backgroundColor" red="0.94841229790000003" green="0.94841229790000003" blue="0.94841229790000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="PJx-Tx-B0v" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="Akc-8Z-dCq"/>
                 <constraint firstItem="PJx-Tx-B0v" firstAttribute="top" secondItem="6RT-Rd-eLk" secondAttribute="bottom" constant="8" id="bH7-dV-H2l"/>
@@ -86,8 +86,8 @@
     </objects>
     <resources>
         <image name="ET" width="42" height="41"/>
-        <namedColor name="appARKATeal">
-            <color red="0.44699999690055847" green="0.74099999666213989" blue="0.63899999856948853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="appARKADarkBlue">
+            <color red="0.046999998390674591" green="0.17299999296665192" blue="0.32499998807907104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
