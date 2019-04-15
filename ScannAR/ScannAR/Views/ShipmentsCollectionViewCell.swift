@@ -24,6 +24,4 @@ class ShipmentsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var emojiTextLabel: UILabel!
     var shipment: Shipment?
     
-    
-    
 }

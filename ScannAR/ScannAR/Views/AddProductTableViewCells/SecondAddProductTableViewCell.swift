@@ -31,10 +31,7 @@ class SecondAddProductTableViewCell: UITableViewCell, UITextFieldDelegate, UIPic
 
     // MARK: Private Methods
     private func updateViews(){
-        scanWithARButton.clipsToBounds = true
-        scanWithARButton.layer.cornerRadius = 8
-        enterManuallyButton.clipsToBounds = true
-        enterManuallyButton.layer.cornerRadius = 4
+        
         self.separatorInset = UIEdgeInsets.zero
         self.layoutMargins = UIEdgeInsets.zero
         lengthPickerContainerView.clipsToBounds = true
@@ -141,19 +138,7 @@ class SecondAddProductTableViewCell: UITableViewCell, UITextFieldDelegate, UIPic
         delegate?.scanWithARButtonTapped(self)
     }
     
-    @IBAction func manualEntryTapped(_ sender: Any) {
-        
-        if manualEntryStackView.isHidden {
-            UIView.animate(withDuration: 0.5) {
-                self.delegate?.manualEntryHidden = false
-            }
-            
-        } else {
-            UIView.animate(withDuration: 0.5) {
-                self.delegate?.manualEntryHidden = true
-            }
-        }
-    }
+    
     
     
     // MARK: Outlets
@@ -161,7 +146,6 @@ class SecondAddProductTableViewCell: UITableViewCell, UITextFieldDelegate, UIPic
     @IBOutlet weak var lengthPickerView: UIPickerView!
     @IBOutlet weak var widthPickerView: UIPickerView!
     @IBOutlet weak var heightPickerView: UIPickerView!
-    @IBOutlet weak var enterManuallyButton: UIButton!
     @IBOutlet weak var scanWithARButton: UIButton!
     @IBOutlet weak var manualEntryStackView: UIStackView!
     @IBOutlet weak var lengthTextField: UITextField!

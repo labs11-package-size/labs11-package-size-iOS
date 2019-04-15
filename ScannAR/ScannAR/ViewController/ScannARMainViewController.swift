@@ -21,6 +21,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         self.collectionView!.register(UINib(nibName: "ShipmentsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: shipmentReuseIdentifier)
         self.collectionView!.register(UINib(nibName: "ProductsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: productReuseIdentifier)
         self.collectionView!.register(UINib(nibName: "PackagesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: packageReuseIdentifier)
+        self.collectionView!.register(UINib(nibName: "AddProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: addProductReuseIdentifier)
         
         // Do any additional setup after loading the view.
         collectionView.delegate = self
@@ -287,7 +288,13 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         } else if segue.identifier == "ProductDetailSegue" {
             
             guard let indexPath = collectionView.indexPathsForSelectedItems?.first else {fatalError("No selected indexPath")}
-            let product = productsFetchedResultsController.object(at: indexPath)
+            var newIndexPath: IndexPath
+            if indexPath.section == 0 {
+                newIndexPath = IndexPath(item: indexPath.item - 1, section: 0)
+            } else {
+                newIndexPath = indexPath
+            }
+            let product = productsFetchedResultsController.object(at: newIndexPath)
             guard let destVC = segue.destination as? ProductDetailViewController else { fatalError("Segue should cast view controller as ProductDetailViewController but failed to do so.")}
             destVC.scannARNetworkingController = self.scannARNetworkingController
             destVC.product = product
@@ -300,8 +307,6 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             destVC.scannARNetworkingController = self.scannARNetworkingController
             destVC.shipment = shipment
             
-        } else if segue.identifier == "ShowAddProductSegue" {
-        
         } else if segue.identifier == "ARScanMainMenuShow" {
             guard segue.destination is ARScanMenuScreenViewController else { fatalError("Segue should cast view controller as ARScanMenuScreenViewController but failed to do so.")}
             let transition: CATransition = CATransition()
@@ -331,7 +336,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         case 2:
             return shipmentsFetchedResultsController.sections?.count ?? 0
         default:
-            return productsFetchedResultsController.sections?.count ?? 0
+            return productsFetchedResultsController.sections?.count ?? 0 + 1
         }
     
     }
@@ -351,11 +356,20 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
                 return 0
             }
         default:
-            if productsFetchedResultsController.sections?.count ?? 0 > 0 {
-                return productsFetchedResultsController.sections?[section].numberOfObjects ?? 0
+            if section == 0 {
+                if productsFetchedResultsController.sections?.count ?? 0 > 0 {
+                    return productsFetchedResultsController.sections?[section].numberOfObjects ?? 0 + 1
+                } else {
+                    return 1
+                }
             } else {
-                return 0
+                if productsFetchedResultsController.sections?.count ?? 0 > 0 {
+                    return productsFetchedResultsController.sections?[section].numberOfObjects ?? 0
+                } else {
+                    return 0
+                }
             }
+            
         }
     }
     
@@ -479,13 +493,41 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             return cell
             
         default:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: productReuseIdentifier, for: indexPath) as? ProductsCollectionViewCell else { fatalError("Could not dequeue cell as ProductsCollectionViewCell") }
             
-            let product = productsFetchedResultsController.object(at: indexPath)
+            if indexPath.section == 0 && indexPath.item == 0 {
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: addProductReuseIdentifier, for: indexPath) as? AddProductCollectionViewCell else { fatalError("Could not dequeue cell as AddProductCollectionViewCell") }
+                
+                cell.contentView.layer.cornerRadius = 10
+                cell.contentView.layer.borderWidth = 1.0
+                
+                cell.contentView.layer.borderColor = UIColor.clear.cgColor
+                cell.contentView.layer.masksToBounds = true
+                
+                cell.layer.shadowColor = UIColor.gray.cgColor
+                cell.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+                cell.layer.shadowRadius = 2.0
+                cell.layer.shadowOpacity = 1.0
+                cell.layer.cornerRadius = 8
+                cell.layer.masksToBounds = false
+                cell.layer.shadowPath = UIBezierPath(roundedRect:cell.bounds, cornerRadius:cell.contentView.layer.cornerRadius).cgPath
+                
+                return cell
+            }
+            
+            var newIndexPath: IndexPath
+            if indexPath.section == 0 {
+                newIndexPath = IndexPath(item: indexPath.item - 1, section: 0)
+            } else {
+                newIndexPath = indexPath
+            }
+            
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: productReuseIdentifier, for: newIndexPath) as? ProductsCollectionViewCell else { fatalError("Could not dequeue cell as ProductsCollectionViewCell") }
+            
+            let product = productsFetchedResultsController.object(at: newIndexPath)
             
             // Configure the cell
             if photoReferences.count > 0 {
-                loadImage(forCell: cell, forItemAt: indexPath)
+                loadImage(forCell: cell, forItemAt: newIndexPath)
             }
             
             cell.product = product
@@ -535,7 +577,12 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         case 2:
             performSegue(withIdentifier: "ShipmentDetailSegue", sender: nil)
         default:
-            performSegue(withIdentifier: "ProductDetailSegue", sender: nil)
+            if indexPath.section == 0 && indexPath.item == 0 {
+                performSegue(withIdentifier: "ShowAddProductSegue", sender: nil)
+            } else {
+                performSegue(withIdentifier: "ProductDetailSegue", sender: nil)
+            }
+            
         }
         
     }
@@ -703,6 +750,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     
     
     // MARK: - Properties
+    let addProductReuseIdentifier = "AddProductCell"
     let productReuseIdentifier = "ProductCell"
     let packageReuseIdentifier = "PackageCell"
     let shipmentReuseIdentifier = "ShipmentCell"

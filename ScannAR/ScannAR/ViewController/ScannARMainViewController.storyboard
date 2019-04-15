@@ -29,8 +29,19 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductCell" id="6NL-SR-EH6">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AddProductCell" id="0U5-WL-fZe">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="160" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                        <connections>
+                                            <segue destination="Qem-YB-khX" kind="show" identifier="ShowAddProductSegue" id="A8f-ox-xd8"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductCell" id="6NL-SR-EH6">
+                                        <rect key="frame" x="203" y="0.0" width="160" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="160" height="200"/>
@@ -41,7 +52,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PackageCell" id="NNt-La-4RZ" customClass="PackagesCollectionViewCell" customModule="ScannAR" customModuleProvider="target">
-                                        <rect key="frame" x="203" y="0.0" width="160" height="200"/>
+                                        <rect key="frame" x="0.0" y="210" width="160" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="160" height="200"/>
@@ -52,7 +63,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ShipmentCell" id="dzz-Bd-1mS">
-                                        <rect key="frame" x="0.0" y="210" width="160" height="200"/>
+                                        <rect key="frame" x="203" y="210" width="160" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="160" height="200"/>
@@ -104,7 +115,6 @@
                         <barButtonItem key="rightBarButtonItem" title="Scan It!" id="48A-4b-2gJ">
                             <connections>
                                 <action selector="addButtonClicked:" destination="8s4-Ma-CAL" id="a9G-vE-DHo"/>
-                                <segue destination="Qem-YB-khX" kind="show" identifier="ShowAddProductSegue" id="DG4-Bt-tna"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -231,7 +241,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FZy-vf-GVH"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add New Product" id="h5e-fy-FBg"/>
+                    <navigationItem key="navigationItem" title="Add New Product" id="h5e-fy-FBg">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="BDR-Me-yKg">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="Qem-YB-khX" id="NXT-89-sTZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="addProductTableView" destination="I2a-KS-dVX" id="LqI-Yk-5cZ"/>

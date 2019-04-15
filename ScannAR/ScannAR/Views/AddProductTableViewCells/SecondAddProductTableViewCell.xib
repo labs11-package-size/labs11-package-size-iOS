@@ -21,56 +21,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="dqf-Vj-nIg">
-                        <rect key="frame" x="8" y="8" width="348" height="367.5"/>
+                        <rect key="frame" x="8" y="8" width="348" height="291.5"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EuU-dW-YSc">
-                                <rect key="frame" x="0.0" y="0.0" width="348" height="60"/>
-                                <color key="backgroundColor" name="appARKADarkBlue"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="CDM-gf-pXk"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                <state key="normal" title="Scan with AR">
-                                    <color key="titleColor" name="appBlue"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" name="appARKADarkBlue"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="scanWithARButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="doh-53-6N1"/>
-                                </connections>
-                            </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="uI1-eH-ZhT">
-                                <rect key="frame" x="0.0" y="76" width="348" height="49.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't want to scan with AR?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKN-iZ-Oxo">
-                                        <rect key="frame" x="0.0" y="0.0" width="348" height="14.5"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="gYz-Tv-Mhb">
-                                        <rect key="frame" x="0.0" y="16.5" width="348" height="33"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                        <state key="normal" title="Click to Enter Manually"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" name="appARKAGrey"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="manualEntryTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="glW-Yb-fIu"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dIU-rW-rE5">
-                                <rect key="frame" x="0.0" y="141.5" width="348" height="226"/>
+                                <rect key="frame" x="0.0" y="0.0" width="348" height="226"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Nzx-PI-6rB">
                                         <rect key="frame" x="0.0" y="0.0" width="348" height="226"/>
@@ -98,10 +52,10 @@
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                        <color key="value" name="appARKATeal"/>
+                                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                        <real key="value" value="1"/>
+                                                                        <real key="value" value="0.0"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </textField>
@@ -252,10 +206,7 @@
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                        <real key="value" value="1"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                        <color key="value" name="appARKADarkBlue"/>
+                                                                        <real key="value" value="0.0"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </textField>
@@ -319,6 +270,30 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="uI1-eH-ZhT">
+                                <rect key="frame" x="0.0" y="242" width="348" height="49.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't want enter manually?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKN-iZ-Oxo">
+                                        <rect key="frame" x="0.0" y="0.0" width="348" height="14.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="gYz-Tv-Mhb">
+                                        <rect key="frame" x="0.0" y="16.5" width="348" height="33"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <state key="normal" title="Tap to Scan"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="appARKAGrey"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="scanWithARButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="3zO-sR-y9Y"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                     </stackView>
                 </subviews>
@@ -330,7 +305,6 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="enterManuallyButton" destination="gYz-Tv-Mhb" id="cvt-zd-cYD"/>
                 <outlet property="heightPickerContainerView" destination="iPg-DD-dcZ" id="aM9-Sa-DBT"/>
                 <outlet property="heightPickerView" destination="kjc-W1-EhL" id="qAR-pg-PS9"/>
                 <outlet property="heightTextField" destination="O3E-mH-zRu" id="ANe-ey-ejc"/>
@@ -338,7 +312,7 @@
                 <outlet property="lengthPickerView" destination="KwV-Og-b9e" id="kuc-u3-bGl"/>
                 <outlet property="lengthTextField" destination="rwz-mS-s1V" id="Kwk-gB-yOY"/>
                 <outlet property="manualEntryStackView" destination="dIU-rW-rE5" id="PK8-Tj-wAn"/>
-                <outlet property="scanWithARButton" destination="EuU-dW-YSc" id="axG-jS-Cca"/>
+                <outlet property="scanWithARButton" destination="gYz-Tv-Mhb" id="YfR-Je-f3q"/>
                 <outlet property="widthPickerContainerView" destination="h69-7Y-VzZ" id="E6o-Jv-zCC"/>
                 <outlet property="widthPickerView" destination="3fr-wo-S5n" id="08K-jq-OzO"/>
                 <outlet property="widthTextField" destination="agb-tl-FnV" id="BZI-4D-2CW"/>
@@ -352,12 +326,6 @@
         </namedColor>
         <namedColor name="appARKAGrey">
             <color red="0.63099998235702515" green="0.63099998235702515" blue="0.63099998235702515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="appARKATeal">
-            <color red="0.44699999690055847" green="0.74099999666213989" blue="0.63899999856948853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="appBlue">
-            <color red="0.0" green="0.4779999852180481" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

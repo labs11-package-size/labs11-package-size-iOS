@@ -132,7 +132,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         switch indexPath.row {
-        case 1: return manualEntryHidden ? 124 : 400
+        case 1: return manualEntryHidden ? 124 : 300
             
         case 2: return 200
             
@@ -249,7 +249,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
-    func cancelButtonPressed(_ sender: Any) {
+    @IBAction func cancelButtonPressed(_ sender: Any) {
         DispatchQueue.main.async {
             self.navigationController?.popViewController(animated: true)
         }
@@ -275,7 +275,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     var collectionViewToReload: UICollectionView?
     
     var displayImage: UIImage?
-    var manualEntryHidden: Bool = true {
+    var manualEntryHidden: Bool = false {
         didSet {
             DispatchQueue.main.async {
                 self.addProductTableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .automatic)

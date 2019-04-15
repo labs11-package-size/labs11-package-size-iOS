@@ -91,6 +91,8 @@
 		D11802CB22554B09002837D3 /* AddProductTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11802CA22554B09002837D3 /* AddProductTableView.swift */; };
 		D11802CF22554EEF002837D3 /* AddProductProtocolDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11802CE22554EEF002837D3 /* AddProductProtocolDelegate.swift */; };
 		D11802D12255B14F002837D3 /* ProductAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11802D02255B14F002837D3 /* ProductAsset.swift */; };
+		D11858F622651F160041A735 /* AddProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11858F422651F160041A735 /* AddProductCollectionViewCell.swift */; };
+		D11858F722651F160041A735 /* AddProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D11858F522651F160041A735 /* AddProductCollectionViewCell.xib */; };
 		D13070B5224C62EC00164B9A /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13070B4224C62EC00164B9A /* AddProductViewController.swift */; };
 		D132530B225A85980021ED29 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D132530A225A85980021ED29 /* Appearance.swift */; };
 		D132530D225ABCF80021ED29 /* PackageDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D132530C225ABCF80021ED29 /* PackageDetailViewController.storyboard */; };
@@ -268,6 +270,8 @@
 		D11802CA22554B09002837D3 /* AddProductTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductTableView.swift; sourceTree = "<group>"; };
 		D11802CE22554EEF002837D3 /* AddProductProtocolDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductProtocolDelegate.swift; sourceTree = "<group>"; };
 		D11802D02255B14F002837D3 /* ProductAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAsset.swift; sourceTree = "<group>"; };
+		D11858F422651F160041A735 /* AddProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		D11858F522651F160041A735 /* AddProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		D13070B4224C62EC00164B9A /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		D132530A225A85980021ED29 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		D132530C225ABCF80021ED29 /* PackageDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PackageDetailViewController.storyboard; sourceTree = "<group>"; };
@@ -780,6 +784,8 @@
 				D1EAB1D62242D64800720412 /* ProductsCollectionViewCell.xib */,
 				D142BEE1224AACE400699881 /* ShipmentsCollectionViewCell.swift */,
 				D142BEE2224AACE400699881 /* ShipmentsCollectionViewCell.xib */,
+				D11858F422651F160041A735 /* AddProductCollectionViewCell.swift */,
+				D11858F522651F160041A735 /* AddProductCollectionViewCell.xib */,
 				D196E7712256C8480012A3F7 /* MainCollectionViewCells */,
 				D11802B522553059002837D3 /* AddProductTableViewCells */,
 			);
@@ -964,6 +970,7 @@
 				AB519F6C2242C6CB00B27A8B /* LaunchScreen.storyboard in Resources */,
 				D14F66C222594ACC0008DCF2 /* PickProductTableViewCell.xib in Resources */,
 				D1EAB2162243B6AA00720412 /* SettingsViewController.storyboard in Resources */,
+				D11858F722651F160041A735 /* AddProductCollectionViewCell.xib in Resources */,
 				ABA70F79225714A900A44C06 /* BestBoxSize.storyboard in Resources */,
 				D142BEE4224AACE400699881 /* ShipmentsCollectionViewCell.xib in Resources */,
 				AB46C549224C06700075EF30 /* AuthViewTestScene.storyboard in Resources */,
@@ -1151,6 +1158,7 @@
 				D1EAB23922492CEE00720412 /* Shipment+Convenience.swift in Sources */,
 				ABA70F83225734A500A44C06 /* SmallToLargeDismissingViewAnimator.swift in Sources */,
 				ABA70FA022573C9C00A44C06 /* CardCollectionViewCell.swift in Sources */,
+				D11858F622651F160041A735 /* AddProductCollectionViewCell.swift in Sources */,
 				ABC2C3B8224A857D0045A7D2 /* SavedARScansListViewController.swift in Sources */,
 				ABA70F9122573A2700A44C06 /* UIImage+Effects.swift in Sources */,
 				AB38DCE32244626E008DC8C0 /* BoundingBoxSide.swift in Sources */,
