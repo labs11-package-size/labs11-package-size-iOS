@@ -20,6 +20,7 @@ class PickProductTableViewCell: UITableViewCell {
     // MARK: - IBActions
     @IBAction func addRemoveButtonTapped(_ sender: Any) {
         guard let product = product else { fatalError("No product!") }
+        notification.notificationOccurred(.success)
         delegate?.updateProduct(product)
     }
     
@@ -28,6 +29,7 @@ class PickProductTableViewCell: UITableViewCell {
     @IBOutlet weak var productNameLabel: UILabel!
     
     // MARK: - Properties
+    let notification = UINotificationFeedbackGenerator()
     var product: Product?
     var delegate: ProductPickerDelegate?
 }

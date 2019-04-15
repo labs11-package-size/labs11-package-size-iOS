@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aSe-Zc-dbB" customClass="ScannARMainCollectionView" customModule="ScannAR" customModuleProvider="target">
-                                <rect key="frame" x="6" y="122" width="363" height="545"/>
+                                <rect key="frame" x="6" y="120" width="363" height="547"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4ky-jE-ZfK">
                                     <size key="itemSize" width="160" height="200"/>
@@ -29,8 +29,19 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductCell" id="6NL-SR-EH6">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AddProductCell" id="0U5-WL-fZe">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="160" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                        <connections>
+                                            <segue destination="Qem-YB-khX" kind="show" identifier="ShowAddProductSegue" id="A8f-ox-xd8"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductCell" id="6NL-SR-EH6">
+                                        <rect key="frame" x="203" y="0.0" width="160" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="160" height="200"/>
@@ -41,7 +52,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PackageCell" id="NNt-La-4RZ" customClass="PackagesCollectionViewCell" customModule="ScannAR" customModuleProvider="target">
-                                        <rect key="frame" x="203" y="0.0" width="160" height="200"/>
+                                        <rect key="frame" x="0.0" y="210" width="160" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="160" height="200"/>
@@ -52,7 +63,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ShipmentCell" id="dzz-Bd-1mS">
-                                        <rect key="frame" x="0.0" y="210" width="160" height="200"/>
+                                        <rect key="frame" x="203" y="210" width="160" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="160" height="200"/>
@@ -66,6 +77,7 @@
                             </collectionView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sp6-fH-wpz">
                                 <rect key="frame" x="8" y="72" width="359" height="41"/>
+                                <color key="backgroundColor" red="0.94841229790000003" green="0.94841229790000003" blue="0.94841229790000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="w0h-Ch-8p5"/>
                                 </constraints>
@@ -74,10 +86,10 @@
                                     <segment title="Packages"/>
                                     <segment title="Shipments"/>
                                 </segments>
-                                <color key="tintColor" name="appARKATeal"/>
+                                <color key="tintColor" name="appARKADarkBlue"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" name="appARKATeal"/>
+                                        <color key="value" name="appARKADarkBlue"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </segmentedControl>
@@ -88,7 +100,7 @@
                             <constraint firstItem="sp6-fH-wpz" firstAttribute="trailing" secondItem="Hfh-tf-2fd" secondAttribute="trailing" constant="-8" id="Mdm-qA-NsS"/>
                             <constraint firstItem="sp6-fH-wpz" firstAttribute="top" secondItem="Hfh-tf-2fd" secondAttribute="top" constant="8" id="O5d-gs-mUl"/>
                             <constraint firstItem="Hfh-tf-2fd" firstAttribute="bottom" secondItem="aSe-Zc-dbB" secondAttribute="bottom" id="PNo-fE-lM3"/>
-                            <constraint firstItem="aSe-Zc-dbB" firstAttribute="top" secondItem="sp6-fH-wpz" secondAttribute="bottom" constant="10" id="gSr-n5-VsJ"/>
+                            <constraint firstItem="aSe-Zc-dbB" firstAttribute="top" secondItem="sp6-fH-wpz" secondAttribute="bottom" constant="8" id="gSr-n5-VsJ"/>
                             <constraint firstItem="Hfh-tf-2fd" firstAttribute="trailing" secondItem="aSe-Zc-dbB" secondAttribute="trailing" constant="6" id="m23-Le-URb"/>
                             <constraint firstItem="aSe-Zc-dbB" firstAttribute="leading" secondItem="Hfh-tf-2fd" secondAttribute="leading" constant="6" id="yPu-aG-oro"/>
                         </constraints>
@@ -100,15 +112,11 @@
                                 <segue destination="0qG-Dc-x7H" kind="show" identifier="AccountViewSegue" id="XEB-cj-2AL"/>
                             </connections>
                         </barButtonItem>
-                        <rightBarButtonItems>
-                            <barButtonItem title="🤪" id="IAg-H0-MNQ"/>
-                            <barButtonItem title="Add" id="48A-4b-2gJ">
-                                <connections>
-                                    <action selector="addButtonClicked:" destination="8s4-Ma-CAL" id="a9G-vE-DHo"/>
-                                    <segue destination="Qem-YB-khX" kind="show" identifier="ShowAddProductSegue" id="DG4-Bt-tna"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="Scan It!" id="48A-4b-2gJ">
+                            <connections>
+                                <action selector="addButtonClicked:" destination="8s4-Ma-CAL" id="a9G-vE-DHo"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="aSe-Zc-dbB" id="Hnz-F9-tfu"/>
@@ -188,7 +196,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="I2a-KS-dVX" customClass="AddProductTableView" customModule="ScannAR" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="375" height="936"/>
-                                <color key="backgroundColor" name="appARKATeal"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FirstCell" rowHeight="217" id="2O7-Gq-ELM" customClass="FirstAddProductTableViewCell" customModule="ScannAR" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="217"/>
@@ -225,7 +233,6 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" name="appARKATeal"/>
                         <constraints>
                             <constraint firstItem="I2a-KS-dVX" firstAttribute="leading" secondItem="FZy-vf-GVH" secondAttribute="leading" id="Geq-MY-afb"/>
                             <constraint firstItem="FZy-vf-GVH" firstAttribute="trailing" secondItem="I2a-KS-dVX" secondAttribute="trailing" id="XDH-DI-hzu"/>
@@ -234,7 +241,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FZy-vf-GVH"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add New Product" id="h5e-fy-FBg"/>
+                    <navigationItem key="navigationItem" title="Add New Product" id="h5e-fy-FBg">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="BDR-Me-yKg">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="Qem-YB-khX" id="NXT-89-sTZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="addProductTableView" destination="I2a-KS-dVX" id="LqI-Yk-5cZ"/>
@@ -256,8 +269,8 @@
     </scenes>
     <resources>
         <image name="user-4" width="16" height="16"/>
-        <namedColor name="appARKATeal">
-            <color red="0.44699999690055847" green="0.74099999666213989" blue="0.63899999856948853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="appARKADarkBlue">
+            <color red="0.046999998390674591" green="0.17299999296665192" blue="0.32499998807907104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

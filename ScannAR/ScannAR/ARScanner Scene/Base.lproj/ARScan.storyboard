@@ -14,7 +14,7 @@
         <!--Scan View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController storyboardIdentifier="ARScanVC" extendedLayoutIncludesOpaqueBars="YES" id="BV1-FR-VrT" customClass="ARScanViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ARScanVC" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BV1-FR-VrT" customClass="ARScanViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hbm-Ig-0N9" customClass="ARSCNView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -376,7 +376,7 @@
         <!--Detect View Controller-->
         <scene sceneID="7Sv-0C-d29">
             <objects>
-                <viewController storyboardIdentifier="ARDetectViewController" extendedLayoutIncludesOpaqueBars="YES" id="bEU-3U-1Mv" customClass="ARDetectViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ARDetectViewController" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bEU-3U-1Mv" customClass="ARDetectViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ea0-yk-Ng7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -424,7 +424,7 @@
         <!--SavedAR Scans List View Controller-->
         <scene sceneID="XPH-Yf-l0a">
             <objects>
-                <viewController storyboardIdentifier="ScannedObjectList" extendedLayoutIncludesOpaqueBars="YES" id="MDt-YX-dHi" customClass="SavedARScansListViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ScannedObjectList" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MDt-YX-dHi" customClass="SavedARScansListViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7uB-zc-f1q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -492,7 +492,7 @@
         <!--Scan Menu Screen View Controller-->
         <scene sceneID="fbj-wD-cCh">
             <objects>
-                <viewController storyboardIdentifier="ARScanMainMenu" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7No-5O-jZZ" customClass="ARScanMenuScreenViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ARScanMainMenu" id="7No-5O-jZZ" customClass="ARScanMenuScreenViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VUO-iP-6fZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

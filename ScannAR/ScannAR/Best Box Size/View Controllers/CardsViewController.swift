@@ -21,20 +21,13 @@ class CardsViewController: UIViewController, UIScrollViewDelegate {
     
     // MARK: Properties
     var boxType: BoxType?
-    let storage = MockStorage.shared
-    var displayData = [CardCellDisplayable]()
+    let storage = PackageConfigViewStorage.shared
+    var displayData = [PackageConfiguration]()
     lazy var cardImageViewHeight: CGFloat = cardsView.frame.height * 0.45 //  45% is cell.imageView height constraint's multiplier
-    
-//    let shipperBox = "shipperBox"
-//    let mailerBox = "standardMailerBox"
+    var fetchResults: [PackageConfiguration] = []
     var products: [Product] = []
     let scannARNetworkController = ScannARNetworkController.shared
-//    lazy var data: [CardCellDisplayable] = [
-//        CardCellDisplayable(boxTypeImageViewFileName: shipperBox, title: "ShipperBox1", subtitle: "12x12x8", details: "Is this my espresso machine?", itemImageName: "toy1")
-//        ,
-//        CardCellDisplayable(boxTypeImageViewFileName: mailerBox, title: "MailerBox1", subtitle: "10x8x4", details: "Hey, you know how I'm, like, always trying to save the planet?", itemImageName: "toy2"),
-//        CardCellDisplayable(boxTypeImageViewFileName: shipperBox, title: "ShipperBox2", subtitle: "8x6x4", details: "Yes, Yes, without the oops! ", itemImageName: "toyboots")
-//    ]
+
     
     // MARK: Lifecycle
     override func viewWillAppear(_ animated: Bool) {
@@ -44,8 +37,12 @@ class CardsViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setCardsViewLayout()
-        fetchPreview()
-        
+        storage.data = fetchResults
+        storage.boxType = boxType
+        if let firstItem = storage.data.first {
+            displayData.append(firstItem)
+        }
+        cardsView.reloadData()  
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -64,38 +61,7 @@ class CardsViewController: UIViewController, UIScrollViewDelegate {
         view.layoutIfNeeded()
         cardsView.setLayout()
     }
-    
-    private func fetchPreview() {
-//        guard products.count > 0 else { return }
-//        let productUUIDs = products.map { $0.uuid!.uuidString }
-//        let packagePreview = PackagePreviewRequest(products: productUUIDs, boxType: nil) // could add boxType specifier here as well.
-//        scannARNetworkController.postPackagingPreview(packagingDict: packagePreview) { (results, error) in
-//
-//            if let error = error {
-//                print("Error: \(error)")
-//                return
-//            }
-//            guard let results = results else {
-//                print("No Results")
-//                return
-//            }
-            
-//            for result in results {
-//                self.storage.data.append(CardCellDisplayable(boxTypeImageViewFileName: "shipperBox", title: result.size, subtitle: "\(result.weightLimit)", details: "Is this my espresso machine?", itemImageName: "toy2"))
-//            }
-            
-                if let firstItem = self.storage.data.first {
-                    self.displayData.append(firstItem)
-                }
-            self.cardsView.reloadData()
-                ///self.reloadInputViews()
-            
-            
-      //  }
-    }
-    
-    
-    
+
     func handleViewControllerPresentation() {
         if displayData.count == storage.data.count { return }
         cardsView.scrollToItem(at: 0)
@@ -141,11 +107,14 @@ extension CardsViewController: UICollectionViewDataSource {
         
         cell.setContent(data: displayData[indexPath.row])
         for view in cell.scrollView.subviews {
+            print(view)
             view.removeFromSuperview()
+            print(view)
         }
         cell.setScrollView()
         cell.delegate = self
         cell.actionsHandler = self
+        cell.pageControl.numberOfPages = displayData[indexPath.row].itemCount
         
         return cell
     }

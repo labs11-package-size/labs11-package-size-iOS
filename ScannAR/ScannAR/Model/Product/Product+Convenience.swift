@@ -22,7 +22,7 @@ extension Product {
                      weight: Double,
                      width: Double,
                      uuid: UUID? = UUID(),
-                     thumbnail: String? = nil,
+                     thumbnail: URL?,
                      context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         
@@ -64,7 +64,15 @@ extension Product {
         let value = productRepresentation.value
         let weight = productRepresentation.weight
         let uuid = productRepresentation.uuid
-        let thumbnail = productRepresentation.thumbnail
+        
+        var thumbnail: URL?
+        if let productThumbnail = productRepresentation.thumbnail {
+            
+            if let productThumbnailSub = URL(string: productThumbnail) {
+                thumbnail = productThumbnailSub
+            }
+        }
+        
         
         var manufacturerId: String?
         if productRepresentation.manufacturerId == "null"{

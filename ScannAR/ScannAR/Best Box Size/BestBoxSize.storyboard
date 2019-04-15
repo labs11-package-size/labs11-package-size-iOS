@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MNg-bt-vaj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MNg-bt-vaj">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,6 +14,10 @@
         <scene sceneID="TxM-7V-0ke">
             <objects>
                 <viewController storyboardIdentifier="BoxConfig3DPreviewVC" id="3OQ-4Y-HHt" customClass="BoxConfig3DPreviewViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="STH-Qx-w2H"/>
+                        <viewControllerLayoutGuide type="bottom" id="uKi-5d-Lly"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="APP-i8-ReL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,12 +33,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="00s-dQ-CDK" firstAttribute="trailing" secondItem="tJE-Mt-e4C" secondAttribute="trailing" id="8Fm-i7-g9V"/>
-                            <constraint firstItem="tJE-Mt-e4C" firstAttribute="leading" secondItem="00s-dQ-CDK" secondAttribute="leading" id="DNF-PH-3rx"/>
-                            <constraint firstItem="tJE-Mt-e4C" firstAttribute="top" secondItem="00s-dQ-CDK" secondAttribute="top" id="z4p-a8-JFz"/>
-                            <constraint firstItem="00s-dQ-CDK" firstAttribute="bottom" secondItem="tJE-Mt-e4C" secondAttribute="bottom" id="zCR-Ja-jQg"/>
+                            <constraint firstAttribute="trailing" secondItem="tJE-Mt-e4C" secondAttribute="trailing" id="8Fm-i7-g9V"/>
+                            <constraint firstItem="tJE-Mt-e4C" firstAttribute="leading" secondItem="APP-i8-ReL" secondAttribute="leading" id="DNF-PH-3rx"/>
+                            <constraint firstItem="tJE-Mt-e4C" firstAttribute="top" secondItem="STH-Qx-w2H" secondAttribute="bottom" id="z4p-a8-JFz"/>
+                            <constraint firstItem="uKi-5d-Lly" firstAttribute="top" secondItem="tJE-Mt-e4C" secondAttribute="bottom" id="zCR-Ja-jQg"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="00s-dQ-CDK"/>
                     </view>
                     <navigationItem key="navigationItem" id="SFU-Bu-5mI"/>
                     <connections>
@@ -49,7 +51,7 @@
         <!--Cards View Controller-->
         <scene sceneID="B7H-uP-X2P">
             <objects>
-                <viewController storyboardIdentifier="CardsViewController" id="YXD-xV-Gcu" customClass="CardsViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CardsViewController" extendedLayoutIncludesOpaqueBars="YES" id="YXD-xV-Gcu" customClass="CardsViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ELS-bG-iVc"/>
                         <viewControllerLayoutGuide type="bottom" id="ECz-RV-RKT"/>
@@ -155,9 +157,15 @@
                             <constraint firstItem="27c-Fs-ycQ" firstAttribute="centerX" secondItem="Ema-Iu-MoC" secondAttribute="centerX" id="p8V-31-aL1"/>
                             <constraint firstItem="Nac-Oo-zP0" firstAttribute="top" secondItem="Ema-Iu-MoC" secondAttribute="top" id="zfC-Az-rHc"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="sDP-dG-lx2"/>
                     </view>
-                    <navigationItem key="navigationItem" id="S0F-Vo-0xZ"/>
+                    <navigationItem key="navigationItem" id="S0F-Vo-0xZ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Ume-ae-Ufp">
+                            <color key="tintColor" name="appARKADarkBlue"/>
+                            <connections>
+                                <segue destination="x1K-Wr-SAM" kind="unwind" unwindAction="unwindToPickProductToPackVCWithSegue:" id="toU-RU-ooA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="backgroundView" destination="zqx-2p-BfD" id="WXB-oq-pPn"/>
                         <outlet property="bottomView" destination="xTu-cG-eR9" id="Ztx-aF-N5C"/>
@@ -168,17 +176,21 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OoT-CJ-AHQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="x1K-Wr-SAM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-149.27536231884059" y="45.535714285714285"/>
         </scene>
         <!--BestBoxSizeSceneNavController-->
         <scene sceneID="lNQ-Hv-MXr">
             <objects>
-                <navigationController storyboardIdentifier="BestBoxSizeNavControllerSB" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MNg-bt-vaj" userLabel="BestBoxSizeSceneNavController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="BestBoxSizeNavControllerSB" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MNg-bt-vaj" userLabel="BestBoxSizeSceneNavController" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ndr-oL-Vfa">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <navigationBar key="navigationBar" opaque="NO" alpha="0.042000000000000003" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ndr-oL-Vfa">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

@@ -7,17 +7,21 @@
 //
 
 import UIKit
+import Foundation
 
 class ShipmentsCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
+
     @IBOutlet weak var shippedToLabel: UILabel!
     @IBOutlet weak var totalWeightLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var trackingNumberLabel: UILabel!
+    @IBOutlet weak var emojiTextLabel: UILabel!
     var shipment: Shipment?
     
 }

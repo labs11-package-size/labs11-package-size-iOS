@@ -9,6 +9,7 @@
 import Foundation
 
 enum BoxType: String, Codable {
-    case shipper
-    case mailer
+    case shipper = "Shipper"
+    case mailer = "Mailer"
+    case any = "Any"
 }

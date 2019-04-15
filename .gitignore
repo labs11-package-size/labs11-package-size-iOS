@@ -83,6 +83,7 @@ playground.xcworkspace
 # Package.pins
 # Package.resolved
 .build/
+ScannAR/.DS_Store
 
 # CocoaPods
 # We recommend against adding the Pods directory to your .gitignore. However
