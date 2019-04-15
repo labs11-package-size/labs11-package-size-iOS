@@ -31,6 +31,8 @@ class PackageDetailViewController: UIViewController {
         pageControl.layer.cornerRadius = 8
         pageControl.clipsToBounds = true
         scrollContainerView.bringSubviewToFront(pageControl)
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
+        self.navigationItem.rightBarButtonItem?.tintColor = .gray
         
 
         
@@ -43,13 +45,10 @@ class PackageDetailViewController: UIViewController {
         guard let package = package else {fatalError("No package available to show")}
         dimensionsLabel.text = package.dimensions
         totalWeightLabel.text = String(format: "%.2f",package.totalWeight)
-        trackingNumberEnterStackView.isHidden = true
-        createShipmentButton.isHidden = true
-        
+        trackingNumberEnterStackView.isHidden = true        
         showTrackingNumber.layer.cornerRadius = 8
         showTrackingNumber.clipsToBounds = true
-        createShipmentButton.layer.cornerRadius = 8
-        createShipmentButton.clipsToBounds = true
+        
         threeDPackagePreviewButton.layer.cornerRadius = 8
         threeDPackagePreviewButton.clipsToBounds = true
         
@@ -114,9 +113,35 @@ class PackageDetailViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func showTrackingNumberButtonTapped(_ sender: Any) {
-        UIView.animate(withDuration: 0.8) {
-            self.trackingNumberEnterStackView.isHidden = !self.trackingNumberEnterStackView.isHidden
-            self.createShipmentButton.isHidden = !self.createShipmentButton.isHidden
+        //Creating UIAlertController and
+        //Setting title and message for the alert dialog
+        let alertController = UIAlertController(title: "Add a USPS Tracking Number", message: "Please paste a valid USPS tracking number for the item below. If you do not have a tracking number at this time, press cancel.", preferredStyle: .alert)
+        
+        //the confirm action taking the inputs
+        let confirmAction = UIAlertAction(title: "Enter", style: .default) { (_) in
+            
+            //getting the input values from user
+            guard let trackingNumberString = alertController.textFields?[0].text, trackingNumberString != "" else { return }
+            
+            self.createShipmentTapped(with: trackingNumberString, self)
+            
+        }
+        
+        //the cancel action doing nothing
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        
+        //adding the action to dialogbox
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        //adding textfields to our dialog box
+        
+        DispatchQueue.main.async {
+            alertController.addTextField { (textField) in
+                textField.placeholder = "Ex: 9405510200866698489237"
+                //finally presenting the dialog box
+                self.present(alertController, animated: true, completion: nil)
+            }
+            
         }
         
     }
@@ -126,14 +151,14 @@ class PackageDetailViewController: UIViewController {
         linkToURL(with: url)
     }
     
-    @IBAction func createShipmentTapped(_ sender: Any) {
+    func createShipmentTapped(with trackingNumber: String, _ sender: Any) {
         
-        guard trackingNumberTextField.text != "" else { return }
+        guard trackingNumber != "" else { return }
         
         guard let uuid = package?.uuid else { return }
         let productNames = ["Test"] // package?.productNames else { return }
         
-        let newShipment = Shipment(carrierName: nil, productNames: productNames, shippedDate: nil, dateArrived: nil, lastUpdated: nil, shippingType: nil, status: 1, trackingNumber: trackingNumberTextField.text!, shippedTo: nil, uuid: uuid, context: CoreDataStack.shared.container.newBackgroundContext())
+        let newShipment = Shipment(carrierName: nil, productNames: productNames, shippedDate: nil, dateArrived: nil, lastUpdated: nil, shippingType: nil, status: 1, trackingNumber: trackingNumber, shippedTo: nil, uuid: uuid, context: CoreDataStack.shared.container.newBackgroundContext())
         let dict = NetworkingHelpers.dictionaryFromShipment(shipment: newShipment)
         
         scannARNetworkingController?.postNewShipment(dict: dict, uuid: uuid, completion: { (results, error) in
@@ -191,7 +216,6 @@ class PackageDetailViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var threeDPackagePreviewButton: UIButton!
     @IBOutlet weak var showTrackingNumber: UIButton!
-    @IBOutlet weak var createShipmentButton: UIButton!
     @IBOutlet weak var dimensionsLabel: UILabel!
     @IBOutlet weak var totalWeightLabel: UILabel!
     @IBOutlet weak var boxTypeLabel: UILabel!
