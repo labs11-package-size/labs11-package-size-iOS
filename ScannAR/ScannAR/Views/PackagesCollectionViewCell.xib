@@ -32,26 +32,26 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KaG-g5-LQr">
                                 <rect key="frame" x="0.0" y="0.0" width="163" height="17"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                <color key="textColor" name="selectedMenuItemTextColor" catalog="System" colorSpace="catalog"/>
+                                <color key="textColor" name="appARKADarkBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFo-j2-6cc">
                                 <rect key="frame" x="0.0" y="17" width="163" height="17"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" name="appARKADarkBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYW-tR-aCF">
                                 <rect key="frame" x="0.0" y="34" width="163" height="17"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" name="appARKADarkBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                     </stackView>
                 </subviews>
             </view>
-            <color key="backgroundColor" name="appARKATeal"/>
+            <color key="backgroundColor" red="0.94841229790000003" green="0.94841229790000003" blue="0.94841229790000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="sT8-rg-Igg" secondAttribute="trailing" constant="8" id="1GL-ph-kKi"/>
                 <constraint firstItem="sT8-rg-Igg" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="4Ll-d5-CKn"/>
@@ -70,13 +70,13 @@
                 <outlet property="numberOfProductsLabel" destination="WYW-tR-aCF" id="F06-KQ-JcK"/>
                 <outlet property="productNamesLabel" destination="AFo-j2-6cc" id="1R2-cB-849"/>
             </connections>
-            <point key="canvasLocation" x="231.15942028985509" y="140.29017857142856"/>
+            <point key="canvasLocation" x="229.71014492753625" y="141.62946428571428"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="standardMailerBox" width="460" height="500"/>
-        <namedColor name="appARKATeal">
-            <color red="0.44699999690055847" green="0.74099999666213989" blue="0.63899999856948853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="appARKADarkBlue">
+            <color red="0.046999998390674591" green="0.17299999296665192" blue="0.32499998807907104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

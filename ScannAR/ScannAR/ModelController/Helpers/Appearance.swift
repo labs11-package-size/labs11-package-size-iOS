@@ -11,7 +11,7 @@ import UIKit
 
 struct Appearance {
     static func setupNavAppearance() {
-        UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().tintColor = UIColor(named: "appARKADarkBlue")
         UINavigationBar.appearance().barTintColor = UIColor(named: "appARKATeal")
         UINavigationBar.appearance().titleTextAttributes = [ .foregroundColor: UIColor(named: "appARKATeal") ?? .white]
         UINavigationBar.appearance().isTranslucent = false

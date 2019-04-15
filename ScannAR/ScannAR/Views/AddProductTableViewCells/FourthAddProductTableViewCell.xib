@@ -21,43 +21,19 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UzU-3F-skx">
-                        <rect key="frame" x="8" y="76" width="368" height="60"/>
-                        <color key="backgroundColor" name="appARKATeal"/>
+                        <rect key="frame" x="8" y="76" width="368" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="60" id="iPm-FZ-MNO"/>
+                            <constraint firstAttribute="height" constant="30" id="iPm-FZ-MNO"/>
                         </constraints>
-                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                         <state key="normal" title="Save for Later"/>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                <real key="value" value="1"/>
+                                <real key="value" value="0.0"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>
                             <action selector="saveForLaterButtonPushed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="X5x-Qh-puL"/>
-                        </connections>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sM6-wR-Zxs">
-                        <rect key="frame" x="8" y="144" width="368" height="60"/>
-                        <color key="backgroundColor" name="appARKAGrey"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="60" id="Ay3-fp-Mmz"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                        <state key="normal" title="Cancel"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                <real key="value" value="1"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                        <connections>
-                            <action selector="cancelButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gfv-bi-hWI"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2R-uj-fqb">
@@ -84,18 +60,12 @@
                         </connections>
                     </button>
                 </subviews>
-                <color key="backgroundColor" name="appARKATeal"/>
                 <constraints>
-                    <constraint firstItem="sM6-wR-Zxs" firstAttribute="top" secondItem="UzU-3F-skx" secondAttribute="bottom" constant="8" id="3Q6-tj-Xz3"/>
-                    <constraint firstItem="UzU-3F-skx" firstAttribute="top" secondItem="P2R-uj-fqb" secondAttribute="bottom" constant="8" id="AaM-Lz-SDl"/>
                     <constraint firstAttribute="trailing" secondItem="UzU-3F-skx" secondAttribute="trailing" constant="8" id="Bh9-gn-1Ey"/>
                     <constraint firstItem="P2R-uj-fqb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="KIy-fH-zWf"/>
                     <constraint firstAttribute="trailing" secondItem="P2R-uj-fqb" secondAttribute="trailing" constant="8" id="WSk-Vr-QMv"/>
                     <constraint firstItem="P2R-uj-fqb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="bkO-Fx-qsQ"/>
-                    <constraint firstAttribute="trailing" secondItem="sM6-wR-Zxs" secondAttribute="trailing" constant="8" id="g60-pH-w4w"/>
                     <constraint firstItem="UzU-3F-skx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="mKb-w1-Jo3"/>
-                    <constraint firstItem="sM6-wR-Zxs" firstAttribute="top" secondItem="UzU-3F-skx" secondAttribute="bottom" constant="8" id="mWC-r3-EKS"/>
-                    <constraint firstItem="sM6-wR-Zxs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="ue4-Mp-FmX"/>
                     <constraint firstItem="UzU-3F-skx" firstAttribute="top" secondItem="P2R-uj-fqb" secondAttribute="bottom" constant="8" id="xdb-U4-Bqg"/>
                 </constraints>
                 <userDefinedRuntimeAttributes>
@@ -106,7 +76,6 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="cancelButton" destination="sM6-wR-Zxs" id="4dr-TF-DlN"/>
                 <outlet property="packItButton" destination="P2R-uj-fqb" id="hir-3S-Zde"/>
                 <outlet property="saveForLaterButton" destination="UzU-3F-skx" id="HHc-7J-EZj"/>
             </connections>
@@ -116,12 +85,6 @@
     <resources>
         <namedColor name="appARKADarkBlue">
             <color red="0.046999998390674591" green="0.17299999296665192" blue="0.32499998807907104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="appARKAGrey">
-            <color red="0.63099998235702515" green="0.63099998235702515" blue="0.63099998235702515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="appARKATeal">
-            <color red="0.44699999690055847" green="0.74099999666213989" blue="0.63899999856948853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="appBlue">
             <color red="0.0" green="0.4779999852180481" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
