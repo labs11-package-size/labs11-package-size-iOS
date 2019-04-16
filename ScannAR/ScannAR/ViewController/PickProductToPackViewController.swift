@@ -103,7 +103,7 @@ class PickProductToPackViewController: UIViewController, UITableViewDelegate, UI
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 80))
-        view.backgroundColor = UIColor(named: "appARKATeal")
+        view.backgroundColor = .white
         return view
     }
     
@@ -178,11 +178,16 @@ class PickProductToPackViewController: UIViewController, UITableViewDelegate, UI
         }
     }
     
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    
     //After(deadline: .now() + 7.0)
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var cancelBarButton: UIBarButtonItem!
     @IBOutlet weak var previewPackagesButton: UIButton!
     @IBOutlet weak var buttonContainerView: UIView!
     @IBOutlet weak var boxSegmentedControl: UISegmentedControl!
