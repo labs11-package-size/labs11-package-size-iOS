@@ -87,9 +87,19 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         let completionOp = BlockOperation {
             defer { self.operations.removeValue(forKey: uuid) }
             
-            if let currentIndexPath = self.collectionView?.indexPath(for: cell),
-                currentIndexPath != indexPath {
-                return // Cell has been reused
+            if let currentIndexPath = self.collectionView?.indexPath(for: cell){
+                
+                var newCurrentIndexPath: IndexPath
+                if currentIndexPath.section == 0 {
+                    newCurrentIndexPath = IndexPath(item: currentIndexPath.item - 1, section: 0)
+                } else {
+                    newCurrentIndexPath = currentIndexPath
+                }
+                
+                if newCurrentIndexPath != indexPath {
+                    return // Cell has been reused
+                }
+                
             }
             
             if let image = fetchOp.image {
@@ -612,17 +622,29 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     @objc (handleLongPressWithGestureRecognizer:)
     func handleLongPress(gestureRecognizer : UILongPressGestureRecognizer){
         
-        if (gestureRecognizer.state != UIGestureRecognizer.State.ended){
-            return
-        }
-        
         let p = gestureRecognizer.location(in: self.collectionView)
         
         if let indexPath : IndexPath = (self.collectionView?.indexPathForItem(at: p)){
+            
+            if indexPath.section == 0 && indexPath.item == 0 {
+                return
+            }
+            if (gestureRecognizer.state != UIGestureRecognizer.State.ended){
+                return
+            }
+            
             //do whatever you need to do
             let generator = UIImpactFeedbackGenerator(style: .heavy)
             generator.impactOccurred()
-            displayAlertViewController(for: indexPath)
+            
+            var newIndexPath: IndexPath
+            if indexPath.section == 0 {
+                newIndexPath = IndexPath(item: indexPath.item - 1, section: 0)
+            } else {
+                newIndexPath = indexPath
+            }
+            
+            displayAlertViewController(for: newIndexPath)
             
         }
         
