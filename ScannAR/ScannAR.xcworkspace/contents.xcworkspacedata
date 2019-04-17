@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/bhhakes/development/scannAR/labs11-package-size-iOS/ScannAR/ScannAR/ModelController/Helpers/RecommendationViewController.storyboard">
-   </FileRef>
-   <FileRef
       location = "group:ScannAR.xcodeproj">
    </FileRef>
    <FileRef

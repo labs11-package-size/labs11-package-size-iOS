@@ -255,7 +255,7 @@ class ProductDetailViewController: UIViewController {
                 }
                 if let results = results, results.last != nil {
                     let packageRep = results.last
-                    let moc = CoreDataStack.shared.container.newBackgroundContext()
+                    let moc = CoreDataStack.shared.mainContext
                     
                     let package = Package(packageRepresentation: packageRep!, context: moc)
                     self.package = package
