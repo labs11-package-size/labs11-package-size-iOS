@@ -361,11 +361,11 @@ class ScannARNetworkController {
     /*
      Post an array of Packaging Configurations (possibly just one) that you want to save as packages.
      */
-    func postAddPackages(packagingConfigurations: [PackageConfiguration], completion: @escaping ([PackageConfiguration]? ,Error?) -> Void) {
+    func postAddPackages(packagingConfigurations: [PackageConfiguration], completion: @escaping ([PackageRepresentation]? ,Error?) -> Void) {
         
         let request = createRequest(for: .POSTAddPackage, packagingConfigurations: packagingConfigurations)
         
-        apiRequest(from: request) { (_ results: [PackageConfiguration]?, error: Error?) in
+        apiRequest(from: request) { (_ results: [PackageRepresentation]?, error: Error?) in
             
             if let error = error {
                 print("Error: \(error)")
@@ -771,7 +771,6 @@ extension ScannARNetworkController {
             do {
                 let jsonEncoder = JSONEncoder()
                 jsonData = try jsonEncoder.encode(packagingDict)
-                print(jsonData)
             } catch {
                 print("failed to convert dictionary to json")
                 fatalError("")
@@ -798,7 +797,8 @@ extension ScannARNetworkController {
             
             var jsonData: Data
             do {
-                jsonData = try JSONSerialization.data(withJSONObject: packagingConfigurations)
+                let jsonEncoder = JSONEncoder()
+                jsonData = try jsonEncoder.encode(packagingConfigurations)
             } catch {
                 print("failed to convert array of packagingConfigurations to json")
                 fatalError("failed to convert array of packagingConfigurations to json")
