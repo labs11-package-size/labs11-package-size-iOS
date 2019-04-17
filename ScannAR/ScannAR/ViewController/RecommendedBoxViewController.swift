@@ -15,6 +15,9 @@ class RecommendedBoxViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         guard let package = package else {fatalError("No package sent to VC")}
+        print(package)
+        print(package.dimensions)
+        print(package.modelURL)
         boxSizeLabel.text = "\(package.identifier) - \(package.dimensions)"
         imageView.image = UIImage(named:"Shipper")
     }
