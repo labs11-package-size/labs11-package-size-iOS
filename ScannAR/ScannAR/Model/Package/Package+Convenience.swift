@@ -50,7 +50,7 @@ extension Package {
         let uuid = packageRepresentation.uuid
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:MM:SS"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
         var lastUpdated: Date?
         if let packageLastUpdated = packageRepresentation.lastUpdated {
