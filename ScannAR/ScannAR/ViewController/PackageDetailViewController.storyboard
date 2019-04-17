@@ -207,10 +207,10 @@
             </objects>
             <point key="canvasLocation" x="1955.072463768116" y="201.5625"/>
         </scene>
-        <!--ShipmentDetailViewController-->
+        <!--ShipmentDetailViewControllerSB-->
         <scene sceneID="cwq-FI-nSy">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="ShipmentsDetailViewControllerSB" storyboardName="ShipmentsDetailViewController" referencedIdentifier="ShipmentDetailViewController" id="msB-lu-KkY" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="ShipmentsDetailViewControllerSB" storyboardName="ShipmentsDetailViewController" referencedIdentifier="ShipmentDetailViewControllerSB" id="msB-lu-KkY" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ypn-5k-AHb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2524" y="106"/>
