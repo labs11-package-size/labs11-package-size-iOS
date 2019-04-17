@@ -545,7 +545,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             cell.detailLabel.text = "$\(product.value)"
             cell.lwhLabel.text = "L: \(product.length) | W: \(product.width) | H: \(product.height)"
             cell.weightLabel.text = "\(product.weight) lbs"
-            
+            print(product.lastUpdated)
 
             cell.contentView.layer.cornerRadius = 10
             cell.contentView.layer.borderWidth = 1.0
@@ -626,7 +626,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         
         if let indexPath : IndexPath = (self.collectionView?.indexPathForItem(at: p)){
             
-            if indexPath.section == 0 && indexPath.item == 0 {
+            if indexPath.section == 0 && indexPath.item == 0 && self.segmentedControl.selectedSegmentIndex == 0 {
                 return
             }
             if (gestureRecognizer.state != UIGestureRecognizer.State.ended){
@@ -638,7 +638,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             generator.impactOccurred()
             
             var newIndexPath: IndexPath
-            if indexPath.section == 0 {
+            if indexPath.section == 0 && self.segmentedControl.selectedSegmentIndex == 0 {
                 newIndexPath = IndexPath(item: indexPath.item - 1, section: 0)
             } else {
                 newIndexPath = indexPath
@@ -803,7 +803,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         let fetchRequest: NSFetchRequest<Product> = Product.fetchRequest()
         
         fetchRequest.sortDescriptors = [
-            NSSortDescriptor(key: "name", ascending: true)
+            NSSortDescriptor(key: "lastUpdated", ascending: false)
         ]
         let moc = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "fragile", cacheName: nil)
@@ -820,7 +820,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         let fetchRequest: NSFetchRequest<Package> = Package.fetchRequest()
         
         fetchRequest.sortDescriptors = [
-            NSSortDescriptor(key: "identifier", ascending: false)
+            NSSortDescriptor(key: "lastUpdated", ascending: false)
         ]
         let moc = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "dimensions", cacheName: nil)
