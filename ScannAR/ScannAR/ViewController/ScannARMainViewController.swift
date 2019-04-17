@@ -306,7 +306,6 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             }
             let product = productsFetchedResultsController.object(at: newIndexPath)
             guard let destVC = segue.destination as? ProductDetailViewController else { fatalError("Segue should cast view controller as ProductDetailViewController but failed to do so.")}
-            destVC.scannARNetworkingController = self.scannARNetworkingController
             destVC.product = product
             
         } else if segue.identifier == "ShipmentDetailSegue" {

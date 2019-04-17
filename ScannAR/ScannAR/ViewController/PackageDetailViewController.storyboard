@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MN1-zW-VSH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dK8-Az-4uu">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,6 +11,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--ScannARMainViewControllerSB-->
+        <scene sceneID="7Po-WM-pMW">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="ScannARMainViewControllerSB" storyboardName="ScannARMainViewController" referencedIdentifier="ScannARMainViewControllerSB" id="lct-GD-KgO" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eUa-Ok-Hhy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1681" y="-209"/>
+        </scene>
         <!--Package Detail View Controller-->
         <scene sceneID="n6T-Pa-gb4">
             <objects>
@@ -20,7 +28,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wbk-BO-Z28">
-                                <rect key="frame" x="40" y="384" width="232" height="40"/>
+                                <rect key="frame" x="40" y="428" width="232" height="40"/>
                                 <color key="backgroundColor" name="appARKADarkBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="QvW-KX-YKh"/>
@@ -43,7 +51,7 @@
                                 <state key="normal" title="Button"/>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kZ3-Xz-JxY">
-                                <rect key="frame" x="20" y="444" width="272" height="182"/>
+                                <rect key="frame" x="20" y="488" width="272" height="182"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QKR-PQ-QHy">
                                         <rect key="frame" x="0.0" y="0.0" width="272" height="30"/>
@@ -134,7 +142,7 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zrn-20-40E">
-                                <rect key="frame" x="6" y="64" width="300" height="300"/>
+                                <rect key="frame" x="6" y="108" width="300" height="300"/>
                                 <subviews>
                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="CBy-xC-wuf">
                                         <rect key="frame" x="114.5" y="255" width="71" height="37"/>
@@ -174,7 +182,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9nF-sU-qAT"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ix3-KM-jso"/>
+                    <navigationItem key="navigationItem" id="ix3-KM-jso">
+                        <barButtonItem key="leftBarButtonItem" title="Back to Packages" id="9xN-sW-buP">
+                            <connections>
+                                <segue destination="lct-GD-KgO" kind="show" identifier="MainSegue" id="BuE-Oo-Bqm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="boxTypeLabel" destination="Nj5-eK-NEn" id="5Wn-Jk-u2v"/>
                         <outlet property="dimensionsLabel" destination="tNI-K0-bSg" id="aS8-61-EUA"/>
@@ -186,19 +200,38 @@
                         <outlet property="totalWeightLabel" destination="zh8-uC-sn4" id="Uss-mt-iFN"/>
                         <outlet property="trackingNumberEnterStackView" destination="N2O-II-Ee8" id="TDr-be-0NH"/>
                         <outlet property="trackingNumberTextField" destination="vvy-cE-FLb" id="hPw-bQ-aoF"/>
+                        <segue destination="msB-lu-KkY" kind="show" identifier="ShowShipment" id="bnJ-9b-vdO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iaC-PS-qBv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1044.9275362318842" y="201.5625"/>
+            <point key="canvasLocation" x="1955.072463768116" y="201.5625"/>
         </scene>
-        <!--ScannARMainViewControllerSB-->
-        <scene sceneID="VLf-37-nmw">
+        <!--ShipmentDetailViewController-->
+        <scene sceneID="cwq-FI-nSy">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="ScannARMainViewControllerSB" storyboardName="ScannARMainViewController" referencedIdentifier="ScannARMainViewControllerSB" id="nmA-QY-gdE" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ph0-RV-lv3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardIdentifier="ShipmentsDetailViewControllerSB" storyboardName="ShipmentsDetailViewController" referencedIdentifier="ShipmentDetailViewController" id="msB-lu-KkY" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ypn-5k-AHb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1710.144927536232" y="190.84821428571428"/>
+            <point key="canvasLocation" x="2524" y="106"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ion-qm-b9Q">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dK8-Az-4uu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QR3-8w-qXP">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="MN1-zW-VSH" kind="relationship" relationship="rootViewController" id="2Vn-tj-93b"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NRz-H9-jEO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1044.9275362318842" y="201.5625"/>
         </scene>
     </scenes>
     <resources>

@@ -76,7 +76,7 @@ class ProductDetailViewController: UIViewController {
     private func fetchAssets(){
         guard let product = product else {fatalError("No product available to show")}
         guard let uuid = product.uuid else {fatalError("No uuid available to show")}
-        scannARNetworkingController?.getAssetsForProduct(uuid: uuid, completion: { (results, error) in
+        scannARNetworkController.getAssetsForProduct(uuid: uuid, completion: { (results, error) in
             
             guard let firstAsset = results?.first else { return }
             guard let url = URL(string: firstAsset.urlString) else {
@@ -94,6 +94,26 @@ class ProductDetailViewController: UIViewController {
             }
             
         })
+    }
+    
+    private func fetchPreview(completionHandler: @escaping ([PackageConfiguration]?, Error?) -> Void) {
+        guard let product = product else {fatalError("No product available to show")}
+        guard let productUUID = product.uuid else {fatalError("No product uuid available")}
+        let packagePreview = PackagePreviewRequest(products: [productUUID.uuidString], boxType: boxType) // could add boxType specifier here as well.
+        scannARNetworkController.postPackagingPreview(packagingDict: packagePreview) { (results, error) in
+            
+            if let error = error {
+                print("Error: \(error)")
+                return
+            }
+            guard let results = results else {
+                print("No Results")
+                return
+            }
+            self.fetchResults = results
+            completionHandler(results,nil)
+            
+        }
     }
     
     private func updateProductValues(){
@@ -138,12 +158,11 @@ class ProductDetailViewController: UIViewController {
     private func updateProductOnServer(){
         
         updateProductValues()
-        guard let scannARNetworkingController = scannARNetworkingController else { fatalError("No ScannARNetworkingController present")}
         guard let product = product else { fatalError("No Product present")}
         
         guard let uuid = product.uuid else { fatalError("No UUID present")}
         let dict = NetworkingHelpers.dictionaryFromProductForUpdate(product: product)
-        scannARNetworkingController.putEditProduct(dict: dict, uuid: uuid) { (_) in
+        scannARNetworkController.putEditProduct(dict: dict, uuid: uuid) { (_) in
             self.flashSaveOnServerNoticeToUser()
         }
     }
@@ -183,7 +202,7 @@ class ProductDetailViewController: UIViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "PackItNowSegue"{
+        if segue.identifier == "PackMultipleSegue"{
             guard let product = product else { fatalError("No Product present")}
             guard let destVC = segue.destination as? PickProductToPackViewController else { fatalError("Did not transition to PickProductToPackViewController")}
             destVC.startingProduct = product
@@ -192,6 +211,10 @@ class ProductDetailViewController: UIViewController {
             guard let destVC = segue.destination as? ProductDescriptionViewController else { fatalError("Did not transition to ProductDescriptionViewController")}
             destVC.productDescription = description
             destVC.product = product
+        } else if segue.identifier == "PackItNowSegue" {
+            guard let destVC = segue.destination as? RecommendedBoxViewController else { fatalError("Did not transition to RecommendedBoxViewController")}
+            guard let package = package else { fatalError("No package to send")}
+            destVC.package = package
         }
     }
    
@@ -215,12 +238,44 @@ class ProductDetailViewController: UIViewController {
     
     @IBAction func packItNowButtonTapped(_ sender: Any) {
         notification.notificationOccurred(.success)
+        self.fetchPreview(completionHandler: { results, error in
+            
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            guard let results = results else { return }
+            
+            self.scannARNetworkController.postAddPackages(packagingConfigurations: results, completion: { (results, error) in
+                
+                if let error = error {
+                    print(error)
+                    return
+                }
+                if let results = results, results.last != nil {
+                    let packageRep = results.last
+                    let moc = CoreDataStack.shared.container.newBackgroundContext()
+                    
+                    let package = Package(packageRepresentation: packageRep!, context: moc)
+                    self.package = package
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "PackItNowSegue", sender: self)
+                    }
+                }
+                
+            })
+            
+        })
     }
 
     
     // MARK: - Properties
-    var scannARNetworkingController: ScannARNetworkController?
+    var boxType: BoxType?
+    var fetchResults: [PackageConfiguration] = []
+    let scannARNetworkController = ScannARNetworkController.shared
     var product: Product?
+    var package: Package?
     let notification = UINotificationFeedbackGenerator()
     var collectionViewToReload: UICollectionView?
     @IBOutlet weak var packItNowButton: UIButton!

@@ -17,7 +17,7 @@ struct PackageRepresentation: Codable {
     let lastUpdated: String?
     let productNames: [String]?
     let uuid: UUID
-    let modelURL: String
+    let modelURL: String?
     
     enum CodingKeys: String, CodingKey {
         case identifier
