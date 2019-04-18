@@ -97,13 +97,21 @@ class PackageDetailViewController: UIViewController {
             print(predicate)
         }
         
-        
         return NSCompoundPredicate.init(type: .or, subpredicates: predicateArray)
     }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        if segue.identifier == "MainSegue" {
+            ScannARMainViewController.segmentPrimer = 1
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
+        } else if segue.identifier == "ShowShipment" {
+            guard let destVC = segue.destination as? ShipmentsDetailViewController else { fatalError("Should be send Segue to ShipmentDetailVC but is not")}
+            destVC.shipment = self.shipment
+        }
     }
     
     // MARK: - IBActions
@@ -119,9 +127,6 @@ class PackageDetailViewController: UIViewController {
             guard let trackingNumberString = alertController.textFields?[0].text, trackingNumberString != "" else { return }
             
             self.createShipmentTapped(with: trackingNumberString, self)
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "MainSegue", sender: self)
-            }
             
         }
         
@@ -149,6 +154,15 @@ class PackageDetailViewController: UIViewController {
         linkToURL(with: url)
     }
     
+    @IBAction func backToPackagesTapped(_ sender: Any) {
+        ScannARMainViewController.segmentPrimer = 1
+        DispatchQueue.main.async {
+            self.navigationController?.popViewController(animated: true)
+        }
+        
+    }
+    
+    
     func createShipmentTapped(with trackingNumber: String, _ sender: Any) {
         
         guard trackingNumber != "" else { return }
@@ -159,7 +173,7 @@ class PackageDetailViewController: UIViewController {
         let newShipment = Shipment(carrierName: nil, productNames: productNames, shippedDate: nil, dateArrived: nil, lastUpdated: nil, shippingType: nil, status: 1, trackingNumber: trackingNumber, shippedTo: nil, uuid: uuid, context: CoreDataStack.shared.container.newBackgroundContext())
         let dict = NetworkingHelpers.dictionaryFromShipment(shipment: newShipment)
         
-        scannARNetworkingController?.postNewShipment(dict: dict, uuid: uuid, completion: { (results, error) in
+        scannARNetworkingController.postNewShipment(dict: dict, uuid: uuid, completion: { (results, error) in
             
                 if let error = error {
                     print(error)
@@ -168,7 +182,7 @@ class PackageDetailViewController: UIViewController {
             
                 if let results = results, results.last != nil {
                     let shipmentRep = results.last
-                    let moc = CoreDataStack.shared.container.newBackgroundContext()
+                    let moc = CoreDataStack.shared.mainContext
                     
                     let shipment = Shipment(shipmentRepresentation: shipmentRep!, context: moc)
                     self.shipment = shipment
@@ -182,7 +196,7 @@ class PackageDetailViewController: UIViewController {
     }
     
     // MARK: - Properties
-    var scannARNetworkingController: ScannARNetworkController?
+    var scannARNetworkingController = ScannARNetworkController.shared
     var package: Package?
     var shipment: Shipment?
     var slides: [Slide] = []
@@ -213,9 +227,7 @@ class PackageDetailViewController: UIViewController {
             fatalError("Failed to fetch product: \(error)")
         }
         
-        
         return fetchedProducts
-        
         
     }()
     
@@ -228,6 +240,7 @@ class PackageDetailViewController: UIViewController {
     @IBOutlet weak var dimensionsLabel: UILabel!
     @IBOutlet weak var totalWeightLabel: UILabel!
     @IBOutlet weak var boxTypeLabel: UILabel!
+    
     
     @IBOutlet weak var trackingNumberTextField: UITextField!
     @IBOutlet weak var trackingNumberEnterStackView: UIStackView!

@@ -11,14 +11,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--ScannARMainViewControllerSB-->
-        <scene sceneID="7Po-WM-pMW">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="ScannARMainViewControllerSB" storyboardName="ScannARMainViewController" referencedIdentifier="ScannARMainViewControllerSB" id="lct-GD-KgO" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eUa-Ok-Hhy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1681" y="-209"/>
-        </scene>
         <!--Package Detail View Controller-->
         <scene sceneID="n6T-Pa-gb4">
             <objects>
@@ -185,7 +177,7 @@
                     <navigationItem key="navigationItem" id="ix3-KM-jso">
                         <barButtonItem key="leftBarButtonItem" title="Back to Packages" id="9xN-sW-buP">
                             <connections>
-                                <segue destination="lct-GD-KgO" kind="show" identifier="MainSegue" id="BuE-Oo-Bqm"/>
+                                <action selector="backToPackagesTapped:" destination="MN1-zW-VSH" id="SPv-hN-Y1n"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

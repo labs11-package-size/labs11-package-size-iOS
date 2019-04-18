@@ -395,8 +395,12 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gr3-cY-bbP">
-                                <rect key="frame" x="92.5" y="463" width="190" height="30"/>
+                                <rect key="frame" x="67.5" y="463" width="240" height="60"/>
                                 <color key="backgroundColor" name="appARKADarkBlue"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="8YX-BI-O2c"/>
+                                    <constraint firstAttribute="height" constant="60" id="v4z-Aa-l73"/>
+                                </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Use the Recommended Box"/>
                                 <connections>
@@ -405,7 +409,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ma4-Qm-4vn">
-                                <rect key="frame" x="115.5" y="501" width="144" height="30"/>
+                                <rect key="frame" x="115.5" y="531" width="144" height="30"/>
                                 <state key="normal" title="Use another box size"/>
                             </button>
                         </subviews>
@@ -426,6 +430,8 @@
                     <connections>
                         <outlet property="boxSizeLabel" destination="9fP-BS-W9V" id="2XH-NJ-hOE"/>
                         <outlet property="imageView" destination="voo-VI-Zx1" id="ZOx-Cf-30Y"/>
+                        <outlet property="useOtherBoxButton" destination="ma4-Qm-4vn" id="kwe-6W-6Hm"/>
+                        <outlet property="useRecommendedBoxButton" destination="Gr3-cY-bbP" id="WTf-UA-ALM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jn2-wP-w4v" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -447,28 +453,36 @@
                                     <action selector="buyRecommendedPackage:" destination="Z2G-mY-95F" eventType="touchUpInside" id="YdS-B8-Hhj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLg-5h-X7E">
-                                <rect key="frame" x="74" y="364" width="227" height="60"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="No, I don't need to buy the Recommended Box right now." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7eS-DG-dqU">
+                                <rect key="frame" x="47.5" y="352" width="280" height="80"/>
                                 <color key="backgroundColor" name="appARKADarkBlue"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="CbA-1T-bFg"/>
+                                    <constraint firstAttribute="height" constant="80" id="kLn-6u-EcW"/>
+                                    <constraint firstAttribute="width" constant="280" id="oDV-uG-x4f"/>
                                 </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="No. I don't need to Box right now."/>
-                                <connections>
-                                    <segue destination="vyV-tV-kWy" kind="show" identifier="PackageDetailSegue" id="oQU-WO-Q7X"/>
-                                </connections>
-                            </button>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="VLg-5h-X7E" firstAttribute="top" secondItem="5kC-Ph-r2q" secondAttribute="bottom" constant="20" id="9fb-iA-exN"/>
-                            <constraint firstItem="VLg-5h-X7E" firstAttribute="centerX" secondItem="5zU-IP-Ibw" secondAttribute="centerX" id="PIG-r5-BeA"/>
                             <constraint firstItem="5kC-Ph-r2q" firstAttribute="centerX" secondItem="5zU-IP-Ibw" secondAttribute="centerX" id="S7L-78-Zce"/>
+                            <constraint firstItem="7eS-DG-dqU" firstAttribute="top" secondItem="5kC-Ph-r2q" secondAttribute="bottom" constant="8" id="T0d-an-t6K"/>
                             <constraint firstItem="5kC-Ph-r2q" firstAttribute="top" secondItem="3c5-jQ-n0t" secondAttribute="top" constant="250" id="doo-tR-S6p"/>
+                            <constraint firstItem="7eS-DG-dqU" firstAttribute="centerX" secondItem="5zU-IP-Ibw" secondAttribute="centerX" id="vac-2E-BnZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3c5-jQ-n0t"/>
                     </view>
+                    <connections>
+                        <outlet property="textView" destination="7eS-DG-dqU" id="GrN-v7-FpV"/>
+                        <segue destination="vyV-tV-kWy" kind="show" identifier="PackageDetailSegue" id="FBK-8b-JRH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iva-G4-ONw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -250,7 +250,10 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
+        
+        ScannARMainViewController.segmentPrimer = 0
         DispatchQueue.main.async {
+        
             self.navigationController?.popViewController(animated: true)
         }
     }
