@@ -15,6 +15,8 @@ class BuyRecommendedBoxViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        updateViews()
+        setupTapGestures()
     }
 
     // MARK: - Private Methods
@@ -22,6 +24,25 @@ class BuyRecommendedBoxViewController: UIViewController {
         
         let svc = SFSafariViewController(url: url)
         present(svc, animated: true, completion: nil)
+        
+    }
+    
+    private func updateViews(){
+        let style = NSMutableParagraphStyle()
+        style.alignment = .center
+        let text = NSAttributedString(string: textView.text!,
+                                      attributes: [NSAttributedString.Key.paragraphStyle:style])
+        textView.attributedText = text
+        textView.textColor = .white
+        textView.font = .preferredFont(forTextStyle: .body)
+        textView.centerVertically()
+        
+    }
+    
+    private func setupTapGestures(){
+        
+        let tapGestureForDescription = UITapGestureRecognizer(target: self, action: #selector(self.handleTextViewTap(_:)))
+        self.textView.addGestureRecognizer(tapGestureForDescription)
         
     }
 
@@ -40,11 +61,16 @@ class BuyRecommendedBoxViewController: UIViewController {
         }
     }
     
+    @objc func handleTextViewTap(_ sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "PackageDetailSegue", sender: self)
+    }
+    
     // MARK: - IBAction
     @IBAction func buyRecommendedPackage(_ sender: Any) {
         linkToURL(with: URL(string: "https://www.arka.com")!)
     }
     
+    @IBOutlet weak var textView: UITextView!
     var package: Package?
 
 }

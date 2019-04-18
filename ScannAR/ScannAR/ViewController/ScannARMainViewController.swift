@@ -24,16 +24,20 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         self.collectionView!.register(UINib(nibName: "AddProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: addProductReuseIdentifier)
         
         // Do any additional setup after loading the view.
+        self.segmentedControl.selectedSegmentIndex = ScannARMainViewController.segmentPrimer
         collectionView.delegate = self
         collectionView.dataSource = self
         segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for:.valueChanged)
         setupLongPress()
+        
+
 //        setupSearchBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = false
+        self.segmentedControl.selectedSegmentIndex = ScannARMainViewController.segmentPrimer
         scannARNetworkingController = ScannARNetworkController.shared
         getAccount()
         fetchNetworkRequests()
@@ -150,17 +154,25 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     
     private func flashSaveOnServerNoticeToUser(_ name: String, type: String) {
         DispatchQueue.main.async {
-            let popup = UIView(frame: CGRect(x: self.view.center.x - 100, y: self.view.center.y - 100, width: 200, height: 200))
+            let popup = UIView(frame: CGRect(x: self.view.center.x - 100, y: self.view.center.y - 200, width: 200, height: 200))
             popup.alpha = 1
-            popup.backgroundColor = .gray
+            
+            popup.layer.cornerRadius = 20
+            popup.backgroundColor = .white
+            popup.layer.shadowColor = UIColor.gray.cgColor
+            popup.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+            popup.layer.shadowRadius = 2.0
+            popup.layer.shadowOpacity = 1.0
+            popup.layer.masksToBounds = false
+            popup.layer.shadowPath = UIBezierPath(roundedRect:popup.bounds, cornerRadius:popup.layer.cornerRadius).cgPath
             
             let label = UILabel()
             
-            label.text = "\(name) \(name)"
+            label.text = "\(name)\n\(type)"
             label.textColor = .black
             label.textAlignment = .center
             label.numberOfLines = 4
-            label.font = UIFont.systemFont(ofSize: 20)
+            label.font = UIFont.systemFont(ofSize: 14)
             
             popup.addSubview(label)
             self.view.addSubview(popup)
@@ -170,7 +182,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             let widthConstraint = NSLayoutConstraint(item: label, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 160)
             label.addConstraint(widthConstraint)
             
-            UIView.animate(withDuration: 2, animations: {
+            UIView.animate(withDuration: 3, animations: {
                 popup.alpha = 0
             }, completion: { _ in
                 popup.removeFromSuperview()
@@ -297,6 +309,8 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             destVC.scannARNetworkingController = self.scannARNetworkingController
         } else if segue.identifier == "ProductDetailSegue" {
             
+            ScannARMainViewController.segmentPrimer = 0
+            
             guard let indexPath = collectionView.indexPathsForSelectedItems?.first else {fatalError("No selected indexPath")}
             var newIndexPath: IndexPath
             if indexPath.section == 0 {
@@ -310,6 +324,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             
         } else if segue.identifier == "ShipmentDetailSegue" {
             
+            ScannARMainViewController.segmentPrimer = 2
             guard let indexPath = collectionView.indexPathsForSelectedItems?.first else {fatalError("No selected indexPath")}
             let shipment = shipmentsFetchedResultsController.object(at: indexPath)
             guard let destVC = segue.destination as? ShipmentsDetailViewController else { fatalError("Segue should cast view controller as ProductDetailViewController but failed to do so.")}
@@ -327,7 +342,6 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             guard let destVC = segue.destination as? PackageDetailViewController else { fatalError("Segue should cast view controller as PackageDetailViewController but failed to do so.")}
             guard let indexPath = collectionView.indexPathsForSelectedItems?.first else {fatalError("No selected indexPath")}
             let package = packagesFetchedResultsController.object(at: indexPath)
-            destVC.scannARNetworkingController = self.scannARNetworkingController
             destVC.package = package
         }
         
@@ -775,6 +789,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     let productReuseIdentifier = "ProductCell"
     let packageReuseIdentifier = "PackageCell"
     let shipmentReuseIdentifier = "ShipmentCell"
+    static var segmentPrimer: Int = 0
     var account: Account? {
         didSet {
             updateAccountPicture()

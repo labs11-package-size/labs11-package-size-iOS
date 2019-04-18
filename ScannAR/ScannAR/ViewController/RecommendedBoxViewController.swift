@@ -14,12 +14,25 @@ class RecommendedBoxViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        updateViews()
+    }
+    
+    // MARK: - Private Methods
+    private func updateViews(){
+        
+        
         guard let package = package else {fatalError("No package sent to VC")}
-        print(package)
-        print(package.dimensions)
-        print(package.modelURL)
-        boxSizeLabel.text = "\(package.identifier) - \(package.dimensions)"
-        imageView.image = UIImage(named:"Shipper")
+        guard let dimensions = package.dimensions else {fatalError("No package dimensions")}
+        boxSizeLabel.text = dimensions
+        if let boxType = Box.boxVarieties[dimensions] {
+            imageView.image = boxType == .shipper ? UIImage(named:"Shipper") : UIImage(named:"standardMailerBox")
+            
+        } else {
+            imageView.image = UIImage(named:"Shipper")
+        }
+        
+        useRecommendedBoxButton.layer.cornerRadius = 16
+        useRecommendedBoxButton.clipsToBounds = true
     }
     
 
@@ -38,6 +51,8 @@ class RecommendedBoxViewController: UIViewController {
     @IBAction func useRecommendedBoxTapped(_ sender: Any) {
     }
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var useRecommendedBoxButton: UIButton!
+    @IBOutlet weak var useOtherBoxButton: UIButton!
     @IBOutlet weak var boxSizeLabel: UILabel!
     var package: Package?
 }
