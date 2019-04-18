@@ -57,20 +57,25 @@ class BuyRecommendedBoxViewController: UIViewController {
             
             guard let destVC = segue.destination as? PackageDetailViewController else { fatalError("Destinatation should be PackageDetailViewController")}
             destVC.package = self.package
+            destVC.barButtonFlag = true
             
         }
     }
+    
+    // MARK: - IBactions and Gestures
     
     @objc func handleTextViewTap(_ sender: UITapGestureRecognizer) {
         performSegue(withIdentifier: "PackageDetailSegue", sender: self)
     }
     
-    // MARK: - IBAction
     @IBAction func buyRecommendedPackage(_ sender: Any) {
         linkToURL(with: URL(string: "https://www.arka.com")!)
     }
     
+    // MARK: - IBOutlets
     @IBOutlet weak var textView: UITextView!
+    
+    // MARK: - Properties
     var package: Package?
 
 }
