@@ -169,7 +169,9 @@
 		D1EAB23D22492D9700720412 /* ShipmentRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB23C22492D9700720412 /* ShipmentRepresentation.swift */; };
 		D1EAB23F224934E400720412 /* Product+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB23E224934E400720412 /* Product+Encodable.swift */; };
 		D1EAB2412249379D00720412 /* Shipment+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB2402249379D00720412 /* Shipment+Encodable.swift */; };
+		D4C52FC890DB0AFFA9C92E7B /* Pods_ScannARTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB67B4462268554C00970E86 /* Pods_ScannARTests.framework */; };
 		DADF1223DAC5E49F71E288EE /* Pods_ScannARUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C765D2FB588D9FA6DD04870 /* Pods_ScannARUITests.framework */; };
+		EE25174CF9B1469EC5AB683B /* Pods_ScannARUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB67B4482268554C00970E86 /* Pods_ScannARUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -398,6 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C28743A6DB52C5982AC7F7E0 /* Pods_ScannARTests.framework in Frameworks */,
+				D4C52FC890DB0AFFA9C92E7B /* Pods_ScannARTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +409,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DADF1223DAC5E49F71E288EE /* Pods_ScannARUITests.framework in Frameworks */,
+				EE25174CF9B1469EC5AB683B /* Pods_ScannARUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
