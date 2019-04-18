@@ -7,6 +7,7 @@
 
 import ARKit
 import UIKit
+import FirebaseAuth
 import Firebase
 import GoogleSignIn
 

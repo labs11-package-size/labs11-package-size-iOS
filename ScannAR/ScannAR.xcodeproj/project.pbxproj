@@ -52,6 +52,19 @@
 		AB519F6C2242C6CB00B27A8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB519F6A2242C6CB00B27A8B /* LaunchScreen.storyboard */; };
 		AB519F772242C6CB00B27A8B /* ScannARTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB519F762242C6CB00B27A8B /* ScannARTests.swift */; };
 		AB519F822242C6CB00B27A8B /* ScannARUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB519F812242C6CB00B27A8B /* ScannARUITests.swift */; };
+		AB67B4282268504400970E86 /* MapDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB67B4272268504400970E86 /* MapDrawerViewController.swift */; };
+		AB67B42A2268505B00970E86 /* MapDrawerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB67B4292268505B00970E86 /* MapDrawerTableViewCell.swift */; };
+		AB67B42D2268509100970E86 /* ShipmentTracking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB67B42C2268509100970E86 /* ShipmentTracking.storyboard */; };
+		AB67B4372268552500970E86 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB67B4362268552500970E86 /* GoogleUtilities.framework */; };
+		AB67B4392268554C00970E86 /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB67B4382268554C00970E86 /* FirebaseAuth.framework */; };
+		AB67B43B2268554C00970E86 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB67B43A2268554C00970E86 /* FirebaseCore.framework */; };
+		AB67B43D2268554C00970E86 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB67B43C2268554C00970E86 /* FirebaseInstanceID.framework */; };
+		AB67B43F2268554C00970E86 /* FirebaseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB67B43E2268554C00970E86 /* FirebaseUI.framework */; };
+		AB67B4412268554C00970E86 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB67B4402268554C00970E86 /* GoogleToolboxForMac.framework */; };
+		AB67B4432268554C00970E86 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB67B4422268554C00970E86 /* GTMSessionFetcher.framework */; };
+		AB67B4452268554C00970E86 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB67B4442268554C00970E86 /* nanopb.framework */; };
+		AB67B4472268554C00970E86 /* Pods_ScannARTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB67B4462268554C00970E86 /* Pods_ScannARTests.framework */; };
+		AB67B4492268554C00970E86 /* Pods_ScannARUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB67B4482268554C00970E86 /* Pods_ScannARUITests.framework */; };
 		AB7A3F572252912B003FF186 /* NavigationController+Transparent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A3F562252912B003FF186 /* NavigationController+Transparent.swift */; };
 		AB8013D12260EE8500D05FFE /* UIScrollView+Touches.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8013D02260EE8500D05FFE /* UIScrollView+Touches.swift */; };
 		ABA70F742256A70C00A44C06 /* PackagesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABA70F722256A70C00A44C06 /* PackagesCollectionViewCell.xib */; };
@@ -78,6 +91,7 @@
 		ABC2C3B8224A857D0045A7D2 /* SavedARScansListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38DD0522456411008DC8C0 /* SavedARScansListViewController.swift */; };
 		ABE99A02225D13E700228791 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE99A01225D13E700228791 /* UIImage+Resize.swift */; };
 		ABE99A0B225D30CE00228791 /* CardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABE99A0A225D30CE00228791 /* CardCollectionViewCell.xib */; };
+		ABF82CA42268487C0070DE1C /* ShipmentTrackingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF82CA32268487C0070DE1C /* ShipmentTrackingMainViewController.swift */; };
 		C28743A6DB52C5982AC7F7E0 /* Pods_ScannARTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EC70ED6367728869B15E014 /* Pods_ScannARTests.framework */; };
 		D11802B42254F887002837D3 /* ShippingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11802B32254F887002837D3 /* ShippingStatus.swift */; };
 		D11802B82255309D002837D3 /* FirstAddProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11802B62255309D002837D3 /* FirstAddProductTableViewCell.swift */; };
@@ -155,7 +169,9 @@
 		D1EAB23D22492D9700720412 /* ShipmentRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB23C22492D9700720412 /* ShipmentRepresentation.swift */; };
 		D1EAB23F224934E400720412 /* Product+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB23E224934E400720412 /* Product+Encodable.swift */; };
 		D1EAB2412249379D00720412 /* Shipment+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB2402249379D00720412 /* Shipment+Encodable.swift */; };
+		D4C52FC890DB0AFFA9C92E7B /* Pods_ScannARTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB67B4462268554C00970E86 /* Pods_ScannARTests.framework */; };
 		DADF1223DAC5E49F71E288EE /* Pods_ScannARUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C765D2FB588D9FA6DD04870 /* Pods_ScannARUITests.framework */; };
+		EE25174CF9B1469EC5AB683B /* Pods_ScannARUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB67B4482268554C00970E86 /* Pods_ScannARUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -236,6 +252,24 @@
 		AB519F7D2242C6CB00B27A8B /* ScannARUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScannARUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB519F812242C6CB00B27A8B /* ScannARUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannARUITests.swift; sourceTree = "<group>"; };
 		AB519F832242C6CB00B27A8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB67B4272268504400970E86 /* MapDrawerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDrawerViewController.swift; sourceTree = "<group>"; };
+		AB67B4292268505B00970E86 /* MapDrawerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDrawerTableViewCell.swift; sourceTree = "<group>"; };
+		AB67B42C2268509100970E86 /* ShipmentTracking.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShipmentTracking.storyboard; sourceTree = "<group>"; };
+		AB67B42F2268550C00970E86 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		AB67B4302268550C00970E86 /* .cocoapods.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .cocoapods.yml; sourceTree = "<group>"; };
+		AB67B4322268550C00970E86 /* GoogleSignIn.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleSignIn.bundle; sourceTree = "<group>"; };
+		AB67B4332268550C00970E86 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		AB67B4352268550C00970E86 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignIn.framework; sourceTree = "<group>"; };
+		AB67B4362268552500970E86 /* GoogleUtilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB67B4382268554C00970E86 /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB67B43A2268554C00970E86 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB67B43C2268554C00970E86 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB67B43E2268554C00970E86 /* FirebaseUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB67B4402268554C00970E86 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleToolboxForMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB67B4422268554C00970E86 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GTMSessionFetcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB67B4442268554C00970E86 /* nanopb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = nanopb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB67B4462268554C00970E86 /* Pods_ScannARTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_ScannARTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB67B4482268554C00970E86 /* Pods_ScannARUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_ScannARUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB7A3F562252912B003FF186 /* NavigationController+Transparent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationController+Transparent.swift"; sourceTree = "<group>"; };
 		AB8013D02260EE8500D05FFE /* UIScrollView+Touches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Touches.swift"; sourceTree = "<group>"; };
 		ABA70F722256A70C00A44C06 /* PackagesCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PackagesCollectionViewCell.xib; path = ScannAR/Views/PackagesCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
@@ -260,6 +294,7 @@
 		ABBDB0512253F65F000F7412 /* IBDesignable+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IBDesignable+UIKit.swift"; sourceTree = "<group>"; };
 		ABE99A01225D13E700228791 /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		ABE99A0A225D30CE00228791 /* CardCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardCollectionViewCell.xib; sourceTree = "<group>"; };
+		ABF82CA32268487C0070DE1C /* ShipmentTrackingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentTrackingMainViewController.swift; sourceTree = "<group>"; };
 		D11802B32254F887002837D3 /* ShippingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingStatus.swift; sourceTree = "<group>"; };
 		D11802B62255309D002837D3 /* FirstAddProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAddProductTableViewCell.swift; sourceTree = "<group>"; };
 		D11802B72255309D002837D3 /* FirstAddProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstAddProductTableViewCell.xib; sourceTree = "<group>"; };
@@ -345,6 +380,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB67B4392268554C00970E86 /* FirebaseAuth.framework in Frameworks */,
+				AB67B43B2268554C00970E86 /* FirebaseCore.framework in Frameworks */,
+				AB67B43D2268554C00970E86 /* FirebaseInstanceID.framework in Frameworks */,
+				AB67B43F2268554C00970E86 /* FirebaseUI.framework in Frameworks */,
+				AB67B4412268554C00970E86 /* GoogleToolboxForMac.framework in Frameworks */,
+				AB67B4432268554C00970E86 /* GTMSessionFetcher.framework in Frameworks */,
+				AB67B4452268554C00970E86 /* nanopb.framework in Frameworks */,
+				AB67B4472268554C00970E86 /* Pods_ScannARTests.framework in Frameworks */,
+				AB67B4492268554C00970E86 /* Pods_ScannARUITests.framework in Frameworks */,
+				AB67B4372268552500970E86 /* GoogleUtilities.framework in Frameworks */,
 				AB46C54C224C082F0075EF30 /* AuthenticationServices.framework in Frameworks */,
 				A55892391472DEEFA1A3DAC3 /* Pods_ScannAR.framework in Frameworks */,
 			);
@@ -355,6 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C28743A6DB52C5982AC7F7E0 /* Pods_ScannARTests.framework in Frameworks */,
+				D4C52FC890DB0AFFA9C92E7B /* Pods_ScannARTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +409,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DADF1223DAC5E49F71E288EE /* Pods_ScannARUITests.framework in Frameworks */,
+				EE25174CF9B1469EC5AB683B /* Pods_ScannARUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +432,17 @@
 		5B9221DA664CE3E0EBB3D62D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AB67B4382268554C00970E86 /* FirebaseAuth.framework */,
+				AB67B43A2268554C00970E86 /* FirebaseCore.framework */,
+				AB67B43C2268554C00970E86 /* FirebaseInstanceID.framework */,
+				AB67B43E2268554C00970E86 /* FirebaseUI.framework */,
+				AB67B4402268554C00970E86 /* GoogleToolboxForMac.framework */,
+				AB67B4422268554C00970E86 /* GTMSessionFetcher.framework */,
+				AB67B4442268554C00970E86 /* nanopb.framework */,
+				AB67B4462268554C00970E86 /* Pods_ScannARTests.framework */,
+				AB67B4482268554C00970E86 /* Pods_ScannARUITests.framework */,
+				AB67B4362268552500970E86 /* GoogleUtilities.framework */,
+				AB67B42E2268550C00970E86 /* GoogleSignIn */,
 				AB46C54B224C082F0075EF30 /* AuthenticationServices.framework */,
 				97499017E7DAF2275EA01119 /* Pods_ScannAR.framework */,
 				5EC70ED6367728869B15E014 /* Pods_ScannARTests.framework */,
@@ -562,6 +620,46 @@
 				AB38DD0522456411008DC8C0 /* SavedARScansListViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		AB67B42B2268506C00970E86 /* Shipment Tracking */ = {
+			isa = PBXGroup;
+			children = (
+				ABF82CA32268487C0070DE1C /* ShipmentTrackingMainViewController.swift */,
+				AB67B4272268504400970E86 /* MapDrawerViewController.swift */,
+				AB67B4292268505B00970E86 /* MapDrawerTableViewCell.swift */,
+				AB67B42C2268509100970E86 /* ShipmentTracking.storyboard */,
+			);
+			path = "Shipment Tracking";
+			sourceTree = "<group>";
+		};
+		AB67B42E2268550C00970E86 /* GoogleSignIn */ = {
+			isa = PBXGroup;
+			children = (
+				AB67B42F2268550C00970E86 /* CHANGELOG.md */,
+				AB67B4302268550C00970E86 /* .cocoapods.yml */,
+				AB67B4312268550C00970E86 /* Resources */,
+				AB67B4332268550C00970E86 /* README.md */,
+				AB67B4342268550C00970E86 /* Frameworks */,
+			);
+			name = GoogleSignIn;
+			path = Pods/GoogleSignIn;
+			sourceTree = "<group>";
+		};
+		AB67B4312268550C00970E86 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AB67B4322268550C00970E86 /* GoogleSignIn.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AB67B4342268550C00970E86 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AB67B4352268550C00970E86 /* GoogleSignIn.framework */,
+			);
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 		ABA70F7A225714B600A44C06 /* Best Box Size */ = {
@@ -776,6 +874,7 @@
 				D132530C225ABCF80021ED29 /* PackageDetailViewController.storyboard */,
 				D134F43822603A31003F8CB3 /* Slide.swift */,
 				D134F43A22603A43003F8CB3 /* Slide.xib */,
+				AB67B42B2268506C00970E86 /* Shipment Tracking */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -985,6 +1084,7 @@
 				AB519F692242C6CB00B27A8B /* Assets.xcassets in Resources */,
 				D1EAB2122243B68300720412 /* AccountViewController.storyboard in Resources */,
 				D11802B92255309D002837D3 /* FirstAddProductTableViewCell.xib in Resources */,
+				AB67B42D2268509100970E86 /* ShipmentTracking.storyboard in Resources */,
 				D1EAB220224405F900720412 /* ScannARMainViewController.storyboard in Resources */,
 				AB519F672242C6CA00B27A8B /* Main.storyboard in Resources */,
 				D11802BD225530AF002837D3 /* SecondAddProductTableViewCell.xib in Resources */,
@@ -1140,6 +1240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB12DBAE2242E8F500886A11 /* ARScanViewController+NavBar.swift in Sources */,
+				AB67B42A2268505B00970E86 /* MapDrawerTableViewCell.swift in Sources */,
 				AB38DCD622445F99008DC8C0 /* ThresholdPinchGestureRecognizer.swift in Sources */,
 				D142BEE3224AACE400699881 /* ShipmentsCollectionViewCell.swift in Sources */,
 				AB38DCF522446339008DC8C0 /* Tile.swift in Sources */,
@@ -1192,6 +1293,7 @@
 				D11802CF22554EEF002837D3 /* AddProductProtocolDelegate.swift in Sources */,
 				AB46C545224B59960075EF30 /* AuthViewController.swift in Sources */,
 				AB38DCF922446380008DC8C0 /* BoundingBox+Snapping.swift in Sources */,
+				AB67B4282268504400970E86 /* MapDrawerViewController.swift in Sources */,
 				D1EAB2082243B50B00720412 /* ProductDetailViewController.swift in Sources */,
 				AB38DCCE22445E5E008DC8C0 /* MessageLabel.swift in Sources */,
 				ABA70FA622573E7B00A44C06 /* PackageConfigViewStorage.swift in Sources */,
@@ -1249,6 +1351,7 @@
 				D135E657224C89F5008CC7DF /* NetworkingHelpers.swift in Sources */,
 				ABE99A02225D13E700228791 /* UIImage+Resize.swift in Sources */,
 				AB519F602242C6CA00B27A8B /* AppDelegate.swift in Sources */,
+				ABF82CA42268487C0070DE1C /* ShipmentTrackingMainViewController.swift in Sources */,
 				AB38DCEB224462A4008DC8C0 /* ObjectOriginAxis.swift in Sources */,
 				D1EAB23B22492D8200720412 /* ProductRepresentation.swift in Sources */,
 				AB38DCE52244627B008DC8C0 /* DetectedObject.swift in Sources */,
