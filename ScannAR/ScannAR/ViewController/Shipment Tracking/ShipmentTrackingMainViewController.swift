@@ -15,20 +15,17 @@ class ShipmentTrackingMainViewController: UIViewController, MapDrawerDelegate, U
     
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var container: UIView!
-    
-    
-    //var scannARNetworkingController: ScannARNetworkController?
-    var model: MockShipmentModel?
     @IBOutlet weak var shipmentMapView: MKMapView!
     
-    
+    var scannARNetworkingController: ScannARNetworkController?
+    var shipment: Shipment?
+//    var model: MockShipmentModel?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,23 +43,25 @@ class ShipmentTrackingMainViewController: UIViewController, MapDrawerDelegate, U
         if let vc = segue.destination as? MapDrawerViewController{
             vc.mapDrawerDelegate = self
             vc.parentView = container
+            vc.scannARNetworkingController = scannARNetworkingController
+            vc.shipment = shipment
         }
     }
     
-    func updateBottomSheet(frame: CGRect) {
+    func updateMapDrawer(frame: CGRect) {
         container.frame = frame.insetBy(dx: 16, dy: 0)
     }
     
     // MARK: - Private Methods
     
     private func addAnnotation() {
-        let address = model?.shippedTo
-        //        guard let address = model?.shippedTo else { return }
+//        let address = model?.shippedTo
+        guard let address = shipment?.shippedTo else { return }
         let geocoder = CLGeocoder()
         let destination = MKPointAnnotation()
         destination.title = address
         
-        geocoder.geocodeAddressString(address ?? "1 Infinite Loop, Cupertino, CA", completionHandler: {(placemarks, error) -> Void in
+        geocoder.geocodeAddressString(address, completionHandler: {(placemarks, error) -> Void in
             if((error) != nil){
                 NSLog("Error: \(error!)")
             }
@@ -84,15 +83,7 @@ class ShipmentTrackingMainViewController: UIViewController, MapDrawerDelegate, U
                                                   latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
         shipmentMapView.setRegion(coordinateRegion, animated: true)
     }
-    //    func centerMapOnLocation(location: CLLocation) {
-    //        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
-    //        DispatchQueue.main.async {
-    //            self.shipmentMapView.setRegion(region, animated: true)
-    //            let annotation = MKPointAnnotation()
-    //            annotation.coordinate = location.coordinate
-    //            self.shipmentMapView.addAnnotation(annotation)
-    //        }
-    //    }
+   
     // MARK: - MapViewDelegate
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

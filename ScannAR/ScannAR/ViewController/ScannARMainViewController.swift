@@ -312,7 +312,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             
             guard let indexPath = collectionView.indexPathsForSelectedItems?.first else {fatalError("No selected indexPath")}
             let shipment = shipmentsFetchedResultsController.object(at: indexPath)
-            guard let destVC = segue.destination as? ShipmentsDetailViewController else { fatalError("Segue should cast view controller as ProductDetailViewController but failed to do so.")}
+            guard let destVC = segue.destination as? ShipmentTrackingMainViewController else { fatalError("Segue should cast view controller as ShipmentTrackingMainViewController but failed to do so.")}
             destVC.scannARNetworkingController = self.scannARNetworkingController
             destVC.shipment = shipment
             

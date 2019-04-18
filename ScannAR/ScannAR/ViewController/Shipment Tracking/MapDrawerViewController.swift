@@ -13,7 +13,7 @@ enum MapDrawerLevel{
 }
 
 protocol MapDrawerDelegate {
-    func updateBottomSheet(frame: CGRect)
+    func updateMapDrawer(frame: CGRect)
 }
 
 class MapDrawerViewController: UIViewController{
@@ -24,6 +24,8 @@ class MapDrawerViewController: UIViewController{
     var lastY: CGFloat = 0
     var pan: UIPanGestureRecognizer!
     
+    var scannARNetworkingController: ScannARNetworkController?
+    var shipment: Shipment?
     var mapDrawerDelegate: MapDrawerDelegate?
     var parentView: UIView!
     
@@ -68,7 +70,7 @@ class MapDrawerViewController: UIViewController{
         self.bottomY = (initalFrame.height - bottomOffset) + 4
         self.lastY = self.bottomY
         
-        mapDrawerDelegate?.updateBottomSheet(frame: self.initalFrame.offsetBy(dx: 0, dy: self.bottomY))
+        mapDrawerDelegate?.updateMapDrawer(frame: self.initalFrame.offsetBy(dx: 0, dy: self.bottomY))
     }
     
     
@@ -92,8 +94,8 @@ class MapDrawerViewController: UIViewController{
     }
     
     @objc func handleTap(_ recognizer: UITapGestureRecognizer){
-        let p = recognizer.location(in: self.tableView)
-        let index = tableView.indexPathForRow(at: p)
+//        let p = recognizer.location(in: self.tableView)
+//        let index = tableView.indexPathForRow(at: p)
         //WARNING: calling selectRow doesn't trigger tableView didselect delegate. So handle selected row here.
         //You can remove this line if you dont want to force select the cell
         //tableView.selectRow(at: index, animated: false, scrollPosition: .none)
@@ -117,7 +119,7 @@ class MapDrawerViewController: UIViewController{
                 let maxY = max(topY, lastY + dy - panOffset)
                 let y = min(bottomY, maxY)
                 //                self.panView.frame = self.initalFrame.offsetBy(dx: 0, dy: y)
-                mapDrawerDelegate?.updateBottomSheet(frame: self.initalFrame.offsetBy(dx: 0, dy: y))
+                mapDrawerDelegate?.updateMapDrawer(frame: self.initalFrame.offsetBy(dx: 0, dy: y))
                 
             }
             
@@ -143,14 +145,14 @@ class MapDrawerViewController: UIViewController{
                 switch self.lastLevel{
                 case .top:
                     //                    self.panView.frame = self.initalFrame.offsetBy(dx: 0, dy: self.topY)
-                    self.mapDrawerDelegate?.updateBottomSheet(frame: self.initalFrame.offsetBy(dx: 0, dy: self.topY))
+                    self.mapDrawerDelegate?.updateMapDrawer(frame: self.initalFrame.offsetBy(dx: 0, dy: self.topY))
                     self.tableView.contentInset.bottom = 50
                 case .middle:
                     //                    self.panView.frame = self.initalFrame.offsetBy(dx: 0, dy: self.middleY)
-                    self.mapDrawerDelegate?.updateBottomSheet(frame: self.initalFrame.offsetBy(dx: 0, dy: self.middleY))
+                    self.mapDrawerDelegate?.updateMapDrawer(frame: self.initalFrame.offsetBy(dx: 0, dy: self.middleY))
                 case .bottom:
                     //                    self.panView.frame = self.initalFrame.offsetBy(dx: 0, dy: self.bottomY)
-                    self.mapDrawerDelegate?.updateBottomSheet(frame: self.initalFrame.offsetBy(dx: 0, dy: self.bottomY))
+                    self.mapDrawerDelegate?.updateMapDrawer(frame: self.initalFrame.offsetBy(dx: 0, dy: self.bottomY))
                 }
                 
             }) { (_) in
@@ -187,8 +189,10 @@ extension MapDrawerViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MapDrawerTableViewCell", for: indexPath) as! MapDrawerTableViewCell
-        let model = MockShipmentModel(carrierLogoImage: UIImage(named: "1970-standing-eagle-logo")!, carrierName: "USPS", dateArrived: Date(), lastUpdated: Date(), productNames: ["yaya", "nana", "ohoh", "noodles", "too"], shippedDate: Date(), shippedTo: "4137 North Francisco Avenue, Chicago Illinois 60618", shippingType: "Snail Mail", status: 2, totalValue: 42.0, totalWeight: 42.0, trackingNumber: "92748999985493513036555961", uuid: UUID())
-        cell.configure(model: model)
+//        let model = MockShipmentModel(carrierLogoImage: UIImage(named: "1970-standing-eagle-logo")!, carrierName: "USPS", dateArrived: Date(), lastUpdated: Date(), productNames: ["yaya", "nana", "ohoh", "noodles", "too"], shippedDate: Date(), shippedTo: "4137 North Francisco Avenue, Chicago Illinois 60618", shippingType: "Snail Mail", status: 2, totalValue: 42.0, totalWeight: 42.0, trackingNumber: "92748999985493513036555961", uuid: UUID())
+        guard let shipment = shipment else { fatalError("No shipment passed to this VC") }
+        cell.configure(model: shipment)
+        
         return cell
     }
 }
