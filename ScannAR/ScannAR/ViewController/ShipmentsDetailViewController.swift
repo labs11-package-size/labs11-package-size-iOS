@@ -64,7 +64,7 @@ class ShipmentsDetailViewController: UIViewController, MKMapViewDelegate {
         
         geocoder.geocodeAddressString(address, completionHandler: {(placemarks, error) -> Void in
             if((error) != nil){
-                print("Error", error)
+                NSLog("Error: \(error!)")
             }
             if let placemark = placemarks?.first {
                 destination.coordinate = placemark.location!.coordinate
@@ -78,47 +78,47 @@ class ShipmentsDetailViewController: UIViewController, MKMapViewDelegate {
         
     }
     
-    private func alertOnDeleteButtonPressed() {
-        
-        guard let shipmentToDelete = shipment else { fatalError("No shipment passed to this VC") }
-        
-        let shipmentName = shipmentToDelete.shippedTo ?? ""
-        guard let uuid = shipmentToDelete.uuid else {
-            print("Error: no UUID associated with the shipment")
-            return
-        }
-        
-        let alert = UIAlertController(title: "Are you sure you want to delete shipment going to \(shipmentName)?", message: "Press okay to remove it from the Library", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { action in
-            if action.style == .destructive {
-                
-                self.scannARNetworkingController?.deleteShipment(uuid: uuid, completion: { (results, error) in
-                    
-                    if let error = error {
-                        print("Error deleting object: \(error)")
-                    }
-                    
-                    let moc = CoreDataStack.shared.mainContext
-                    moc.perform {
-                        moc.delete(shipmentToDelete)
-                        
-                        do {
-                            try moc.save()
-                        } catch let saveError {
-                            print("Error saving context: \(saveError)")
-                        }
-                        DispatchQueue.main.async {
-                            self.navigationController?.popViewController(animated: true)
-                        }
-                        
-                    }
-                })
-                
-                
-            }}))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
+//    private func alertOnDeleteButtonPressed() {
+//
+//        guard let shipmentToDelete = shipment else { fatalError("No shipment passed to this VC") }
+//
+//        let shipmentName = shipmentToDelete.shippedTo ?? ""
+//        guard let uuid = shipmentToDelete.uuid else {
+//            print("Error: no UUID associated with the shipment")
+//            return
+//        }
+//
+//        let alert = UIAlertController(title: "Are you sure you want to delete shipment going to \(shipmentName)?", message: "Press okay to remove it from the Library", preferredStyle: .alert)
+//        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { action in
+//            if action.style == .destructive {
+//
+//                self.scannARNetworkingController?.deleteShipment(uuid: uuid, completion: { (results, error) in
+//
+//                    if let error = error {
+//                        print("Error deleting object: \(error)")
+//                    }
+//
+//                    let moc = CoreDataStack.shared.mainContext
+//                    moc.perform {
+//                        moc.delete(shipmentToDelete)
+//
+//                        do {
+//                            try moc.save()
+//                        } catch let saveError {
+//                            print("Error saving context: \(saveError)")
+//                        }
+//                        DispatchQueue.main.async {
+//                            self.navigationController?.popViewController(animated: true)
+//                        }
+//
+//                    }
+//                })
+//
+//
+//            }}))
+//        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+//        self.present(alert, animated: true, completion: nil)
+//    }
     
     // MARK: - MapViewDelegate
     
@@ -148,9 +148,9 @@ class ShipmentsDetailViewController: UIViewController, MKMapViewDelegate {
     }
     
     // MARK: - IBActions
-    @IBAction func deleteButtonPressed(_ sender: Any) {
-        alertOnDeleteButtonPressed()
-    }
+//    @IBAction func deleteButtonPressed(_ sender: Any) {
+//        alertOnDeleteButtonPressed()
+//    }
     
     
     // MARK: - Properties
