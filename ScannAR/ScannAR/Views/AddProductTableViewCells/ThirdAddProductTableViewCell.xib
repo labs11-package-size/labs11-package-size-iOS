@@ -117,7 +117,6 @@
                                                 <rect key="frame" x="85" y="0.0" width="51" height="31"/>
                                             </switch>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.94841229790000003" green="0.94841229790000003" blue="0.94841229790000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="qMg-gh-iwe" firstAttribute="centerX" secondItem="seh-in-7Ss" secondAttribute="centerX" id="JlN-hv-QuU"/>
                                             <constraint firstItem="qMg-gh-iwe" firstAttribute="top" secondItem="seh-in-7Ss" secondAttribute="top" id="cYy-TN-mv4"/>

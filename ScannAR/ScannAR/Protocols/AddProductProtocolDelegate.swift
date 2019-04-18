@@ -12,7 +12,6 @@ protocol AddProductProtocolDelegate: class{
     func scanWithARButtonTapped(_ sender: Any)
     func showInputScreenToInputPhotoURL()
     func saveForLaterTapped(_ sender: Any)
-    func cancelButtonPressed(_ sender: Any)
     func packItButtonTapped(_ sender: Any)
     func endEditing()
     

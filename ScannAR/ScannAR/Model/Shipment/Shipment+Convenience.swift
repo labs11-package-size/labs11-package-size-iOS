@@ -58,7 +58,7 @@ extension Shipment {
         let productNames = shipmentRepresentation.productNames
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:MM:SS"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
         var shippedDate: Date?
         if let shipmentShippedDate = shipmentRepresentation.shippedDate {

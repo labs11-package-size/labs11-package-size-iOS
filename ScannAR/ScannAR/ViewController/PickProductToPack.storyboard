@@ -17,7 +17,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="ScannARMainViewControllerSB" storyboardName="ScannARMainViewController" referencedIdentifier="ScannARMainViewControllerSB" id="npe-kW-R5w" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YKf-4B-hZt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="295" y="-118"/>
+            <point key="canvasLocation" x="1204.3478260869565" y="-118.52678571428571"/>
         </scene>
         <!--BestBoxSizeSceneNavController-->
         <scene sceneID="3Ac-9a-UMU">
@@ -25,7 +25,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="BestBoxSizeNavControllerSB" storyboardName="BestBoxSize" referencedIdentifier="BestBoxSizeNavControllerSB" id="mUk-co-WEr" userLabel="BestBoxSizeSceneNavController" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xmg-Y6-wdA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="241" y="113"/>
+            <point key="canvasLocation" x="1150" y="112.5"/>
         </scene>
         <!--Pick Product To Pack View Controller-->
         <scene sceneID="U2N-4a-Op3">
@@ -36,31 +36,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="xvh-yb-fsn">
-                                <rect key="frame" x="8" y="52" width="398" height="88"/>
+                                <rect key="frame" x="8" y="96" width="398" height="88"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQS-TD-fJb">
                                         <rect key="frame" x="0.0" y="0.0" width="398" height="56"/>
                                         <subviews>
                                             <searchBar contentMode="redraw" placeholder="Search for products" translatesAutoresizingMaskIntoConstraints="NO" id="gIV-9x-btj">
-                                                <rect key="frame" x="0.0" y="0.0" width="306" height="56"/>
-                                                <color key="backgroundColor" name="appARKATeal"/>
-                                                <color key="barTintColor" name="appARKATeal"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="398" height="56"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="barTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </searchBar>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5F-4i-A5f">
-                                                <rect key="frame" x="306" y="0.0" width="92" height="56"/>
-                                                <color key="backgroundColor" name="appARKATeal"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Cancel"/>
-                                                <connections>
-                                                    <segue destination="npe-kW-R5w" kind="show" id="quH-8d-4ux"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="q5F-4i-A5f" firstAttribute="width" secondItem="gIV-9x-btj" secondAttribute="width" multiplier="0.3" id="FdZ-Ka-XOl"/>
-                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pOr-zO-e4b">
                                         <rect key="frame" x="0.0" y="60" width="398" height="28"/>
@@ -68,12 +55,12 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Box Type: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KdH-KU-HK8">
                                                 <rect key="frame" x="0.0" y="0.0" width="79.5" height="28"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="reL-hq-GEB">
                                                 <rect key="frame" x="79.5" y="0.0" width="318.5" height="29"/>
-                                                <color key="backgroundColor" name="appARKATeal"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 <segments>
                                                     <segment title="Any"/>
                                                     <segment title="Shipper"/>
@@ -91,10 +78,10 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7UT-Ky-cyG">
-                                <rect key="frame" x="8" y="148" width="398" height="618"/>
-                                <color key="backgroundColor" name="appARKATeal"/>
-                                <color key="separatorColor" name="appARKATeal"/>
-                                <color key="sectionIndexBackgroundColor" name="appARKATeal"/>
+                                <rect key="frame" x="8" y="192" width="398" height="574"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="separatorColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PickProductCell" id="FdX-Na-eLB" customClass="PickProductTableViewCell" customModule="ScannAR" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="398" height="44"/>
@@ -130,7 +117,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" name="appARKATeal"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="AAb-GK-88W" firstAttribute="bottom" secondItem="z80-R4-SU2" secondAttribute="bottom" constant="8" id="0PV-3f-yrR"/>
                             <constraint firstAttribute="trailing" secondItem="xvh-yb-fsn" secondAttribute="trailing" constant="8" id="1XG-mM-1Yg"/>
@@ -145,10 +132,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AAb-GK-88W"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Ur5-rC-rOk">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="2rw-SV-Yqe">
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="4S8-c0-774" id="fG7-kl-zzr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="boxSegmentedControl" destination="reL-hq-GEB" id="hPO-D3-KHO"/>
                         <outlet property="buttonContainerView" destination="z80-R4-SU2" id="yeG-n2-qT0"/>
-                        <outlet property="cancelButton" destination="q5F-4i-A5f" id="9TZ-b0-90r"/>
+                        <outlet property="cancelBarButton" destination="2rw-SV-Yqe" id="0PE-WK-LAn"/>
                         <outlet property="previewPackagesButton" destination="Fns-eR-4WF" id="K9h-DJ-BWE"/>
                         <outlet property="searchBar" destination="gIV-9x-btj" id="ewZ-QZ-2fT"/>
                         <outlet property="tableView" destination="7UT-Ky-cyG" id="m8s-QK-dTd"/>
@@ -157,15 +151,30 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Azs-9R-LSW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="530.43478260869574" y="21.428571428571427"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eeU-S8-YIH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UDJ-QK-RaW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JJ4-Fb-QVt">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4S8-c0-774" kind="relationship" relationship="rootViewController" id="ZLq-20-Wq8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mba-py-JBf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="-379.71014492753625" y="21.428571428571427"/>
         </scene>
     </scenes>
     <resources>
         <namedColor name="appARKADarkBlue">
             <color red="0.046999998390674591" green="0.17299999296665192" blue="0.32499998807907104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="appARKATeal">
-            <color red="0.44699999690055847" green="0.74099999666213989" blue="0.63899999856948853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

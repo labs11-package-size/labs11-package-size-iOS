@@ -45,12 +45,18 @@ extension Package {
         let dimensions = packageRepresentation.dimensions
         let identifier = packageRepresentation.identifier
         let totalWeight = packageRepresentation.totalWeight ?? 0.0
-        let modelURL = packageRepresentation.modelURL
         let productNames = packageRepresentation.productNames
         let uuid = packageRepresentation.uuid
         
+        var modelURL: String?
+        if packageRepresentation.modelURL == "null"{
+            modelURL = nil
+        } else {
+            modelURL = packageRepresentation.modelURL
+        }
+        
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:MM:SS"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
         var lastUpdated: Date?
         if let packageLastUpdated = packageRepresentation.lastUpdated {

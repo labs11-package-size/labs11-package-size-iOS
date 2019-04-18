@@ -17,8 +17,6 @@ class FourthAddProductTableViewCell: UITableViewCell {
         packItButton.clipsToBounds = true
         saveForLaterButton.layer.cornerRadius = 20
         saveForLaterButton.clipsToBounds = true
-        cancelButton.layer.cornerRadius = 20
-        cancelButton.clipsToBounds = true
         self.separatorInset = UIEdgeInsets.zero
         self.layoutMargins = UIEdgeInsets.zero
         
@@ -31,13 +29,8 @@ class FourthAddProductTableViewCell: UITableViewCell {
         delegate?.saveForLaterTapped(self)
     }
     
-    @IBAction func cancelButtonTapped(_ sender: Any) {
-        delegate?.cancelButtonPressed(self)
-    }
-    
     // MARK: Properties
     weak var delegate: AddProductProtocolDelegate?
-    @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var saveForLaterButton: UIButton!
     @IBOutlet weak var packItButton: UIButton!
 }
