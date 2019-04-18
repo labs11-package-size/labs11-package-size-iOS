@@ -14,6 +14,7 @@ extension Package {
                      lastUpdated: Date?,
                      totalWeight: Double = 0,
                      productNames: [String]?,
+                     productUuids: [String]?,
                      modelURL: String?,
                      dimensions: String,
                      uuid: UUID = UUID(),
@@ -32,6 +33,10 @@ extension Package {
             self.productNames = productNames
         }
         
+        if let productUuids = productUuids {
+            self.productUuids = productUuids
+        }
+        
         self.dimensions = dimensions
         self.lastUpdated = lastUpdated
         self.uuid = uuid
@@ -46,6 +51,7 @@ extension Package {
         let identifier = packageRepresentation.identifier
         let totalWeight = packageRepresentation.totalWeight ?? 0.0
         let productNames = packageRepresentation.productNames
+        let productUuids = packageRepresentation.productUuids
         let uuid = packageRepresentation.uuid
         
         var modelURL: String?
@@ -74,7 +80,7 @@ extension Package {
             lastUpdated = nil
         }
         
-        self.init(identifier: identifier, lastUpdated: lastUpdated, totalWeight: totalWeight, productNames: productNames, modelURL: modelURL, dimensions: dimensions, uuid: uuid, context: context)
+        self.init(identifier: identifier, lastUpdated: lastUpdated, totalWeight: totalWeight, productNames: productNames, productUuids: productUuids, modelURL: modelURL, dimensions: dimensions, uuid: uuid, context: context)
     }
     
     

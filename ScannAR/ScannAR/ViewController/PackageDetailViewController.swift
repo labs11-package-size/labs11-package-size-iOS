@@ -16,69 +16,99 @@ class PackageDetailViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
-        updateViews()
-        trackingNumberTextField.delegate = self
-        updatePicture()
-        
-        
         scrollView.delegate = self
+        updateViews()
         
-        slides = createSlides()
-        setupSlideScrollView(slides: slides)
-        pageControl.numberOfPages = slides.count
-        pageControl.currentPage = 0
-        pageControl.layer.cornerRadius = 8
-        pageControl.clipsToBounds = true
-        scrollContainerView.bringSubviewToFront(pageControl)
-        self.navigationItem.rightBarButtonItem?.isEnabled = false
-        self.navigationItem.rightBarButtonItem?.tintColor = .gray
-        
-
         
     }
     // MARK: - Private Methods
     
     private func updateViews() {
         
-        
         guard let package = package else {fatalError("No package available to show")}
+        
+        guard let dimensions = package.dimensions else {fatalError("No dimensions associated with that package.")}
+        
         dimensionsLabel.text = package.dimensions
+        
+        if let uuidStrings = package.productUuids {
+            productUUIDStrings = uuidStrings
+        }
+        
+        
+        if let boxType = Box.boxVarieties[dimensions] {
+            
+            switch boxType {
+            case .shipper:
+                boxTypeLabel.text = "Shipper"
+            default:
+                boxTypeLabel.text = "Mailer"
+            }
+        } else {
+            boxTypeLabel.text = "N/A"
+        }
+        
         totalWeightLabel.text = String(format: "%.2f",package.totalWeight)
-        trackingNumberEnterStackView.isHidden = true        
-        showTrackingNumber.layer.cornerRadius = 8
-        showTrackingNumber.clipsToBounds = true
         
         threeDPackagePreviewButton.layer.cornerRadius = 8
         threeDPackagePreviewButton.clipsToBounds = true
         
         
+        // Slide and PageControl
+        slides = createSlides()
+        setupSlideScrollView(slides: slides)
+        
+        pageControl.numberOfPages = slides.count
+        pageControl.currentPage = 0
+        pageControl.layer.cornerRadius = 8
+        pageControl.clipsToBounds = true
+        scrollContainerView.bringSubviewToFront(pageControl)
+        
     }
     
-    private func updatePicture() {
-//        guard let package = package else { fatalError("No package present in this VC")}
-//        if let dimensions = package.dimensions {
-//            if let boxType = Box.boxVarieties[dimensions] {
-//
-//                switch boxType {
-//                case .shipper:
-//                    self.boxImageView.image = UIImage(named: "standardMailerBox")
-//                    self.boxTypeLabel.text = "Mailer"
-//                default:
-//                    self.boxImageView.image = UIImage(named: "Shipper")
-//                    self.boxTypeLabel.text = "Shipper"
-//                }
-//            } else {
-//                self.boxImageView.image = UIImage(named: "Shipper")
-//                self.boxTypeLabel.text = "Shipper"
-//            }
-//
-//        } else {
-//            self.boxImageView.image = UIImage(named: "Shipper")
-//            self.boxTypeLabel.text = "N/A"
-//        }
-//        boxImageView.clipsToBounds = true
-//        boxImageView.layer.cornerRadius = 12
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if barButtonFlag == true {
+            backToPackagesBarButtonItem = UIBarButtonItem(title: "< Packages", style: .plain, target: self, action: #selector(backToPackagesTapped(_:)))
+            self.navigationItem.leftBarButtonItem = backToPackagesBarButtonItem
+            
+        } else {
+            self.navigationItem.leftBarButtonItem = nil
+        }
+
+    }
+    
+    private func createShipmentTapped(with trackingNumber: String, _ sender: Any) {
+        
+        guard trackingNumber != "" else { return }
+        
+        guard let uuid = package?.uuid else { return }
+        let productNames = package?.productNames
+        
+        let newShipment = Shipment(carrierName: nil, productNames: productNames, shippedDate: nil, dateArrived: nil, lastUpdated: nil, shippingType: nil, status: 1, trackingNumber: trackingNumber, shippedTo: nil, uuid: uuid, context: CoreDataStack.shared.container.newBackgroundContext())
+        let dict = NetworkingHelpers.dictionaryFromShipment(shipment: newShipment)
+        
+        scannARNetworkingController.postNewShipment(dict: dict, uuid: uuid, completion: { (results, error) in
+            
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            if let results = results, results.last != nil {
+                let shipmentRep = results.last
+                let moc = CoreDataStack.shared.mainContext
+                
+                let shipment = Shipment(shipmentRepresentation: shipmentRep!, context: moc)
+                self.shipment = shipment
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "ShowShipment", sender: self)
+                }
+            }
+            
+        })
+        
     }
     
     private func linkToURL(with url: URL) {
@@ -109,7 +139,7 @@ class PackageDetailViewController: UIViewController {
                 self.navigationController?.popViewController(animated: true)
             }
         } else if segue.identifier == "ShowShipment" {
-            guard let destVC = segue.destination as? ShipmentsDetailViewController else { fatalError("Should be send Segue to ShipmentDetailVC but is not")}
+            guard let destVC = segue.destination as? ShipmentTrackingMainViewController else { fatalError("Should be send Segue to ShipmentDetailVC but is not")}
             destVC.shipment = self.shipment
         }
     }
@@ -148,6 +178,7 @@ class PackageDetailViewController: UIViewController {
         }
         
     }
+    
     @IBAction func threeDPackagePreviewButton(_ sender: Any) {
         guard let urlString = package?.modelURL, urlString != "http://www.google.com" else { return }
         guard let url = URL(string: urlString) else { return }
@@ -157,57 +188,19 @@ class PackageDetailViewController: UIViewController {
     @IBAction func backToPackagesTapped(_ sender: Any) {
         ScannARMainViewController.segmentPrimer = 1
         DispatchQueue.main.async {
-            self.navigationController?.popViewController(animated: true)
+            self.performSegue(withIdentifier: "unwindToScannARMainViewController", sender: self)
         }
         
     }
     
-    
-    func createShipmentTapped(with trackingNumber: String, _ sender: Any) {
-        
-        guard trackingNumber != "" else { return }
-        
-        guard let uuid = package?.uuid else { return }
-        let productNames = ["Test"] // package?.productNames else { return }
-        
-        let newShipment = Shipment(carrierName: nil, productNames: productNames, shippedDate: nil, dateArrived: nil, lastUpdated: nil, shippingType: nil, status: 1, trackingNumber: trackingNumber, shippedTo: nil, uuid: uuid, context: CoreDataStack.shared.container.newBackgroundContext())
-        let dict = NetworkingHelpers.dictionaryFromShipment(shipment: newShipment)
-        
-        scannARNetworkingController.postNewShipment(dict: dict, uuid: uuid, completion: { (results, error) in
-            
-                if let error = error {
-                    print(error)
-                    return
-                }
-            
-                if let results = results, results.last != nil {
-                    let shipmentRep = results.last
-                    let moc = CoreDataStack.shared.mainContext
-                    
-                    let shipment = Shipment(shipmentRepresentation: shipmentRep!, context: moc)
-                    self.shipment = shipment
-                    DispatchQueue.main.async {
-                        self.performSegue(withIdentifier: "ShowShipment", sender: self)
-                    }
-                }
-                
-        })
-        
-    }
-    
     // MARK: - Properties
+    var barButtonFlag = false
     var scannARNetworkingController = ScannARNetworkController.shared
     var package: Package?
     var shipment: Shipment?
     var slides: [Slide] = []
     var collectionViewToReload: UICollectionView?
-//    @IBOutlet weak var boxImageView: UIImageView!
-    var productUUIDStrings: [String] = ["2325525b-5ce7-11e9-b3ba-63904f403033",
-                                        "23040ea8-5ce7-11e9-b3ba-63904f403033",
-                                        "23040ea4-5ce7-11e9-b3ba-63904f403033",
-                                        "23040ea3-5ce7-11e9-b3ba-63904f403033",
-                                        "23040ea2-5ce7-11e9-b3ba-63904f403033",
-                                        "23040ea1-5ce7-11e9-b3ba-63904f403033"]
+    var productUUIDStrings: [String] = []
     
     lazy var filteredProducts: [Product] = {
         
@@ -231,7 +224,7 @@ class PackageDetailViewController: UIViewController {
         
     }()
     
-    
+    // MARK: - @IBOutlets
     @IBOutlet weak var scrollContainerView: UIView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -240,10 +233,7 @@ class PackageDetailViewController: UIViewController {
     @IBOutlet weak var dimensionsLabel: UILabel!
     @IBOutlet weak var totalWeightLabel: UILabel!
     @IBOutlet weak var boxTypeLabel: UILabel!
-    
-    
-    @IBOutlet weak var trackingNumberTextField: UITextField!
-    @IBOutlet weak var trackingNumberEnterStackView: UIStackView!
+    @IBOutlet var backToPackagesBarButtonItem: UIBarButtonItem!
     
 }
 
@@ -259,11 +249,29 @@ extension PackageDetailViewController {
     
     func createSlides() -> [Slide] {
         
+        guard let package = package else {fatalError("No package available to show")}
+        
         var slides: [Slide] = []
         
         let slide1:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
         
-        slide1.imageView.image = UIImage(named: "Shipper")
+        if let dimensions = package.dimensions {
+            if let boxType = Box.boxVarieties[dimensions] {
+                
+                switch boxType {
+                case .shipper:
+                    slide1.imageView.image = UIImage(named: "Shipper")
+                default:
+                    slide1.imageView.image = UIImage(named: "standardMailerBox")
+                }
+            } else {
+                slide1.imageView.image = UIImage(named: "Shipper")
+            }
+            
+        } else {
+            slide1.imageView.image = UIImage(named: "Shipper")
+        }
+        
         slides.append(slide1)
         
         for product in filteredProducts {
@@ -337,16 +345,22 @@ extension PackageDetailViewController: UIScrollViewDelegate {
             slides[1].imageView.transform = CGAffineTransform(scaleX: percentOffset.x/0.25, y: percentOffset.x/0.25)
             
         } else if(percentOffset.x > 0.25 && percentOffset.x <= 0.50) {
+            if slides.count > 2 {
             slides[1].imageView.transform = CGAffineTransform(scaleX: (0.50-percentOffset.x)/0.25, y: (0.50-percentOffset.x)/0.25)
             slides[2].imageView.transform = CGAffineTransform(scaleX: percentOffset.x/0.50, y: percentOffset.x/0.50)
-            
+            }
         } else if(percentOffset.x > 0.50 && percentOffset.x <= 0.75) {
+            
+            if slides.count > 3 {
             slides[2].imageView.transform = CGAffineTransform(scaleX: (0.75-percentOffset.x)/0.25, y: (0.75-percentOffset.x)/0.25)
             slides[3].imageView.transform = CGAffineTransform(scaleX: percentOffset.x/0.75, y: percentOffset.x/0.75)
+            }
             
         } else if(percentOffset.x > 0.75 && percentOffset.x <= 1) {
+            if slides.count > 4 {
             slides[3].imageView.transform = CGAffineTransform(scaleX: (1-percentOffset.x)/0.25, y: (1-percentOffset.x)/0.25)
             slides[4].imageView.transform = CGAffineTransform(scaleX: percentOffset.x, y: percentOffset.x)
+            }
         }
     }
 }

@@ -10,45 +10,38 @@ import UIKit
 import CoreData
 
 class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NSFetchedResultsControllerDelegate, UISearchBarDelegate, UIGestureRecognizerDelegate {
-    
-//    @IBAction func unwindToScannARMainViewController(segue: UIStoryboardSegue) {
-//        //nothing goes here
-//    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // register Collection View Cells
         self.collectionView!.register(UINib(nibName: "ShipmentsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: shipmentReuseIdentifier)
         self.collectionView!.register(UINib(nibName: "ProductsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: productReuseIdentifier)
         self.collectionView!.register(UINib(nibName: "PackagesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: packageReuseIdentifier)
         self.collectionView!.register(UINib(nibName: "AddProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: addProductReuseIdentifier)
         
-        // Do any additional setup after loading the view.
-        self.segmentedControl.selectedSegmentIndex = ScannARMainViewController.segmentPrimer
+        // set up collection view delegates
         collectionView.delegate = self
         collectionView.dataSource = self
-        segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for:.valueChanged)
+        
+        setupSegmentedControl()
         setupLongPress()
         
-
 //        setupSearchBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = false
-        self.segmentedControl.selectedSegmentIndex = ScannARMainViewController.segmentPrimer
-        scannARNetworkingController = ScannARNetworkController.shared
+        segmentedControl.selectedSegmentIndex = ScannARMainViewController.segmentPrimer
         getAccount()
         fetchNetworkRequests()
-        
         
     }
     
     // Private Methods
     
     private func getAccount(){
-        guard let scannARNetworkingController = scannARNetworkingController else { fatalError(" Error: No networking controller available")}
         
         scannARNetworkingController.getUserAccountInfo { (result, error) in
             
@@ -63,6 +56,11 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             
         }
         
+    }
+    
+    private func setupSegmentedControl(){
+        segmentedControl.selectedSegmentIndex = ScannARMainViewController.segmentPrimer
+        segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for:.valueChanged)
     }
     
     private func loadImage(forCell cell: ProductsCollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -123,23 +121,23 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     private func updateAccountPicture() {
-        guard let account = account else { return }
-        guard let photoURL = account.photoURL else { return }
-        guard let profileURL = URL(string: photoURL) else { return }
-        var data: Data
-        do {
-            data = try Data.init(contentsOf: profileURL)
-        } catch {
-            print("Could not get profile image.")
-            return
-        }
-        let image = UIImage(data: data)
-        DispatchQueue.main.async {
-            
-//            self.navigationItem.leftBarButtonItem?.setBackgroundImage(image, for: .normal, barMetrics: .default)
-            
-            
-        }
+//        guard let account = account else { return }
+//        guard let photoURL = account.photoURL else { return }
+//        guard let profileURL = URL(string: photoURL) else { return }
+//        var data: Data
+//        do {
+//            data = try Data.init(contentsOf: profileURL)
+//        } catch {
+//            print("Could not get profile image.")
+//            return
+//        }
+//        let image = UIImage(data: data)
+//        DispatchQueue.main.async {
+//
+////            self.navigationItem.leftBarButtonItem?.setBackgroundImage(image, for: .normal, barMetrics: .default)
+//
+//
+//        }
     }
     
     private func setupLongPress(){
@@ -149,8 +147,6 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         lpgr.delaysTouchesBegan = false
         self.collectionView?.addGestureRecognizer(lpgr)
     }
-
-    // MARK: - Private Methods
     
     private func flashSaveOnServerNoticeToUser(_ name: String, type: String) {
         DispatchQueue.main.async {
@@ -239,8 +235,6 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     
     
     private func fetchNetworkRequests(){
-        
-        guard let scannARNetworkingController = scannARNetworkingController else { fatalError("Uh oh. There is no networking controller present")}
         
         switch segmentedControl.selectedSegmentIndex {
         case 1:
@@ -343,6 +337,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             guard let indexPath = collectionView.indexPathsForSelectedItems?.first else {fatalError("No selected indexPath")}
             let package = packagesFetchedResultsController.object(at: indexPath)
             destVC.package = package
+            destVC.barButtonFlag = false
         }
         
         
@@ -412,9 +407,9 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
                     
                     switch boxType {
                     case .shipper:
-                        cell.boxImageView.image = UIImage(named: "standardMailerBox")
-                    default:
                         cell.boxImageView.image = UIImage(named: "Shipper")
+                    default:
+                        cell.boxImageView.image = UIImage(named: "standardMailerBox")
                     }
                 } else {
                     cell.boxImageView.image = UIImage(named: "Shipper")
@@ -444,8 +439,6 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             cell.dimensionsLabel.text = "\(dimensions)"
             cell.numberOfProductsLabel.text = "\(productNames.count)"
             cell.productNamesLabel.text = "Products in Package: \(productNames.joined(separator: ", "))"
-            
-            
             
             return cell
         
@@ -558,7 +551,6 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             cell.detailLabel.text = "$\(product.value)"
             cell.lwhLabel.text = "L: \(product.length) | W: \(product.width) | H: \(product.height)"
             cell.weightLabel.text = "\(product.weight) lbs"
-            print(product.lastUpdated)
 
             cell.contentView.layer.cornerRadius = 10
             cell.contentView.layer.borderWidth = 1.0
@@ -589,7 +581,10 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         let kWhateverHeightYouWant = 180
-        return CGSize(width: collectionView.bounds.size.width / 2 - 8, height: CGFloat(kWhateverHeightYouWant))
+        
+        let cgSizeToReturn = segmentedControl.selectedSegmentIndex == 2 ? CGSize(width: collectionView.bounds.size.width - 8, height: CGFloat(kWhateverHeightYouWant)) : CGSize(width: collectionView.bounds.size.width / 2 - 8, height: CGFloat(kWhateverHeightYouWant))
+        
+        return cgSizeToReturn
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -629,6 +624,14 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             performSegue(withIdentifier: "ShowAddProductSegue", sender: nil)
         
         }
+    }
+    
+    @IBAction func unwindToScannARMainViewController(segue: UIStoryboardSegue) {
+        let transition: CATransition = CATransition()
+        transition.duration = 0.1
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.default)
+        transition.type = CATransitionType.moveIn
+        self.navigationController!.view.layer.add(transition, forKey: nil)
     }
 
     // MARK: - Tap gesture Recognizer
@@ -696,7 +699,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
                     
                     let packageToDelete = self.packagesFetchedResultsController.object(at: indexPath)
                     // delete Package networking below once route is created.
-                    self.scannARNetworkingController?.deletePackage(uuid: itemUUID, completion: { (error) in
+                    self.scannARNetworkingController.deletePackage(uuid: itemUUID, completion: { (error) in
 
                         if let error = error {
                             print("Error deleting object: \(error)")
@@ -723,7 +726,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
                     
                 case 2:
                     let shipmentToDelete = self.shipmentsFetchedResultsController.object(at: indexPath)
-                    self.scannARNetworkingController?.deleteShipment(uuid: itemUUID, completion: { (results, error) in
+                    self.scannARNetworkingController.deleteShipment(uuid: itemUUID, completion: { (results, error) in
                         
                         if let error = error {
                             print("Error deleting object: \(error)")
@@ -748,7 +751,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
                     
                 default:
                     let productToDelete = self.productsFetchedResultsController.object(at: indexPath)
-                    self.scannARNetworkingController?.deleteProduct(uuid: itemUUID, completion: { (error) in
+                    self.scannARNetworkingController.deleteProduct(uuid: itemUUID, completion: { (error) in
                         
                         if let error = error {
                             print("Error deleting object: \(error)")
@@ -780,10 +783,6 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         self.present(alert, animated: true, completion: nil)
     }
     
-    // MARK: - Navigation
-    
-    
-    
     // MARK: - Properties
     let addProductReuseIdentifier = "AddProductCell"
     let productReuseIdentifier = "ProductCell"
@@ -798,7 +797,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet weak var newProductShipmentBarButton: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
     var searchBar: UISearchBar!
-    var scannARNetworkingController: ScannARNetworkController?
+    var scannARNetworkingController = ScannARNetworkController.shared
     lazy var coreDataImporter: CoreDataImporter = { CoreDataImporter(context: CoreDataStack.shared.mainContext)
         }()
     private var blockOperation = BlockOperation()
