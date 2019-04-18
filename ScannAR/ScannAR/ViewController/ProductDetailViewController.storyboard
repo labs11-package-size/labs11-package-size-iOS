@@ -306,7 +306,13 @@
                                 </state>
                                 <connections>
                                     <action selector="packItNowButtonTapped:" destination="Lea-Cs-evB" eventType="touchUpInside" id="Qj8-fa-KDH"/>
-                                    <segue destination="o6T-1J-8cb" kind="show" identifier="PackItNowSegue" id="v5f-wD-YDx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gKy-mj-J1w">
+                                <rect key="frame" x="58" y="730.5" width="259" height="30"/>
+                                <state key="normal" title="Pack other products with this product"/>
+                                <connections>
+                                    <segue destination="o6T-1J-8cb" kind="show" identifier="PackMultipleSegue" id="v2t-qD-PPq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -316,8 +322,10 @@
                             <constraint firstItem="76u-yB-pYh" firstAttribute="trailing" secondItem="jDa-sI-Q9d" secondAttribute="trailing" constant="20" id="1aw-qI-tbw"/>
                             <constraint firstItem="76u-yB-pYh" firstAttribute="trailing" secondItem="E5o-pW-FKe" secondAttribute="trailing" constant="20" id="3cb-dn-gNo"/>
                             <constraint firstItem="t49-bV-PVg" firstAttribute="top" secondItem="76u-yB-pYh" secondAttribute="top" constant="8" id="871-fq-AtE"/>
+                            <constraint firstItem="gKy-mj-J1w" firstAttribute="top" secondItem="jDa-sI-Q9d" secondAttribute="bottom" constant="8" id="JFb-X6-cOq"/>
                             <constraint firstItem="E5o-pW-FKe" firstAttribute="top" secondItem="t49-bV-PVg" secondAttribute="bottom" constant="8" id="QUU-Tr-1q0"/>
                             <constraint firstItem="jDa-sI-Q9d" firstAttribute="leading" secondItem="76u-yB-pYh" secondAttribute="leading" constant="20" id="SqK-6f-vaM"/>
+                            <constraint firstItem="gKy-mj-J1w" firstAttribute="centerX" secondItem="utj-hJ-lv6" secondAttribute="centerX" id="St9-mk-sJM"/>
                             <constraint firstItem="E5o-pW-FKe" firstAttribute="centerX" secondItem="utj-hJ-lv6" secondAttribute="centerX" id="X4w-bK-7oK"/>
                             <constraint firstItem="t49-bV-PVg" firstAttribute="leading" secondItem="76u-yB-pYh" secondAttribute="leading" constant="8" id="pJk-SB-hKB"/>
                             <constraint firstItem="E5o-pW-FKe" firstAttribute="leading" secondItem="76u-yB-pYh" secondAttribute="leading" constant="20" id="roD-J1-eFh"/>
@@ -347,11 +355,132 @@
                         <outlet property="weightTextField" destination="ubz-Vl-AKO" id="eLa-cd-MXD"/>
                         <outlet property="widthTextField" destination="2du-AG-LeP" id="2KP-c1-ODE"/>
                         <segue destination="KEp-48-qW5" kind="show" identifier="ProductDescriptionSegue" id="egg-cC-54o"/>
+                        <segue destination="6gy-oB-TiJ" kind="show" identifier="PackItNowSegue" id="u6j-ye-o3p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aVs-7j-bz8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="612" y="43.628185907046479"/>
+        </scene>
+        <!--Recommended Box View Controller-->
+        <scene sceneID="1Fp-KY-3V4">
+            <objects>
+                <viewController id="6gy-oB-TiJ" customClass="RecommendedBoxViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wGv-NL-KPz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="voo-VI-Zx1">
+                                <rect key="frame" x="67.5" y="203" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="gvZ-P1-FBS"/>
+                                    <constraint firstAttribute="width" constant="240" id="hAx-Hs-0jf"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vXr-QO-kdJ">
+                                <rect key="frame" x="40" y="114" width="295" height="49"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Recommended Box Size:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OqS-tu-eEB">
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fP-BS-W9V">
+                                        <rect key="frame" x="0.0" y="28.5" width="295" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gr3-cY-bbP">
+                                <rect key="frame" x="92.5" y="463" width="190" height="30"/>
+                                <color key="backgroundColor" name="appARKADarkBlue"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Use the Recommended Box"/>
+                                <connections>
+                                    <action selector="useRecommendedBoxTapped:" destination="6gy-oB-TiJ" eventType="touchUpInside" id="jTo-Xr-wDN"/>
+                                    <segue destination="Z2G-mY-95F" kind="show" id="81y-wq-xfZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ma4-Qm-4vn">
+                                <rect key="frame" x="115.5" y="501" width="144" height="30"/>
+                                <state key="normal" title="Use another box size"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="voo-VI-Zx1" firstAttribute="top" secondItem="vXr-QO-kdJ" secondAttribute="bottom" constant="40" id="8qN-UH-1Cl"/>
+                            <constraint firstItem="voo-VI-Zx1" firstAttribute="centerX" secondItem="wGv-NL-KPz" secondAttribute="centerX" id="IZY-Kr-48w"/>
+                            <constraint firstItem="Gr3-cY-bbP" firstAttribute="centerX" secondItem="wGv-NL-KPz" secondAttribute="centerX" id="N2X-VH-xuX"/>
+                            <constraint firstItem="ma4-Qm-4vn" firstAttribute="centerX" secondItem="wGv-NL-KPz" secondAttribute="centerX" id="OiM-z6-5MB"/>
+                            <constraint firstItem="vXr-QO-kdJ" firstAttribute="top" secondItem="mhv-ue-ukb" secondAttribute="top" constant="50" id="a4W-HJ-DZy"/>
+                            <constraint firstItem="mhv-ue-ukb" firstAttribute="trailing" secondItem="vXr-QO-kdJ" secondAttribute="trailing" constant="40" id="f9I-eN-tQ8"/>
+                            <constraint firstItem="ma4-Qm-4vn" firstAttribute="top" secondItem="Gr3-cY-bbP" secondAttribute="bottom" constant="8" id="fBi-C2-NRu"/>
+                            <constraint firstItem="Gr3-cY-bbP" firstAttribute="top" secondItem="voo-VI-Zx1" secondAttribute="bottom" constant="20" id="l0K-or-H5c"/>
+                            <constraint firstItem="vXr-QO-kdJ" firstAttribute="leading" secondItem="mhv-ue-ukb" secondAttribute="leading" constant="40" id="oBz-L2-pdn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mhv-ue-ukb"/>
+                    </view>
+                    <connections>
+                        <outlet property="boxSizeLabel" destination="9fP-BS-W9V" id="2XH-NJ-hOE"/>
+                        <outlet property="imageView" destination="voo-VI-Zx1" id="ZOx-Cf-30Y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jn2-wP-w4v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2116" y="-260"/>
+        </scene>
+        <!--Buy Recommended Box View Controller-->
+        <scene sceneID="0QS-OO-K8G">
+            <objects>
+                <viewController id="Z2G-mY-95F" customClass="BuyRecommendedBoxViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5zU-IP-Ibw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5kC-Ph-r2q">
+                                <rect key="frame" x="52.5" y="314" width="270" height="30"/>
+                                <state key="normal" title="Buy the Recommend Box on ARKA.com"/>
+                                <connections>
+                                    <action selector="buyRecommendedPackage:" destination="Z2G-mY-95F" eventType="touchUpInside" id="YdS-B8-Hhj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLg-5h-X7E">
+                                <rect key="frame" x="74" y="364" width="227" height="60"/>
+                                <color key="backgroundColor" name="appARKADarkBlue"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="CbA-1T-bFg"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="No. I don't need to Box right now."/>
+                                <connections>
+                                    <segue destination="vyV-tV-kWy" kind="show" identifier="PackageDetailSegue" id="oQU-WO-Q7X"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VLg-5h-X7E" firstAttribute="top" secondItem="5kC-Ph-r2q" secondAttribute="bottom" constant="20" id="9fb-iA-exN"/>
+                            <constraint firstItem="VLg-5h-X7E" firstAttribute="centerX" secondItem="5zU-IP-Ibw" secondAttribute="centerX" id="PIG-r5-BeA"/>
+                            <constraint firstItem="5kC-Ph-r2q" firstAttribute="centerX" secondItem="5zU-IP-Ibw" secondAttribute="centerX" id="S7L-78-Zce"/>
+                            <constraint firstItem="5kC-Ph-r2q" firstAttribute="top" secondItem="3c5-jQ-n0t" secondAttribute="top" constant="250" id="doo-tR-S6p"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3c5-jQ-n0t"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iva-G4-ONw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2924" y="-267.61619190404798"/>
+        </scene>
+        <!--PackageDetailViewControllerSB-->
+        <scene sceneID="D66-tk-Q3O">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="PackageDetailViewControllerSB" storyboardName="PackageDetailViewController" referencedIdentifier="PackageDetailViewControllerSB" id="vyV-tV-kWy" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WuX-vr-JvF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3582" y="-319"/>
         </scene>
         <!--PickProductToPackViewControllerSB-->
         <scene sceneID="thc-AR-ORG">

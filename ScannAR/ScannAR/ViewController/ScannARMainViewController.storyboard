@@ -178,10 +178,10 @@
             </objects>
             <point key="canvasLocation" x="1902" y="245"/>
         </scene>
-        <!--ShipmentDetailViewControllerSB-->
+        <!--ShipmentTrackingVC-->
         <scene sceneID="XKM-ZT-ULj">
             <objects>
-                <viewControllerPlaceholder storyboardName="ShipmentsDetailViewController" referencedIdentifier="ShipmentDetailViewControllerSB" id="aLv-lv-Emq" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="ShipmentTracking" referencedIdentifier="ShipmentTrackingVC" id="aLv-lv-Emq" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2AB-EZ-cnm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1806" y="300"/>

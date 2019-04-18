@@ -66,6 +66,10 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="186" height="158"/>
+            <connections>
+                <outlet property="packageImageView" destination="5mm-m3-6j3" id="K0f-1d-7iA"/>
+                <outlet property="plusButtonImageView" destination="pxm-2d-PeX" id="A3L-VJ-iIK"/>
+            </connections>
             <point key="canvasLocation" x="236.23188405797103" y="170.75892857142856"/>
         </collectionViewCell>
     </objects>

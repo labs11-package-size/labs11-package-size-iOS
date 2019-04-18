@@ -101,7 +101,10 @@ class ARDetectViewController: UIViewController, ARSCNViewDelegate, ARSKViewDeleg
             print("You've pressed default");
         }
         alertController.addAction(action1)
-        self.present(alertController, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            self.present(alertController, animated: true, completion: nil)
+        }
+        
     }
     
     // Override to create and configure nodes for anchors added to the view's session.
@@ -114,8 +117,12 @@ class ARDetectViewController: UIViewController, ARSCNViewDelegate, ARSKViewDeleg
         planeNode.position.y = 0.25
         print(planeNode.position)
         planeNode.eulerAngles.y = .pi / 2
-        sceneView.scene.rootNode.addChildNode(planeNode)
         
+        DispatchQueue.main.async {
+            self.sceneView.scene.rootNode.addChildNode(planeNode)
+
+        }
+
         return node
     }
     

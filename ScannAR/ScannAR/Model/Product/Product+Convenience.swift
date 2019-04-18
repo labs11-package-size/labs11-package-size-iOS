@@ -89,7 +89,7 @@ extension Product {
             }
             
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd HH:MM:SS"
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
             
             if let date = dateFormatter.date(from: productLastUpdated) {
                 lastUpdated = date

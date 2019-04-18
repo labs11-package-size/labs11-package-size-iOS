@@ -87,9 +87,19 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         let completionOp = BlockOperation {
             defer { self.operations.removeValue(forKey: uuid) }
             
-            if let currentIndexPath = self.collectionView?.indexPath(for: cell),
-                currentIndexPath != indexPath {
-                return // Cell has been reused
+            if let currentIndexPath = self.collectionView?.indexPath(for: cell){
+                
+                var newCurrentIndexPath: IndexPath
+                if currentIndexPath.section == 0 {
+                    newCurrentIndexPath = IndexPath(item: currentIndexPath.item - 1, section: 0)
+                } else {
+                    newCurrentIndexPath = currentIndexPath
+                }
+                
+                if newCurrentIndexPath != indexPath {
+                    return // Cell has been reused
+                }
+                
             }
             
             if let image = fetchOp.image {
@@ -296,14 +306,13 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             }
             let product = productsFetchedResultsController.object(at: newIndexPath)
             guard let destVC = segue.destination as? ProductDetailViewController else { fatalError("Segue should cast view controller as ProductDetailViewController but failed to do so.")}
-            destVC.scannARNetworkingController = self.scannARNetworkingController
             destVC.product = product
             
         } else if segue.identifier == "ShipmentDetailSegue" {
             
             guard let indexPath = collectionView.indexPathsForSelectedItems?.first else {fatalError("No selected indexPath")}
             let shipment = shipmentsFetchedResultsController.object(at: indexPath)
-            guard let destVC = segue.destination as? ShipmentsDetailViewController else { fatalError("Segue should cast view controller as ProductDetailViewController but failed to do so.")}
+            guard let destVC = segue.destination as? ShipmentTrackingMainViewController else { fatalError("Segue should cast view controller as ShipmentTrackingMainViewController but failed to do so.")}
             destVC.scannARNetworkingController = self.scannARNetworkingController
             destVC.shipment = shipment
             
@@ -535,7 +544,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             cell.detailLabel.text = "$\(product.value)"
             cell.lwhLabel.text = "L: \(product.length) | W: \(product.width) | H: \(product.height)"
             cell.weightLabel.text = "\(product.weight) lbs"
-            
+            print(product.lastUpdated)
 
             cell.contentView.layer.cornerRadius = 10
             cell.contentView.layer.borderWidth = 1.0
@@ -612,17 +621,29 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     @objc (handleLongPressWithGestureRecognizer:)
     func handleLongPress(gestureRecognizer : UILongPressGestureRecognizer){
         
-        if (gestureRecognizer.state != UIGestureRecognizer.State.ended){
-            return
-        }
-        
         let p = gestureRecognizer.location(in: self.collectionView)
         
         if let indexPath : IndexPath = (self.collectionView?.indexPathForItem(at: p)){
+            
+            if indexPath.section == 0 && indexPath.item == 0 && self.segmentedControl.selectedSegmentIndex == 0 {
+                return
+            }
+            if (gestureRecognizer.state != UIGestureRecognizer.State.ended){
+                return
+            }
+            
             //do whatever you need to do
             let generator = UIImpactFeedbackGenerator(style: .heavy)
             generator.impactOccurred()
-            displayAlertViewController(for: indexPath)
+            
+            var newIndexPath: IndexPath
+            if indexPath.section == 0 && self.segmentedControl.selectedSegmentIndex == 0 {
+                newIndexPath = IndexPath(item: indexPath.item - 1, section: 0)
+            } else {
+                newIndexPath = indexPath
+            }
+            
+            displayAlertViewController(for: newIndexPath)
             
         }
         
@@ -781,7 +802,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         let fetchRequest: NSFetchRequest<Product> = Product.fetchRequest()
         
         fetchRequest.sortDescriptors = [
-            NSSortDescriptor(key: "name", ascending: true)
+            NSSortDescriptor(key: "lastUpdated", ascending: false)
         ]
         let moc = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "fragile", cacheName: nil)
@@ -798,7 +819,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         let fetchRequest: NSFetchRequest<Package> = Package.fetchRequest()
         
         fetchRequest.sortDescriptors = [
-            NSSortDescriptor(key: "identifier", ascending: false)
+            NSSortDescriptor(key: "lastUpdated", ascending: false)
         ]
         let moc = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "dimensions", cacheName: nil)
