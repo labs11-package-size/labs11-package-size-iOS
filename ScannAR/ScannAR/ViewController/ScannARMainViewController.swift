@@ -313,7 +313,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
                 newIndexPath = indexPath
             }
             let product = productsFetchedResultsController.object(at: newIndexPath)
-            guard let destVC = segue.destination as? ProductDetailViewController else { fatalError("Segue should cast view controller as ProductDetailViewController but failed to do so.")}
+            guard let destVC = segue.destination.children[0] as? ProductDetailContainerViewController else { fatalError("Segue should cast view controller as ProductDetailViewController but failed to do so.")}
             destVC.product = product
             
         } else if segue.identifier == "ShipmentDetailSegue" {

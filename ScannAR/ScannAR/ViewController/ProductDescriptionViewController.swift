@@ -91,6 +91,9 @@ class ProductDescriptionViewController: UIViewController {
         updateProductOnServer()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonTapped))
     }
+    @IBAction func cancelTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: {})
+    }
     
     @IBOutlet weak var productDescriptionTextView: UITextView!
     var productDescription: String?

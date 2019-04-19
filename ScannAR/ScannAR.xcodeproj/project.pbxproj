@@ -110,6 +110,8 @@
 		D120FCC52266DEC8005464D1 /* RecommendedBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D120FCC42266DEC8005464D1 /* RecommendedBoxViewController.swift */; };
 		D120FCC72266F0E9005464D1 /* BuyRecommendedBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D120FCC62266F0E9005464D1 /* BuyRecommendedBoxViewController.swift */; };
 		D120FCC92267E86C005464D1 /* UITextView+ContentSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = D120FCC82267E86C005464D1 /* UITextView+ContentSize.swift */; };
+		D120FCCB226A1991005464D1 /* ProductDetailContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D120FCCA226A1991005464D1 /* ProductDetailContainerViewController.swift */; };
+		D120FCCD226A5348005464D1 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D120FCCC226A5348005464D1 /* ProgressViewController.swift */; };
 		D13070B5224C62EC00164B9A /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13070B4224C62EC00164B9A /* AddProductViewController.swift */; };
 		D132530B225A85980021ED29 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D132530A225A85980021ED29 /* Appearance.swift */; };
 		D132530D225ABCF80021ED29 /* PackageDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D132530C225ABCF80021ED29 /* PackageDetailViewController.storyboard */; };
@@ -313,6 +315,8 @@
 		D120FCC42266DEC8005464D1 /* RecommendedBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedBoxViewController.swift; sourceTree = "<group>"; };
 		D120FCC62266F0E9005464D1 /* BuyRecommendedBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyRecommendedBoxViewController.swift; sourceTree = "<group>"; };
 		D120FCC82267E86C005464D1 /* UITextView+ContentSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+ContentSize.swift"; sourceTree = "<group>"; };
+		D120FCCA226A1991005464D1 /* ProductDetailContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailContainerViewController.swift; sourceTree = "<group>"; };
+		D120FCCC226A5348005464D1 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		D13070B4224C62EC00164B9A /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		D132530A225A85980021ED29 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		D132530C225ABCF80021ED29 /* PackageDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PackageDetailViewController.storyboard; sourceTree = "<group>"; };
@@ -870,6 +874,8 @@
 				D1EAB228224555B300720412 /* ScannARMainNavigationController.swift */,
 				D1EAB21F224405F900720412 /* ScannARMainViewController.storyboard */,
 				D1EAB2072243B50B00720412 /* ProductDetailViewController.swift */,
+				D120FCCC226A5348005464D1 /* ProgressViewController.swift */,
+				D120FCCA226A1991005464D1 /* ProductDetailContainerViewController.swift */,
 				D1EAB2092243B51C00720412 /* ProductDetailViewController.storyboard */,
 				D137E68D225FA3AA009CA684 /* ProductDescriptionViewController.swift */,
 				D1EAB2132243B69800720412 /* SettingsViewController.swift */,
@@ -1301,6 +1307,7 @@
 				ABA70F8E225739D200A44C06 /* UIView+Extensions.swift in Sources */,
 				D132530B225A85980021ED29 /* Appearance.swift in Sources */,
 				AB38DCD222445EB7008DC8C0 /* FlashlightButton.swift in Sources */,
+				D120FCCB226A1991005464D1 /* ProductDetailContainerViewController.swift in Sources */,
 				D11802CF22554EEF002837D3 /* AddProductProtocolDelegate.swift in Sources */,
 				AB46C545224B59960075EF30 /* AuthViewController.swift in Sources */,
 				AB38DCF922446380008DC8C0 /* BoundingBox+Snapping.swift in Sources */,
@@ -1318,6 +1325,7 @@
 				AB12DBB02242E91200886A11 /* ARScanViewController+SessionInfo.swift in Sources */,
 				D11802D12255B14F002837D3 /* ProductAsset.swift in Sources */,
 				AB12DBAA2242E84F00886A11 /* ARScanViewController+Gestures.swift in Sources */,
+				D120FCCD226A5348005464D1 /* ProgressViewController.swift in Sources */,
 				AB12DBA82242E50E00886A11 /* ARScanViewController.swift in Sources */,
 				D1EAB23522492AC200720412 /* Product+Convenience.swift in Sources */,
 				D137E68A225E6157009CA684 /* URL+Secure.swift in Sources */,

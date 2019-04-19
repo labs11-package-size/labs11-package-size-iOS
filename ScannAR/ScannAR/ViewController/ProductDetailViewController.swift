@@ -167,6 +167,8 @@ class ProductDetailViewController: UIViewController {
         }
     }
     
+    
+    
     private func flashSaveOnServerNoticeToUser() {
         guard let product = product else { return }
         DispatchQueue.main.async {
@@ -219,6 +221,12 @@ class ProductDetailViewController: UIViewController {
     }
    
     // MARK: - IBActions
+    
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        
+        self.dismiss(animated: true)
+    }
+    
     @IBAction func editButtonTapped(_ sender: Any) {
         changeEditingTo(true)
         notification.notificationOccurred(.warning)
