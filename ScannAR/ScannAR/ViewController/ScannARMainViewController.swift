@@ -121,23 +121,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     private func updateAccountPicture() {
-//        guard let account = account else { return }
-//        guard let photoURL = account.photoURL else { return }
-//        guard let profileURL = URL(string: photoURL) else { return }
-//        var data: Data
-//        do {
-//            data = try Data.init(contentsOf: profileURL)
-//        } catch {
-//            print("Could not get profile image.")
-//            return
-//        }
-//        let image = UIImage(data: data)
-//        DispatchQueue.main.async {
-//
-////            self.navigationItem.leftBarButtonItem?.setBackgroundImage(image, for: .normal, barMetrics: .default)
-//
-//
-//        }
+        
     }
     
     private func setupLongPress(){
@@ -313,7 +297,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
                 newIndexPath = indexPath
             }
             let product = productsFetchedResultsController.object(at: newIndexPath)
-            guard let destVC = segue.destination as? ProductDetailViewController else { fatalError("Segue should cast view controller as ProductDetailViewController but failed to do so.")}
+            guard let destVC = segue.destination.children[0] as? ProductDetailContainerViewController else { fatalError("Segue should cast view controller as ProductDetailViewController but failed to do so.")}
             destVC.product = product
             
         } else if segue.identifier == "ShipmentDetailSegue" {
