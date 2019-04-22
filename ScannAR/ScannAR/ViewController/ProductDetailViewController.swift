@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ProductDetailViewController: UIViewController {
+class ProductDetailViewController: UIViewController, BottomButtonDelegate {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +35,6 @@ class ProductDetailViewController: UIViewController {
         lengthTextField.keyboardType = UIKeyboardType.decimalPad
         widthTextField.keyboardType = UIKeyboardType.decimalPad
         
-        packItNowButton.clipsToBounds = true
-        packItNowButton.cornerRadius = 12
-        
         
         guard let product = product else {fatalError("No product available to show")}
         if let thumbnail = product.thumbnail {
@@ -53,7 +51,6 @@ class ProductDetailViewController: UIViewController {
         }
         
         nameTextField.text = product.name
-        descriptionTextView.text = product.productDescription
         manufacturerIdTextField.text = product.manufacturerId
         valueTextField.text =  String(format: "%.2f", (product.value)) // NumberFormatter.localizedString(from: NSNumber(value: product.value), number: .currency)
         weightTextField.text = String(format: "%.2f", (product.weight))
@@ -62,6 +59,8 @@ class ProductDetailViewController: UIViewController {
         heightTextField.text = String(format: "%.2f", (product.height))
         fragileSwitch.isOn =  product.fragile == 1 ? true : false
         
+        arrowImageView.setImageColor(color: .gray)
+
     }
     
     private func setupTapGestures(){
@@ -120,7 +119,6 @@ class ProductDetailViewController: UIViewController {
     
         guard let product = product else { fatalError("No Product present")}
         product.name = nameTextField.text
-        product.productDescription = descriptionTextView.text
         product.manufacturerId = manufacturerIdTextField.text
         
         if let value = Double("\(valueTextField.text)") {
@@ -136,7 +134,6 @@ class ProductDetailViewController: UIViewController {
     
     private func setupDelegates() {
         nameTextField.delegate = self
-        descriptionTextView.delegate = self
         manufacturerIdTextField.delegate = self
         valueTextField.delegate = self
         weightTextField.delegate = self
@@ -147,7 +144,6 @@ class ProductDetailViewController: UIViewController {
     
     private func changeEditingTo(_ bool: Bool) {
         nameTextField.isUserInteractionEnabled = bool
-        descriptionTextView.isUserInteractionEnabled = bool
         manufacturerIdTextField.isUserInteractionEnabled = bool
         valueTextField.isUserInteractionEnabled = bool
         weightTextField.isUserInteractionEnabled = bool
@@ -166,6 +162,8 @@ class ProductDetailViewController: UIViewController {
             self.flashSaveOnServerNoticeToUser()
         }
     }
+    
+    
     
     private func flashSaveOnServerNoticeToUser() {
         guard let product = product else { return }
@@ -213,12 +211,28 @@ class ProductDetailViewController: UIViewController {
             destVC.product = product
         } else if segue.identifier == "PackItNowSegue" {
             guard let destVC = segue.destination as? RecommendedBoxViewController else { fatalError("Did not transition to RecommendedBoxViewController")}
+            bottomButtonDelegate?.updateDelegate(destVC)
             guard let package = package else { fatalError("No package to send")}
             destVC.package = package
+            destVC.bottomButtonDelegate = bottomButtonDelegate
         }
     }
    
+    // MARK: - BottomButtonDelegateMethods
+    func packThisProduct() {
+        self.packItNowButtonTapped(self)
+    }
+    
+    func packMultipleProducts() {
+        print("pack multiple items segue")
+    }
     // MARK: - IBActions
+    
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        
+        self.dismiss(animated: true)
+    }
+    
     @IBAction func editButtonTapped(_ sender: Any) {
         changeEditingTo(true)
         notification.notificationOccurred(.warning)
@@ -236,7 +250,7 @@ class ProductDetailViewController: UIViewController {
         performSegue(withIdentifier: "ProductDescriptionSegue", sender: self)
     }
     
-    @IBAction func packItNowButtonTapped(_ sender: Any) {
+    private func packItNowButtonTapped(_ sender: Any) {
         notification.notificationOccurred(.success)
         self.fetchPreview(completionHandler: { results, error in
             
@@ -272,15 +286,15 @@ class ProductDetailViewController: UIViewController {
     
     // MARK: - Properties
     var boxType: BoxType?
+    var bottomButtonDelegate: DelegatePasserDelegate?
     var fetchResults: [PackageConfiguration] = []
     let scannARNetworkController = ScannARNetworkController.shared
     var product: Product?
     var package: Package?
     let notification = UINotificationFeedbackGenerator()
     var collectionViewToReload: UICollectionView?
-    @IBOutlet weak var packItNowButton: UIButton!
+    @IBOutlet weak var arrowImageView: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var manufacturerIdTextField: UITextField!
     @IBOutlet weak var valueTextField: UITextField!
     @IBOutlet weak var weightTextField: UITextField!

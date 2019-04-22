@@ -108,8 +108,18 @@
 		D11858F622651F160041A735 /* AddProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11858F422651F160041A735 /* AddProductCollectionViewCell.swift */; };
 		D11858F722651F160041A735 /* AddProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D11858F522651F160041A735 /* AddProductCollectionViewCell.xib */; };
 		D120FCC52266DEC8005464D1 /* RecommendedBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D120FCC42266DEC8005464D1 /* RecommendedBoxViewController.swift */; };
-		D120FCC72266F0E9005464D1 /* BuyRecommendedBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D120FCC62266F0E9005464D1 /* BuyRecommendedBoxViewController.swift */; };
 		D120FCC92267E86C005464D1 /* UITextView+ContentSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = D120FCC82267E86C005464D1 /* UITextView+ContentSize.swift */; };
+		D120FCCB226A1991005464D1 /* ProductDetailContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D120FCCA226A1991005464D1 /* ProductDetailContainerViewController.swift */; };
+		D120FCCD226A5348005464D1 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D120FCCC226A5348005464D1 /* ProgressViewController.swift */; };
+		D120FCCF226A7047005464D1 /* BottomButtonContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D120FCCE226A7047005464D1 /* BottomButtonContainerViewController.swift */; };
+		D120FCD1226A7833005464D1 /* BottomButtonProtocolDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D120FCD0226A7833005464D1 /* BottomButtonProtocolDelegate.swift */; };
+		D120FCD3226AAA35005464D1 /* UIViewController+PresentDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D120FCD2226AAA35005464D1 /* UIViewController+PresentDetail.swift */; };
+		D120FCD5226AAB6C005464D1 /* SegueFromRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = D120FCD4226AAB6C005464D1 /* SegueFromRight.swift */; };
+		D120FCD7226AAF2B005464D1 /* ProgressBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D120FCD6226AAF2B005464D1 /* ProgressBarDelegate.swift */; };
+		D120FCD9226BA3E5005464D1 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D120FCD8226BA3E5005464D1 /* CircleView.swift */; };
+		D120FCDB226BD07A005464D1 /* DelegatePasserDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D120FCDA226BD07A005464D1 /* DelegatePasserDelegate.swift */; };
+		D120FCDD226BD69B005464D1 /* CreatingBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D120FCDC226BD69B005464D1 /* CreatingBoxViewController.swift */; };
+		D120FCDF226CD042005464D1 /* SegueFromRight2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D120FCDE226CD042005464D1 /* SegueFromRight2.swift */; };
 		D13070B5224C62EC00164B9A /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13070B4224C62EC00164B9A /* AddProductViewController.swift */; };
 		D132530B225A85980021ED29 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D132530A225A85980021ED29 /* Appearance.swift */; };
 		D132530D225ABCF80021ED29 /* PackageDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D132530C225ABCF80021ED29 /* PackageDetailViewController.storyboard */; };
@@ -311,8 +321,18 @@
 		D11858F422651F160041A735 /* AddProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		D11858F522651F160041A735 /* AddProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		D120FCC42266DEC8005464D1 /* RecommendedBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedBoxViewController.swift; sourceTree = "<group>"; };
-		D120FCC62266F0E9005464D1 /* BuyRecommendedBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyRecommendedBoxViewController.swift; sourceTree = "<group>"; };
 		D120FCC82267E86C005464D1 /* UITextView+ContentSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+ContentSize.swift"; sourceTree = "<group>"; };
+		D120FCCA226A1991005464D1 /* ProductDetailContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailContainerViewController.swift; sourceTree = "<group>"; };
+		D120FCCC226A5348005464D1 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
+		D120FCCE226A7047005464D1 /* BottomButtonContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButtonContainerViewController.swift; sourceTree = "<group>"; };
+		D120FCD0226A7833005464D1 /* BottomButtonProtocolDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButtonProtocolDelegate.swift; sourceTree = "<group>"; };
+		D120FCD2226AAA35005464D1 /* UIViewController+PresentDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+PresentDetail.swift"; sourceTree = "<group>"; };
+		D120FCD4226AAB6C005464D1 /* SegueFromRight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueFromRight.swift; sourceTree = "<group>"; };
+		D120FCD6226AAF2B005464D1 /* ProgressBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarDelegate.swift; sourceTree = "<group>"; };
+		D120FCD8226BA3E5005464D1 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		D120FCDA226BD07A005464D1 /* DelegatePasserDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatePasserDelegate.swift; sourceTree = "<group>"; };
+		D120FCDC226BD69B005464D1 /* CreatingBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatingBoxViewController.swift; sourceTree = "<group>"; };
+		D120FCDE226CD042005464D1 /* SegueFromRight2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueFromRight2.swift; sourceTree = "<group>"; };
 		D13070B4224C62EC00164B9A /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		D132530A225A85980021ED29 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		D132530C225ABCF80021ED29 /* PackageDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PackageDetailViewController.storyboard; sourceTree = "<group>"; };
@@ -791,6 +811,10 @@
 				D132530A225A85980021ED29 /* Appearance.swift */,
 				D137E689225E6157009CA684 /* URL+Secure.swift */,
 				D120FCC82267E86C005464D1 /* UITextView+ContentSize.swift */,
+				D120FCD2226AAA35005464D1 /* UIViewController+PresentDetail.swift */,
+				D120FCD4226AAB6C005464D1 /* SegueFromRight.swift */,
+				D120FCDE226CD042005464D1 /* SegueFromRight2.swift */,
+				D120FCD8226BA3E5005464D1 /* CircleView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -818,6 +842,9 @@
 			children = (
 				D11802CE22554EEF002837D3 /* AddProductProtocolDelegate.swift */,
 				D14F66C322595D0E0008DCF2 /* ProductPickerDelegate.swift */,
+				D120FCD0226A7833005464D1 /* BottomButtonProtocolDelegate.swift */,
+				D120FCD6226AAF2B005464D1 /* ProgressBarDelegate.swift */,
+				D120FCDA226BD07A005464D1 /* DelegatePasserDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -870,6 +897,9 @@
 				D1EAB228224555B300720412 /* ScannARMainNavigationController.swift */,
 				D1EAB21F224405F900720412 /* ScannARMainViewController.storyboard */,
 				D1EAB2072243B50B00720412 /* ProductDetailViewController.swift */,
+				D120FCCC226A5348005464D1 /* ProgressViewController.swift */,
+				D120FCCE226A7047005464D1 /* BottomButtonContainerViewController.swift */,
+				D120FCCA226A1991005464D1 /* ProductDetailContainerViewController.swift */,
 				D1EAB2092243B51C00720412 /* ProductDetailViewController.storyboard */,
 				D137E68D225FA3AA009CA684 /* ProductDescriptionViewController.swift */,
 				D1EAB2132243B69800720412 /* SettingsViewController.swift */,
@@ -878,7 +908,7 @@
 				D1EAB2112243B68300720412 /* AccountViewController.storyboard */,
 				ABF8F02C2268DAED00C4CCA7 /* Shipments Tracking (OLD) */,
 				D120FCC42266DEC8005464D1 /* RecommendedBoxViewController.swift */,
-				D120FCC62266F0E9005464D1 /* BuyRecommendedBoxViewController.swift */,
+				D120FCDC226BD69B005464D1 /* CreatingBoxViewController.swift */,
 				D14F66BC225949AE0008DCF2 /* PickProductToPackViewController.swift */,
 				D14F66B82259416F0008DCF2 /* PickProductToPack.storyboard */,
 				D132530E225ABD590021ED29 /* PackageDetailViewController.swift */,
@@ -1255,6 +1285,7 @@
 				AB38DCD622445F99008DC8C0 /* ThresholdPinchGestureRecognizer.swift in Sources */,
 				D142BEE3224AACE400699881 /* ShipmentsCollectionViewCell.swift in Sources */,
 				AB38DCF522446339008DC8C0 /* Tile.swift in Sources */,
+				D120FCDF226CD042005464D1 /* SegueFromRight2.swift in Sources */,
 				D14F66C122594ACC0008DCF2 /* PickProductTableViewCell.swift in Sources */,
 				D1EAB21C224405BE00720412 /* ScannARMainCollectionView.swift in Sources */,
 				D1EAB2262244597D00720412 /* WalkthroughViewController.swift in Sources */,
@@ -1263,7 +1294,9 @@
 				D14F66C622595FEA0008DCF2 /* Array+Extension.swift in Sources */,
 				ABA70F80225733FA00A44C06 /* SmallToLargeAnimatable.swift in Sources */,
 				D1EAB1D72242D64800720412 /* ProductsCollectionViewCell.swift in Sources */,
+				D120FCCF226A7047005464D1 /* BottomButtonContainerViewController.swift in Sources */,
 				AB38DCCB22445E3E008DC8C0 /* Message.swift in Sources */,
+				D120FCDD226BD69B005464D1 /* CreatingBoxViewController.swift in Sources */,
 				D137E686225E50AD009CA684 /* ConcurrentOperation.swift in Sources */,
 				D196E7672256B56E0012A3F7 /* BoxType.swift in Sources */,
 				ABA70F872257384A00A44C06 /* SmallToLargeTransitionController.swift in Sources */,
@@ -1280,6 +1313,7 @@
 				ABC2C3B8224A857D0045A7D2 /* SavedARScansListViewController.swift in Sources */,
 				ABA70F9122573A2700A44C06 /* UIImage+Effects.swift in Sources */,
 				AB38DCE32244626E008DC8C0 /* BoundingBoxSide.swift in Sources */,
+				D120FCD5226AAB6C005464D1 /* SegueFromRight.swift in Sources */,
 				D196E75D225691020012A3F7 /* PackageRepresentation.swift in Sources */,
 				D137E688225E51F7009CA684 /* FetchPhotoOperation.swift in Sources */,
 				ABA70F752256A70C00A44C06 /* PackagesCollectionViewCell.swift in Sources */,
@@ -1301,9 +1335,14 @@
 				ABA70F8E225739D200A44C06 /* UIView+Extensions.swift in Sources */,
 				D132530B225A85980021ED29 /* Appearance.swift in Sources */,
 				AB38DCD222445EB7008DC8C0 /* FlashlightButton.swift in Sources */,
+				D120FCCB226A1991005464D1 /* ProductDetailContainerViewController.swift in Sources */,
+				D120FCDB226BD07A005464D1 /* DelegatePasserDelegate.swift in Sources */,
+				D120FCD9226BA3E5005464D1 /* CircleView.swift in Sources */,
 				D11802CF22554EEF002837D3 /* AddProductProtocolDelegate.swift in Sources */,
+				D120FCD7226AAF2B005464D1 /* ProgressBarDelegate.swift in Sources */,
 				AB46C545224B59960075EF30 /* AuthViewController.swift in Sources */,
 				AB38DCF922446380008DC8C0 /* BoundingBox+Snapping.swift in Sources */,
+				D120FCD1226A7833005464D1 /* BottomButtonProtocolDelegate.swift in Sources */,
 				AB67B4282268504400970E86 /* MapDrawerViewController.swift in Sources */,
 				D1EAB2082243B50B00720412 /* ProductDetailViewController.swift in Sources */,
 				AB38DCCE22445E5E008DC8C0 /* MessageLabel.swift in Sources */,
@@ -1318,6 +1357,7 @@
 				AB12DBB02242E91200886A11 /* ARScanViewController+SessionInfo.swift in Sources */,
 				D11802D12255B14F002837D3 /* ProductAsset.swift in Sources */,
 				AB12DBAA2242E84F00886A11 /* ARScanViewController+Gestures.swift in Sources */,
+				D120FCCD226A5348005464D1 /* ProgressViewController.swift in Sources */,
 				AB12DBA82242E50E00886A11 /* ARScanViewController.swift in Sources */,
 				D1EAB23522492AC200720412 /* Product+Convenience.swift in Sources */,
 				D137E68A225E6157009CA684 /* URL+Secure.swift in Sources */,
@@ -1329,6 +1369,7 @@
 				AB38DCD422445F7C008DC8C0 /* ThresholdPanGestureRecognizer.swift in Sources */,
 				AB12DBB52242EA5D00886A11 /* ARObjectDetectTestController.swift in Sources */,
 				ABA70F8C2257398A00A44C06 /* ReusableView.swift in Sources */,
+				D120FCD3226AAA35005464D1 /* UIViewController+PresentDetail.swift in Sources */,
 				D11802C4225530D0002837D3 /* FourthAddProductTableViewCell.swift in Sources */,
 				D11802C822553241002837D3 /* ThirdAddProductTableViewCell.swift in Sources */,
 				AB8013D12260EE8500D05FFE /* UIScrollView+Touches.swift in Sources */,
@@ -1345,7 +1386,6 @@
 				D120FCC92267E86C005464D1 /* UITextView+ContentSize.swift in Sources */,
 				AB38DCEF224462FD008DC8C0 /* PointCloud+CreateVisualization.swift in Sources */,
 				D134D68E225707280022F6C4 /* PackagePreviewRequest.swift in Sources */,
-				D120FCC72266F0E9005464D1 /* BuyRecommendedBoxViewController.swift in Sources */,
 				D152CA5D2253BFD2000F8ACD /* Account.swift in Sources */,
 				D137E690225FE703009CA684 /* ShipmentStatus.swift in Sources */,
 				D11802BC225530AF002837D3 /* SecondAddProductTableViewCell.swift in Sources */,

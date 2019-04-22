@@ -8,7 +8,9 @@
 
 import UIKit
 
-class RecommendedBoxViewController: UIViewController {
+class RecommendedBoxViewController: UIViewController, BottomButtonDelegate {
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +33,15 @@ class RecommendedBoxViewController: UIViewController {
             imageView.image = UIImage(named:"Shipper")
         }
         
-        useRecommendedBoxButton.layer.cornerRadius = 16
-        useRecommendedBoxButton.clipsToBounds = true
     }
     
+    func useRecommendedBoxTapped() {
+        performSegue(withIdentifier: "SegueToWaiting", sender: self)
+    }
+    
+    func useAnotherBoxTapped() {
+        
+    }
 
 
     // MARK: - Navigation
@@ -43,16 +50,15 @@ class RecommendedBoxViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        
-        guard let destVC = segue.destination as? BuyRecommendedBoxViewController else { fatalError("Destinatation should be BuyRecommendedBoxViewController")}
-        destVC.package = self.package
+        guard let destVC = segue.destination as? CreatingBoxViewController else { fatalError("Did not transition to CreatingBoxViewController")}
+        bottomButtonDelegate?.updateDelegate(destVC)
+        destVC.bottomButtonDelegate = bottomButtonDelegate
+        destVC.package = package
     }
     
-    @IBAction func useRecommendedBoxTapped(_ sender: Any) {
-    }
+    var bottomButtonDelegate: DelegatePasserDelegate?
+    
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var useRecommendedBoxButton: UIButton!
-    @IBOutlet weak var useOtherBoxButton: UIButton!
     @IBOutlet weak var boxSizeLabel: UILabel!
     var package: Package?
 }
