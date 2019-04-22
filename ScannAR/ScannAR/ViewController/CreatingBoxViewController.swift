@@ -14,7 +14,7 @@ class CreatingBoxViewController: UIViewController, BottomButtonDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        DispatchQueue.main.asyncAfter(deadline:.now() + 1.0, execute: {
+        DispatchQueue.main.asyncAfter(deadline:.now() + 2.0, execute: {
             self.performSegue(withIdentifier:"SegueToPackageDetails",sender: self)
         })
     }
