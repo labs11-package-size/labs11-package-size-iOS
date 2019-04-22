@@ -121,6 +121,7 @@
 		D120FCDD226BD69B005464D1 /* CreatingBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D120FCDC226BD69B005464D1 /* CreatingBoxViewController.swift */; };
 		D120FCDF226CD042005464D1 /* SegueFromRight2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D120FCDE226CD042005464D1 /* SegueFromRight2.swift */; };
 		D13070B5224C62EC00164B9A /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13070B4224C62EC00164B9A /* AddProductViewController.swift */; };
+		D132115E226E3D2300127EA4 /* PackageDetailContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D132115D226E3D2300127EA4 /* PackageDetailContainerViewController.swift */; };
 		D132530B225A85980021ED29 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D132530A225A85980021ED29 /* Appearance.swift */; };
 		D132530D225ABCF80021ED29 /* PackageDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D132530C225ABCF80021ED29 /* PackageDetailViewController.storyboard */; };
 		D132530F225ABD590021ED29 /* PackageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D132530E225ABD590021ED29 /* PackageDetailViewController.swift */; };
@@ -334,6 +335,7 @@
 		D120FCDC226BD69B005464D1 /* CreatingBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatingBoxViewController.swift; sourceTree = "<group>"; };
 		D120FCDE226CD042005464D1 /* SegueFromRight2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueFromRight2.swift; sourceTree = "<group>"; };
 		D13070B4224C62EC00164B9A /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
+		D132115D226E3D2300127EA4 /* PackageDetailContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailContainerViewController.swift; sourceTree = "<group>"; };
 		D132530A225A85980021ED29 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		D132530C225ABCF80021ED29 /* PackageDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PackageDetailViewController.storyboard; sourceTree = "<group>"; };
 		D132530E225ABD590021ED29 /* PackageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailViewController.swift; sourceTree = "<group>"; };
@@ -900,6 +902,7 @@
 				D120FCCC226A5348005464D1 /* ProgressViewController.swift */,
 				D120FCCE226A7047005464D1 /* BottomButtonContainerViewController.swift */,
 				D120FCCA226A1991005464D1 /* ProductDetailContainerViewController.swift */,
+				D132115D226E3D2300127EA4 /* PackageDetailContainerViewController.swift */,
 				D1EAB2092243B51C00720412 /* ProductDetailViewController.storyboard */,
 				D137E68D225FA3AA009CA684 /* ProductDescriptionViewController.swift */,
 				D1EAB2132243B69800720412 /* SettingsViewController.swift */,
@@ -1282,6 +1285,7 @@
 			files = (
 				AB12DBAE2242E8F500886A11 /* ARScanViewController+NavBar.swift in Sources */,
 				AB67B42A2268505B00970E86 /* MapDrawerTableViewCell.swift in Sources */,
+				D132115E226E3D2300127EA4 /* PackageDetailContainerViewController.swift in Sources */,
 				AB38DCD622445F99008DC8C0 /* ThresholdPinchGestureRecognizer.swift in Sources */,
 				D142BEE3224AACE400699881 /* ShipmentsCollectionViewCell.swift in Sources */,
 				AB38DCF522446339008DC8C0 /* Tile.swift in Sources */,

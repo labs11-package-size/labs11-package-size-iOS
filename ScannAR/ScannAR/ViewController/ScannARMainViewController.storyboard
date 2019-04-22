@@ -195,10 +195,10 @@
             </objects>
             <point key="canvasLocation" x="-407" y="181"/>
         </scene>
-        <!--PackageDetailViewControllerSB-->
+        <!--PackageDetailNavigationControllerSB-->
         <scene sceneID="1Xi-so-FIM">
             <objects>
-                <viewControllerPlaceholder storyboardName="PackageDetailViewController" referencedIdentifier="PackageDetailViewControllerSB" id="fvm-Oc-IFh" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="PackageDetailViewController" referencedIdentifier="PackageDetailNavigationControllerSB" id="fvm-Oc-IFh" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ub9-3Z-HgL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1889" y="122"/>
@@ -307,6 +307,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Pd6-zG-xIz"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OxH-Nj-swP" userLabel="First Responder" sceneMemberID="firstResponder"/>

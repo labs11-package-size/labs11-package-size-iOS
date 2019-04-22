@@ -572,7 +572,7 @@
         <!--Bottom Button Container View Controller-->
         <scene sceneID="ZIE-tt-YEE">
             <objects>
-                <viewController id="w7o-tg-8fc" customClass="BottomButtonContainerViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BottomButtonContainerViewControllerSB" id="w7o-tg-8fc" customClass="BottomButtonContainerViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TEP-DY-XCD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="181.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -621,7 +621,7 @@
         <!--Progress View Controller-->
         <scene sceneID="Ami-4n-Ypg">
             <objects>
-                <viewController id="wvX-qm-0fw" customClass="ProgressViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProgressViewControllerSB" id="wvX-qm-0fw" customClass="ProgressViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PIR-ZD-1kd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="63.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
