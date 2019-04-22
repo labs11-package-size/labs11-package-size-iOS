@@ -32,12 +32,26 @@ class ProductDetailContainerViewController: UIViewController {
         
         if segue.identifier == "EmbedSegue" {
             guard let destVC = segue.destination as? ProductDetailViewController else { fatalError("Embed Segue not going to ProductDetailViewController")}
+            
+            self.delgateForButtomContainer = destVC
             destVC.product = product
+        } else if segue.identifier == "EmbedBottomSegue" {
+            guard let destVC = segue.destination as? BottomButtonContainerViewController else { fatalError("Embed Segue not going to ProductDetailViewController")}
+            destVC.delegate = delgateForButtomContainer
+            destVC.progressBarDelegate = progressBarDelgateForButtomContainer
+            self.delgateForButtomContainer?.bottomButtonDelegate = destVC
+            
+        } else if segue.identifier == "EmbedTopSegue" {
+            guard let destVC = segue.destination as? ProgressViewController else { fatalError("Embed Segue not going to ProductDetailViewController")}
+            self.progressBarDelgateForButtomContainer = destVC
         }
     }
     
     // MARK: - Properties
     
+    @IBOutlet weak var productDetailContainerView: UIView!
+    var delgateForButtomContainer: ProductDetailViewController?
+    var progressBarDelgateForButtomContainer: ProgressViewController?
     var product: Product?
 
 }

@@ -121,23 +121,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     private func updateAccountPicture() {
-//        guard let account = account else { return }
-//        guard let photoURL = account.photoURL else { return }
-//        guard let profileURL = URL(string: photoURL) else { return }
-//        var data: Data
-//        do {
-//            data = try Data.init(contentsOf: profileURL)
-//        } catch {
-//            print("Could not get profile image.")
-//            return
-//        }
-//        let image = UIImage(data: data)
-//        DispatchQueue.main.async {
-//
-////            self.navigationItem.leftBarButtonItem?.setBackgroundImage(image, for: .normal, barMetrics: .default)
-//
-//
-//        }
+        
     }
     
     private func setupLongPress(){
