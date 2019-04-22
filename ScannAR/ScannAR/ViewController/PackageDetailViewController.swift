@@ -10,7 +10,7 @@ import UIKit
 import SafariServices
 import CoreData
 
-class PackageDetailViewController: UIViewController {
+class PackageDetailViewController: UIViewController, BottomButtonDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,8 +50,8 @@ class PackageDetailViewController: UIViewController {
         
         totalWeightLabel.text = String(format: "%.2f",package.totalWeight)
         
-        threeDPackagePreviewButton.layer.cornerRadius = 8
-        threeDPackagePreviewButton.clipsToBounds = true
+//        threeDPackagePreviewButton.layer.cornerRadius = 8
+//        threeDPackagePreviewButton.clipsToBounds = true
         
         
         // Slide and PageControl
@@ -102,6 +102,7 @@ class PackageDetailViewController: UIViewController {
                 
                 let shipment = Shipment(shipmentRepresentation: shipmentRep!, context: moc)
                 self.shipment = shipment
+                
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: "ShowShipment", sender: self)
                 }
@@ -139,13 +140,17 @@ class PackageDetailViewController: UIViewController {
                 self.navigationController?.popViewController(animated: true)
             }
         } else if segue.identifier == "ShowShipment" {
-            guard let destVC = segue.destination as? ShipmentTrackingMainViewController else { fatalError("Should be send Segue to ShipmentDetailVC but is not")}
+            guard let destVC = segue.destination as? ShipmentsDetailViewController else { fatalError("Should be send Segue to ShipmentDetailVC but is not")}
             destVC.shipment = self.shipment
+            destVC.package = self.package
+            destVC.productUUIDStrings = self.productUUIDStrings
+            bottomButtonDelegate?.updateDelegate(destVC)
+            destVC.bottomButtonDelegate = bottomButtonDelegate
         }
     }
     
     // MARK: - IBActions
-    @IBAction func showTrackingNumberButtonTapped(_ sender: Any) {
+    func showTrackingNumberButtonTapped(_ sender: Any) {
         //Creating UIAlertController and
         //Setting title and message for the alert dialog
         let alertController = UIAlertController(title: "Add a USPS Tracking Number", message: "Please paste a valid USPS tracking number for the item below. If you do not have a tracking number at this time, press cancel.", preferredStyle: .alert)
@@ -156,7 +161,9 @@ class PackageDetailViewController: UIViewController {
             //getting the input values from user
             guard let trackingNumberString = alertController.textFields?[0].text, trackingNumberString != "" else { return }
             
-            self.createShipmentTapped(with: trackingNumberString, self)
+            self.trackingNumber = trackingNumberString
+            self.trackingNumberEntered()
+            self.bottomButtonDelegate?.mainCallToActionButtonTapped(self)
             
         }
         
@@ -179,7 +186,7 @@ class PackageDetailViewController: UIViewController {
         
     }
     
-    @IBAction func threeDPackagePreviewButton(_ sender: Any) {
+    func threeDPackagePreviewButton(_ sender: Any) {
         guard let urlString = package?.modelURL, urlString != "http://www.google.com" else { return }
         guard let url = URL(string: urlString) else { return }
         linkToURL(with: url)
@@ -193,11 +200,24 @@ class PackageDetailViewController: UIViewController {
         
     }
     
+    // MARK: - BottomButtonDelegateMethods
+    func shipItTapped() {
+        self.showTrackingNumberButtonTapped(self)
+    }
+    
+    func trackingNumberEntered() {
+        guard let trackingNumber = trackingNumber else { return }
+        self.createShipmentTapped(with: trackingNumber, self)
+    }
+
+    
     // MARK: - Properties
+    var bottomButtonDelegate: DelegatePasserDelegate?
     var barButtonFlag = false
     var scannARNetworkingController = ScannARNetworkController.shared
     var package: Package?
     var shipment: Shipment?
+    var trackingNumber: String?
     var slides: [Slide] = []
     var collectionViewToReload: UICollectionView?
     var productUUIDStrings: [String] = []
@@ -228,8 +248,8 @@ class PackageDetailViewController: UIViewController {
     @IBOutlet weak var scrollContainerView: UIView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var threeDPackagePreviewButton: UIButton!
-    @IBOutlet weak var showTrackingNumber: UIButton!
+//    @IBOutlet weak var threeDPackagePreviewButton: UIButton!
+//    @IBOutlet weak var showTrackingNumber: UIButton!
     @IBOutlet weak var dimensionsLabel: UILabel!
     @IBOutlet weak var totalWeightLabel: UILabel!
     @IBOutlet weak var boxTypeLabel: UILabel!
