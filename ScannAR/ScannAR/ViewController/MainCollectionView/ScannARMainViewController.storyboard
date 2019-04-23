@@ -36,7 +36,11 @@
                         <viewLayoutGuide key="safeArea" id="WP9-IK-WPe"/>
                     </view>
                     <navigationItem key="navigationItem" id="XnB-Yj-tCO">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="user-2" id="8FZ-t5-ffD"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="user-2" id="8FZ-t5-ffD">
+                            <connections>
+                                <segue destination="0qG-Dc-x7H" kind="show" id="L7x-hn-DoI"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Scan it!" id="qVy-JB-isd"/>
                     </navigationItem>
                 </viewController>
@@ -70,7 +74,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
                                         <connections>
-                                            <segue destination="Qem-YB-khX" kind="presentation" identifier="ShowAddProductSegue" id="A8f-ox-xd8"/>
+                                            <segue destination="JL5-u5-pt9" kind="presentation" identifier="ShowAddProductSegue" modalPresentationStyle="currentContext" id="A8f-ox-xd8"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductCell" id="6NL-SR-EH6">
@@ -175,7 +179,7 @@
                 <viewControllerPlaceholder storyboardName="AccountViewController" referencedIdentifier="AccountViewControllerSB" id="0qG-Dc-x7H" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YCP-ev-XPU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1834" y="-65"/>
+            <point key="canvasLocation" x="1751" y="-16"/>
         </scene>
         <!--ScannAR Main Navigation Controller-->
         <scene sceneID="HRU-To-DAJ">
@@ -228,7 +232,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="I2a-KS-dVX" customClass="AddProductTableView" customModule="ScannAR" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="20" width="375" height="980"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="936"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FirstCell" rowHeight="217" id="2O7-Gq-ELM" customClass="FirstAddProductTableViewCell" customModule="ScannAR" customModuleProvider="target">
@@ -277,7 +281,7 @@
                     <navigationItem key="navigationItem" title="Add New Product" id="h5e-fy-FBg">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="BDR-Me-yKg">
                             <connections>
-                                <action selector="cancelButtonPressed:" destination="Qem-YB-khX" id="NXT-89-sTZ"/>
+                                <action selector="cancelButtonPressed:" destination="Qem-YB-khX" id="X5E-WL-P70"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -289,7 +293,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kG0-UO-6uf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1661.5999999999999" y="1015.592203898051"/>
+            <point key="canvasLocation" x="2439" y="1153"/>
         </scene>
         <!--ARScanMainMenu-->
         <scene sceneID="Dms-F2-Eng">
@@ -297,7 +301,25 @@
                 <viewControllerPlaceholder storyboardName="ARScan" referencedIdentifier="ARScanMainMenu" id="L5a-UV-gBZ" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tkk-of-KCB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2242" y="880"/>
+            <point key="canvasLocation" x="3180.8000000000002" y="879.76011994003011"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Afy-Jd-3SH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JL5-u5-pt9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MrY-jX-1WX">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Qem-YB-khX" kind="relationship" relationship="rootViewController" id="79g-qO-rKp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8mJ-p1-heK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1634" y="852"/>
         </scene>
     </scenes>
     <resources>
@@ -307,4 +329,7 @@
             <color red="0.046999998390674591" green="0.17299999296665192" blue="0.32499998807907104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="L7x-hn-DoI"/>
+    </inferredMetricsTieBreakers>
 </document>

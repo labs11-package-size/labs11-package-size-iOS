@@ -15,7 +15,6 @@ class ShipmentsDetailContainerViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
 
     @IBAction func cancelButtonTapped(_ sender: Any) {
         

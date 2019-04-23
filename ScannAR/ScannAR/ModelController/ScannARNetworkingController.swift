@@ -304,6 +304,28 @@ class ScannARNetworkController {
     }
     
     /*
+     Get an list of Shipments for jsonToken representing the User
+     */
+    func getShipmentDetail(uuid: UUID, completion: @escaping (ShipmentRepresentation?, Error?) -> Void) {
+        
+        let request = createRequest(for: .GETShipmentDetail, for: uuid)
+        
+        apiRequest(from: request) { (results: ShipmentRepresentation?, error: Error?) in
+            
+            if let error = error {
+                print("Error: \(error)")
+                completion(nil, error)
+            }
+            
+            guard let results = results else {
+                return completion(nil, nil)
+            }
+            
+            completion(results, nil)
+        }
+    }
+    
+    /*
      Delete a Shipment with a given UUID for a jsonToken representing the User
      */
     func deleteShipment(uuid: UUID, completion: @escaping ([ShipmentRepresentation]?, Error?) -> Void) {
@@ -678,6 +700,21 @@ extension ScannARNetworkController {
             
             var url = baseURL
             url = url.appendingPathComponent("shipments")
+            
+            guard let jsonToken = jsonToken else { fatalError("The jsonToken is empty.") }
+            
+            // Create a GET request
+            var request = URLRequest(url: url)
+            request.httpMethod = HTTPMethod.GET.rawValue
+            request.addValue(jsonToken.token, forHTTPHeaderField: "Authorization")
+            
+            return request
+        
+        case .GETShipmentDetail :
+            guard let uuid = uuid else { fatalError("no UUID passed") }
+            var url = baseURL
+            url = url.appendingPathComponent("shipments")
+            url = url.appendingPathComponent("\(uuid.uuidString)")
             
             guard let jsonToken = jsonToken else { fatalError("The jsonToken is empty.") }
             

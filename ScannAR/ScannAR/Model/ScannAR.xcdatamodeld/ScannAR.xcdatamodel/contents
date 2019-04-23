@@ -31,6 +31,7 @@
         <attribute name="lastUpdated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="productNames" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
         <attribute name="productUuids" optional="YES" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
+        <attribute name="shipmentTrackingDetail" optional="YES" attributeType="Transformable" customClassName="[ShipmentTrackingDetail]" syncable="YES"/>
         <attribute name="shippedDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="shippedTo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="shippingType" optional="YES" attributeType="String" syncable="YES"/>
@@ -43,6 +44,6 @@
     <elements>
         <element name="Package" positionX="-45" positionY="90" width="128" height="165"/>
         <element name="Product" positionX="-63" positionY="-18" width="128" height="225"/>
-        <element name="Shipment" positionX="-54" positionY="-9" width="128" height="255"/>
+        <element name="Shipment" positionX="-54" positionY="-9" width="128" height="270"/>
     </elements>
 </model>

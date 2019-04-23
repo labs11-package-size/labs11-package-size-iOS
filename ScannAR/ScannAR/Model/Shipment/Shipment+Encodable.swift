@@ -23,6 +23,7 @@ extension Shipment: Encodable {
         case lastUpdated
         case totalWeight
         case totalValue
+        case shipmentTrackingDetail
     }
     
     // MARK: - Encode
@@ -42,6 +43,7 @@ extension Shipment: Encodable {
         try container.encode(totalWeight, forKey: .totalWeight)
         try container.encode(dateArrived, forKey: .dateArrived)
         try container.encode(uuid, forKey: .uuid)
+        try container.encode(shipmentTrackingDetail, forKey: .shipmentTrackingDetail)
     }
     
 }
