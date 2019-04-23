@@ -77,6 +77,27 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         self.view.endEditing(true)
     }
     
+    func showAlertForMissedInformation() {
+        //Creating UIAlertController and
+        //Setting title and message for the alert dialog
+        let alertController = UIAlertController(title: "Missing Product Information", message: "Sorry but you need to input the length, width, height, and value, weight, and name properties of the product before saving the product. These values cannot be zero.", preferredStyle: .alert)
+        
+        //the confirm action taking the inputs
+        let confirmAction = UIAlertAction(title: "OK", style: .default) { (_) in
+            
+        }
+        
+        //adding the action to dialogbox
+        alertController.addAction(confirmAction)
+        
+        
+        DispatchQueue.main.async {
+            self.present(alertController, animated: true, completion: nil)
+            
+        }
+        
+    }
+    
     func showInputScreenToInputPhotoURL() {
         //Creating UIAlertController and
         //Setting title and message for the alert dialog
@@ -201,7 +222,11 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             width != 0.0,
             name != "",
             value != 0.0,
-            weight != 0.0 else { return }
+            weight != 0.0 else {
+                showAlertForMissedInformation()
+                return
+                
+        }
         
         let thumbnailURL = URL(string:thumbnail)
         
@@ -223,7 +248,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
                 }
             }
             DispatchQueue.main.async {
-                self.navigationController?.popViewController(animated: true)
+                self.dismiss(animated: true, completion: {})
             }
             
         }
@@ -231,7 +256,62 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
 
     
     func packItButtonTapped(_ sender: Any){
-        print("Send to Packaging")
+        let scannARNetworkController = ScannARNetworkController.shared
+        
+        guard height != 0.0,
+            length != 0.0,
+            width != 0.0,
+            name != "",
+            value != 0.0,
+            weight != 0.0 else {
+                showAlertForMissedInformation()
+                return
+        }
+        
+        let thumbnailURL = URL(string:thumbnail)
+        
+        let newProduct = Product(fragile: fragile, height: Double(height), length: Double(length), manufacturerId: manufacturerId, name: name, productDescription: productDescription, value: value, weight: weight, width: Double(width), thumbnail: thumbnailURL, context: CoreDataStack.shared.container.newBackgroundContext())
+        self.product = newProduct
+        let dict = NetworkingHelpers.dictionaryFromProduct(product: newProduct)
+        let newProductAsset = ProductAsset(urlString:imageURLString ?? "", name: "Picture1")
+        let assetDict = NetworkingHelpers.dictionaryFromProductAsset(productAsset: newProductAsset)
+        scannARNetworkController.postNewProduct(dict: dict) { results, error in
+            
+            guard let results = results else {
+                self.dismiss(animated: true, completion: {})
+                return
+            }
+            
+            guard let result = results.first else {
+                self.dismiss(animated: true, completion: {})
+                return
+            }
+            
+            let moc = CoreDataStack.shared.mainContext
+            let product = Product(productRepresentation: result, context: moc)
+            self.product = product
+            
+            do {
+                try moc.save()
+            } catch let saveError {
+                print("Error saving context: \(saveError)")
+            }
+            
+            if let uuid = product.uuid {
+                
+                if newProductAsset.urlString != "" {
+                    scannARNetworkController.postNewAssetsForProduct(dict: assetDict, uuid: uuid, completion: { (error) in
+                        DispatchQueue.main.async {
+                            self.performSegue(withIdentifier: "SegueToProductDetail", sender: self)
+                        }
+                    })
+                }
+            }
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "SegueToProductDetail", sender: self)
+            }
+            
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -245,6 +325,11 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             DispatchQueue.main.async {
                 self.navigationController!.view.layer.add(transition, forKey: nil)
             }
+        } else if segue.identifier == "SegueToProductDetail" {
+            
+            guard let destVC = segue.destination.children[0] as? ProductDetailContainerViewController else { fatalError("Segue should cast view controller as ProductDetailViewController but failed to do so.")}
+            destVC.product = product
+
         }
     }
     
@@ -272,6 +357,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     
     // MARK: - Properties
     var previewImage: UIImage?
+    var product: Product?
     var bestBoxSize: (length: Float?, width: Float?, height: Float?)
     @IBOutlet weak var addProductTableView: UITableView!
     var scannARNetworkController: ScannARNetworkController = ScannARNetworkController.shared
