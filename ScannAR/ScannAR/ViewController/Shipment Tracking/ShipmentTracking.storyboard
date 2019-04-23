@@ -13,7 +13,7 @@
         <!--Navigation Controller-->
         <scene sceneID="GOr-Q1-gct">
             <objects>
-                <navigationController extendedLayoutIncludesOpaqueBars="YES" definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" modalPresentationStyle="overCurrentContext" id="ZNu-NZ-ozx" sceneMemberID="viewController">
+                <navigationController extendedLayoutIncludesOpaqueBars="YES" modalPresentationStyle="currentContext" id="ZNu-NZ-ozx" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NsY-XJ-Exh">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -30,7 +30,7 @@
         <!--Track It-->
         <scene sceneID="sVO-7l-Vjm">
             <objects>
-                <viewController storyboardIdentifier="ShipmentTrackingVC" extendedLayoutIncludesOpaqueBars="YES" definesPresentationContext="YES" modalPresentationStyle="overFullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hpD-qk-b2T" customClass="ShipmentTrackingMainViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShipmentTrackingVC" extendedLayoutIncludesOpaqueBars="YES" modalPresentationStyle="currentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hpD-qk-b2T" customClass="ShipmentTrackingMainViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pmb-1A-T6c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

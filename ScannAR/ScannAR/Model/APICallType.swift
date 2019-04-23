@@ -29,6 +29,7 @@ enum APICallType: String, Codable {
     
     // shipments
     case GETShipments
+    case GETShipmentDetail
     case POSTNewShipment
     case DELETEShipment
     case PUTEditShipment

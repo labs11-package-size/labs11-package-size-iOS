@@ -123,6 +123,7 @@
 		D13070B5224C62EC00164B9A /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13070B4224C62EC00164B9A /* AddProductViewController.swift */; };
 		D132115E226E3D2300127EA4 /* PackageDetailContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D132115D226E3D2300127EA4 /* PackageDetailContainerViewController.swift */; };
 		D1321169226E8BBD00127EA4 /* ShipmentsDetailContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1321168226E8BBD00127EA4 /* ShipmentsDetailContainerViewController.swift */; };
+		D132116D226EA6E200127EA4 /* ShipmentTrackingDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D132116C226EA6E200127EA4 /* ShipmentTrackingDetail.swift */; };
 		D132530B225A85980021ED29 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D132530A225A85980021ED29 /* Appearance.swift */; };
 		D132530D225ABCF80021ED29 /* PackageDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D132530C225ABCF80021ED29 /* PackageDetailViewController.storyboard */; };
 		D132530F225ABD590021ED29 /* PackageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D132530E225ABD590021ED29 /* PackageDetailViewController.swift */; };
@@ -338,6 +339,7 @@
 		D13070B4224C62EC00164B9A /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		D132115D226E3D2300127EA4 /* PackageDetailContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailContainerViewController.swift; sourceTree = "<group>"; };
 		D1321168226E8BBD00127EA4 /* ShipmentsDetailContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentsDetailContainerViewController.swift; sourceTree = "<group>"; };
+		D132116C226EA6E200127EA4 /* ShipmentTrackingDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentTrackingDetail.swift; sourceTree = "<group>"; };
 		D132530A225A85980021ED29 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		D132530C225ABCF80021ED29 /* PackageDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PackageDetailViewController.storyboard; sourceTree = "<group>"; };
 		D132530E225ABD590021ED29 /* PackageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailViewController.swift; sourceTree = "<group>"; };
@@ -854,10 +856,10 @@
 		D1321164226E88BC00127EA4 /* MainCollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				D1EAB21B224405BE00720412 /* ScannARMainCollectionView.swift */,
 				D1EAB21D224405D700720412 /* ScannARMainViewController.swift */,
 				D1EAB228224555B300720412 /* ScannARMainNavigationController.swift */,
 				D1EAB21F224405F900720412 /* ScannARMainViewController.storyboard */,
+				D1EAB21B224405BE00720412 /* ScannARMainCollectionView.swift */,
 			);
 			path = MainCollectionView;
 			sourceTree = "<group>";
@@ -925,6 +927,7 @@
 				D1EAB23822492CEE00720412 /* Shipment+Convenience.swift */,
 				D1EAB2402249379D00720412 /* Shipment+Encodable.swift */,
 				D1EAB23C22492D9700720412 /* ShipmentRepresentation.swift */,
+				D132116C226EA6E200127EA4 /* ShipmentTrackingDetail.swift */,
 			);
 			path = Shipment;
 			sourceTree = "<group>";
@@ -1351,6 +1354,7 @@
 				D1EAB1D72242D64800720412 /* ProductsCollectionViewCell.swift in Sources */,
 				D120FCCF226A7047005464D1 /* BottomButtonContainerViewController.swift in Sources */,
 				AB38DCCB22445E3E008DC8C0 /* Message.swift in Sources */,
+				D132116D226EA6E200127EA4 /* ShipmentTrackingDetail.swift in Sources */,
 				D120FCDD226BD69B005464D1 /* CreatingBoxViewController.swift in Sources */,
 				D137E686225E50AD009CA684 /* ConcurrentOperation.swift in Sources */,
 				D196E7672256B56E0012A3F7 /* BoxType.swift in Sources */,

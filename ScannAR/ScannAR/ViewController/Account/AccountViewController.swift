@@ -20,7 +20,6 @@ class AccountViewController: UIViewController {
     
     // MARK: - Private Methods
     private func getAccount(){
-        guard let scannARNetworkingController = scannARNetworkingController else { fatalError(" Error: No networking controller available")}
 
         scannARNetworkingController.getUserAccountInfo { (result, error) in
 
@@ -38,7 +37,7 @@ class AccountViewController: UIViewController {
     }
     
     private func updateAccountInfoOnServer(){
-        guard let scannARNetworkingController = scannARNetworkingController else { fatalError(" Error: No networking controller available")}
+
         guard let account = account else { fatalError(" Error: No account exists")}
         let dict = NetworkingHelpers.dictionaryFromAccount(account: account)
         scannARNetworkingController.putEditUserAccountInfo(dict: dict) { (result, error) in
@@ -122,7 +121,7 @@ class AccountViewController: UIViewController {
     
     
     // MARK: - Properties
-    var scannARNetworkingController: ScannARNetworkController?
+    var scannARNetworkingController = ScannARNetworkController.shared
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var userNameTextField: UITextField!

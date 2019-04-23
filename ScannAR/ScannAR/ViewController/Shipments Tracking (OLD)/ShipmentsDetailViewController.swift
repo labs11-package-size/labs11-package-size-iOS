@@ -17,6 +17,8 @@ class ShipmentsDetailViewController: UIViewController, BottomButtonDelegate {
         // Do any additional setup after loading the view.
         updateViews()
         
+        fetchShippingDetail()
+        
     }
     
     // MARK: - Private Methods
@@ -61,6 +63,23 @@ class ShipmentsDetailViewController: UIViewController, BottomButtonDelegate {
         
     }
     
+    
+    private func fetchShippingDetail(){
+        guard let uuid = shipment?.uuid else { return }
+        scannARNetworkingController.getShipmentDetail(uuid: uuid) { (results, error) in
+            
+            guard let results = results else {
+                return
+            }
+            
+            let moc = CoreDataStack.shared.container.newBackgroundContext()
+            
+            let newShipment = Shipment(shipmentRepresentation: results, context: moc)
+            
+            self.shipment?.shipmentTrackingDetail = newShipment.shipmentTrackingDetail
+        }
+        
+    }
     private func getCompoundPredicate()->NSCompoundPredicate{
         var predicateArray: [NSPredicate] = []
         for uuidString in productUUIDStrings {
@@ -86,6 +105,13 @@ class ShipmentsDetailViewController: UIViewController, BottomButtonDelegate {
         // Pass the selected object to the new view controller.
         guard let destVC = segue.destination as? ShipmentTrackingMainViewController else { fatalError("Should be send Segue to ShipmentDetailVC but is not")}
         destVC.shipment = self.shipment
+//        let transition: CATransition = CATransition()
+//        transition.duration = 0.2
+//        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+//        transition.type = CATransitionType.push
+//        DispatchQueue.main.async {
+//            self.view.layer.add(transition, forKey: nil)
+//        }
     }
     
     // MARK: - BottomButtonDelegateMethods

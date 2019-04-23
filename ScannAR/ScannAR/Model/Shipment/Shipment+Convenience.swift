@@ -14,6 +14,7 @@ extension Shipment {
                      dimensions: String?,
                      productNames: [String]?,
                      productUuids: [String]?,
+                     shipmentTrackingDetail: [ShipmentTrackingDetail]?,
                      shippedDate: Date?,
                      dateArrived: Date?,
                      lastUpdated: Date?,
@@ -28,9 +29,18 @@ extension Shipment {
         
         self.init(context:context)
       
-    
-        self.productNames = productNames
-        self.productUuids = productUuids
+        if let productNames = productNames {
+            self.productNames = productNames
+        }
+        
+        if let productUuids = productUuids {
+            self.productUuids = productUuids
+        }
+        
+        if let shipmentTrackingDetail = shipmentTrackingDetail {
+            self.shipmentTrackingDetail = shipmentTrackingDetail
+        }
+        
         self.carrierName = carrierName
         self.dimensions = dimensions
         self.shippedDate = shippedDate
@@ -62,6 +72,7 @@ extension Shipment {
         let uuid = shipmentRepresentation.uuid
         let productNames = shipmentRepresentation.productNames
         let productUuids = shipmentRepresentation.productUuids
+        let shipmentTrackingDetail = shipmentRepresentation.shipmentTrackingDetail
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -114,7 +125,7 @@ extension Shipment {
             lastUpdated = nil
         }
         
-        self.init(carrierName: carrierName, dimensions: dimensions, productNames: productNames, productUuids: productUuids, shippedDate: shippedDate, dateArrived: dateArrived, lastUpdated: lastUpdated, shippingType: shippingType, totalWeight: totalWeight, totalValue: totalValue, status: status, trackingNumber: trackingNumber, shippedTo: shippedTo, uuid: uuid, context: context)
+        self.init(carrierName: carrierName, dimensions: dimensions, productNames: productNames, productUuids: productUuids, shipmentTrackingDetail: shipmentTrackingDetail, shippedDate: shippedDate, dateArrived: dateArrived, lastUpdated: lastUpdated, shippingType: shippingType, totalWeight: totalWeight, totalValue: totalValue, status: status, trackingNumber: trackingNumber, shippedTo: shippedTo, uuid: uuid, context: context)
     }
     
     
