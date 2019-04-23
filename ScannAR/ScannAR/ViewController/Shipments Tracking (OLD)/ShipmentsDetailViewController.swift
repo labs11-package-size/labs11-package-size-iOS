@@ -201,15 +201,19 @@ extension ShipmentsDetailViewController {
         for product in filteredProducts {
             let slide: Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
             
-            var data: Data
-            do {
-                data = try Data(contentsOf: product.thumbnail!)
-                slide.imageView.image = UIImage(data: data)
-            } catch {
-                print("error")
+            if let thumbnail = product.thumbnail {
+                var data: Data
+                do {
+                    data = try Data(contentsOf: thumbnail)
+                    slide.imageView.image = UIImage(data: data)
+                } catch {
+                    print("error")
+                }
+                slides.append(slide)
             }
             
-            slides.append(slide)
+            
+            
         }
         
         return slides
