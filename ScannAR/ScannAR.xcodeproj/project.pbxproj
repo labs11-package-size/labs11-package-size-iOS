@@ -122,6 +122,7 @@
 		D120FCDF226CD042005464D1 /* SegueFromRight2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D120FCDE226CD042005464D1 /* SegueFromRight2.swift */; };
 		D13070B5224C62EC00164B9A /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13070B4224C62EC00164B9A /* AddProductViewController.swift */; };
 		D132115E226E3D2300127EA4 /* PackageDetailContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D132115D226E3D2300127EA4 /* PackageDetailContainerViewController.swift */; };
+		D1321169226E8BBD00127EA4 /* ShipmentsDetailContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1321168226E8BBD00127EA4 /* ShipmentsDetailContainerViewController.swift */; };
 		D132530B225A85980021ED29 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D132530A225A85980021ED29 /* Appearance.swift */; };
 		D132530D225ABCF80021ED29 /* PackageDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D132530C225ABCF80021ED29 /* PackageDetailViewController.storyboard */; };
 		D132530F225ABD590021ED29 /* PackageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D132530E225ABD590021ED29 /* PackageDetailViewController.swift */; };
@@ -336,6 +337,7 @@
 		D120FCDE226CD042005464D1 /* SegueFromRight2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueFromRight2.swift; sourceTree = "<group>"; };
 		D13070B4224C62EC00164B9A /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		D132115D226E3D2300127EA4 /* PackageDetailContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailContainerViewController.swift; sourceTree = "<group>"; };
+		D1321168226E8BBD00127EA4 /* ShipmentsDetailContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentsDetailContainerViewController.swift; sourceTree = "<group>"; };
 		D132530A225A85980021ED29 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		D132530C225ABCF80021ED29 /* PackageDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PackageDetailViewController.storyboard; sourceTree = "<group>"; };
 		D132530E225ABD590021ED29 /* PackageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailViewController.swift; sourceTree = "<group>"; };
@@ -781,6 +783,7 @@
 			isa = PBXGroup;
 			children = (
 				D1EAB2032243B4CF00720412 /* ShipmentsDetailViewController.swift */,
+				D1321168226E8BBD00127EA4 /* ShipmentsDetailContainerViewController.swift */,
 				D1EAB2052243B4E500720412 /* ShipmentsDetailViewController.storyboard */,
 			);
 			path = "Shipments Tracking (OLD)";
@@ -801,6 +804,71 @@
 				ABA70F722256A70C00A44C06 /* PackagesCollectionViewCell.xib */,
 			);
 			path = AddProductTableViewCells;
+			sourceTree = "<group>";
+		};
+		D1321160226E881000127EA4 /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				D132115D226E3D2300127EA4 /* PackageDetailContainerViewController.swift */,
+				D132530E225ABD590021ED29 /* PackageDetailViewController.swift */,
+				D132530C225ABCF80021ED29 /* PackageDetailViewController.storyboard */,
+				D134F43822603A31003F8CB3 /* Slide.swift */,
+				D134F43A22603A43003F8CB3 /* Slide.xib */,
+			);
+			path = Package;
+			sourceTree = "<group>";
+		};
+		D1321161226E885600127EA4 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				D1EAB20F2243B67100720412 /* AccountViewController.swift */,
+				D1EAB2112243B68300720412 /* AccountViewController.storyboard */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		D1321162226E887400127EA4 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				D120FCCA226A1991005464D1 /* ProductDetailContainerViewController.swift */,
+				D1EAB2072243B50B00720412 /* ProductDetailViewController.swift */,
+				D1EAB2092243B51C00720412 /* ProductDetailViewController.storyboard */,
+				D137E68D225FA3AA009CA684 /* ProductDescriptionViewController.swift */,
+				D120FCC42266DEC8005464D1 /* RecommendedBoxViewController.swift */,
+				D120FCDC226BD69B005464D1 /* CreatingBoxViewController.swift */,
+				D14F66BC225949AE0008DCF2 /* PickProductToPackViewController.swift */,
+				D14F66B82259416F0008DCF2 /* PickProductToPack.storyboard */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
+		D1321163226E889300127EA4 /* AddProduct */ = {
+			isa = PBXGroup;
+			children = (
+				D13070B4224C62EC00164B9A /* AddProductViewController.swift */,
+				D11802CA22554B09002837D3 /* AddProductTableView.swift */,
+			);
+			path = AddProduct;
+			sourceTree = "<group>";
+		};
+		D1321164226E88BC00127EA4 /* MainCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				D1EAB21B224405BE00720412 /* ScannARMainCollectionView.swift */,
+				D1EAB21D224405D700720412 /* ScannARMainViewController.swift */,
+				D1EAB228224555B300720412 /* ScannARMainNavigationController.swift */,
+				D1EAB21F224405F900720412 /* ScannARMainViewController.storyboard */,
+			);
+			path = MainCollectionView;
+			sourceTree = "<group>";
+		};
+		D1321165226E88ED00127EA4 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D1EAB2132243B69800720412 /* SettingsViewController.swift */,
+				D1EAB2152243B6AA00720412 /* SettingsViewController.storyboard */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		D135E655224C89E3008CC7DF /* Helpers */ = {
@@ -891,33 +959,16 @@
 		D1EAB1CB2242D46A00720412 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				D1321165226E88ED00127EA4 /* Settings */,
+				D1321164226E88BC00127EA4 /* MainCollectionView */,
+				D1321163226E889300127EA4 /* AddProduct */,
+				D1321161226E885600127EA4 /* Account */,
+				D1321162226E887400127EA4 /* Product */,
+				D1321160226E881000127EA4 /* Package */,
 				D1EAB2272244598C00720412 /* Login */,
-				D1EAB21B224405BE00720412 /* ScannARMainCollectionView.swift */,
-				D13070B4224C62EC00164B9A /* AddProductViewController.swift */,
-				D11802CA22554B09002837D3 /* AddProductTableView.swift */,
-				D1EAB21D224405D700720412 /* ScannARMainViewController.swift */,
-				D1EAB228224555B300720412 /* ScannARMainNavigationController.swift */,
-				D1EAB21F224405F900720412 /* ScannARMainViewController.storyboard */,
-				D1EAB2072243B50B00720412 /* ProductDetailViewController.swift */,
 				D120FCCC226A5348005464D1 /* ProgressViewController.swift */,
 				D120FCCE226A7047005464D1 /* BottomButtonContainerViewController.swift */,
-				D120FCCA226A1991005464D1 /* ProductDetailContainerViewController.swift */,
-				D132115D226E3D2300127EA4 /* PackageDetailContainerViewController.swift */,
-				D1EAB2092243B51C00720412 /* ProductDetailViewController.storyboard */,
-				D137E68D225FA3AA009CA684 /* ProductDescriptionViewController.swift */,
-				D1EAB2132243B69800720412 /* SettingsViewController.swift */,
-				D1EAB2152243B6AA00720412 /* SettingsViewController.storyboard */,
-				D1EAB20F2243B67100720412 /* AccountViewController.swift */,
-				D1EAB2112243B68300720412 /* AccountViewController.storyboard */,
 				ABF8F02C2268DAED00C4CCA7 /* Shipments Tracking (OLD) */,
-				D120FCC42266DEC8005464D1 /* RecommendedBoxViewController.swift */,
-				D120FCDC226BD69B005464D1 /* CreatingBoxViewController.swift */,
-				D14F66BC225949AE0008DCF2 /* PickProductToPackViewController.swift */,
-				D14F66B82259416F0008DCF2 /* PickProductToPack.storyboard */,
-				D132530E225ABD590021ED29 /* PackageDetailViewController.swift */,
-				D132530C225ABCF80021ED29 /* PackageDetailViewController.storyboard */,
-				D134F43822603A31003F8CB3 /* Slide.swift */,
-				D134F43A22603A43003F8CB3 /* Slide.xib */,
 				AB67B42B2268506C00970E86 /* Shipment Tracking */,
 			);
 			path = ViewController;
@@ -1313,6 +1364,7 @@
 				D1EAB23922492CEE00720412 /* Shipment+Convenience.swift in Sources */,
 				ABA70F83225734A500A44C06 /* SmallToLargeDismissingViewAnimator.swift in Sources */,
 				ABA70FA022573C9C00A44C06 /* CardCollectionViewCell.swift in Sources */,
+				D1321169226E8BBD00127EA4 /* ShipmentsDetailContainerViewController.swift in Sources */,
 				D11858F622651F160041A735 /* AddProductCollectionViewCell.swift in Sources */,
 				ABC2C3B8224A857D0045A7D2 /* SavedARScansListViewController.swift in Sources */,
 				ABA70F9122573A2700A44C06 /* UIImage+Effects.swift in Sources */,

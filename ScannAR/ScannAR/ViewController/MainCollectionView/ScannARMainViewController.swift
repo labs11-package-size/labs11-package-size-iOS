@@ -305,8 +305,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             ScannARMainViewController.segmentPrimer = 2
             guard let indexPath = collectionView.indexPathsForSelectedItems?.first else {fatalError("No selected indexPath")}
             let shipment = shipmentsFetchedResultsController.object(at: indexPath)
-            guard let destVC = segue.destination as? ShipmentTrackingMainViewController else { fatalError("Segue should cast view controller as ShipmentTrackingMainViewController but failed to do so.")}
-            destVC.scannARNetworkingController = self.scannARNetworkingController
+            guard let destVC = segue.destination.children[0] as? ShipmentsDetailContainerViewController else { fatalError("Segue should cast view controller as ShipmentTrackingMainViewController but failed to do so.")}
             destVC.shipment = shipment
             
         } else if segue.identifier == "ARScanMainMenuShow" {

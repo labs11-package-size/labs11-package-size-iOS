@@ -218,7 +218,7 @@
                         <viewLayoutGuide key="safeArea" id="dP8-lp-uQ4"/>
                     </view>
                     <navigationItem key="navigationItem" id="feM-t0-yKj">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="D1Y-9v-dL2">
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="D1Y-9v-dL2">
                             <connections>
                                 <action selector="cancelButtonTapped:" destination="HQf-ZQ-KIV" id="IUk-DX-7wr"/>
                             </connections>

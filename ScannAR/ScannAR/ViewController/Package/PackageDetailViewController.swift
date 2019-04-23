@@ -85,8 +85,10 @@ class PackageDetailViewController: UIViewController, BottomButtonDelegate {
         
         guard let uuid = package?.uuid else { return }
         let productNames = package?.productNames
+        let productUuids = package?.productUuids
+        let dimensions = package?.dimensions
         
-        let newShipment = Shipment(carrierName: nil, productNames: productNames, shippedDate: nil, dateArrived: nil, lastUpdated: nil, shippingType: nil, status: 1, trackingNumber: trackingNumber, shippedTo: nil, uuid: uuid, context: CoreDataStack.shared.container.newBackgroundContext())
+        let newShipment = Shipment(carrierName: nil, dimensions: dimensions, productNames: productNames, productUuids: productUuids, shippedDate: nil, dateArrived: nil, lastUpdated: nil, shippingType: nil, status: 1, trackingNumber: trackingNumber, shippedTo: nil, uuid: uuid, context: CoreDataStack.shared.container.newBackgroundContext())
         let dict = NetworkingHelpers.dictionaryFromShipment(shipment: newShipment)
         
         scannARNetworkingController.postNewShipment(dict: dict, uuid: uuid, completion: { (results, error) in

@@ -22,13 +22,13 @@ class ShipmentsDetailViewController: UIViewController, BottomButtonDelegate {
     // MARK: - Private Methods
     private func updateViews(){
         
-        guard let package = package else {fatalError("No package available to show")}
+        guard let shipment = shipment else {fatalError("No package available to show")}
         
-        guard let dimensions = package.dimensions else {fatalError("No dimensions associated with that package.")}
+        guard let dimensions = shipment.dimensions else {fatalError("No package dimensions associated with that shipment.")}
         
-        dimensionsLabel.text = package.dimensions
+        dimensionsLabel.text = dimensions
         
-        if let uuidStrings = package.productUuids {
+        if let uuidStrings = shipment.productUuids {
             productUUIDStrings = uuidStrings
         }
         
@@ -44,7 +44,8 @@ class ShipmentsDetailViewController: UIViewController, BottomButtonDelegate {
             boxTypeLabel.text = "N/A"
         }
         
-        totalWeightLabel.text = String(format: "%.2f",package.totalWeight)
+        totalWeightLabel.text = shipment.shippedTo
+        trackingNumberLabel.text = shipment.trackingNumber
         
         // Slide and PageControl
         slides = createSlides()
@@ -55,8 +56,8 @@ class ShipmentsDetailViewController: UIViewController, BottomButtonDelegate {
         pageControl.layer.cornerRadius = 8
         pageControl.clipsToBounds = true
         scrollContainerView.bringSubviewToFront(pageControl)
-        guard let shipment = shipment else { fatalError("No shipment passed to this VC") }
-        trackingNumberLabel.text = shipment.trackingNumber
+        
+        
         
     }
     
@@ -146,13 +147,13 @@ extension ShipmentsDetailViewController {
     
     func createSlides() -> [Slide] {
         
-        guard let package = package else {fatalError("No package available to show")}
+        guard let shipment = shipment else {fatalError("No package available to show")}
         
         var slides: [Slide] = []
         
         let slide1:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
         
-        if let dimensions = package.dimensions {
+        if let dimensions = shipment.dimensions {
             if let boxType = Box.boxVarieties[dimensions] {
                 
                 switch boxType {
