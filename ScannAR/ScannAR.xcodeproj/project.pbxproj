@@ -119,7 +119,6 @@
 		D120FCD9226BA3E5005464D1 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D120FCD8226BA3E5005464D1 /* CircleView.swift */; };
 		D120FCDB226BD07A005464D1 /* DelegatePasserDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D120FCDA226BD07A005464D1 /* DelegatePasserDelegate.swift */; };
 		D120FCDD226BD69B005464D1 /* CreatingBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D120FCDC226BD69B005464D1 /* CreatingBoxViewController.swift */; };
-		D120FCDF226CD042005464D1 /* SegueFromRight2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D120FCDE226CD042005464D1 /* SegueFromRight2.swift */; };
 		D13070B5224C62EC00164B9A /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13070B4224C62EC00164B9A /* AddProductViewController.swift */; };
 		D132115E226E3D2300127EA4 /* PackageDetailContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D132115D226E3D2300127EA4 /* PackageDetailContainerViewController.swift */; };
 		D1321169226E8BBD00127EA4 /* ShipmentsDetailContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1321168226E8BBD00127EA4 /* ShipmentsDetailContainerViewController.swift */; };
@@ -335,7 +334,6 @@
 		D120FCD8226BA3E5005464D1 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		D120FCDA226BD07A005464D1 /* DelegatePasserDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatePasserDelegate.swift; sourceTree = "<group>"; };
 		D120FCDC226BD69B005464D1 /* CreatingBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatingBoxViewController.swift; sourceTree = "<group>"; };
-		D120FCDE226CD042005464D1 /* SegueFromRight2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueFromRight2.swift; sourceTree = "<group>"; };
 		D13070B4224C62EC00164B9A /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		D132115D226E3D2300127EA4 /* PackageDetailContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailContainerViewController.swift; sourceTree = "<group>"; };
 		D1321168226E8BBD00127EA4 /* ShipmentsDetailContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentsDetailContainerViewController.swift; sourceTree = "<group>"; };
@@ -592,6 +590,7 @@
 				D1EAB22A224920B300720412 /* Model */,
 				D137E684225E5093009CA684 /* Operation */,
 				D1EAB1D92242E12600720412 /* ModelController */,
+				D132116E226FB60D00127EA4 /* Helpers */,
 				D1EAB1CC2242D47D00720412 /* Views */,
 				D1EAB1CB2242D46A00720412 /* ViewController */,
 				AB519F5F2242C6CA00B27A8B /* AppDelegate.swift */,
@@ -873,19 +872,16 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		D135E655224C89E3008CC7DF /* Helpers */ = {
+		D132116E226FB60D00127EA4 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				D135E656224C89F5008CC7DF /* NetworkingHelpers.swift */,
+				D120FCD4226AAB6C005464D1 /* SegueFromRight.swift */,
 				D152CA5F22542521000F8ACD /* UIView+Helpers.swift */,
-				D11802B32254F887002837D3 /* ShippingStatus.swift */,
 				D14F66C522595FEA0008DCF2 /* Array+Extension.swift */,
 				D132530A225A85980021ED29 /* Appearance.swift */,
 				D137E689225E6157009CA684 /* URL+Secure.swift */,
 				D120FCC82267E86C005464D1 /* UITextView+ContentSize.swift */,
 				D120FCD2226AAA35005464D1 /* UIViewController+PresentDetail.swift */,
-				D120FCD4226AAB6C005464D1 /* SegueFromRight.swift */,
-				D120FCDE226CD042005464D1 /* SegueFromRight2.swift */,
 				D120FCD8226BA3E5005464D1 /* CircleView.swift */,
 			);
 			path = Helpers;
@@ -999,8 +995,8 @@
 			isa = PBXGroup;
 			children = (
 				D1EAB1DA2242E14F00720412 /* ScannARNetworkingController.swift */,
-				D135E655224C89E3008CC7DF /* Helpers */,
 				D1698DAA224AF31400250E4D /* CoreDataImporter.swift */,
+				D135E656224C89F5008CC7DF /* NetworkingHelpers.swift */,
 			);
 			path = ModelController;
 			sourceTree = "<group>";
@@ -1018,6 +1014,7 @@
 		D1EAB22A224920B300720412 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D11802B32254F887002837D3 /* ShippingStatus.swift */,
 				D1EAB22B224920C800720412 /* JSONWebToken.swift */,
 				D152CA5C2253BFD2000F8ACD /* Account.swift */,
 				D11802D02255B14F002837D3 /* ProductAsset.swift */,
@@ -1343,7 +1340,6 @@
 				AB38DCD622445F99008DC8C0 /* ThresholdPinchGestureRecognizer.swift in Sources */,
 				D142BEE3224AACE400699881 /* ShipmentsCollectionViewCell.swift in Sources */,
 				AB38DCF522446339008DC8C0 /* Tile.swift in Sources */,
-				D120FCDF226CD042005464D1 /* SegueFromRight2.swift in Sources */,
 				D14F66C122594ACC0008DCF2 /* PickProductTableViewCell.swift in Sources */,
 				D1EAB21C224405BE00720412 /* ScannARMainCollectionView.swift in Sources */,
 				D1EAB2262244597D00720412 /* WalkthroughViewController.swift in Sources */,
