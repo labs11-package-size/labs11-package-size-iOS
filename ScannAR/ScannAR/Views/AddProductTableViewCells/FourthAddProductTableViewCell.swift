@@ -31,6 +31,6 @@ class FourthAddProductTableViewCell: UITableViewCell {
     
     // MARK: Properties
     weak var delegate: AddProductProtocolDelegate?
-    @IBOutlet weak var saveForLaterButton: UIButton!
-    @IBOutlet weak var packItButton: UIButton!
+    @IBOutlet weak var saveForLaterButton: DesignableButton!
+    @IBOutlet weak var packItButton: DesignableButton!
 }
