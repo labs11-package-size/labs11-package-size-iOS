@@ -216,7 +216,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
                 if newProductAsset.urlString != "" {
                     scannARNetworkController.postNewAssetsForProduct(dict: assetDict, uuid: uuid, completion: { (error) in
                         DispatchQueue.main.async {
-                            self.navigationController?.popViewController(animated: true)
+                            self.dismiss(animated: true, completion: {})
                             return
                         }
                     })
