@@ -8,42 +8,51 @@
 
 import UIKit
 
-class ProgressViewController: UIViewController, ProgressBarDelegate {
+class ProgressViewController: UIViewController, ProgressBarDelegate, BottomButtonDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view
         updateViews()
+        layoutViewDirectFromProduct()
+        
+        switch buttonState {
+        case .packageStart:
+            layoutViewDirectFromPackages()
+        case .trackingNumberEntered:
+            layoutViewDirectFromShipments()
+        default:
+            print("Nothing to update")
+        }
+        
+        
     }
     
     // MARK: - Private Methods
     private func updateViews(){
-        productImageView.setImageColor(color: .white)
-        productImageView.backgroundColor = UIColor(named: "appARKADarkBlue")
-        packageImageView.setImageColor(color: .gray)
-        shippingImageView.setImageColor(color: .gray)
+        
         
         productContainerView.layer.cornerRadius = 20
         productContainerView.clipsToBounds = true
-        productContainerView.backgroundColor = UIColor(named: "appARKADarkBlue")
+        
         
         packageContainerView.layer.cornerRadius = 20
         packageContainerView.clipsToBounds = true
-        packageContainerView.borderColor = .gray
-        packageContainerView.borderWidth = 1
+        
         
         shippingContainerView.layer.cornerRadius = 20
         shippingContainerView.clipsToBounds = true
-        shippingContainerView.borderColor = .gray
-        shippingContainerView.borderWidth = 1
+        
         
         // product shadow
-        productContainerView.layer.shadowColor = UIColor.gray.cgColor
+        
         productContainerView.layer.shadowOffset = CGSize(width: 0, height: 2.0)
         productContainerView.layer.shadowRadius = 2.0
         productContainerView.layer.shadowOpacity = 1.0
         productContainerView.layer.masksToBounds = false
+        
+        productContainerView.layer.shadowColor = UIColor.gray.cgColor
         productContainerView.layer.shadowPath = UIBezierPath(roundedRect:productContainerView.bounds, cornerRadius:productContainerView.layer.cornerRadius).cgPath
         
         // package shadow
@@ -66,6 +75,49 @@ class ProgressViewController: UIViewController, ProgressBarDelegate {
         drawDottedLine(view1)
     }
     
+    private func layoutViewDirectFromProduct(){
+        
+        productImageView.setImageColor(color: .white)
+        productImageView.backgroundColor = UIColor(named: "appARKADarkBlue")
+        packageImageView.setImageColor(color: .gray)
+        shippingImageView.setImageColor(color: .gray)
+        
+        productContainerView.backgroundColor = UIColor(named: "appARKADarkBlue")
+        
+        packageContainerView.borderColor = .gray
+        packageContainerView.borderWidth = 1
+        
+        shippingContainerView.borderColor = .gray
+        shippingContainerView.borderWidth = 1
+        
+        
+    }
+    
+    private func layoutViewDirectFromPackages(){
+        
+        self.packageViewSetup()
+        
+        self.drawLine(self.view0, 1.0, duration: 0.01, uiColor: .gray, completion: {})
+        
+    }
+    
+    private func layoutViewDirectFromShipments(){
+        layoutViewDirectFromPackages()
+        
+        self.drawLine(self.view1, 1, duration: 0.01, uiColor: UIColor(named: "appARKADarkBlue")!, completion:  {
+            self.addCircleView(self.shippingContainerView, duration: 0.01) {
+                self.drawLine(self.view1, 1, duration: 0.01, uiColor: .gray, completion: {
+                    self.removePreviousShapeLayers()
+                })
+                UIView.animate(withDuration: 0.01, animations: {
+                    self.shipmentViewSetup()
+                })
+                
+            }
+        })
+        
+    }
+    
     private func packageViewSetup(){
         productContainerView.backgroundColor = .gray
         productImageView.backgroundColor = .gray
@@ -84,6 +136,7 @@ class ProgressViewController: UIViewController, ProgressBarDelegate {
         shippingImageView.setImageColor(color: .white)
         shippingContainerView.backgroundColor = UIColor(named: "appARKADarkBlue")
         shippingContainerView.borderColor = UIColor(named: "appARKADarkBlue")
+        
         
     }
     
@@ -153,7 +206,7 @@ class ProgressViewController: UIViewController, ProgressBarDelegate {
         circleView?.removeFromSuperview()
     }
     
-    func addCircleView(_ view: UIView, completion: @escaping () -> Void) -> Void {
+    func addCircleView(_ view: UIView, duration: Double, completion: @escaping () -> Void) -> Void {
         
         CATransaction.begin()
         CATransaction.setCompletionBlock(completion)
@@ -167,7 +220,7 @@ class ProgressViewController: UIViewController, ProgressBarDelegate {
         view.addSubview(circleView)
         
         // Animate the drawing of the circle over the course of 1 second
-        circleView.animateCircle(duration: 1.0)
+        circleView.animateCircle(duration: duration)
         CATransaction.commit()
     }
     
@@ -179,7 +232,7 @@ class ProgressViewController: UIViewController, ProgressBarDelegate {
     
     func useRecommendedBoxTapped() {
         self.drawLine(self.view0, 1, duration: 0.5, uiColor: UIColor(named: "appARKADarkBlue")!, completion:  {
-            self.addCircleView(self.packageContainerView) {
+            self.addCircleView(self.packageContainerView, duration: 0.8) {
                 self.drawLine(self.view0, 1, duration: 0.05, uiColor: .gray, completion: {
                     self.removePreviousShapeLayers()
                 })
@@ -208,7 +261,7 @@ class ProgressViewController: UIViewController, ProgressBarDelegate {
     
     func trackingNumberEntered() {
         self.drawLine(self.view1, 1, duration: 0.5, uiColor: UIColor(named: "appARKADarkBlue")!, completion:  {
-            self.addCircleView(self.shippingContainerView) {
+            self.addCircleView(self.shippingContainerView, duration: 0.8) {
                 self.drawLine(self.view1, 1, duration: 0.05, uiColor: .gray, completion: {
                     self.removePreviousShapeLayers()
                 })
@@ -239,6 +292,7 @@ class ProgressViewController: UIViewController, ProgressBarDelegate {
     @IBOutlet weak var shippingImageView: UIImageView!
     var dotShapeLayer: CAShapeLayer?
     var circleView: CircleView?
+    var buttonState: ButtonState = .productStart
     
     @IBOutlet weak var productContainerView: UIView!
     @IBOutlet weak var packageContainerView: UIView!

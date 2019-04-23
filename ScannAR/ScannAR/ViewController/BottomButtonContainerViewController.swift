@@ -31,6 +31,17 @@ class BottomButtonContainerViewController: UIViewController, DelegatePasserDeleg
         mainCallToActionButton.layer.cornerRadius = 8
         mainCallToActionButton.layer.masksToBounds = false
         mainCallToActionButton.layer.shadowPath = UIBezierPath(roundedRect:mainCallToActionButton.bounds, cornerRadius:mainCallToActionButton.layer.cornerRadius).cgPath
+        
+        switch buttonState {
+        case .packageStart:
+            mainCallToActionButton.setTitle("Ship it!", for: .normal)
+            otherActionButton.setTitle("See 3D Package Preview", for: .normal)
+        case .trackingNumberEntered:
+            mainCallToActionButton.setTitle("Track It", for: .normal)
+            otherActionButton.setTitle("", for: .normal)
+        default:
+            print("Nothing to update")
+        }
     }
     
     // MARK: - Delegate Passer Delegate Method

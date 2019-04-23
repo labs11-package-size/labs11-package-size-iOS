@@ -11,16 +11,91 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Shipments Detail Container View Controller-->
+        <scene sceneID="gmq-Em-F5r">
+            <objects>
+                <viewController id="Kg2-f8-edC" customClass="ShipmentsDetailContainerViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="S9I-7G-Zes">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nEh-tU-H7k">
+                                <rect key="frame" x="0.0" y="64" width="375" height="47"/>
+                                <connections>
+                                    <segue destination="bgD-qo-ENu" kind="embed" identifier="EmbedTopSegue" id="hMD-aA-CVB"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mpz-qf-qro">
+                                <rect key="frame" x="0.0" y="111" width="375" height="422"/>
+                                <connections>
+                                    <segue destination="2gm-xF-NW6" kind="embed" identifier="EmbedSegue" id="05j-dN-GX6"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWm-KF-oN6">
+                                <rect key="frame" x="0.0" y="533" width="375" height="134"/>
+                                <connections>
+                                    <segue destination="6Ip-WH-Ips" kind="embed" identifier="EmbedBottomSegue" id="mDw-qH-K89"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VWm-KF-oN6" firstAttribute="leading" secondItem="xfD-T2-xO8" secondAttribute="leading" id="7mV-aa-H4E"/>
+                            <constraint firstItem="nEh-tU-H7k" firstAttribute="top" secondItem="xfD-T2-xO8" secondAttribute="top" id="88V-bv-0JN"/>
+                            <constraint firstItem="VWm-KF-oN6" firstAttribute="bottom" secondItem="xfD-T2-xO8" secondAttribute="bottom" id="NM8-dS-ZPp"/>
+                            <constraint firstItem="Mpz-qf-qro" firstAttribute="height" secondItem="xfD-T2-xO8" secondAttribute="height" multiplier="0.7" id="QBk-ac-tMD"/>
+                            <constraint firstItem="Mpz-qf-qro" firstAttribute="trailing" secondItem="xfD-T2-xO8" secondAttribute="trailing" id="Tte-ke-BBH"/>
+                            <constraint firstItem="Mpz-qf-qro" firstAttribute="leading" secondItem="xfD-T2-xO8" secondAttribute="leading" id="Vf8-73-ZWK"/>
+                            <constraint firstItem="Mpz-qf-qro" firstAttribute="top" secondItem="nEh-tU-H7k" secondAttribute="bottom" id="enb-oi-gxd"/>
+                            <constraint firstItem="nEh-tU-H7k" firstAttribute="height" secondItem="VWm-KF-oN6" secondAttribute="height" multiplier="0.35" id="fvn-90-nNe"/>
+                            <constraint firstItem="VWm-KF-oN6" firstAttribute="top" secondItem="Mpz-qf-qro" secondAttribute="bottom" id="hsS-ki-Y64"/>
+                            <constraint firstItem="VWm-KF-oN6" firstAttribute="trailing" secondItem="xfD-T2-xO8" secondAttribute="trailing" id="kN4-1a-xB7"/>
+                            <constraint firstItem="xfD-T2-xO8" firstAttribute="trailing" secondItem="nEh-tU-H7k" secondAttribute="trailing" id="sWc-wa-QM0"/>
+                            <constraint firstItem="nEh-tU-H7k" firstAttribute="leading" secondItem="xfD-T2-xO8" secondAttribute="leading" id="xCr-SX-Kas"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xfD-T2-xO8"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="paL-EX-WCl">
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="tu1-6E-9lu">
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="Kg2-f8-edC" id="zTz-yT-mA6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="shipmentDetailContainerView" destination="Mpz-qf-qro" id="hLO-9c-6eR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xbl-s0-FKA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="804" y="80.50974512743629"/>
+        </scene>
+        <!--BottomButtonContainerViewControllerSB-->
+        <scene sceneID="kuZ-2G-n55">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ProductDetailViewController" referencedIdentifier="BottomButtonContainerViewControllerSB" id="6Ip-WH-Ips" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="977-XB-RNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1233" y="489"/>
+        </scene>
+        <!--ProgressViewControllerSB-->
+        <scene sceneID="XtP-ba-DPw">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ProductDetailViewController" referencedIdentifier="ProgressViewControllerSB" id="bgD-qo-ENu" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xnl-xF-GGK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1473" y="-380"/>
+        </scene>
         <!--Shipment Details-->
         <scene sceneID="7ad-OC-BSS">
             <objects>
                 <viewController storyboardIdentifier="ShipmentDetailViewControllerSB" id="2gm-xF-NW6" customClass="ShipmentsDetailViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zbH-pa-Bei">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="422"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="YU3-lW-yAS">
-                                <rect key="frame" x="18.5" y="424" width="338" height="135.5"/>
+                                <rect key="frame" x="18.5" y="360" width="338" height="135.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="68r-Bj-mPe">
                                         <rect key="frame" x="0.0" y="0.0" width="338" height="20.5"/>
@@ -60,7 +135,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="wg9-Uq-dle">
                                         <rect key="frame" x="0.0" y="57" width="338" height="20.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Weight:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFH-oY-Rvd">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Destination:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFH-oY-Rvd">
                                                 <rect key="frame" x="0.0" y="0.0" width="101" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -100,7 +175,7 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kKk-VM-6KP">
-                                <rect key="frame" x="37.5" y="104" width="300" height="300"/>
+                                <rect key="frame" x="37.5" y="40" width="300" height="300"/>
                                 <subviews>
                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="8EN-Mg-EsS">
                                         <rect key="frame" x="114.5" y="255" width="71" height="37"/>
@@ -161,7 +236,7 @@
         <!--Navigation Controller-->
         <scene sceneID="HD8-bf-0k6">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qz0-90-iX4" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ShipmentsDetailNavigationControllerSB" automaticallyAdjustsScrollViewInsets="NO" id="qz0-90-iX4" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AzT-ak-6uE">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -169,12 +244,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="2gm-xF-NW6" kind="relationship" relationship="rootViewController" id="ow0-EC-kLa"/>
+                        <segue destination="Kg2-f8-edC" kind="relationship" relationship="rootViewController" id="p99-F4-XwD"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="51r-ny-2IE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1036" y="81.409295352323838"/>
+            <point key="canvasLocation" x="-263" y="75"/>
         </scene>
     </scenes>
     <resources>
