@@ -13,10 +13,10 @@ class FourthAddProductTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        packItButton.layer.cornerRadius = 20
-        packItButton.clipsToBounds = true
-        saveForLaterButton.layer.cornerRadius = 20
-        saveForLaterButton.clipsToBounds = true
+//        packItButton.layer.cornerRadius = 20
+//        packItButton.clipsToBounds = true
+//        saveForLaterButton.layer.cornerRadius = 20
+//        saveForLaterButton.clipsToBounds = true
         self.separatorInset = UIEdgeInsets.zero
         self.layoutMargins = UIEdgeInsets.zero
         

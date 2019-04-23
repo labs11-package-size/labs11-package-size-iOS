@@ -24,13 +24,13 @@ class BottomButtonContainerViewController: UIViewController, DelegatePasserDeleg
     
     private func updateViews(){
         
-        mainCallToActionButton.layer.shadowColor = UIColor.gray.cgColor
-        mainCallToActionButton.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-        mainCallToActionButton.layer.shadowRadius = 2.0
-        mainCallToActionButton.layer.shadowOpacity = 1.0
-        mainCallToActionButton.layer.cornerRadius = 8
-        mainCallToActionButton.layer.masksToBounds = false
-        mainCallToActionButton.layer.shadowPath = UIBezierPath(roundedRect:mainCallToActionButton.bounds, cornerRadius:mainCallToActionButton.layer.cornerRadius).cgPath
+//        mainCallToActionButton.layer.shadowColor = UIColor.gray.cgColor
+//        mainCallToActionButton.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+//        mainCallToActionButton.layer.shadowRadius = 2.0
+//        mainCallToActionButton.layer.shadowOpacity = 1.0
+        //mainCallToActionButton.layer.cornerRadius = 8
+        //mainCallToActionButton.layer.masksToBounds = false
+        //mainCallToActionButton.layer.shadowPath = UIBezierPath(roundedRect:mainCallToActionButton.bounds, cornerRadius:mainCallToActionButton.layer.cornerRadius).cgPath
         
         switch buttonState {
         case .packageStart:
