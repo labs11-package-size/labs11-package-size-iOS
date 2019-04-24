@@ -62,7 +62,7 @@ class ARScanMenuScreenViewController: UIViewController, UIImagePickerControllerD
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
         DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "unwindToAddProductVC", sender: sender.self)
+            self.performSegue(withIdentifier: "unwindToScannARMainViewController", sender: self)
         }
         
     }

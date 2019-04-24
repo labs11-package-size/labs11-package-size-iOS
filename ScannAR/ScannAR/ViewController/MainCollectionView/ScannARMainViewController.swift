@@ -11,6 +11,7 @@ import CoreData
 
 class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NSFetchedResultsControllerDelegate, UISearchBarDelegate, UIGestureRecognizerDelegate {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

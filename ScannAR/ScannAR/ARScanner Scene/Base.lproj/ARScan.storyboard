@@ -505,10 +505,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ujH-bk-pkw">
-                                        <rect key="frame" x="20" y="517" width="374" height="199"/>
+                                        <rect key="frame" x="20" y="586" width="374" height="130"/>
                                         <subviews>
-                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ST0-2A-mgT" customClass="DesignableButton" customModule="ScannAR" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="61"/>
+                                            <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ST0-2A-mgT" customClass="DesignableButton" customModule="ScannAR" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="-61" width="374" height="61"/>
                                                 <color key="backgroundColor" name="appBrown"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="61" id="nLE-KY-Ixa"/>
@@ -530,7 +530,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="035-US-lP8" customClass="DesignableButton" customModule="ScannAR" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="69" width="374" height="61"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="61"/>
                                                 <color key="backgroundColor" red="0.44705882352941173" green="0.74117647058823533" blue="0.63921568627450975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="61" id="GuG-mc-jnp"/>
@@ -555,7 +555,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="boi-mR-3CJ" customClass="DesignableButton" customModule="ScannAR" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="138" width="374" height="61"/>
+                                                <rect key="frame" x="0.0" y="69" width="374" height="61"/>
                                                 <color key="backgroundColor" red="0.047058823529411764" green="0.17254901960784313" blue="0.32549019607843138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="61" id="6s2-Nu-aga"/>
@@ -622,7 +622,7 @@
                         <outlet property="detectObjectButton" destination="boi-mR-3CJ" id="Xnt-Al-Ih7"/>
                         <outlet property="scanObjectButton" destination="035-US-lP8" id="pg9-vh-KIJ"/>
                         <outlet property="scannARTutorialButton" destination="ST0-2A-mgT" id="SyL-nd-j4M"/>
-                        <segue destination="Nyl-yJ-LyB" kind="unwind" identifier="unwindToAddProductVC" animates="NO" unwindAction="unwindToAddProductVCWithSegue:" id="Pbb-I4-ngw"/>
+                        <segue destination="Nyl-yJ-LyB" kind="unwind" identifier="unwindToScannARMainViewController" animates="NO" unwindAction="unwindToScannARMainViewControllerWithSegue:" id="ClM-wC-Tau"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Bv-Z5-rel" userLabel="First Responder" sceneMemberID="firstResponder"/>
