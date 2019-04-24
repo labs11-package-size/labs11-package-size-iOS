@@ -16,5 +16,5 @@ import Foundation
     @objc optional func shipItTapped()
     @objc optional func trackingNumberEntered()
     @objc optional func trackItTapped()
-    
+    @objc optional func view3DPreviewButtonTapped()
 }
