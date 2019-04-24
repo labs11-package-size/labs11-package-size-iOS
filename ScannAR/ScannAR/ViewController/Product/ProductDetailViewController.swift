@@ -8,8 +8,7 @@
 
 import UIKit
 
-class ProductDetailViewController: UIViewController, BottomButtonDelegate {
-    
+class ProductDetailViewController: UIViewController, BottomButtonDelegate, EditProductDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -155,28 +154,35 @@ class ProductDetailViewController: UIViewController, BottomButtonDelegate {
         
         updateProductValues()
         guard let product = product else { fatalError("No Product present")}
-        
+        guard let name = product.name else { return }
         guard let uuid = product.uuid else { fatalError("No UUID present")}
         let dict = NetworkingHelpers.dictionaryFromProductForUpdate(product: product)
         scannARNetworkController.putEditProduct(dict: dict, uuid: uuid) { (_) in
-            self.flashSaveOnServerNoticeToUser()
+            self.flashSaveOnServerNoticeToUser(name, type: "Saved")
         }
     }
     
-    private func flashSaveOnServerNoticeToUser() {
-        guard let product = product else { return }
+    private func flashSaveOnServerNoticeToUser(_ name: String, type: String) {
         DispatchQueue.main.async {
-            let popup = UIView(frame: CGRect(x: self.view.center.x - 100, y: self.view.center.y - 100, width: 200, height: 200))
+            let popup = UIView(frame: CGRect(x: self.view.center.x - 100, y: self.view.center.y - 200, width: 200, height: 200))
             popup.alpha = 1
-            popup.backgroundColor = .gray
+            
+            popup.layer.cornerRadius = 20
+            popup.backgroundColor = .white
+            popup.layer.shadowColor = UIColor.gray.cgColor
+            popup.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+            popup.layer.shadowRadius = 2.0
+            popup.layer.shadowOpacity = 1.0
+            popup.layer.masksToBounds = false
+            popup.layer.shadowPath = UIBezierPath(roundedRect:popup.bounds, cornerRadius:popup.layer.cornerRadius).cgPath
             
             let label = UILabel()
             
-            label.text = "\(String(product.name!)) saved"
+            label.text = "\(name)\n\(type)"
             label.textColor = .black
             label.textAlignment = .center
             label.numberOfLines = 4
-            label.font = UIFont.systemFont(ofSize: 20)
+            label.font = UIFont.systemFont(ofSize: 14)
             
             popup.addSubview(label)
             self.view.addSubview(popup)
@@ -186,7 +192,7 @@ class ProductDetailViewController: UIViewController, BottomButtonDelegate {
             let widthConstraint = NSLayoutConstraint(item: label, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 160)
             label.addConstraint(widthConstraint)
             
-            UIView.animate(withDuration: 2, animations: {
+            UIView.animate(withDuration: 3, animations: {
                 popup.alpha = 0
             }, completion: { _ in
                 popup.removeFromSuperview()
@@ -236,17 +242,15 @@ class ProductDetailViewController: UIViewController, BottomButtonDelegate {
         self.dismiss(animated: true)
     }
     
-    @IBAction func editButtonTapped(_ sender: Any) {
+    func editButtonTapped() {
         changeEditingTo(true)
         notification.notificationOccurred(.warning)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveTapped))
     }
     
-    @objc func saveTapped(sender: UIButton) {
+    func saveButtonTapped() {
         changeEditingTo(false)
         notification.notificationOccurred(.success)
         updateProductOnServer()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonTapped))
     }
     
     @objc func handleDescriptionTap(_ sender: UITapGestureRecognizer) {

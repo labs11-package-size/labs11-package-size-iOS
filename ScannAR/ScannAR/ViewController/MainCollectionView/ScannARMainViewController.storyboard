@@ -89,7 +89,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
                                         <connections>
-                                            <segue destination="axB-Tp-gcg" kind="presentation" identifier="ProductDetailSegue" modalPresentationStyle="overCurrentContext" id="543-wr-S5i"/>
+                                            <segue destination="axB-Tp-gcg" kind="presentation" identifier="ProductDetailSegue" modalPresentationStyle="fullScreen" id="543-wr-S5i"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PackageCell" id="NNt-La-4RZ" customClass="PackagesCollectionViewCell" customModule="ScannAR" customModuleProvider="target">
