@@ -11,5 +11,7 @@ import UIKit
 protocol DelegatePasserDelegate: class {
     func updateDelegate(_ vc: BottomButtonDelegate)
     func mainCallToActionButtonTapped(_ sender: Any)
+    func cancelTapped()
     
+    var buttonState: ButtonState { get set}
 }

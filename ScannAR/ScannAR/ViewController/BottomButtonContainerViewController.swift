@@ -10,8 +10,6 @@ import UIKit
 
 class BottomButtonContainerViewController: UIViewController, DelegatePasserDelegate {
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -49,6 +47,11 @@ class BottomButtonContainerViewController: UIViewController, DelegatePasserDeleg
         self.delegate = vc
     }
     
+    func cancelTapped() {
+        // Noting to do
+        progressBarDelegate?.cancelTapped()
+    }
+    
     @IBAction func mainCallToActionButtonTapped(_ sender: Any) {
         
         switch buttonState {
@@ -75,8 +78,6 @@ class BottomButtonContainerViewController: UIViewController, DelegatePasserDeleg
             guard let shipItTapped = delegate?.shipItTapped else { fatalError("Use Ship It should be implemented and is not")}
             shipItTapped()
             
-            mainCallToActionButton.setTitle("Enter Tracking Number", for: .normal)
-            otherActionButton.setTitle("", for: .normal)
             buttonState = .shipItTapped
         
         case .shipItTapped:

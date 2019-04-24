@@ -13,5 +13,6 @@ protocol ProgressBarDelegate: class {
     func useRecommendedBoxTapped()
     func shipItTapped()
     func trackingNumberEntered()
+    func cancelTapped()
 }
 

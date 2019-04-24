@@ -163,7 +163,12 @@ class PackageDetailViewController: UIViewController, BottomButtonDelegate {
         }
         
         //the cancel action doing nothing
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
+            
+            self.bottomButtonDelegate?.buttonState = .packageStart
+            self.bottomButtonDelegate?.cancelTapped()
+            
+        }
         
         //adding the action to dialogbox
         alertController.addAction(confirmAction)
