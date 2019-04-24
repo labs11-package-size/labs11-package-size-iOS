@@ -123,6 +123,7 @@
 		D132115E226E3D2300127EA4 /* PackageDetailContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D132115D226E3D2300127EA4 /* PackageDetailContainerViewController.swift */; };
 		D1321169226E8BBD00127EA4 /* ShipmentsDetailContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1321168226E8BBD00127EA4 /* ShipmentsDetailContainerViewController.swift */; };
 		D132116D226EA6E200127EA4 /* ShipmentTrackingDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D132116C226EA6E200127EA4 /* ShipmentTrackingDetail.swift */; };
+		D1321170226FF48700127EA4 /* KeyboardLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D132116F226FF48700127EA4 /* KeyboardLayoutConstraint.swift */; };
 		D132530B225A85980021ED29 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D132530A225A85980021ED29 /* Appearance.swift */; };
 		D132530D225ABCF80021ED29 /* PackageDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D132530C225ABCF80021ED29 /* PackageDetailViewController.storyboard */; };
 		D132530F225ABD590021ED29 /* PackageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D132530E225ABD590021ED29 /* PackageDetailViewController.swift */; };
@@ -338,6 +339,7 @@
 		D132115D226E3D2300127EA4 /* PackageDetailContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailContainerViewController.swift; sourceTree = "<group>"; };
 		D1321168226E8BBD00127EA4 /* ShipmentsDetailContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentsDetailContainerViewController.swift; sourceTree = "<group>"; };
 		D132116C226EA6E200127EA4 /* ShipmentTrackingDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentTrackingDetail.swift; sourceTree = "<group>"; };
+		D132116F226FF48700127EA4 /* KeyboardLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutConstraint.swift; sourceTree = "<group>"; };
 		D132530A225A85980021ED29 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		D132530C225ABCF80021ED29 /* PackageDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PackageDetailViewController.storyboard; sourceTree = "<group>"; };
 		D132530E225ABD590021ED29 /* PackageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailViewController.swift; sourceTree = "<group>"; };
@@ -883,6 +885,7 @@
 				D120FCC82267E86C005464D1 /* UITextView+ContentSize.swift */,
 				D120FCD2226AAA35005464D1 /* UIViewController+PresentDetail.swift */,
 				D120FCD8226BA3E5005464D1 /* CircleView.swift */,
+				D132116F226FF48700127EA4 /* KeyboardLayoutConstraint.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1435,6 +1438,7 @@
 				D11802B42254F887002837D3 /* ShippingStatus.swift in Sources */,
 				AB42F89E2257C25C0086938A /* UIImage+ColorOverlay.swift in Sources */,
 				ABA70F9922573B7400A44C06 /* CardsView.swift in Sources */,
+				D1321170226FF48700127EA4 /* KeyboardLayoutConstraint.swift in Sources */,
 				D132530F225ABD590021ED29 /* PackageDetailViewController.swift in Sources */,
 				AB38DCDB224460DD008DC8C0 /* ARCamera+TrackingState.swift in Sources */,
 				D14F66BD225949AE0008DCF2 /* PickProductToPackViewController.swift in Sources */,

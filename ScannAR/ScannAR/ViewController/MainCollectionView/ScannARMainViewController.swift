@@ -283,8 +283,8 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if segue.identifier == "AccountViewSegue" {
-            guard let destVC = segue.destination as? AccountViewController else { fatalError("Segue should cast view controller as AccountViewController but failed to do so.")}
-            destVC.scannARNetworkingController = self.scannARNetworkingController
+            ScannARMainViewController.segmentPrimer = segmentedControl.selectedSegmentIndex
+            
         } else if segue.identifier == "ProductDetailSegue" {
             
             ScannARMainViewController.segmentPrimer = 0
@@ -316,6 +316,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             transition.type = CATransitionType.fade
             self.navigationController!.view.layer.add(transition, forKey: nil)
         } else if segue.identifier == "PackageDetailSegue" {
+             ScannARMainViewController.segmentPrimer = 1
             guard let destVC = segue.destination.children[0] as? PackageDetailContainerViewController else { fatalError("Segue should cast view controller as PackageDetailViewController but failed to do so.")}
             guard let indexPath = collectionView.indexPathsForSelectedItems?.first else {fatalError("No selected indexPath")}
             let package = packagesFetchedResultsController.object(at: indexPath)
@@ -783,7 +784,11 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     lazy var coreDataImporter: CoreDataImporter = { CoreDataImporter(context: CoreDataStack.shared.mainContext)
         }()
     private var blockOperation = BlockOperation()
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var segmentedControl: UISegmentedControl! {
+        willSet {
+            ScannARMainViewController.segmentPrimer = newValue.selectedSegmentIndex
+        }
+    }
     private let cache = Cache<UUID, UIImage>()
     private let photoFetchQueue = OperationQueue()
     private var operations = [UUID : Operation]()

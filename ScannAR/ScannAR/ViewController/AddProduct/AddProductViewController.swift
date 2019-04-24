@@ -36,8 +36,8 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         addProductTableView.delegate = self
         addProductTableView.dataSource = self
         addProductTableView.keyboardDismissMode = UIScrollView.KeyboardDismissMode.onDrag
-        //displayImage = previewImage
-//        addProductTableView.reloadData()
+
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -362,7 +362,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var addProductTableView: UITableView!
     var scannARNetworkController: ScannARNetworkController = ScannARNetworkController.shared
     var collectionViewToReload: UICollectionView?
-    
+    var isKeyboardAppear = false
     var displayImage: UIImage?
     var manualEntryHidden: Bool = false {
         didSet {
@@ -371,6 +371,8 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }
     }
+    
+    
     var height: Double = 0.0
     var length: Double = 0.0
     var width: Double = 0.0

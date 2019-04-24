@@ -61,7 +61,7 @@
                                                             </textField>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="rwz-mS-s1V" secondAttribute="bottom" id="62D-ED-rvr"/>
+                                                            <constraint firstAttribute="bottom" secondItem="rwz-mS-s1V" secondAttribute="bottom" id="62D-ED-rvr" customClass="KeyboardLayoutConstraint" customModule="ScannAR" customModuleProvider="target"/>
                                                             <constraint firstAttribute="trailing" secondItem="rwz-mS-s1V" secondAttribute="trailing" id="76v-Gs-fNq"/>
                                                             <constraint firstItem="QIB-cT-TCU" firstAttribute="top" secondItem="0Vk-kr-39D" secondAttribute="top" id="8cv-GF-QDO"/>
                                                             <constraint firstAttribute="trailing" secondItem="QIB-cT-TCU" secondAttribute="trailing" id="MdP-9D-hA1"/>
@@ -138,7 +138,7 @@
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstItem="gLa-zc-gco" firstAttribute="leading" secondItem="1A8-r7-ha8" secondAttribute="leading" id="1g7-ph-ZCJ"/>
-                                                            <constraint firstAttribute="bottom" secondItem="agb-tl-FnV" secondAttribute="bottom" id="7Ha-bV-8CC"/>
+                                                            <constraint firstAttribute="bottom" secondItem="agb-tl-FnV" secondAttribute="bottom" id="7Ha-bV-8CC" customClass="KeyboardLayoutConstraint" customModule="ScannAR" customModuleProvider="target"/>
                                                             <constraint firstItem="gLa-zc-gco" firstAttribute="top" secondItem="1A8-r7-ha8" secondAttribute="top" id="DAa-X1-RHW"/>
                                                             <constraint firstItem="agb-tl-FnV" firstAttribute="leading" secondItem="1A8-r7-ha8" secondAttribute="leading" id="V3u-za-4xf"/>
                                                             <constraint firstAttribute="trailing" secondItem="gLa-zc-gco" secondAttribute="trailing" id="XYt-kI-Jau"/>
