@@ -14,6 +14,7 @@ class ProductDetailContainerViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
@@ -21,7 +22,17 @@ class ProductDetailContainerViewController: UIViewController {
         self.dismiss(animated: true)
     }
     
-
+    @IBAction func editButtonTapped(_ sender: Any) {
+        
+        delegateForEditing?.editButtonTapped()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveButtonTapped))
+    }
+    
+    @objc func saveButtonTapped(_ sender: Any) {
+        delegateForEditing?.saveButtonTapped()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editButtonTapped))
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -36,6 +47,7 @@ class ProductDetailContainerViewController: UIViewController {
             self.delgateForButtomContainer = destVC
             destVC.product = product
             destVC.containerVC = self
+            delegateForEditing = destVC
         } else if segue.identifier == "EmbedBottomSegue" {
             guard let destVC = segue.destination as? BottomButtonContainerViewController else { fatalError("Embed Segue not going to ProductDetailViewController")}
             destVC.delegate = delgateForButtomContainer
@@ -54,5 +66,6 @@ class ProductDetailContainerViewController: UIViewController {
     var delgateForButtomContainer: ProductDetailViewController?
     var progressBarDelgateForButtomContainer: ProgressViewController?
     var product: Product?
+    var delegateForEditing: EditProductDelegate?
 
 }

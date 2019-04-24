@@ -315,11 +315,6 @@
                                 <action selector="cancelButtonTapped:" destination="Lea-Cs-evB" id="Hcm-1T-g2U"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="fmn-nL-Guy">
-                            <connections>
-                                <action selector="editButtonTapped:" destination="Lea-Cs-evB" id="ghW-6R-kln"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="arrowImageView" destination="gq0-4U-BsA" id="cxF-gV-jQo"/>
@@ -559,7 +554,11 @@
                                 <action selector="cancelButtonTapped:" destination="TYd-q0-Qcx" id="rsd-oS-YLt"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="geo-kO-u3v"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="geo-kO-u3v">
+                            <connections>
+                                <action selector="editButtonTapped:" destination="TYd-q0-Qcx" id="P58-XD-bHq"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="productDetailContainerView" destination="a8h-7A-32n" id="ab9-1F-uII"/>
