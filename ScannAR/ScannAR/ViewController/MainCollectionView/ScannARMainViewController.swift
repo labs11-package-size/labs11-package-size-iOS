@@ -374,7 +374,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             
             cell.dimensionsLabel.text = "\(dimensions)"
             cell.numberOfProductsLabel.text = "\(productNames.count)"
-            cell.productNamesLabel.text = "Products in Package: \(productNames.joined(separator: ", "))"
+            cell.productNamesLabel.text = "Products:\n\(productNames.joined(separator: ", "))"
             
             return cell
         
