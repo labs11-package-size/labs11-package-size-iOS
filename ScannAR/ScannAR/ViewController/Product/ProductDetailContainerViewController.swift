@@ -35,6 +35,7 @@ class ProductDetailContainerViewController: UIViewController {
             
             self.delgateForButtomContainer = destVC
             destVC.product = product
+            destVC.containerVC = self
         } else if segue.identifier == "EmbedBottomSegue" {
             guard let destVC = segue.destination as? BottomButtonContainerViewController else { fatalError("Embed Segue not going to ProductDetailViewController")}
             destVC.delegate = delgateForButtomContainer

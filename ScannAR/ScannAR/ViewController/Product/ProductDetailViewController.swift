@@ -218,6 +218,10 @@ class ProductDetailViewController: UIViewController, BottomButtonDelegate {
    
     // MARK: - BottomButtonDelegateMethods
     func packThisProduct() {
+        if let containerVC = containerVC {
+            containerVC.navigationItem.rightBarButtonItem = nil
+            
+        }
         self.packItNowButtonTapped(self)
     }
     
@@ -290,6 +294,7 @@ class ProductDetailViewController: UIViewController, BottomButtonDelegate {
     let scannARNetworkController = ScannARNetworkController.shared
     var product: Product?
     var package: Package?
+    var containerVC: ProductDetailContainerViewController?
     let notification = UINotificationFeedbackGenerator()
     var collectionViewToReload: UICollectionView?
     @IBOutlet weak var arrowImageView: UIImageView!
