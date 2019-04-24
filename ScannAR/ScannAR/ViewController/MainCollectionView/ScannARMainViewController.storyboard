@@ -227,6 +227,42 @@
             </objects>
             <point key="canvasLocation" x="1806" y="300"/>
         </scene>
+        <!--Add Product Container View Controller-->
+        <scene sceneID="SMe-tX-jug">
+            <objects>
+                <viewController id="PU7-xs-exR" customClass="AddProductContainerViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ez4-Vx-RxQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZL-aW-Sbk">
+                                <rect key="frame" x="0.0" y="64" width="375" height="539"/>
+                                <connections>
+                                    <segue destination="Qem-YB-khX" kind="embed" identifier="EmbedSegue" id="10C-7q-hyR"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="IZL-aW-Sbk" firstAttribute="leading" secondItem="plg-hk-dcG" secondAttribute="leading" id="0xj-Nm-fze"/>
+                            <constraint firstItem="IZL-aW-Sbk" firstAttribute="top" secondItem="plg-hk-dcG" secondAttribute="top" id="9hT-By-1WS"/>
+                            <constraint firstItem="plg-hk-dcG" firstAttribute="trailing" secondItem="IZL-aW-Sbk" secondAttribute="trailing" id="gml-9h-pwk"/>
+                            <constraint firstItem="plg-hk-dcG" firstAttribute="bottom" secondItem="IZL-aW-Sbk" secondAttribute="bottom" id="ob2-6G-T38"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="plg-hk-dcG"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="icE-ad-MbA">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="jAa-EL-gVo">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="PU7-xs-exR" id="8CQ-xC-Fhf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dwm-Gh-bG7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2244" y="945"/>
+        </scene>
         <!--Add New Product-->
         <scene sceneID="ZKK-K6-pdY">
             <objects>
@@ -236,7 +272,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="I2a-KS-dVX" customClass="AddProductTableView" customModule="ScannAR" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="936"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="980"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FirstCell" rowHeight="217" id="2O7-Gq-ELM" customClass="FirstAddProductTableViewCell" customModule="ScannAR" customModuleProvider="target">
@@ -298,7 +334,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kG0-UO-6uf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2542" y="1259"/>
+            <point key="canvasLocation" x="3103" y="958"/>
         </scene>
         <!--ARScanMainMenu-->
         <scene sceneID="Dms-F2-Eng">
@@ -306,7 +342,7 @@
                 <viewControllerPlaceholder storyboardName="ARScan" referencedIdentifier="ARScanMainMenu" id="L5a-UV-gBZ" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tkk-of-KCB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3180.8000000000002" y="879.76011994003011"/>
+            <point key="canvasLocation" x="3845" y="708"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Afy-Jd-3SH">
@@ -319,12 +355,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Qem-YB-khX" kind="relationship" relationship="rootViewController" id="79g-qO-rKp"/>
+                        <segue destination="PU7-xs-exR" kind="relationship" relationship="rootViewController" id="mku-pj-A18"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8mJ-p1-heK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1634" y="852"/>
+            <point key="canvasLocation" x="1390" y="945"/>
         </scene>
     </scenes>
     <resources>

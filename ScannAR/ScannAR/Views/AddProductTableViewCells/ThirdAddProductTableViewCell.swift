@@ -18,9 +18,9 @@ class ThirdAddProductTableViewCell: UITableViewCell, UITextFieldDelegate {
         weightTextField.tag = 1
         valueTextField.tag = 2
         fragileSwitch.tag = 3
-        manufacturerIdTextField.delegate = self
-        weightTextField.delegate = self
-        valueTextField.delegate = self
+        manufacturerIdTextField.delegate = shiftableVCdelegate
+        weightTextField.delegate = shiftableVCdelegate
+        valueTextField.delegate = shiftableVCdelegate
         
     }
     
@@ -55,6 +55,7 @@ class ThirdAddProductTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     // MARK: Properties
     weak var delegate: AddProductProtocolDelegate?
+    weak var shiftableVCdelegate: ShiftableViewController?
     @IBOutlet weak var manufacturerIdTextField: UITextField!
     @IBOutlet weak var valueTextField: UITextField!
     @IBOutlet weak var weightTextField: UITextField!

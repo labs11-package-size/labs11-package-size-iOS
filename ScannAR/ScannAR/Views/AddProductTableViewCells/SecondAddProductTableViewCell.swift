@@ -173,6 +173,7 @@ class SecondAddProductTableViewCell: UITableViewCell, UITextFieldDelegate, UIPic
     
     // MARK: Properties
     weak var delegate: AddProductProtocolDelegate?
+    weak var shiftableVCdelegate: ShiftableViewController?
     var inches: [Double] = stride(from: 0.0, to: 60.0, by: 1.0).map{$0}
     var decimal: [Double] = stride(from: 0.00, to: 1.00, by: 0.01).map{$0}
 }
