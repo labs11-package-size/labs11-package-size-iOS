@@ -68,14 +68,6 @@ class PackageDetailViewController: UIViewController, BottomButtonDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        if barButtonFlag == true {
-            backToPackagesBarButtonItem = UIBarButtonItem(title: "< Packages", style: .plain, target: self, action: #selector(backToPackagesTapped(_:)))
-            self.navigationItem.leftBarButtonItem = backToPackagesBarButtonItem
-            
-        } else {
-            self.navigationItem.leftBarButtonItem = nil
-        }
 
     }
     
@@ -216,7 +208,7 @@ class PackageDetailViewController: UIViewController, BottomButtonDelegate {
     
     // MARK: - Properties
     var bottomButtonDelegate: DelegatePasserDelegate?
-    var barButtonFlag = false
+    
     var scannARNetworkingController = ScannARNetworkController.shared
     var package: Package?
     var shipment: Shipment?
