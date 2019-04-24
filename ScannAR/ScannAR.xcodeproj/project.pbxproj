@@ -119,6 +119,8 @@
 		D120FCD9226BA3E5005464D1 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D120FCD8226BA3E5005464D1 /* CircleView.swift */; };
 		D120FCDB226BD07A005464D1 /* DelegatePasserDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D120FCDA226BD07A005464D1 /* DelegatePasserDelegate.swift */; };
 		D120FCDD226BD69B005464D1 /* CreatingBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D120FCDC226BD69B005464D1 /* CreatingBoxViewController.swift */; };
+		D123F8FD2270E42100ACCBA7 /* ShiftableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D123F8FC2270E42100ACCBA7 /* ShiftableViewController.swift */; };
+		D123F8FF2270E5AC00ACCBA7 /* AddProductContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D123F8FE2270E5AC00ACCBA7 /* AddProductContainerViewController.swift */; };
 		D13070B5224C62EC00164B9A /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13070B4224C62EC00164B9A /* AddProductViewController.swift */; };
 		D132115E226E3D2300127EA4 /* PackageDetailContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D132115D226E3D2300127EA4 /* PackageDetailContainerViewController.swift */; };
 		D1321169226E8BBD00127EA4 /* ShipmentsDetailContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1321168226E8BBD00127EA4 /* ShipmentsDetailContainerViewController.swift */; };
@@ -335,6 +337,8 @@
 		D120FCD8226BA3E5005464D1 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		D120FCDA226BD07A005464D1 /* DelegatePasserDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatePasserDelegate.swift; sourceTree = "<group>"; };
 		D120FCDC226BD69B005464D1 /* CreatingBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatingBoxViewController.swift; sourceTree = "<group>"; };
+		D123F8FC2270E42100ACCBA7 /* ShiftableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftableViewController.swift; sourceTree = "<group>"; };
+		D123F8FE2270E5AC00ACCBA7 /* AddProductContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductContainerViewController.swift; sourceTree = "<group>"; };
 		D13070B4224C62EC00164B9A /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		D132115D226E3D2300127EA4 /* PackageDetailContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailContainerViewController.swift; sourceTree = "<group>"; };
 		D1321168226E8BBD00127EA4 /* ShipmentsDetailContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentsDetailContainerViewController.swift; sourceTree = "<group>"; };
@@ -849,6 +853,7 @@
 			isa = PBXGroup;
 			children = (
 				D13070B4224C62EC00164B9A /* AddProductViewController.swift */,
+				D123F8FE2270E5AC00ACCBA7 /* AddProductContainerViewController.swift */,
 				D11802CA22554B09002837D3 /* AddProductTableView.swift */,
 			);
 			path = AddProduct;
@@ -886,6 +891,7 @@
 				D120FCD2226AAA35005464D1 /* UIViewController+PresentDetail.swift */,
 				D120FCD8226BA3E5005464D1 /* CircleView.swift */,
 				D132116F226FF48700127EA4 /* KeyboardLayoutConstraint.swift */,
+				D123F8FC2270E42100ACCBA7 /* ShiftableViewController.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1346,6 +1352,7 @@
 				D14F66C122594ACC0008DCF2 /* PickProductTableViewCell.swift in Sources */,
 				D1EAB21C224405BE00720412 /* ScannARMainCollectionView.swift in Sources */,
 				D1EAB2262244597D00720412 /* WalkthroughViewController.swift in Sources */,
+				D123F8FD2270E42100ACCBA7 /* ShiftableViewController.swift in Sources */,
 				D196E75F225691020012A3F7 /* Package+Encodable.swift in Sources */,
 				D14F66C422595D0E0008DCF2 /* ProductPickerDelegate.swift in Sources */,
 				D14F66C622595FEA0008DCF2 /* Array+Extension.swift in Sources */,
@@ -1430,6 +1437,7 @@
 				ABA70F8C2257398A00A44C06 /* ReusableView.swift in Sources */,
 				D120FCD3226AAA35005464D1 /* UIViewController+PresentDetail.swift in Sources */,
 				D11802C4225530D0002837D3 /* FourthAddProductTableViewCell.swift in Sources */,
+				D123F8FF2270E5AC00ACCBA7 /* AddProductContainerViewController.swift in Sources */,
 				D11802C822553241002837D3 /* ThirdAddProductTableViewCell.swift in Sources */,
 				AB8013D12260EE8500D05FFE /* UIScrollView+Touches.swift in Sources */,
 				AB38DCDF22446244008DC8C0 /* BoundingBox.swift in Sources */,

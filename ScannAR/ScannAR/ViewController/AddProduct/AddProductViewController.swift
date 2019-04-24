@@ -170,6 +170,10 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         switch indexPath.row {
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: secondReuseIdentifier, for: indexPath) as? SecondAddProductTableViewCell else { fatalError("Could not dequeue as SecondAddProductTableViewCell")}
+            if let shiftVC = shiftableVCDelegate {
+              cell.shiftableVCdelegate = shiftVC
+                
+            }
             cell.delegate = self
             cell.lengthTextField.text = String(format: "%.2f", (length))
             cell.widthTextField.text = String(format: "%.2f", (width))
@@ -186,6 +190,13 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             
         case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: thirdReuseIdentifier, for: indexPath) as? ThirdAddProductTableViewCell else { fatalError("Could not dequeue as ThirdAddProductTableViewCell")}
+            
+            if let shiftVC = shiftableVCDelegate {
+                cell.shiftableVCdelegate = shiftVC
+                cell.manufacturerIdTextField.delegate = shiftVC
+                cell.valueTextField.delegate = shiftVC
+                cell.weightTextField.delegate = shiftVC
+            }
             cell.delegate = self
             cell.valueTextField.text = String(format: "%.2f", (value)) // NumberFormatter.localizedString(from: NSNumber(value: value), number: .currency)
             cell.weightTextField.text = String(format: "%.2f", (weight))
@@ -203,6 +214,9 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             
         default:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: firstReuseIdentifier, for: indexPath) as? FirstAddProductTableViewCell else { fatalError("Could not dequeue as FirstAddProductTableViewCell")}
+            if let shiftVC = shiftableVCDelegate {
+                cell.shiftableVCdelegate = shiftVC
+            }
             cell.delegate = self
             cell.productImageView.image = self.displayImage
             cell.nameTextField.text = self.name
@@ -336,7 +350,6 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
-    
     @IBAction func cancelButtonPressed(_ sender: Any) {
         
         ScannARMainViewController.segmentPrimer = 0
@@ -360,6 +373,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     
     // MARK: - Properties
     var previewImage: UIImage?
+    var shiftableVCDelegate: ShiftableViewController?
     var product: Product?
     var bestBoxSize: (length: Float?, width: Float?, height: Float?)
     @IBOutlet weak var addProductTableView: UITableView!
@@ -374,7 +388,6 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }
     }
-    
     
     var height: Double = 0.0
     var length: Double = 0.0
@@ -413,7 +426,6 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     
 }
 
-
 extension AddProductViewController: UITextFieldDelegate, UITextViewDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -421,3 +433,4 @@ extension AddProductViewController: UITextFieldDelegate, UITextViewDelegate {
     }
     
 }
+

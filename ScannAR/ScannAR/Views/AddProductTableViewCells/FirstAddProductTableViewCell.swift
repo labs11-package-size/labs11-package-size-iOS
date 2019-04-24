@@ -45,6 +45,7 @@ class FirstAddProductTableViewCell: UITableViewCell, UITextFieldDelegate, UIText
     
     // MARK: Properties
     weak var delegate: AddProductProtocolDelegate?
+    weak var shiftableVCdelegate: ShiftableViewController?
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
