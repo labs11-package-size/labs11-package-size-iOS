@@ -336,7 +336,7 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
                             }
                         }
                        
-                        
+                        // MARK: - Do not remove commented out code
 //                        let viewController = UIStoryboard(name: "ScannARMainViewController", bundle: nil).instantiateViewController(withIdentifier: "AddProductViewControllerSB") as! AddProductViewController
                         
                         let rotatedScreenshot = self.objectScreenshot?.imageRotatedByDegrees(degrees: 90, flip: false)

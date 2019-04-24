@@ -87,6 +87,7 @@
 		ABA70FA622573E7B00A44C06 /* PackageConfigViewStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA70FA522573E7B00A44C06 /* PackageConfigViewStorage.swift */; };
 		ABB4C9EC2248BD7A0079E25D /* ARScan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABB4C9EE2248BD7A0079E25D /* ARScan.storyboard */; };
 		ABBDB0522253F65F000F7412 /* IBDesignable+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBDB0512253F65F000F7412 /* IBDesignable+UIKit.swift */; };
+		ABC2933B22703B0600668CCB /* OuterScannARMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC2933A22703B0500668CCB /* OuterScannARMainViewController.swift */; };
 		ABC2C3B7224A857D0045A7D2 /* ScannARNetworkingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB1DA2242E14F00720412 /* ScannARNetworkingController.swift */; };
 		ABC2C3B8224A857D0045A7D2 /* SavedARScansListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38DD0522456411008DC8C0 /* SavedARScansListViewController.swift */; };
 		ABE99A02225D13E700228791 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE99A01225D13E700228791 /* UIImage+Resize.swift */; };
@@ -306,6 +307,7 @@
 		ABA70FA522573E7B00A44C06 /* PackageConfigViewStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageConfigViewStorage.swift; sourceTree = "<group>"; };
 		ABB4C9ED2248BD7A0079E25D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ARScan.storyboard; sourceTree = "<group>"; };
 		ABBDB0512253F65F000F7412 /* IBDesignable+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IBDesignable+UIKit.swift"; sourceTree = "<group>"; };
+		ABC2933A22703B0500668CCB /* OuterScannARMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OuterScannARMainViewController.swift; sourceTree = "<group>"; };
 		ABE99A01225D13E700228791 /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		ABE99A0A225D30CE00228791 /* CardCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardCollectionViewCell.xib; sourceTree = "<group>"; };
 		ABF82CA32268487C0070DE1C /* ShipmentTrackingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentTrackingMainViewController.swift; sourceTree = "<group>"; };
@@ -858,6 +860,7 @@
 			isa = PBXGroup;
 			children = (
 				D1EAB21D224405D700720412 /* ScannARMainViewController.swift */,
+				ABC2933A22703B0500668CCB /* OuterScannARMainViewController.swift */,
 				D1EAB228224555B300720412 /* ScannARMainNavigationController.swift */,
 				D1EAB21F224405F900720412 /* ScannARMainViewController.storyboard */,
 				D1EAB21B224405BE00720412 /* ScannARMainCollectionView.swift */,
@@ -1426,6 +1429,7 @@
 				D196E75E225691020012A3F7 /* Package+Convenience.swift in Sources */,
 				AB38DCDD22446161008DC8C0 /* Helpers+Utilities.swift in Sources */,
 				AB38DCD422445F7C008DC8C0 /* ThresholdPanGestureRecognizer.swift in Sources */,
+				ABC2933B22703B0600668CCB /* OuterScannARMainViewController.swift in Sources */,
 				AB12DBB52242EA5D00886A11 /* ARObjectDetectTestController.swift in Sources */,
 				ABA70F8C2257398A00A44C06 /* ReusableView.swift in Sources */,
 				D120FCD3226AAA35005464D1 /* UIViewController+PresentDetail.swift in Sources */,

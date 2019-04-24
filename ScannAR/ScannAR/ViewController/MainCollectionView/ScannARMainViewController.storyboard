@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Outer ScannAR Main View Controller-->
         <scene sceneID="fBW-tl-LH4">
             <objects>
-                <viewController id="qgq-K9-SMC" sceneMemberID="viewController">
+                <viewController id="qgq-K9-SMC" customClass="OuterScannARMainViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pVA-x2-goe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,7 +41,11 @@
                                 <segue destination="0qG-Dc-x7H" kind="show" id="L7x-hn-DoI"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Scan it!" id="qVy-JB-isd"/>
+                        <barButtonItem key="rightBarButtonItem" title="Scan it!" id="qVy-JB-isd">
+                            <connections>
+                                <action selector="scannItBarButtonTapped:" destination="qgq-K9-SMC" id="L7Y-6M-7sk"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="27d-kH-mI3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -331,7 +335,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8Uy-fo-FVQ"/>
+        <segue reference="543-wr-S5i"/>
         <segue reference="L7x-hn-DoI"/>
     </inferredMetricsTieBreakers>
 </document>
