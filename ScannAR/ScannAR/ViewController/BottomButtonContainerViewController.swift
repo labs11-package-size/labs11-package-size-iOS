@@ -94,6 +94,31 @@ class BottomButtonContainerViewController: UIViewController, DelegatePasserDeleg
         
     }
     
+    @IBAction func otherCallToActionButtonTapped(_ sender: Any) {
+        switch buttonState {
+        case .productStart:
+            print("to be developed")
+        case .packTapped:
+            
+            print("to be developed")
+            
+        case .packageStart:
+            
+            guard let view3DPreviewButtonTapped = delegate?.view3DPreviewButtonTapped else { fatalError("Use Recommended Box should be implemented and is not")}
+            view3DPreviewButtonTapped()
+            
+        case .shipItTapped:
+            
+            print("to be developed")
+            
+        default:
+            print("to be developed")
+        }
+        
+    }
+    
+    
+    
     @IBOutlet weak var mainCallToActionButton: UIButton!
     @IBOutlet weak var otherActionButton: UIButton!
     

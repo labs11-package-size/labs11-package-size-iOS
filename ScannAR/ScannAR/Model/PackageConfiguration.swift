@@ -14,6 +14,7 @@ struct PackageConfiguration: Codable {
     let size2, size3, weightLimit, currWeight: Double
     let itemCount: Int
     let items: [Item]
+    let modelURL: String?
     
     enum CodingKeys: String, CodingKey {
         case size, id
@@ -24,6 +25,7 @@ struct PackageConfiguration: Codable {
         case currWeight = "curr_weight"
         case itemCount = "item_count"
         case items
+        case modelURL
     }
     
     struct Item: Codable {
@@ -35,7 +37,7 @@ struct PackageConfiguration: Codable {
         let yOriginInBin: Double
         let zOriginInBin: Double
         let weight, constraints: Double
-        let modelURL: URL?
+        let modelURL: String?
         
         enum CodingKeys: String, CodingKey {
             case id

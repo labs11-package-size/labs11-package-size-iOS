@@ -209,6 +209,15 @@ class PackageDetailViewController: UIViewController, BottomButtonDelegate {
         guard let trackingNumber = trackingNumber else { return }
         self.createShipmentTapped(with: trackingNumber, self)
     }
+    
+    func view3DPreviewButtonTapped() {
+        guard let modelURL = package?.modelURL else { return }
+        if let url = URL(string: modelURL) {
+            linkToURL(with: url)
+        } else {
+            return
+        }
+    }
 
     
     // MARK: - Properties
