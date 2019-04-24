@@ -607,7 +607,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ujh-M0-4MI">
                                         <rect key="frame" x="0.0" y="64" width="327" height="60"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                        <state key="normal" title="Pack this Product with Multiple Items"/>
                                         <connections>
                                             <action selector="otherCallToActionButtonTapped:" destination="w7o-tg-8fc" eventType="touchUpInside" id="sWS-Xb-Gxc"/>
                                         </connections>

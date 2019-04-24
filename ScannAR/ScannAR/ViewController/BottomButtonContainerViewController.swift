@@ -59,7 +59,7 @@ class BottomButtonContainerViewController: UIViewController, DelegatePasserDeleg
             guard let packThisProduct = delegate?.packThisProduct else { fatalError("Pack this product should be implemented and is not")}
             packThisProduct()
             mainCallToActionButton.setTitle("Use Recommended Box", for: .normal)
-            otherActionButton.setTitle("Use a different box", for: .normal)
+            otherActionButton.setTitle("See 3D Package Preview", for: .normal)
             progressBarDelegate?.packThisBoxTapped()
             buttonState = .packTapped
         case .packTapped:
@@ -100,7 +100,8 @@ class BottomButtonContainerViewController: UIViewController, DelegatePasserDeleg
             print("to be developed")
         case .packTapped:
             
-            print("to be developed")
+            guard let view3DPreviewButtonTapped = delegate?.view3DPreviewButtonTapped else { fatalError("Use Recommended Box should be implemented and is not")}
+            view3DPreviewButtonTapped()
             
         case .packageStart:
             

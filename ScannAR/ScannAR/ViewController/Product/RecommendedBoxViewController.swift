@@ -7,10 +7,9 @@
 //
 
 import UIKit
+import SafariServices
 
 class RecommendedBoxViewController: UIViewController, BottomButtonDelegate {
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,14 +34,33 @@ class RecommendedBoxViewController: UIViewController, BottomButtonDelegate {
         
     }
     
+    private func linkToURL(with url: URL) {
+        
+        let svc = SFSafariViewController(url: url)
+        present(svc, animated: true, completion: nil)
+        
+    }
+    
+    // MARK: - BottomButtonDelegateMethods
     func useRecommendedBoxTapped() {
         performSegue(withIdentifier: "SegueToWaiting", sender: self)
     }
     
+    
     func useAnotherBoxTapped() {
         
     }
+    
+    func view3DPreviewButtonTapped() {
+        guard let modelURL = package?.modelURL else { return }
+        if let url = URL(string: modelURL) {
+            linkToURL(with: url)
+        } else {
+            return
+        }
+    }
 
+    
 
     // MARK: - Navigation
 

@@ -163,8 +163,6 @@ class ProductDetailViewController: UIViewController, BottomButtonDelegate {
         }
     }
     
-    
-    
     private func flashSaveOnServerNoticeToUser() {
         guard let product = product else { return }
         DispatchQueue.main.async {
@@ -226,6 +224,7 @@ class ProductDetailViewController: UIViewController, BottomButtonDelegate {
     func packMultipleProducts() {
         print("pack multiple items segue")
     }
+    
     // MARK: - IBActions
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
