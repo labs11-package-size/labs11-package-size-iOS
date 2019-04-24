@@ -55,25 +55,38 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </stackView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ET" translatesAutoresizingMaskIntoConstraints="NO" id="7LY-Db-M0F">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nwt-Mg-8ly">
                         <rect key="frame" x="8" y="8" width="133" height="108"/>
-                    </imageView>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ET" translatesAutoresizingMaskIntoConstraints="NO" id="7LY-Db-M0F">
+                                <rect key="frame" x="0.0" y="0.0" width="133" height="108"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7LY-Db-M0F" firstAttribute="top" secondItem="nwt-Mg-8ly" secondAttribute="top" id="Osf-d9-l1M"/>
+                            <constraint firstAttribute="trailing" secondItem="7LY-Db-M0F" secondAttribute="trailing" id="PDi-Fs-H86"/>
+                            <constraint firstItem="7LY-Db-M0F" firstAttribute="leading" secondItem="nwt-Mg-8ly" secondAttribute="leading" id="fbs-eT-xPw"/>
+                            <constraint firstAttribute="bottom" secondItem="7LY-Db-M0F" secondAttribute="bottom" id="u5d-ql-PuR"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <color key="backgroundColor" red="0.94841229790000003" green="0.94841229790000003" blue="0.94841229790000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="nwt-Mg-8ly" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="7tF-hd-eVQ"/>
                 <constraint firstItem="OxV-J1-UW3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="8sk-Fq-x0h"/>
-                <constraint firstItem="OxV-J1-UW3" firstAttribute="topMargin" secondItem="7LY-Db-M0F" secondAttribute="bottom" constant="8" id="9Rc-Ss-UDm"/>
-                <constraint firstAttribute="trailing" secondItem="7LY-Db-M0F" secondAttribute="trailing" constant="8" id="T51-Cl-bpc"/>
-                <constraint firstItem="7LY-Db-M0F" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="TK0-RQ-D8U"/>
+                <constraint firstAttribute="trailing" secondItem="nwt-Mg-8ly" secondAttribute="trailing" constant="8" id="LOk-U7-OSz"/>
+                <constraint firstItem="OxV-J1-UW3" firstAttribute="top" secondItem="nwt-Mg-8ly" secondAttribute="bottom" constant="8" id="LQY-AP-xLL"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="OxV-J1-UW3" secondAttribute="bottom" constant="8" id="ccG-A5-bJK"/>
                 <constraint firstAttribute="trailing" secondItem="OxV-J1-UW3" secondAttribute="trailing" constant="8" id="h0p-F9-Mfb"/>
-                <constraint firstItem="7LY-Db-M0F" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="nvU-PR-dkP"/>
+                <constraint firstItem="nwt-Mg-8ly" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="vTq-Wg-EnO"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="149" height="213"/>
             <connections>
                 <outlet property="detailLabel" destination="Ccc-zh-zrT" id="Fy2-fJ-UYg"/>
+                <outlet property="imageContainerView" destination="nwt-Mg-8ly" id="JY5-EI-7JR"/>
                 <outlet property="infoStackView" destination="OxV-J1-UW3" id="r3Q-aZ-zw4"/>
                 <outlet property="lwhLabel" destination="mOa-2E-qkN" id="KkO-Sg-wOx"/>
                 <outlet property="productImageView" destination="7LY-Db-M0F" id="UQW-OR-xii"/>

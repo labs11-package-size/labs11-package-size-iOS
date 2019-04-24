@@ -34,6 +34,8 @@ class ThirdAddProductTableViewCell: UITableViewCell, UITextFieldDelegate {
         valueTextField.layer.cornerRadius = 8
         weightTextField.clipsToBounds = true
         weightTextField.layer.cornerRadius = 8
+        
+        manufacturerIdTextField.placeholder = "XYZ123"
     }
     // MARK: TextFieldDelegate
     func textFieldDidEndEditing(_ textField: UITextField) {

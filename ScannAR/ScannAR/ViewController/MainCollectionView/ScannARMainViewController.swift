@@ -27,7 +27,6 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         setupSegmentedControl()
         setupLongPress()
         
-//        setupSearchBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -120,10 +119,6 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         operations[uuid] = fetchOp
     }
     
-    private func updateAccountPicture() {
-        
-    }
-    
     private func setupLongPress(){
         let lpgr : UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(ScannARMainViewController.handleLongPress(gestureRecognizer:)))
         lpgr.minimumPressDuration = 0.5
@@ -171,46 +166,6 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         }
         
     }
-    
-//    private func setupSearchBar() {
-//        let swipeDown = UISwipeGestureRecognizer(target: collectionView, action: #selector(down))
-//        swipeDown.direction = .down
-//        let swipeUp = UISwipeGestureRecognizer(target: collectionView, action: #selector(up))
-//        swipeUp.direction = .up
-//
-//        self.view.addGestureRecognizer(swipeDown)
-//        self.view.addGestureRecognizer(swipeUp)
-//
-//        searchBar = UISearchBar(frame: CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: 40.0))
-//        searchBar.isUserInteractionEnabled = false
-//        self.searchBar!.alpha = 0.0
-//        if let searchBar = searchBar
-//        {
-//            searchBar.backgroundColor = UIColor.red
-//            self.view.addSubview(searchBar)
-//        }
-//    }
-//
-//    @objc private func down(sender: UIGestureRecognizer) {
-//        print("down")
-//        //show bar
-//        searchBar.isUserInteractionEnabled = true
-//        UIView.animate(withDuration: 0.2, animations: { () -> Void in
-//            self.searchBar!.alpha = 1.0
-//            self.searchBar!.frame = CGRect(x: 0.0, y: 129.0, width: self.view.frame.width, height: 40.0)
-//        }, completion: { (Bool) -> Void in
-//        })
-//    }
-//
-//    @objc private func up(sender: UIGestureRecognizer) {
-//        print("up")
-//        searchBar.isUserInteractionEnabled = false
-//        UIView.animate(withDuration: 0.2, animations: { () -> Void in
-//            self.searchBar!.alpha = 0.0
-//            self.searchBar!.frame = CGRect(x: 0.0, y: 129.0, width: self.view.frame.width, height: 40.0)
-//        }, completion: { (Bool) -> Void in
-//        })
-//    }
     
     @objc private func segmentedControlValueChanged(segment: UISegmentedControl) {
         fetchNetworkRequests()
@@ -273,8 +228,6 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             }
         }
     }
-    
-    // MARK: - NSFetchedResultsControllerDelegateMethods
     
     // MARK: - Navigation
 
@@ -449,7 +402,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             cell.layer.shadowPath = UIBezierPath(roundedRect:cell.bounds, cornerRadius:cell.contentView.layer.cornerRadius).cgPath
             
             cell.statusLabel.text = "Status: \(ShipmentStatus.dict[Int(shipment.status)]!)"
-            cell.totalWeightLabel.text = "Weight: \(shipment.totalWeight)"
+            
             cell.trackingNumberLabel.text = "Tracking #: \(shipment.trackingNumber ?? "N/A")"
             guard let shippedTo = shipment.shippedTo else { return cell }
             cell.shippedToLabel.text = "To: \(shippedTo)"
@@ -772,11 +725,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     let packageReuseIdentifier = "PackageCell"
     let shipmentReuseIdentifier = "ShipmentCell"
     static var segmentPrimer: Int = 0
-    var account: Account? {
-        didSet {
-            updateAccountPicture()
-        }
-    }
+    var account: Account?
     @IBOutlet weak var newProductShipmentBarButton: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
     var searchBar: UISearchBar!
