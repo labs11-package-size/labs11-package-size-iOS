@@ -386,6 +386,22 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             
             cell.shipment = shipment
             
+            guard let dimensions = shipment.dimensions else {fatalError("No dimensions associated with that shipment.")}
+            
+            if let boxType = Box.boxVarieties[dimensions] {
+                
+                switch boxType {
+                case .shipper:
+                    cell.imageView.image = UIImage(named: "Shipper")
+                default:
+                    cell.imageView.image = UIImage(named: "standardMailerBox")
+                }
+            } else {
+                cell.imageView.image = UIImage(named: "Shipper")
+            }
+            
+            
+            
             // Configure the cell
             cell.contentView.layer.cornerRadius = 10
             cell.contentView.layer.borderWidth = 1.0
