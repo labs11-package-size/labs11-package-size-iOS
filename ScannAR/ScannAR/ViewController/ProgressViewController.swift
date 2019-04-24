@@ -170,14 +170,17 @@ class ProgressViewController: UIViewController, ProgressBarDelegate, BottomButto
         path.addLines(between: [start, end])
         shapeLayer.path = path
         
+        // animation
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.fromValue = 0
         animation.duration = duration
         shapeLayer.add(animation, forKey: "MyAnimation")
+        self.mostRecentLine = shapeLayer
         
         view.layer.addSublayer(shapeLayer)
         CATransaction.commit()
     }
+    
     private func drawDot(_ view: UIView, duration: Double, uiColor: UIColor, completion: @escaping () -> Void)-> Void{
         
         CATransaction.begin()
@@ -206,6 +209,12 @@ class ProgressViewController: UIViewController, ProgressBarDelegate, BottomButto
         circleView?.removeFromSuperview()
     }
     
+    private func cancelAlertButtonTapped() {
+        self.dotShapeLayer?.removeFromSuperlayer()
+        self.mostRecentLine?.removeFromSuperlayer()
+        
+    }
+    
     func addCircleView(_ view: UIView, duration: Double, completion: @escaping () -> Void) -> Void {
         
         CATransaction.begin()
@@ -222,6 +231,10 @@ class ProgressViewController: UIViewController, ProgressBarDelegate, BottomButto
         // Animate the drawing of the circle over the course of 1 second
         circleView.animateCircle(duration: duration)
         CATransaction.commit()
+    }
+    
+    func cancelTapped() {
+        cancelAlertButtonTapped()
     }
     
     func packThisBoxTapped() {
@@ -291,6 +304,7 @@ class ProgressViewController: UIViewController, ProgressBarDelegate, BottomButto
     @IBOutlet weak var packageImageView: UIImageView!
     @IBOutlet weak var shippingImageView: UIImageView!
     var dotShapeLayer: CAShapeLayer?
+    var mostRecentLine: CAShapeLayer?
     var circleView: CircleView?
     var buttonState: ButtonState = .productStart
     
