@@ -15,9 +15,12 @@ class ProductsCollectionViewCell: UICollectionViewCell {
         // Initialization code
         titleLabel.adjustsFontSizeToFitWidth = true
         titleLabel.minimumScaleFactor = 0.5
+        imageContainerView.clipsToBounds = true
+        imageContainerView.cornerRadius = 8
     }
 
     @IBOutlet weak var productImageView: UIImageView!
+    @IBOutlet weak var imageContainerView: UIView!
     var product: Product?
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!

@@ -303,12 +303,15 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
                     scannARNetworkController.postNewAssetsForProduct(dict: assetDict, uuid: uuid, completion: { (error) in
                         DispatchQueue.main.async {
                             self.performSegue(withIdentifier: "SegueToProductDetail", sender: self)
+                            
+                            
                         }
                     })
                 }
             }
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: "SegueToProductDetail", sender: self)
+                
             }
             
         }

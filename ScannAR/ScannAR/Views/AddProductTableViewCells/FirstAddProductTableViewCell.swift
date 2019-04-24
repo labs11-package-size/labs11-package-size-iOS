@@ -23,6 +23,7 @@ class FirstAddProductTableViewCell: UITableViewCell, UITextFieldDelegate, UIText
         productImageView.clipsToBounds = true
         descriptionTextView.layer.cornerRadius = 8
         nameTextField.layer.cornerRadius = 8
+        nameTextField.placeholder = "Enter name here"
     }
     
     // MARK: TextFieldDelegate & TextViewDelegate
