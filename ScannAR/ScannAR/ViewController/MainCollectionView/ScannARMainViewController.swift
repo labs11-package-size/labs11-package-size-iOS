@@ -529,9 +529,9 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             
             cell.product = product
             cell.titleLabel.text = product.name
-            cell.detailLabel.text = "$\(product.value)"
-            cell.lwhLabel.text = "L: \(product.length) | W: \(product.width) | H: \(product.height)"
-            cell.weightLabel.text = "\(product.weight) lbs"
+            cell.detailLabel.text = "$\(String(format: "%.2f", product.value))"
+            cell.lwhLabel.text = "L: \(String(format: "%.2f", product.length)) | W: \(String(format: "%.2f", product.width)) | H: \(String(format: "%.2f", product.height))"
+            cell.weightLabel.text = "\(String(format: "%.2f", product.weight)) lbs"
 
             cell.contentView.layer.cornerRadius = 10
             cell.contentView.layer.borderWidth = 1.0
