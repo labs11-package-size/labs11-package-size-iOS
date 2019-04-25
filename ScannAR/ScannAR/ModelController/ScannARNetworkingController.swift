@@ -446,6 +446,10 @@ class ScannARNetworkController {
         }
     }
     
+    func resetWebToken(){
+        self.jsonToken = nil
+    }
+    
     // MARK: - Properties
     
     let baseURL = URL(string:"https://scannarserver.herokuapp.com/api")!

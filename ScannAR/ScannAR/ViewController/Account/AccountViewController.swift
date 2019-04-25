@@ -122,6 +122,9 @@ class AccountViewController: UIViewController {
     }
     @IBAction func logoutTapped(_ sender: Any) {
         
+        ScannARNetworkController.shared.resetWebToken()
+        UserDefaults.standard.set(false, forKey: "isLoggedIn")
+        UserDefaults.standard.synchronize()
         GIDSignIn.sharedInstance().signOut()
         performSegue(withIdentifier: "SegueToWalkthrough", sender: self)
     }

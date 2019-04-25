@@ -78,3 +78,17 @@ class WalkthroughViewController: UIViewController {
  
 
 }
+
+extension WalkthroughViewController {
+    
+    // Change the name of the storyboard if this is not "Main"
+    // identifier is the Storyboard ID that you put juste before
+    class func instantiate() -> WalkthroughViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "WalkthroughViewControllerSB") as! WalkthroughViewController
+        
+        return viewController
+    }
+    
+}
+
