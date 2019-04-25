@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NSFetchedResultsControllerDelegate, UISearchBarDelegate, UIGestureRecognizerDelegate {
 
@@ -36,8 +37,33 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = false
         segmentedControl.selectedSegmentIndex = ScannARMainViewController.segmentPrimer
-        getAccount()
-        fetchNetworkRequests()
+        
+        if UserDefaults.standard.bool(forKey: "isLoggedIn") {
+            guard let user = Auth.auth().currentUser else { fatalError("Do not have user object sent from google")}
+            var dict: [String: String] = [:]
+            dict["uid"] = user.uid
+            dict["displayName"] = user.displayName
+            dict["email"] = user.email
+            dict["photoURL"] = user.photoURL?.absoluteString
+            print("\(user.email)")
+            
+            let scannARNetworkingController = ScannARNetworkController.shared
+            scannARNetworkingController.postForAuthenticationToken(dict: dict) { (string, error) in
+                
+                if let error = error {
+                    print("There was an error with your username and password: \(error)")
+                }
+                
+                DispatchQueue.main.async {
+                    self.getAccount()
+                    self.fetchNetworkRequests()
+                }
+                
+            }
+            
+            
+        }
+        
         
     }
     

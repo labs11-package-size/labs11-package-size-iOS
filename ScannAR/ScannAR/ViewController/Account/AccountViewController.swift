@@ -123,6 +123,7 @@ class AccountViewController: UIViewController {
     @IBAction func logoutTapped(_ sender: Any) {
         
         ScannARNetworkController.shared.resetWebToken()
+        CoreDataStack.shared.resetCoreData()
         UserDefaults.standard.set(false, forKey: "isLoggedIn")
         UserDefaults.standard.synchronize()
         GIDSignIn.sharedInstance().signOut()
