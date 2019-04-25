@@ -255,6 +255,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="jAa-EL-gVo">
                             <connections>
                                 <action selector="cancelButtonPressed:" destination="PU7-xs-exR" id="8CQ-xC-Fhf"/>
+                                <segue destination="qq8-sE-in9" kind="presentation" modalPresentationStyle="currentContext" id="1K2-5Z-08N"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -372,6 +373,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="543-wr-S5i"/>
-        <segue reference="L7x-hn-DoI"/>
+        <segue reference="XEB-cj-2AL"/>
+
     </inferredMetricsTieBreakers>
 </document>
