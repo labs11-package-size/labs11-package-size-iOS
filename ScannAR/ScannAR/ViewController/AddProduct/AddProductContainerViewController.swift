@@ -10,6 +10,25 @@ import UIKit
 
 class AddProductContainerViewController: ShiftableViewController {
 
+    
+    
+//    @IBAction func unwindToAddProductVC(segue: UIStoryboardSegue) {
+//        let transition: CATransition = CATransition()
+//        transition.duration = 0.7
+//        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+//        transition.type = CATransitionType.fade
+//        self.navigationController!.view.layer.add(transition, forKey: nil)
+//        if let sourceVC = segue.source as? ARScanViewController {
+//
+//            bestBoxSize = sourceVC.boundingBoxSize
+//            previewImage = sourceVC.previewImage!
+//            name = sourceVC.scannedObjectName
+//        }
+//    }
+    var bestBoxSize: (length: Float?, width: Float?, height: Float?)
+    var previewImage: UIImage = UIImage()
+    var name: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,6 +69,9 @@ class AddProductContainerViewController: ShiftableViewController {
         if segue.identifier == "EmbedSegue" {
             guard let destVC = segue.destination as? AddProductViewController else { fatalError("Segue should cast view controller as AddProductViewController but failed to do so.")}
             destVC.shiftableVCDelegate = self as ShiftableViewController
+            destVC.bestBoxSize = self.bestBoxSize
+            destVC.previewImage = self.previewImage
+            destVC.name = self.name
         }
         
     }

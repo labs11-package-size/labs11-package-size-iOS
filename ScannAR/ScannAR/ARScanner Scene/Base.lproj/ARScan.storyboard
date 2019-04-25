@@ -312,7 +312,7 @@
                         <outlet property="sessionInfoLabel" destination="UrR-38-pup" id="EUV-Ee-dHk"/>
                         <outlet property="sessionInfoView" destination="EiA-XD-X8R" id="Ipb-ZM-laj"/>
                         <outlet property="toggleInstructionsButton" destination="bG7-IC-Bnx" id="kdh-cQ-8Ym"/>
-                        <segue destination="VnN-09-gk0" kind="unwind" identifier="unwindSegueToAddProductVC" animates="NO" unwindAction="unwindToAddProductVCWithSegue:" id="wiV-sL-PWc"/>
+                        <segue destination="VnN-09-gk0" kind="unwind" identifier="unwindToAddProductVC" animates="NO" unwindAction="unwindToAddProductVCWithSegue:" id="P0B-1g-Epg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
@@ -622,7 +622,7 @@
                         <outlet property="detectObjectButton" destination="boi-mR-3CJ" id="Xnt-Al-Ih7"/>
                         <outlet property="scanObjectButton" destination="035-US-lP8" id="pg9-vh-KIJ"/>
                         <outlet property="scannARTutorialButton" destination="ST0-2A-mgT" id="SyL-nd-j4M"/>
-                        <segue destination="Nyl-yJ-LyB" kind="unwind" identifier="unwindToScannARMainViewController" animates="NO" unwindAction="unwindToScannARMainViewControllerWithSegue:" id="ClM-wC-Tau"/>
+                        <segue destination="Nyl-yJ-LyB" kind="unwind" identifier="unwindToScannARMainViewController" animates="NO" unwindAction="unwindToScannARMainViewControllerWithSegue:" id="pc0-ts-r2m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Bv-Z5-rel" userLabel="First Responder" sceneMemberID="firstResponder"/>

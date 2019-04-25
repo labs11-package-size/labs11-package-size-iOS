@@ -230,7 +230,7 @@
         <!--Add Product Container View Controller-->
         <scene sceneID="SMe-tX-jug">
             <objects>
-                <viewController id="PU7-xs-exR" customClass="AddProductContainerViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddProductViewContainerVC" id="PU7-xs-exR" customClass="AddProductContainerViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ez4-Vx-RxQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -347,7 +347,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Afy-Jd-3SH">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JL5-u5-pt9" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="AddProductNavController" automaticallyAdjustsScrollViewInsets="NO" id="JL5-u5-pt9" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MrY-jX-1WX">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -371,7 +371,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="543-wr-S5i"/>
+        <segue reference="8Uy-fo-FVQ"/>
         <segue reference="L7x-hn-DoI"/>
     </inferredMetricsTieBreakers>
 </document>
