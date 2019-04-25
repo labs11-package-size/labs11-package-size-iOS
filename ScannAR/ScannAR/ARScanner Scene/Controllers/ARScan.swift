@@ -20,7 +20,7 @@ class ARScan {
     
     // a tuple to hold the computed bounding box size, since we get this for free (sort-of) in isReasonablySized
     var bestBoxSize: (length: Float?, width: Float?, height: Float?)
-    
+    var itemSize: (length: Float?, width: Float?, height: Float?)
     enum State {
         case ready
         case defineBoundingBox
@@ -402,16 +402,21 @@ class ARScan {
         guard let boundingBox = scannedObject.boundingBox else {
             return false
         }
-        
+        // Grab box size here for object property
+        //FIXME: - CANT YOU SEE I'M WORKING HERE?!
+        bestBoxSize = (boundingBox.extent.x, boundingBox.extent.z, boundingBox.extent.y)
+        print(boundingBox.extent.x, boundingBox.extent.z, boundingBox.extent.y)
+        print((bestBoxSize.length!) * Float(39.3701), (bestBoxSize.width!) * Float(39.3701), (bestBoxSize.height!) * Float(39.3701))
         // The bounding box should not be too small and not too large.
         // Note: 3D object detection is optimized for tabletop scenarios.
         let validSizeRange: ClosedRange<Float> = 0.01...5.0
-        if validSizeRange.contains(boundingBox.extent.x) && validSizeRange.contains(boundingBox.extent.y) &&
-            validSizeRange.contains(boundingBox.extent.z) {
+        if validSizeRange.contains(boundingBox.extent.x) && validSizeRange.contains(boundingBox.extent.z) &&
+            validSizeRange.contains(boundingBox.extent.y) {
             // Check that the volume of the bounding box is at least 250 cubic centimeters.
-            let volume = boundingBox.extent.x * boundingBox.extent.y * boundingBox.extent.z
+            let volume = boundingBox.extent.x * boundingBox.extent.z * boundingBox.extent.y
             // Grab box size here for object property
-            bestBoxSize = (boundingBox.extent.x, boundingBox.extent.y, boundingBox.extent.z)
+            //FIXME: - CANT YOU SEE I'M WORKING HERE?!
+            itemSize = (boundingBox.extent.x, boundingBox.extent.z, boundingBox.extent.y)
             return volume >= 0.00025
         }
         
@@ -421,6 +426,7 @@ class ARScan {
     /// - Tag: ExtractReferenceObject
     func createReferenceObject(completionHandler creationFinished: @escaping (ARReferenceObject?) -> Void) {
         guard let boundingBox = scannedObject.boundingBox, let origin = scannedObject.origin else {
+            
             print("Error: No bounding box or object origin present.")
             creationFinished(nil)
             return
