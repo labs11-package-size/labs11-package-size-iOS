@@ -71,9 +71,18 @@
                                     <constraint firstItem="dxE-9Q-Ukk" firstAttribute="leading" secondItem="rDh-Fc-PeF" secondAttribute="leading" id="sOn-be-tpD"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hIb-68-Ny9">
+                                <rect key="frame" x="163.5" y="274" width="48" height="30"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutTapped:" destination="bh0-zy-4E5" eventType="touchUpInside" id="vUP-Vb-XnY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="hIb-68-Ny9" firstAttribute="centerX" secondItem="4ZB-AX-C58" secondAttribute="centerX" id="5F4-vO-qfI"/>
+                            <constraint firstItem="hIb-68-Ny9" firstAttribute="top" secondItem="rDh-Fc-PeF" secondAttribute="bottom" constant="20" id="8mR-G8-ymE"/>
                             <constraint firstItem="rDh-Fc-PeF" firstAttribute="top" secondItem="gXx-Ky-YDJ" secondAttribute="bottom" constant="20" id="E4Q-Te-raX"/>
                             <constraint firstItem="86O-5Z-gIE" firstAttribute="trailing" secondItem="rDh-Fc-PeF" secondAttribute="trailing" constant="20" id="KPE-0C-qRD"/>
                             <constraint firstItem="gXx-Ky-YDJ" firstAttribute="top" secondItem="86O-5Z-gIE" secondAttribute="top" constant="20" id="Plc-wt-58T"/>
@@ -100,11 +109,20 @@
                         <outlet property="emailTextField" destination="29G-98-5TN" id="c6i-4e-lH4"/>
                         <outlet property="profileImageView" destination="gXx-Ky-YDJ" id="CND-Mz-DYc"/>
                         <outlet property="userNameTextField" destination="SJZ-Bi-Und" id="Tpg-9H-Xs6"/>
+                        <segue destination="wbm-Fh-Rv4" kind="showDetail" identifier="SegueToWalkthrough" id="ibG-kn-zKG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yy5-qb-dXA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1016.8" y="51.724137931034484"/>
+        </scene>
+        <!--WalkthroughViewControllerSB-->
+        <scene sceneID="jVk-Mf-MTI">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="WalkthroughViewControllerSB" id="wbm-Fh-Rv4" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6wB-z6-l6r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1596" y="173"/>
         </scene>
         <!--SettingsViewControllerSB-->
         <scene sceneID="2sU-cT-15v">

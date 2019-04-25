@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import GoogleSignIn
 
 class AccountViewController: UIViewController {
 
@@ -116,6 +119,11 @@ class AccountViewController: UIViewController {
 //        updateAccountInfoOnServer()
 //        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonTapped))
         
+    }
+    @IBAction func logoutTapped(_ sender: Any) {
+        
+        GIDSignIn.sharedInstance().signOut()
+        performSegue(withIdentifier: "SegueToWalkthrough", sender: self)
     }
     
     
