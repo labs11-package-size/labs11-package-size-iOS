@@ -14,6 +14,21 @@ class ScannARMainNavigationController: UINavigationController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+    }
+    
+    
+}
+
+extension ScannARMainNavigationController {
+    
+    // Change the name of the storyboard if this is not "Main"
+    // identifier is the Storyboard ID that you put juste before
+    class func instantiate() -> ScannARMainNavigationController {
+        let storyboard = UIStoryboard(name: "ScannARMainViewController", bundle: nil)
+        let navController = storyboard.instantiateViewController(withIdentifier: "ScannARMainNavigationControllerSB") as! ScannARMainNavigationController
+        
+        return navController
     }
     
 }

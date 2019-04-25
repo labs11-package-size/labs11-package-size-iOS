@@ -123,6 +123,7 @@
 		D123F8FD2270E42100ACCBA7 /* ShiftableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D123F8FC2270E42100ACCBA7 /* ShiftableViewController.swift */; };
 		D123F8FF2270E5AC00ACCBA7 /* AddProductContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D123F8FE2270E5AC00ACCBA7 /* AddProductContainerViewController.swift */; };
 		D123F90122710A1700ACCBA7 /* EditProductDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D123F90022710A1700ACCBA7 /* EditProductDelegate.swift */; };
+		D123F903227243C800ACCBA7 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D123F902227243C800ACCBA7 /* UIApplication+Extension.swift */; };
 		D13070B5224C62EC00164B9A /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13070B4224C62EC00164B9A /* AddProductViewController.swift */; };
 		D132115E226E3D2300127EA4 /* PackageDetailContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D132115D226E3D2300127EA4 /* PackageDetailContainerViewController.swift */; };
 		D1321169226E8BBD00127EA4 /* ShipmentsDetailContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1321168226E8BBD00127EA4 /* ShipmentsDetailContainerViewController.swift */; };
@@ -343,6 +344,7 @@
 		D123F8FC2270E42100ACCBA7 /* ShiftableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftableViewController.swift; sourceTree = "<group>"; };
 		D123F8FE2270E5AC00ACCBA7 /* AddProductContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductContainerViewController.swift; sourceTree = "<group>"; };
 		D123F90022710A1700ACCBA7 /* EditProductDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProductDelegate.swift; sourceTree = "<group>"; };
+		D123F902227243C800ACCBA7 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		D13070B4224C62EC00164B9A /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		D132115D226E3D2300127EA4 /* PackageDetailContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailContainerViewController.swift; sourceTree = "<group>"; };
 		D1321168226E8BBD00127EA4 /* ShipmentsDetailContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentsDetailContainerViewController.swift; sourceTree = "<group>"; };
@@ -888,6 +890,7 @@
 			isa = PBXGroup;
 			children = (
 				D120FCD4226AAB6C005464D1 /* SegueFromRight.swift */,
+				D123F902227243C800ACCBA7 /* UIApplication+Extension.swift */,
 				D152CA5F22542521000F8ACD /* UIView+Helpers.swift */,
 				D14F66C522595FEA0008DCF2 /* Array+Extension.swift */,
 				D132530A225A85980021ED29 /* Appearance.swift */,
@@ -1397,6 +1400,7 @@
 				D196E7692256B9710012A3F7 /* PackageConfiguration.swift in Sources */,
 				D196E76F2256C8350012A3F7 /* PackagesCollectionViewCell.swift in Sources */,
 				ABA70FA322573D4200A44C06 /* CardsViewController.swift in Sources */,
+				D123F903227243C800ACCBA7 /* UIApplication+Extension.swift in Sources */,
 				D1698DB0224B14E700250E4D /* APICallType.swift in Sources */,
 				AB38DCF722446347008DC8C0 /* WireFrame.swift in Sources */,
 				D1EAB2102243B67100720412 /* AccountViewController.swift in Sources */,
