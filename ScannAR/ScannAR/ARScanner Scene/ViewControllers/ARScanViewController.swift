@@ -345,9 +345,6 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
                         
                         viewController.bestBoxSize = self.boundingBoxSize
                         viewController.previewImage = self.previewImage!
-//                        viewController.height = self.boundingBoxSize.height ?? 0.0
-//                        viewController.width = self.boundingBoxSize.width ?? 0.0
-//                        viewController.length = self.boundingBoxSize.length ?? 0.0
                         viewController.name = self.scannedObjectName
                         
                         print(self.boundingBoxSize)
@@ -357,8 +354,9 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
                         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
                         transition.type = CATransitionType.fade
 //
-                        self.navigationController!.view.layer.add(transition, forKey: nil)
-                        self.present(navController, animated:true, completion: nil)
+                        navController.view.layer.add(transition, forKey: nil)
+                        //navController.popToRootViewController(animated: false)
+                        self.present(navController, animated: false, completion: nil)
                         //self.present(viewController, animated: false)
 //                        self.performSegue(withIdentifier: "unwindToAddProductVC", sender: self)
                         

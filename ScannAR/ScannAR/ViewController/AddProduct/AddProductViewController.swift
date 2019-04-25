@@ -343,6 +343,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         ScannARMainViewController.segmentPrimer = 0
         DispatchQueue.main.async {
         
+            
             self.dismiss(animated: true, completion: {})
         }
     }
