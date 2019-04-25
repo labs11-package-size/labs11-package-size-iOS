@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions
         launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-       
+        
         Appearance.setupNavAppearance()
         FirebaseApp.configure()
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
@@ -30,14 +30,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         if loginFlag {
             signInalreadySignedInUser()
-
+            
+        } else {
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "WalkthroughViewControllerSB")
+            
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+            
         }
-       
+        
         
         return true
     }
     
-
+    
     @available(iOS 9.0, *)
     func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any])
         -> Bool {
@@ -45,15 +55,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                                                      sourceApplication:options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
                                                      annotation: [:])
     }
-
+    
     // old_delegate
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         return GIDSignIn.sharedInstance().handle(url,
                                                  sourceApplication: sourceApplication,
                                                  annotation: annotation)
     }
-
-
+    
+    
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
         // ...
@@ -101,7 +111,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                     
                 }
                 
-               
+                
                 
             }
         }
@@ -111,33 +121,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     private func signInalreadySignedInUser() {
         
-        guard let user = Auth.auth().currentUser else { fatalError("Do not have user object sent from google")}
-        var dict: [String: String] = [:]
-        dict["uid"] = user.uid
-        dict["displayName"] = user.displayName
-        dict["email"] = user.email
-        dict["photoURL"] = user.photoURL?.absoluteString
-        print("\(user.email)")
         
-        let scannARNetworkingController = ScannARNetworkController.shared
-        scannARNetworkingController.postForAuthenticationToken(dict: dict) { (string, error) in
-            
-            if let error = error {
-                print("There was an error with your username and password: \(error)")
-            }
-            
-            DispatchQueue.main.async {
-                self.window = UIWindow(frame: UIScreen.main.bounds)
-                
-                let storyboard = UIStoryboard(name: "ScannARMainViewController", bundle: nil)
-                
-                let initialViewController = storyboard.instantiateViewController(withIdentifier: "ScannARMainNavigationControllerSB")
-                
-                self.window?.rootViewController = initialViewController
-                self.window?.makeKeyAndVisible()
-            }
-            
-        }
         
         
         
@@ -147,7 +131,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // Perform any operations when the user disconnects from app here.
         // ...
     }
-
+    
     // MARK: - ARScan Required
     
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -173,9 +157,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             }
         }
     }
-
+    
     // MARK: - Properties
     var user: User?
-
-
+    
+    
 }
