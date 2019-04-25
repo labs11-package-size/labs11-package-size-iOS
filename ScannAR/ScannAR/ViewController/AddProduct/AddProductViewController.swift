@@ -11,19 +11,7 @@ import Foundation
 
 class AddProductViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddProductProtocolDelegate {
     
-    @IBAction func unwindToAddProductVC(segue: UIStoryboardSegue) {
-        let transition: CATransition = CATransition()
-        transition.duration = 0.7
-        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        transition.type = CATransitionType.fade
-        self.navigationController!.view.layer.add(transition, forKey: nil)
-        if let sourceVC = segue.source as? ARScanViewController {
-            
-            bestBoxSize = sourceVC.boundingBoxSize
-            previewImage = sourceVC.previewImage
-            name = sourceVC.scannedObjectName
-        }
-    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

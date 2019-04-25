@@ -195,7 +195,7 @@ class PackageDetailViewController: UIViewController, BottomButtonDelegate {
     @IBAction func backToPackagesTapped(_ sender: Any) {
         ScannARMainViewController.segmentPrimer = 1
         DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "unwindToScannARMainViewController", sender: self)
+            self.performSegue(withIdentifier: "unwindToScannARMainViewController22", sender: self)
         }
         
     }

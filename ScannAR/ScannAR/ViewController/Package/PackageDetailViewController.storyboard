@@ -139,7 +139,7 @@
                         <outlet property="scrollView" destination="u4v-1z-uJD" id="p7W-0p-WDJ"/>
                         <outlet property="totalWeightLabel" destination="zh8-uC-sn4" id="Uss-mt-iFN"/>
                         <segue destination="msB-lu-KkY" kind="presentation" identifier="ShowShipment" customClass="SegueFromRight" customModule="ScannAR" customModuleProvider="target" modalPresentationStyle="currentContext" id="bnJ-9b-vdO"/>
-                        <segue destination="yn0-uL-99E" kind="unwind" identifier="unwindToScannARMainViewController" unwindAction="unwindToScannARMainViewControllerWithSegue:" id="tUB-Qb-kcP"/>
+                        <segue destination="yn0-uL-99E" kind="unwind" identifier="unwindToScannARMainViewController22" unwindAction="unwindToScannARMainViewControllerWithSegue:" id="tUB-Qb-kcP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iaC-PS-qBv" userLabel="First Responder" sceneMemberID="firstResponder"/>
