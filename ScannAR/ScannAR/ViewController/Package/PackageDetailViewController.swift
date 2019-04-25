@@ -154,7 +154,15 @@ class PackageDetailViewController: UIViewController, BottomButtonDelegate {
         let confirmAction = UIAlertAction(title: "Enter", style: .default) { (_) in
             
             //getting the input values from user
-            guard let trackingNumberString = alertController.textFields?[0].text, trackingNumberString != "" else { return }
+            guard let trackingNumberString = alertController.textFields?[0].text, trackingNumberString != "" else {
+            
+                self.view.shake()
+                self.notification.notificationOccurred(.error)
+                self.bottomButtonDelegate?.buttonState = .packageStart
+                self.bottomButtonDelegate?.cancelTapped()
+                return
+                
+            }
             
             self.trackingNumber = trackingNumberString
             self.trackingNumberEntered()
@@ -230,7 +238,7 @@ class PackageDetailViewController: UIViewController, BottomButtonDelegate {
     var slides: [Slide] = []
     var collectionViewToReload: UICollectionView?
     var productUUIDStrings: [String] = []
-    
+    let notification = UINotificationFeedbackGenerator()
     lazy var filteredProducts: [Product] = {
         
         let fetchRequest: NSFetchRequest<Product> = Product.fetchRequest()
