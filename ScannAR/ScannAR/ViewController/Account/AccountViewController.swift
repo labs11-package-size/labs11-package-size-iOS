@@ -42,7 +42,9 @@ class AccountViewController: UIViewController {
     private func updateAccountInfoOnServer(){
 
         guard let account = account else { fatalError(" Error: No account exists")}
+        
         let dict = NetworkingHelpers.dictionaryFromAccount(account: account)
+        
         scannARNetworkingController.putEditUserAccountInfo(dict: dict) { (result, error) in
 
         if let error = error {
@@ -57,10 +59,10 @@ class AccountViewController: UIViewController {
     }
     
         private func updateAccountInfoFromText(){
-            guard var account = account else {fatalError("There was no Account information returned for the user.")}
+            guard var account = self.account else {fatalError("There was no Account information returned for the user.")}
             if let email = emailTextField.text, let name = userNameTextField.text, email != "", name != "" {
-                account.email = emailTextField.text!
-                account.displayName = userNameTextField.text!
+                self.account?.email = emailTextField.text!
+                self.account?.displayName = userNameTextField.text!
             }
             
         }
@@ -72,6 +74,12 @@ class AccountViewController: UIViewController {
         guard let account = account else { return }
         
         DispatchQueue.main.async {
+            
+            self.userNameTextField.layer.cornerRadius = 8
+            self.userNameTextField.clipsToBounds = true
+            self.emailTextField.layer.cornerRadius = 8
+            self.emailTextField.clipsToBounds = true
+            
             self.emailTextField.text = account.email
             self.userNameTextField.text = account.displayName
             
@@ -114,10 +122,10 @@ class AccountViewController: UIViewController {
     }
     
     @objc func doneTapped(sender: UIButton) {
-//        changeEditingTo(false)
-//        updateAccountInfoFromText()
-//        updateAccountInfoOnServer()
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonTapped))
+        changeEditingTo(false)
+        updateAccountInfoFromText()
+        updateAccountInfoOnServer()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonTapped))
         
     }
     @IBAction func logoutTapped(_ sender: Any) {

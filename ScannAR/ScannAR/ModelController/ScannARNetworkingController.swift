@@ -548,7 +548,8 @@ extension ScannARNetworkController {
             
         case .PUTEditAccountInfo:
             var url = baseURL
-            url = url.appendingPathComponent("products")
+            url = url.appendingPathComponent("users")
+            url = url.appendingPathComponent("accountinfo")
             url = url.appendingPathComponent("edit")
             
             guard let jsonToken = jsonToken else { fatalError("The jsonToken is empty.") }

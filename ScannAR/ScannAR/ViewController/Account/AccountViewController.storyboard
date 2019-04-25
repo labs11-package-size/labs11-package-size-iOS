@@ -25,10 +25,10 @@
                                     <constraint firstAttribute="height" constant="90" id="or9-Aa-FEu"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="rDh-Fc-PeF">
-                                <rect key="frame" x="20" y="194" width="335" height="60"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="rDh-Fc-PeF">
+                                <rect key="frame" x="20" y="194" width="335" height="72"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="dxE-9Q-Ukk">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dxE-9Q-Ukk">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZB-ic-NbG">
@@ -38,15 +38,16 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="29G-98-5TN">
-                                                <rect key="frame" x="85.5" y="0.0" width="249.5" height="30"/>
+                                                <rect key="frame" x="91.5" y="0.0" width="243.5" height="30"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="C0M-VB-8kX">
-                                        <rect key="frame" x="0.0" y="30" width="335" height="30"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="C0M-VB-8kX">
+                                        <rect key="frame" x="0.0" y="42" width="335" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHR-4B-Ixl">
                                                 <rect key="frame" x="0.0" y="0.0" width="83.5" height="30"/>
@@ -55,7 +56,8 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SJZ-Bi-Und">
-                                                <rect key="frame" x="85.5" y="0.0" width="249.5" height="30"/>
+                                                <rect key="frame" x="91.5" y="0.0" width="243.5" height="30"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -72,7 +74,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hIb-68-Ny9">
-                                <rect key="frame" x="163.5" y="274" width="48" height="30"/>
+                                <rect key="frame" x="163.5" y="286" width="48" height="30"/>
                                 <state key="normal" title="Logout"/>
                                 <connections>
                                     <action selector="logoutTapped:" destination="bh0-zy-4E5" eventType="touchUpInside" id="vUP-Vb-XnY"/>
@@ -92,18 +94,11 @@
                         <viewLayoutGuide key="safeArea" id="86O-5Z-gIE"/>
                     </view>
                     <navigationItem key="navigationItem" title="Account" id="leg-gF-LYz">
-                        <rightBarButtonItems>
-                            <barButtonItem title="Edit" id="cLi-cy-vHg">
-                                <connections>
-                                    <action selector="editButtonTapped:" destination="bh0-zy-4E5" id="GA2-cN-4t6"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Settings" image="settings" id="fq9-La-TUO">
-                                <connections>
-                                    <segue destination="lxF-2U-wpb" kind="show" id="vQf-wl-NAz"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="cLi-cy-vHg">
+                            <connections>
+                                <action selector="editButtonTapped:" destination="bh0-zy-4E5" id="GA2-cN-4t6"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="emailTextField" destination="29G-98-5TN" id="c6i-4e-lH4"/>
@@ -123,14 +118,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6wB-z6-l6r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1596" y="173"/>
-        </scene>
-        <!--SettingsViewControllerSB-->
-        <scene sceneID="2sU-cT-15v">
-            <objects>
-                <viewControllerPlaceholder storyboardName="SettingsViewController" referencedIdentifier="SettingsViewControllerSB" id="lxF-2U-wpb" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZP5-SG-Xz7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1596" y="-194"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HSg-5y-XV4">
@@ -152,7 +139,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="settings" width="16" height="16"/>
         <image name="user" width="16" height="16"/>
     </resources>
 </document>
