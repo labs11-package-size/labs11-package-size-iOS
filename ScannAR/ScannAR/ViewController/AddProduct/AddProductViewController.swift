@@ -337,13 +337,13 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
 
         }
     }
-    
+    //FIXME: - cancelButtonPressed 
     @IBAction func cancelButtonPressed(_ sender: Any) {
         
         ScannARMainViewController.segmentPrimer = 0
         DispatchQueue.main.async {
         
-            
+            //self.popToRootViewController
             self.dismiss(animated: true, completion: {})
         }
     }
