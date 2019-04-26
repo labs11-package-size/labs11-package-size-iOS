@@ -330,7 +330,7 @@
                     <connections>
                         <outlet property="addProductTableView" destination="I2a-KS-dVX" id="LqI-Yk-5cZ"/>
                         <segue destination="L5a-UV-gBZ" kind="show" identifier="ScanARSegue" animates="NO" id="gWr-gO-QvP"/>
-                        <segue destination="axB-Tp-gcg" kind="showDetail" identifier="SegueToProductDetail" id="8Uy-fo-FVQ"/>
+                        <segue destination="axB-Tp-gcg" kind="presentation" identifier="SegueToProductDetail" modalPresentationStyle="currentContext" id="8Uy-fo-FVQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kG0-UO-6uf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -372,8 +372,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="543-wr-S5i"/>
-        <segue reference="XEB-cj-2AL"/>
-
+        <segue reference="8Uy-fo-FVQ"/>
+        <segue reference="L7x-hn-DoI"/>
     </inferredMetricsTieBreakers>
 </document>
