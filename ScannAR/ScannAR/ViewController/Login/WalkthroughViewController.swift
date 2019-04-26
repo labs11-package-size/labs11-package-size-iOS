@@ -58,7 +58,7 @@ class WalkthroughViewController: UIViewController, AlertOnboardingDelegate {
     
     private func setupBottomControls(){
         
-        let bottomControlsStackView = UIStackView(arrangedSubviews: [previousButton, pageControl, nextButton])
+        let bottomControlsStackView = UIStackView(arrangedSubviews: [/*previousButton, pageControl,*/ nextButton])
         bottomControlsStackView.translatesAutoresizingMaskIntoConstraints = false
         bottomControlsStackView.distribution = .fillEqually
         view.addSubview(bottomControlsStackView)
@@ -87,18 +87,18 @@ class WalkthroughViewController: UIViewController, AlertOnboardingDelegate {
     }
     
     // MARK: - Properties
-    private let previousButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("PREV", for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.titleLabel?.font  = UIFont.boldSystemFont(ofSize: 15)
-        button.setTitleColor(.white, for: .normal)
-        return button
-    }()
+//    private let previousButton: UIButton = {
+//        let button = UIButton(type: .system)
+//        button.setTitle("PREV", for: .normal)
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        button.titleLabel?.font  = UIFont.boldSystemFont(ofSize: 15)
+//        button.setTitleColor(.white, for: .normal)
+//        return button
+//    }()
     
     private let nextButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("NEXT", for: .normal)
+        button.setTitle("SIGNIN", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font  = UIFont.boldSystemFont(ofSize: 15)
         button.setTitleColor(.white, for: .normal)
