@@ -311,10 +311,10 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
                     })
                 }
             }
-//            DispatchQueue.main.async {
-//                self.performSegue(withIdentifier: "SegueToProductDetail", sender: self)
-//
-//            }
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "SegueToProductDetail", sender: self)
+
+            }
             
         }
     }
