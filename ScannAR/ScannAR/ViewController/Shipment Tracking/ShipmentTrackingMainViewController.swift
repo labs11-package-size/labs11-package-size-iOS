@@ -24,8 +24,7 @@ class ShipmentTrackingMainViewController: UIViewController, MapDrawerDelegate, U
     
     @IBAction func closeButtonTapped(_ sender: Any) {
         print("button tapped")
-        self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
-
+        UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: true, completion: nil)
     }
     
     
