@@ -37,7 +37,7 @@ class WalkthroughViewController: UIViewController, AlertOnboardingDelegate {
     var alertView: AlertOnboarding!
     var arrayOfAlerts = [Alert]()
     
-    let alert1 = Alert(image: UIImage(named: "scannarlogobeta")!, title: "ScannAR", text: "ScannAR is an app that uses augmented reality to track and right-size your shipping, helping you get more shipping done for less.")
+    let alert1 = Alert(image: UIImage(named: "scannarlogo_rev1")!, title: "ScannAR", text: "ScannAR is an app that uses augmented reality to track and right-size your shipping, helping you get more shipping done for less.")
     let alert2 = Alert(image: UIImage(named: "SCANIT")!, title: "Scan It", text: "Using your iPhone, scan any item with the ScannAR app. The ScannAR app will tell you the object's exact dimensions.")
     let alert3 = Alert(image: UIImage(named: "PACKIT")!, title:  "Pack It", text: "Now that you have your product's dimensions, ScannAR can tell you the perfect box size for the item.")
     let alert4 = Alert(image: UIImage(named: "SHIPIT")!, title:  "Ship It", text: "Once you have selected your packaging, you are ready to ship. ScannAR will track you shipment for you.")
