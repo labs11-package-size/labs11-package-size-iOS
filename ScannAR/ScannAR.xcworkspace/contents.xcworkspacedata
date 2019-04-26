@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/strugglingfish/Developer/labs11-package-size-iOS/ScannAR/ScannAR/ViewController/Package/AlertChildPageViewController.xib">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/strugglingfish/Developer/labs11-package-size-iOS/ScannAR/ScannAR/ViewController/Product/Onboarding.storyboard">
+   </FileRef>
+   <FileRef
       location = "group:ScannAR.xcodeproj">
    </FileRef>
    <FileRef

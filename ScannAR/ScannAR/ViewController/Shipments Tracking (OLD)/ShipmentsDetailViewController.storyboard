@@ -220,7 +220,7 @@
                         <outlet property="scrollView" destination="E6g-U4-M7C" id="Wor-0d-QPE"/>
                         <outlet property="totalWeightLabel" destination="5v6-eI-kPR" id="p2H-Td-HLy"/>
                         <outlet property="trackingNumberLabel" destination="twr-qK-4cn" id="DcA-I2-aaz"/>
-                        <segue destination="4lH-fp-tFd" kind="show" identifier="SegueToShipmentTracking" id="I5b-qO-HdY"/>
+                        <segue destination="4lH-fp-tFd" kind="presentation" identifier="SegueToShipmentTracking" modalPresentationStyle="fullScreen" id="I5b-qO-HdY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WoC-cF-Mes" userLabel="First Responder" sceneMemberID="firstResponder"/>
