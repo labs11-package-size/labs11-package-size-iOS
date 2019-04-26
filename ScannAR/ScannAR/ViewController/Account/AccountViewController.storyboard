@@ -94,7 +94,7 @@
                         <viewLayoutGuide key="safeArea" id="86O-5Z-gIE"/>
                     </view>
                     <navigationItem key="navigationItem" title="Account" id="leg-gF-LYz">
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="cLi-cy-vHg">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" id="cLi-cy-vHg">
                             <connections>
                                 <action selector="editButtonTapped:" destination="bh0-zy-4E5" id="GA2-cN-4t6"/>
                             </connections>
