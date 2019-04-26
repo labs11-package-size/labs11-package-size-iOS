@@ -85,6 +85,11 @@
 		ABA70FA022573C9C00A44C06 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA70F9E22573C9C00A44C06 /* CardCollectionViewCell.swift */; };
 		ABA70FA322573D4200A44C06 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA70FA222573D4200A44C06 /* CardsViewController.swift */; };
 		ABA70FA622573E7B00A44C06 /* PackageConfigViewStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA70FA522573E7B00A44C06 /* PackageConfigViewStorage.swift */; };
+		ABAC192D2272FBC7002625B5 /* AlertOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAC192C2272FBC7002625B5 /* AlertOnboarding.swift */; };
+		ABAC19302272FBE4002625B5 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAC192F2272FBE4002625B5 /* Alert.swift */; };
+		ABAC19322272FBFB002625B5 /* AlertChildPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAC19312272FBFB002625B5 /* AlertChildPageViewController.swift */; };
+		ABAC19342272FC0F002625B5 /* AlertPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAC19332272FC0F002625B5 /* AlertPageViewController.swift */; };
+		ABAC1938227303DB002625B5 /* AlertChildPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABAC1937227303DB002625B5 /* AlertChildPageViewController.xib */; };
 		ABB4C9EC2248BD7A0079E25D /* ARScan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABB4C9EE2248BD7A0079E25D /* ARScan.storyboard */; };
 		ABBDB0522253F65F000F7412 /* IBDesignable+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBDB0512253F65F000F7412 /* IBDesignable+UIKit.swift */; };
 		ABC2933B22703B0600668CCB /* OuterScannARMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC2933A22703B0500668CCB /* OuterScannARMainViewController.swift */; };
@@ -309,6 +314,11 @@
 		ABA70F9E22573C9C00A44C06 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		ABA70FA222573D4200A44C06 /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
 		ABA70FA522573E7B00A44C06 /* PackageConfigViewStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageConfigViewStorage.swift; sourceTree = "<group>"; };
+		ABAC192C2272FBC7002625B5 /* AlertOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertOnboarding.swift; sourceTree = "<group>"; };
+		ABAC192F2272FBE4002625B5 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		ABAC19312272FBFB002625B5 /* AlertChildPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertChildPageViewController.swift; sourceTree = "<group>"; };
+		ABAC19332272FC0F002625B5 /* AlertPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPageViewController.swift; sourceTree = "<group>"; };
+		ABAC1937227303DB002625B5 /* AlertChildPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertChildPageViewController.xib; sourceTree = "<group>"; };
 		ABB4C9ED2248BD7A0079E25D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ARScan.storyboard; sourceTree = "<group>"; };
 		ABBDB0512253F65F000F7412 /* IBDesignable+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IBDesignable+UIKit.swift"; sourceTree = "<group>"; };
 		ABC2933A22703B0500668CCB /* OuterScannARMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OuterScannARMainViewController.swift; sourceTree = "<group>"; };
@@ -612,6 +622,8 @@
 				AB46C546224BE24C0075EF30 /* GoogleService-Info.plist */,
 				AB519F6D2242C6CB00B27A8B /* Info.plist */,
 				AB519F612242C6CA00B27A8B /* art.scnassets */,
+				ABAC1937227303DB002625B5 /* AlertChildPageViewController.xib */,
+				ABAC192E2272FBD1002625B5 /* Alert */,
 				ABA70F7A225714B600A44C06 /* Best Box Size */,
 				AB519F8F2242E0D600B27A8B /* ARScanner Scene */,
 				ABB4C9EE2248BD7A0079E25D /* ARScan.storyboard */,
@@ -790,6 +802,17 @@
 				ABA70F7E2257336100A44C06 /* 3DPreview */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		ABAC192E2272FBD1002625B5 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				ABAC192C2272FBC7002625B5 /* AlertOnboarding.swift */,
+				ABAC192F2272FBE4002625B5 /* Alert.swift */,
+				ABAC19312272FBFB002625B5 /* AlertChildPageViewController.swift */,
+				ABAC19332272FC0F002625B5 /* AlertPageViewController.swift */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 		ABF8F02C2268DAED00C4CCA7 /* Shipments Tracking (OLD) */ = {
@@ -1180,6 +1203,7 @@
 				D132530D225ABCF80021ED29 /* PackageDetailViewController.storyboard in Resources */,
 				D196E7702256C8350012A3F7 /* PackagesCollectionViewCell.xib in Resources */,
 				ABA70F742256A70C00A44C06 /* PackagesCollectionViewCell.xib in Resources */,
+				ABAC1938227303DB002625B5 /* AlertChildPageViewController.xib in Resources */,
 				D1EAB1D82242D64800720412 /* ProductsCollectionViewCell.xib in Resources */,
 				D1EAB20A2243B51D00720412 /* ProductDetailViewController.storyboard in Resources */,
 				AB519F622242C6CA00B27A8B /* art.scnassets in Resources */,
@@ -1413,6 +1437,7 @@
 				D132530B225A85980021ED29 /* Appearance.swift in Sources */,
 				AB38DCD222445EB7008DC8C0 /* FlashlightButton.swift in Sources */,
 				D120FCCB226A1991005464D1 /* ProductDetailContainerViewController.swift in Sources */,
+				ABAC19322272FBFB002625B5 /* AlertChildPageViewController.swift in Sources */,
 				D120FCDB226BD07A005464D1 /* DelegatePasserDelegate.swift in Sources */,
 				D120FCD9226BA3E5005464D1 /* CircleView.swift in Sources */,
 				D11802CF22554EEF002837D3 /* AddProductProtocolDelegate.swift in Sources */,
@@ -1422,6 +1447,7 @@
 				D120FCD1226A7833005464D1 /* BottomButtonProtocolDelegate.swift in Sources */,
 				AB67B4282268504400970E86 /* MapDrawerViewController.swift in Sources */,
 				D1EAB2082243B50B00720412 /* ProductDetailViewController.swift in Sources */,
+				ABAC19342272FC0F002625B5 /* AlertPageViewController.swift in Sources */,
 				AB38DCCE22445E5E008DC8C0 /* MessageLabel.swift in Sources */,
 				ABA70FA622573E7B00A44C06 /* PackageConfigViewStorage.swift in Sources */,
 				D1EAB23F224934E400720412 /* Product+Encodable.swift in Sources */,
@@ -1431,6 +1457,7 @@
 				ABBDB0522253F65F000F7412 /* IBDesignable+UIKit.swift in Sources */,
 				AB12DBAC2242E8BB00886A11 /* ARScanViewController+ARSessionState.swift in Sources */,
 				AB38DCE722446287008DC8C0 /* DetectedPointCloud.swift in Sources */,
+				ABAC192D2272FBC7002625B5 /* AlertOnboarding.swift in Sources */,
 				AB12DBB02242E91200886A11 /* ARScanViewController+SessionInfo.swift in Sources */,
 				D11802D12255B14F002837D3 /* ProductAsset.swift in Sources */,
 				AB12DBAA2242E84F00886A11 /* ARScanViewController+Gestures.swift in Sources */,
@@ -1444,6 +1471,7 @@
 				D196E75E225691020012A3F7 /* Package+Convenience.swift in Sources */,
 				AB38DCDD22446161008DC8C0 /* Helpers+Utilities.swift in Sources */,
 				AB38DCD422445F7C008DC8C0 /* ThresholdPanGestureRecognizer.swift in Sources */,
+				ABAC19302272FBE4002625B5 /* Alert.swift in Sources */,
 				ABC2933B22703B0600668CCB /* OuterScannARMainViewController.swift in Sources */,
 				AB12DBB52242EA5D00886A11 /* ARObjectDetectTestController.swift in Sources */,
 				ABA70F8C2257398A00A44C06 /* ReusableView.swift in Sources */,
