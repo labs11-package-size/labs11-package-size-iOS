@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hpD-qk-b2T">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,24 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="GOr-Q1-gct">
-            <objects>
-                <navigationController extendedLayoutIncludesOpaqueBars="YES" modalPresentationStyle="currentContext" id="ZNu-NZ-ozx" sceneMemberID="viewController">
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NsY-XJ-Exh">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Nlh-vO-9rs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-799" y="10"/>
-        </scene>
-        <!--Track It-->
+        <!--Shipment Tracking Main View Controller-->
         <scene sceneID="sVO-7l-Vjm">
             <objects>
-                <viewController storyboardIdentifier="ShipmentTrackingVC" extendedLayoutIncludesOpaqueBars="YES" modalPresentationStyle="currentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hpD-qk-b2T" customClass="ShipmentTrackingMainViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShipmentTrackingVC" extendedLayoutIncludesOpaqueBars="YES" modalPresentationStyle="overCurrentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hpD-qk-b2T" customClass="ShipmentTrackingMainViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pmb-1A-T6c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,11 +21,6 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tAD-qb-oMy">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </mapView>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AEm-dj-BMo">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <viewLayoutGuide key="safeArea" id="7bi-CV-NZr"/>
-                            </view>
                             <containerView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e5b-SG-yW1">
                                 <rect key="frame" x="16" y="707" width="343" height="473"/>
                                 <viewLayoutGuide key="safeArea" id="Zom-HZ-IUF"/>
@@ -47,28 +28,32 @@
                                     <segue destination="RfI-y7-ECa" kind="embed" id="P1b-s9-k5p"/>
                                 </connections>
                             </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e06-TY-Unn">
+                                <rect key="frame" x="16" y="44" width="39" height="30"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="closeButtonTapped:" destination="hpD-qk-b2T" eventType="touchUpInside" id="Fg1-r9-CQV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="e06-TY-Unn" firstAttribute="leading" secondItem="ZaW-UH-Onu" secondAttribute="leading" constant="16" id="0UU-Hh-7aZ"/>
                             <constraint firstAttribute="trailing" secondItem="tAD-qb-oMy" secondAttribute="trailing" id="6zP-UB-MdD"/>
+                            <constraint firstItem="e06-TY-Unn" firstAttribute="top" secondItem="ZaW-UH-Onu" secondAttribute="top" id="76X-Bp-uCM"/>
                             <constraint firstAttribute="trailing" secondItem="e5b-SG-yW1" secondAttribute="trailing" constant="16" id="B1a-zr-2gr"/>
                             <constraint firstItem="tAD-qb-oMy" firstAttribute="leading" secondItem="pmb-1A-T6c" secondAttribute="leading" id="Bbv-Am-gCM"/>
-                            <constraint firstAttribute="trailing" secondItem="AEm-dj-BMo" secondAttribute="trailing" id="NMF-UI-2bM"/>
-                            <constraint firstItem="AEm-dj-BMo" firstAttribute="top" secondItem="pmb-1A-T6c" secondAttribute="top" id="VuT-iK-scG"/>
-                            <constraint firstItem="AEm-dj-BMo" firstAttribute="leading" secondItem="pmb-1A-T6c" secondAttribute="leading" id="ci8-ki-bwj"/>
                             <constraint firstAttribute="bottom" secondItem="tAD-qb-oMy" secondAttribute="bottom" id="h57-hw-OKA"/>
                             <constraint firstItem="e5b-SG-yW1" firstAttribute="top" secondItem="pmb-1A-T6c" secondAttribute="top" constant="707" id="vJR-px-xXY"/>
                             <constraint firstItem="e5b-SG-yW1" firstAttribute="leading" secondItem="pmb-1A-T6c" secondAttribute="leading" constant="16" id="wod-wj-GLb"/>
                             <constraint firstAttribute="bottom" secondItem="e5b-SG-yW1" secondAttribute="bottom" constant="-368" id="wql-oG-0Yr"/>
                             <constraint firstItem="tAD-qb-oMy" firstAttribute="top" secondItem="pmb-1A-T6c" secondAttribute="top" id="y39-Oa-Zh9"/>
-                            <constraint firstAttribute="bottom" secondItem="AEm-dj-BMo" secondAttribute="bottom" id="zxq-Qc-4Bq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZaW-UH-Onu"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Track It" id="qPu-9d-lxa"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="backView" destination="AEm-dj-BMo" id="pds-XC-jWu"/>
+                        <outlet property="closeButton" destination="e06-TY-Unn" id="b5b-bA-jC2"/>
                         <outlet property="container" destination="e5b-SG-yW1" id="1P0-hz-UMZ"/>
                         <outlet property="shipmentMapView" destination="tAD-qb-oMy" id="hvS-1a-FRv"/>
                     </connections>

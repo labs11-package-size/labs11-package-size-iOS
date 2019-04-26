@@ -16,10 +16,18 @@ class ShipmentTrackingMainViewController: UIViewController, MapDrawerDelegate, U
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var shipmentMapView: MKMapView!
-    
+    @IBOutlet weak var closeButton: UIButton!
     var scannARNetworkingController: ScannARNetworkController?
     var shipment: Shipment?
 //    var model: MockShipmentModel?
+    
+    
+    @IBAction func closeButtonTapped(_ sender: Any) {
+        print("button tapped")
+        self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
+
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
