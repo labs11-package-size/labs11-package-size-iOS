@@ -167,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Qw-HO-LOu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="972" y="300"/>
+            <point key="canvasLocation" x="1105" y="169"/>
         </scene>
         <!--ARScanMainMenu-->
         <scene sceneID="k5v-TZ-Ohb">
@@ -372,7 +372,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8Uy-fo-FVQ"/>
-        <segue reference="L7x-hn-DoI"/>
+        <segue reference="543-wr-S5i"/>
+        <segue reference="XEB-cj-2AL"/>
     </inferredMetricsTieBreakers>
 </document>
