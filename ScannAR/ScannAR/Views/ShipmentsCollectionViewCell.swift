@@ -18,10 +18,10 @@ class ShipmentsCollectionViewCell: UICollectionViewCell {
     }
 
     @IBOutlet weak var shippedToLabel: UILabel!
-    @IBOutlet weak var totalWeightLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var trackingNumberLabel: UILabel!
     @IBOutlet weak var emojiTextLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     var shipment: Shipment?
     
 }

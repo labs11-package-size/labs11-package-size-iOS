@@ -36,13 +36,13 @@
                             <action selector="saveForLaterButtonPushed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="X5x-Qh-puL"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2R-uj-fqb">
+                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2R-uj-fqb" customClass="DesignableButton" customModule="ScannAR" customModuleProvider="target">
                         <rect key="frame" x="8" y="8" width="368" height="60"/>
                         <color key="backgroundColor" name="appARKADarkBlue"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="60" id="DrV-h8-cf2"/>
                         </constraints>
-                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
                         <state key="normal" title="Save and Pack it">
                             <color key="titleColor" name="appBlue"/>
                             <color key="titleShadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -52,7 +52,10 @@
                                 <color key="value" name="appARKADarkBlue"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                <real key="value" value="1"/>
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="31"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>

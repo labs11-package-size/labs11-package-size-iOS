@@ -30,6 +30,15 @@ import UIKit
 //    let uuid: UUID?
 //}
 
+struct MockTrackingDataModel {
+    let date: String
+    let time: String
+    let status: String
+    let currentLocation: String
+}
+
+
+
 class MapDrawerTableViewCell: UITableViewCell {
     
     
@@ -68,6 +77,7 @@ class MapDrawerTableViewCell: UITableViewCell {
         totalValueLabel.text = "\(model.totalValue)"
         totalWeightLabel.text = "\(model.totalWeight)"
         shippingTypeLabel.text = model.shippingType
+        
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"

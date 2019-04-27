@@ -61,21 +61,6 @@ class SecondAddProductTableViewCell: UITableViewCell, UITextFieldDelegate, UIPic
         }
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        switch component {
-        case 0:
-            return "\(String(format: "%.0f", inches[row]))"
-        case 1:
-            let str = String(format: "%.2f", decimal[row])
-            let lowerBound = str.index(str.startIndex, offsetBy: 1)
-            let upperBound = str.index(str.startIndex, offsetBy: 4)
-            let mySubstring: Substring = str[lowerBound..<upperBound]
-            return "\(mySubstring)"
-        default: return "inches"
-        
-        }
-    }
-    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch pickerView.tag  {
         case 0:
@@ -115,6 +100,37 @@ class SecondAddProductTableViewCell: UITableViewCell, UITextFieldDelegate, UIPic
                 print("")
             }
         }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        
+        var label: UILabel
+        if let view = view as? UILabel { label = view }
+        else { label = UILabel() }
+        
+        label.textAlignment = .center
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.adjustsFontSizeToFitWidth = true
+        
+        switch component {
+        case 0:
+            label.text = "\(String(format: "%.0f", inches[row]))"
+            label.minimumScaleFactor = 0.75
+        case 1:
+            let str = String(format: "%.2f", decimal[row])
+            let lowerBound = str.index(str.startIndex, offsetBy: 1)
+            let upperBound = str.index(str.startIndex, offsetBy: 4)
+            let mySubstring: Substring = str[lowerBound..<upperBound]
+            label.minimumScaleFactor = 0.75
+            label.text = "\(mySubstring)"
+        default:
+            label.text = "inches"
+            label.font = UIFont.preferredFont(forTextStyle: .callout)
+            label.minimumScaleFactor = 0.5
+            
+        }
+        
+        return label
     }
     
     // MARK: TextFieldDelegate
@@ -157,6 +173,7 @@ class SecondAddProductTableViewCell: UITableViewCell, UITextFieldDelegate, UIPic
     
     // MARK: Properties
     weak var delegate: AddProductProtocolDelegate?
+    weak var shiftableVCdelegate: ShiftableViewController?
     var inches: [Double] = stride(from: 0.0, to: 60.0, by: 1.0).map{$0}
     var decimal: [Double] = stride(from: 0.00, to: 1.00, by: 0.01).map{$0}
 }

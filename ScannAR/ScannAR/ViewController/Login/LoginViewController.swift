@@ -20,43 +20,24 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         self.view.sendSubviewToBack(backgroundImage)
         // Do any additional setup after loading the view.
         GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signIn()
         
         let googleSigninButton = GIDSignInButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
         googleSigninButton.style = .wide
         googleSigninButton.colorScheme = .dark
-        googleSigninButton.addTarget(self, action: #selector(googleSigninButtonTapped), for: .touchUpInside)
         googleSigninButton.center = view.center
         
         self.view.addSubview(googleSigninButton)
+        
     }
     
     // GoogleSignIn target action
     func googleSigninButtonTapped(sender: UIButton!) {
         print("googleSigninButton tapped")
-        
-        if appDelegate.user == nil {
-            appDelegate.user = Auth.auth().currentUser
+        sender.isHidden = true
+        DispatchQueue.main.async {
+            self.reloadInputViews()
         }
-        guard let user = appDelegate.user else { fatalError("Do not have user object sent from google")}
-        var dict: [String: String] = [:]
-        dict["uid"] = user.uid
-        dict["displayName"] = user.displayName
-        dict["email"] = user.email
-        dict["photoURL"] = user.photoURL?.absoluteString
-        scannARNetworkingController.postForAuthenticationToken(dict: dict) { (string, error) in
-            
-            if let error = error {
-                print("There was an error with your username and password: \(error)")
-            } else {
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "SegueToScannARMain", sender: nil)
-                }
-                
-            }
-            
-            
-        }
+        GIDSignIn.sharedInstance().signIn()
         
     }
     

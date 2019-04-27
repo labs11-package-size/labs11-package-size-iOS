@@ -47,6 +47,26 @@ class CoreDataStack {
             throw error
         }
     }
+    
+    func deleteAllData(_ entity:String) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        fetchRequest.returnsObjectsAsFaults = false
+        do {
+            let results = try self.mainContext.fetch(fetchRequest)
+            for object in results {
+                guard let objectData = object as? NSManagedObject else {continue}
+                self.mainContext.delete(objectData)
+            }
+        } catch let error {
+            print("Detele all data in \(entity) error :", error)
+        }
+    }
+    
+    func resetCoreData() {
+        self.deleteAllData("Product")
+        self.deleteAllData("Package")
+        self.deleteAllData("Shipment")
+    }
 }
 
 

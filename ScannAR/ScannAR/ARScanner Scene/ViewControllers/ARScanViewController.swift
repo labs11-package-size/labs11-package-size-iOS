@@ -5,7 +5,7 @@
 //  Created by Joshua Kaunert on 3/20/19.
 //  Copyright © 2019 ScannAR Team. All rights reserved.
 //
-
+import Foundation
 import UIKit
 import SceneKit
 import ARKit
@@ -336,22 +336,30 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
                             }
                         }
                        
+                        // MARK: - Do not remove commented out code
                         
-//                        let viewController = UIStoryboard(name: "ScannARMainViewController", bundle: nil).instantiateViewController(withIdentifier: "AddProductViewControllerSB") as! AddProductViewController
-                        
+                        let viewController = UIStoryboard(name: "ScannARMainViewController", bundle: nil).instantiateViewController(withIdentifier: "AddProductViewContainerVC") as! AddProductContainerViewController
+                        let navController = UINavigationController(rootViewController: viewController)
                         let rotatedScreenshot = self.objectScreenshot?.imageRotatedByDegrees(degrees: 90, flip: false)
                         self.previewImage = rotatedScreenshot
                         
-                        //viewController.bestBoxSize = self.boundingBoxSize
-                        //print(self.boundingBoxSize)
+                        viewController.bestBoxSize = self.boundingBoxSize
+                        viewController.previewImage = self.previewImage!
+                        viewController.name = self.scannedObjectName
                         
-//                        let transition: CATransition = CATransition()
-//                        transition.duration = 0.7
-//                        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-//                        transition.type = CATransitionType.fade
+                        print(self.boundingBoxSize)
+                        
+                        let transition: CATransition = CATransition()
+                        transition.duration = 0.7
+                        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+                        transition.type = CATransitionType.fade
 //
-//                        self.navigationController!.view.layer.add(transition, forKey: nil)
-                        self.performSegue(withIdentifier: "unwindSegueToAddProductVC", sender: self)
+                        navController.view.layer.add(transition, forKey: nil)
+                        //navController.popToRootViewController(animated: false)
+                        self.present(navController, animated: false, completion: nil)
+                        //self.present(viewController, animated: false)
+//                        self.performSegue(withIdentifier: "unwindToAddProductVC", sender: self)
+                        
 
                 }))
                 

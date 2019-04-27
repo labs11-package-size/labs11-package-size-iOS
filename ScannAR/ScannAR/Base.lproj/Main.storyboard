@@ -13,7 +13,7 @@
         <!--Walkthrough View Controller-->
         <scene sceneID="G8A-Jm-guw">
             <objects>
-                <viewController id="Jcz-Ey-Ig1" customClass="WalkthroughViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WalkthroughViewControllerSB" id="Jcz-Ey-Ig1" customClass="WalkthroughViewController" customModule="ScannAR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Uxe-vO-9kg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,6 +41,7 @@
                     </view>
                     <connections>
                         <segue destination="knI-82-Kwe" kind="showDetail" identifier="SegueToLogin" animates="NO" id="wu9-UI-RA4"/>
+                        <segue destination="6HD-Hk-Uce" kind="show" identifier="SegueToScannARMain" id="AAf-3v-aa3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vx7-Y1-DLF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -83,7 +84,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E3w-ja-zWx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="682" y="-74"/>
+            <point key="canvasLocation" x="622" y="403"/>
         </scene>
         <!--ScannARMainNavigationControllerSB-->
         <scene sceneID="Lkm-q0-Ugl">
@@ -97,4 +98,7 @@
     <resources>
         <image name="package-1081709_1920" width="1089" height="1273"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="AAf-3v-aa3"/>
+    </inferredMetricsTieBreakers>
 </document>

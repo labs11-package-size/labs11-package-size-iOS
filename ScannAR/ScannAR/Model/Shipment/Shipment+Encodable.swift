@@ -10,7 +10,9 @@ extension Shipment: Encodable {
     
     enum CodingKeys: String, CodingKey {
         case carrierName
+        case dimensions
         case productNames
+        case productUuids
         case shippedDate
         case shippedTo
         case shippingType
@@ -21,13 +23,16 @@ extension Shipment: Encodable {
         case lastUpdated
         case totalWeight
         case totalValue
+        case shipmentTrackingDetail
     }
     
     // MARK: - Encode
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(carrierName, forKey: .carrierName)
+        try container.encode(dimensions, forKey: .dimensions)
         try container.encode(productNames, forKey: .productNames)
+        try container.encode(productUuids, forKey: .productUuids)
         try container.encode(shippedDate, forKey: .shippedDate)
         try container.encode(shippedTo, forKey: .shippedTo)
         try container.encode(shippingType, forKey: .shippingType)
@@ -38,6 +43,7 @@ extension Shipment: Encodable {
         try container.encode(totalWeight, forKey: .totalWeight)
         try container.encode(dateArrived, forKey: .dateArrived)
         try container.encode(uuid, forKey: .uuid)
+        try container.encode(shipmentTrackingDetail, forKey: .shipmentTrackingDetail)
     }
     
 }
