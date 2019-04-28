@@ -183,16 +183,25 @@ class MapDrawerViewController: UIViewController{
 
 extension MapDrawerViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 13
+        return 12
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MapDrawerTableViewCell", for: indexPath) as! MapDrawerTableViewCell
-//        let model = MockShipmentModel(carrierLogoImage: UIImage(named: "1970-standing-eagle-logo")!, carrierName: "USPS", dateArrived: Date(), lastUpdated: Date(), productNames: ["yaya", "nana", "ohoh", "noodles", "too"], shippedDate: Date(), shippedTo: "4137 North Francisco Avenue, Chicago Illinois 60618", shippingType: "Snail Mail", status: 2, totalValue: 42.0, totalWeight: 42.0, trackingNumber: "92748999985493513036555961", uuid: UUID())
-        guard let shipment = shipment else { fatalError("No shipment passed to this VC") }
-        cell.configure(model: shipment)
         
+        guard let shipment = shipment else { fatalError("No shipment passed to this VC") }
+        
+        let dateLabelArray = ["April 13, 2019", "April 13, 2019", "April 13, 2019", "April 13, 2019", "April 13, 2019", "April 13, 2019", "April 13, 2019", "April 12, 2019", "April 11, 2019", "April 11, 2019", "April 11, 2019", "April 11, 2019"]
+        let timeLabelArray = ["10:32 am", "8:55 am", "8:45 am", "7:10 am", "6:05 am", "5:09 am", "12:00 am", " ", "9:57 pm", "8:42 pm", "1:23 pm", "7:05 am"]
+        let statusLabelArray = ["Delivered, In/At Mailbox", "Out for Delivery", "Sorting Complete", "Arrived at Post Office ", "Arrived at USPS Facility", "Departed USPS Regional Facility", "Arrived at USPS Regional Destination Facility", "In Transit to Next Facility", "Arrived at USPS Regional Origin Facility", "Accepted at USPS Origin Facility", "USPS in possession of item", "Shipping Label Created, USPS Awaiting Item "]
+        let currentLocationLabelArray = ["NORTH DIGHTON, MA 02764", "NORTH DIGHTON, MA 02764", "NORTH DIGHTON, MA 02764", "NORTH DIGHTON, MA 02764", "NORTH DIGHTON, MA 02764", "PROVIDENCE RI DISTRIBUTION CENTER", "PROVIDENCE RI DISTRIBUTION CENTER", " ", "CHAMPAIGN IL DISTRIBUTION CENTER", "CHARLESTON, IL 61920", "CHARLESTON, IL 61920", "CHARLESTON, IL 61920"]
+        
+        cell.configure(model: shipment)
+        cell.trackingCellStatusLabel.text = statusLabelArray[indexPath.row]
+        cell.trackingCellDateLabel.text = dateLabelArray[indexPath.row]
+        cell.trackingCellTimeLabel.text = timeLabelArray[indexPath.row]
+        cell.trackingCellCurrentLocation.text = currentLocationLabelArray[indexPath.row]
         return cell
     }
 }
