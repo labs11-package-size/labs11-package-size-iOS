@@ -344,7 +344,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         default:
              if section == 0 {
                 if productsFetchedResultsController.sections?.count ?? 0 > 0 {
-                    return productsFetchedResultsController.sections?[section].numberOfObjects ?? 0 + 1
+                    return (productsFetchedResultsController.sections?[section].numberOfObjects ?? 0) + 1
                 } else {
                     return 1
                 }
