@@ -45,7 +45,6 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             dict["displayName"] = user.displayName
             dict["email"] = user.email
             dict["photoURL"] = user.photoURL?.absoluteString
-            print("\(user.email)")
             
             let scannARNetworkingController = ScannARNetworkController.shared
             scannARNetworkingController.postForAuthenticationToken(dict: dict) { (string, error) in
@@ -319,7 +318,11 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         case 2:
             return shipmentsFetchedResultsController.sections?.count ?? 0
         default:
-            return productsFetchedResultsController.sections?.count ?? 0 + 1
+            var productSectionCount = productsFetchedResultsController.sections?.count ?? 0
+            if productSectionCount < 1 {
+                productSectionCount = 1
+            }
+            return productSectionCount
         }
     
     }
@@ -339,9 +342,9 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
                 return 0
             }
         default:
-            if section == 0 {
+             if section == 0 {
                 if productsFetchedResultsController.sections?.count ?? 0 > 0 {
-                    return productsFetchedResultsController.sections?[section].numberOfObjects ?? 0 + 1
+                    return (productsFetchedResultsController.sections?[section].numberOfObjects ?? 0) + 1
                 } else {
                     return 1
                 }
