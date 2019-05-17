@@ -66,7 +66,6 @@
 		AB67B4452268554C00970E86 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB67B4442268554C00970E86 /* nanopb.framework */; };
 		AB7A3F572252912B003FF186 /* NavigationController+Transparent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A3F562252912B003FF186 /* NavigationController+Transparent.swift */; };
 		AB8013D12260EE8500D05FFE /* UIScrollView+Touches.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8013D02260EE8500D05FFE /* UIScrollView+Touches.swift */; };
-		ABA70F742256A70C00A44C06 /* PackagesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABA70F722256A70C00A44C06 /* PackagesCollectionViewCell.xib */; };
 		ABA70F752256A70C00A44C06 /* PackagesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA70F732256A70C00A44C06 /* PackagesCollectionViewCell.swift */; };
 		ABA70F79225714A900A44C06 /* BestBoxSize.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABA70F78225714A900A44C06 /* BestBoxSize.storyboard */; };
 		ABA70F7C2257179E00A44C06 /* BoxConfig3DPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA70F7B2257179E00A44C06 /* BoxConfig3DPreviewViewController.swift */; };
@@ -164,7 +163,6 @@
 		D196E761225695010012A3F7 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = D196E760225695010012A3F7 /* Box.swift */; };
 		D196E7672256B56E0012A3F7 /* BoxType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D196E7662256B56E0012A3F7 /* BoxType.swift */; };
 		D196E7692256B9710012A3F7 /* PackageConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D196E7682256B9710012A3F7 /* PackageConfiguration.swift */; };
-		D196E76F2256C8350012A3F7 /* PackagesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D196E76D2256C8350012A3F7 /* PackagesCollectionViewCell.swift */; };
 		D196E7702256C8350012A3F7 /* PackagesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D196E76E2256C8350012A3F7 /* PackagesCollectionViewCell.xib */; };
 		D1EAB1D72242D64800720412 /* ProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB1D52242D64800720412 /* ProductsCollectionViewCell.swift */; };
 		D1EAB1D82242D64800720412 /* ProductsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1EAB1D62242D64800720412 /* ProductsCollectionViewCell.xib */; };
@@ -1190,7 +1188,6 @@
 				ABB4C9EC2248BD7A0079E25D /* ARScan.storyboard in Resources */,
 				D132530D225ABCF80021ED29 /* PackageDetailViewController.storyboard in Resources */,
 				D196E7702256C8350012A3F7 /* PackagesCollectionViewCell.xib in Resources */,
-				ABA70F742256A70C00A44C06 /* PackagesCollectionViewCell.xib in Resources */,
 				ABAC1938227303DB002625B5 /* AlertChildPageViewController.xib in Resources */,
 				D1EAB1D82242D64800720412 /* ProductsCollectionViewCell.xib in Resources */,
 				D1EAB20A2243B51D00720412 /* ProductDetailViewController.storyboard in Resources */,
@@ -1410,7 +1407,6 @@
 				AB38DD02224562D1008DC8C0 /* ARScanMenuScreenViewController.swift in Sources */,
 				D196E761225695010012A3F7 /* Box.swift in Sources */,
 				D196E7692256B9710012A3F7 /* PackageConfiguration.swift in Sources */,
-				D196E76F2256C8350012A3F7 /* PackagesCollectionViewCell.swift in Sources */,
 				ABA70FA322573D4200A44C06 /* CardsViewController.swift in Sources */,
 				D123F903227243C800ACCBA7 /* UIApplication+Extension.swift in Sources */,
 				D1698DB0224B14E700250E4D /* APICallType.swift in Sources */,
